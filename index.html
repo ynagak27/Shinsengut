@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土方歳三の軌跡 — The Road of Hijikata Toshizō</title>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1 id="h-title"></h1>
+  </div>
+  <button class="hdr-btn primary" id="btn-tour"></button>
+  <button class="hdr-btn" id="btn-context" aria-pressed="true"></button>
+  <button class="hdr-btn" id="btn-fit"></button>
+  <button class="hdr-btn" id="btn-lang">English</button>
+</header>
+<div class="dangara" aria-hidden="true"></div>
+
+<main>
+  <aside id="sidebar">
+    <section id="people">
+      <div class="sec-label" id="people-label"></div>
+      <div class="people-grid" id="people-grid"></div>
+    </section>
+    <section id="detail" aria-live="polite"></section>
+  </aside>
+
+  <div id="map-wrap">
+    <div id="map"></div>
+    <div id="tourbar">
+      <button class="hdr-btn" id="tour-prev"></button>
+      <div class="tri-track" id="tri-track" aria-hidden="true"></div>
+      <span class="tour-step" id="tour-step"></span>
+      <button class="hdr-btn primary" id="tour-next"></button>
+      <button class="hdr-btn" id="tour-exit"></button>
+    </div>
+    <nav id="timeline" aria-label="Timeline"></nav>
+  </div>
+</main>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="data/people.js"></script>
+<script src="data/events.js"></script>
+<script src="data/context.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
