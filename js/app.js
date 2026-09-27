@@ -48,31 +48,94 @@ ALL.forEach(e=>{
 });
 
 /* ---------- map ---------- */
-const map=L.map("map",{zoomControl:true,worldCopyJump:true});
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{
-  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains:"abcd",maxZoom:19
-}).addTo(map);
+/* Google Maps has no built-in HTML marker like Leaflet's divIcon, so we
+   roll a small OverlayView that positions a real DOM node (our .pin,
+   unchanged from the old Leaflet markup) at a lat/lng each frame.
+   google.maps.OverlayView doesn't exist until the "maps" library has
+   loaded, so this class is defined lazily inside initMap(), not here. */
+let HtmlMarker;
+function defineHtmlMarker(){
+  HtmlMarker=class extends google.maps.OverlayView{
+    constructor(pos,html,onClick){ super(); this.pos=pos; this.html=html; this.onClick=onClick; this.div=null; }
+    onAdd(){
+      this.div=document.createElement("div");
+      this.div.style.position="absolute";
+      this.div.style.transform="translate(-50%,-50%)";
+      this.div.innerHTML=this.html;
+      this.div.addEventListener("click",ev=>{ev.stopPropagation(); this.onClick&&this.onClick();});
+      this.getPanes().overlayMouseTarget.appendChild(this.div);
+    }
+    draw(){
+      const pt=this.getProjection().fromLatLngToDivPixel(this.pos);
+      if(this.div&&pt){ this.div.style.left=pt.x+"px"; this.div.style.top=pt.y+"px"; }
+    }
+    onRemove(){ if(this.div){ this.div.remove(); this.div=null; } }
+  };
+}
 
-const routePts=EVENTS.filter(e=>e.route).sort((a,b)=>a.sort.localeCompare(b.sort)).map(e=>e.coords);
-const routeLine=L.polyline(routePts,{color:"#8ed8df",weight:2,opacity:.65,dashArray:"5 7"}).addTo(map);
+const MAP_STYLE=[
+  {elementType:"geometry",stylers:[{color:"#10151d"}]},
+  {elementType:"labels.text.fill",stylers:[{color:"#8b96a8"}]},
+  {elementType:"labels.text.stroke",stylers:[{color:"#10151d"}]},
+  {elementType:"labels.icon",stylers:[{visibility:"off"}]},
+  {featureType:"administrative",elementType:"geometry",stylers:[{color:"#2a3646"}]},
+  {featureType:"administrative.country",elementType:"labels.text.fill",stylers:[{color:"#8b96a8"}]},
+  {featureType:"landscape",elementType:"geometry",stylers:[{color:"#141a24"}]},
+  {featureType:"poi",stylers:[{visibility:"off"}]},
+  {featureType:"road",elementType:"geometry",stylers:[{color:"#1e2836"}]},
+  {featureType:"road",elementType:"geometry.stroke",stylers:[{color:"#10151d"}]},
+  {featureType:"road.highway",elementType:"geometry",stylers:[{color:"#2a3646"}]},
+  {featureType:"road",elementType:"labels",stylers:[{visibility:"off"}]},
+  {featureType:"transit",stylers:[{visibility:"off"}]},
+  {featureType:"water",elementType:"geometry",stylers:[{color:"#0c1118"}]},
+  {featureType:"water",elementType:"labels.text.fill",stylers:[{color:"#4d8f98"}]}
+];
+
+let map,routeLine;
+const routePts=EVENTS.filter(e=>e.route).sort((a,b)=>a.sort.localeCompare(b.sort))
+  .map(e=>({lat:e.coords[0],lng:e.coords[1]}));
 
 const markers={};
 function buildMarkers(){
-  Object.values(markers).forEach(m=>map.removeLayer(m));
+  if(!map) return;
+  Object.values(markers).forEach(m=>m.setMap(null));
   ALL.forEach(e=>{
     if(e.kind==="context" && !showContext) return;
     const cls = e.kind==="context" ? "ctx" : (e.route ? "" : "aside");
-    const icon=L.divIcon({className:"",html:`<div class="pin ${cls}" data-ev="${e.id}">${e.no}</div>`,
-      iconSize:[26,26],iconAnchor:[13,13]});
-    const m=L.marker(e.coords,{icon,keyboard:true,title:t(e.title)})
-      .bindTooltip(t(e.title),{className:"tt",direction:"top",offset:[0,-12]})
-      .on("click",()=>selectEvent(e.id,true));
-    m.addTo(map); markers[e.id]=m;
+    const html=`<div class="pin ${cls}" data-ev="${e.id}">${e.no}<span class="tt">${t(e.title)}</span></div>`;
+    const m=new HtmlMarker({lat:e.coords[0],lng:e.coords[1]},html,()=>selectEvent(e.id,true));
+    m.setMap(map);
+    markers[e.id]=m;
   });
   paintStates();
 }
-function fitAll(){ map.fitBounds(routeLine.getBounds().pad(0.12)); }
+function fitAll(){
+  if(!map) return;
+  const bounds=new google.maps.LatLngBounds();
+  routePts.forEach(p=>bounds.extend(p));
+  map.fitBounds(bounds,60);
+}
+
+async function initMap(){
+  try{
+    await google.maps.importLibrary("maps");
+  }catch(err){
+    console.error("Google Maps failed to load — check js/config.js for a valid API key.",err);
+    return;
+  }
+  defineHtmlMarker();
+  map=new google.maps.Map($("map"),{
+    center:{lat:35.6,lng:137.5}, zoom:6,
+    styles:MAP_STYLE,
+    disableDefaultUI:true, zoomControl:true, gestureHandling:"greedy"
+  });
+  routeLine=new google.maps.Polyline({
+    path:routePts, map, strokeOpacity:0,
+    icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
+  });
+  buildMarkers();
+  fitAll();
+}
 
 /* ---------- helpers ---------- */
 const $=id=>document.getElementById(id);
@@ -212,7 +275,12 @@ function paintStates(){
 }
 
 /* ---------- interactions ---------- */
-function flyTo(e){ reduced?map.setView(e.coords,e.zoom):map.flyTo(e.coords,e.zoom,{duration:1.1}); }
+function flyTo(e){
+  if(!map) return;
+  const pos={lat:e.coords[0],lng:e.coords[1]};
+  if(reduced) map.setCenter(pos); else map.panTo(pos);
+  map.setZoom(e.zoom);
+}
 function selectEvent(id,move){
   selId=id; selPerson=null;
   const e=byId(id);
@@ -265,4 +333,4 @@ function renderAll(){
   renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour();
 }
 renderAll();
-fitAll();
+initMap();

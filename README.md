@@ -6,6 +6,29 @@ Hijikata Toshizō's journey, with the era's national events running alongside.
 Self-hosted, no build step, no framework. Open `index.html` on any static host
 (GitHub Pages, Netlify, an S3 bucket, or just a local server).
 
+The map itself is the real Google Maps JavaScript API (custom dark styling, not
+the default look), so you'll need a Google Maps API key — see below.
+
+---
+
+## Google Maps API key
+
+1. In the [Google Cloud Console](https://console.cloud.google.com/google/maps-apis),
+   create (or pick) a project and enable the **Maps JavaScript API**.
+2. Create an API key, then restrict it (Credentials → your key → Application
+   restrictions → **Websites**) to the domain(s) you deploy to — e.g.
+   `yourname.github.io/*` and `localhost:8000/*` for local testing. Maps
+   JavaScript API keys are meant to live in client-side code; the website
+   restriction is what keeps it from being used elsewhere.
+3. Copy `js/config.example.js` to `js/config.js` and paste your key in:
+   ```js
+   const GOOGLE_MAPS_API_KEY = "your-key-here";
+   ```
+   `js/config.js` is gitignored, so your key never gets committed.
+4. Billing must be enabled on the Cloud project (Google requires a linked
+   billing account for the Maps JS API), but the free monthly credit covers
+   normal personal-site traffic.
+
 ---
 
 ## Running it
