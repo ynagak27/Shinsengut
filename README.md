@@ -1,4 +1,4 @@
-# 土方歳三の軌跡 — The Road of Hijikata Toshizō
+# 新選組の軌跡 — The Road of Shinsengumi, the last group of Samurai
 
 An interactive bilingual (JA/EN) map + timeline of the Shinsengumi, told through
 Hijikata Toshizō's journey, with the era's national events running alongside.

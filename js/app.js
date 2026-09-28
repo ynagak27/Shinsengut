@@ -5,7 +5,7 @@
 
 /* ---------- UI strings ---------- */
 const STR = {
-  title:{en:"The Road of Hijikata Toshizō",ja:"土方歳三の軌跡"},
+  title:{en:"The Road of Shinsengumi, the last group of Samurai",ja:"新選組の軌跡"},
   subtitle:{en:"The Shinsengumi's demon vice-commander — from Tama to Hakodate, 1835–1869",
             ja:"新選組「鬼の副長」— 多摩から箱館へ 1835–1869"},
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
