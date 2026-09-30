@@ -136,19 +136,28 @@ async function initMap(){
   buildMarkers();
   fitAll();
   /* Google Maps sizes its canvas once at creation and won't notice a
-     container resize on its own — on mobile the layout (see the
-     max-width:880px block in style.css) can still be settling into its
-     final height right after load, and the browser UI showing/hiding
-     changes the viewport afterward too. Nudge it back into shape. */
-  window.addEventListener("resize",()=>{
+     container resize on its own. window's resize event doesn't cover
+     this on mobile — the page usually loads directly at its final
+     viewport size, so that event never fires; what actually changes is
+     the #map element's own box (CSS layout settling, font loading
+     reflow, orientation change), so watch that element directly. */
+  const nudge=()=>{
     if(!map) return;
     google.maps.event.trigger(map,"resize");
     if(selId) flyTo(byId(selId)); else fitAll();
-  });
-  setTimeout(()=>{
-    google.maps.event.trigger(map,"resize");
-    fitAll();
-  },300);
+  };
+  if(window.ResizeObserver){
+    let lastW=0,lastH=0;
+    new ResizeObserver(entries=>{
+      const {width,height}=entries[0].contentRect;
+      if(Math.abs(width-lastW)<2 && Math.abs(height-lastH)<2) return;
+      lastW=width; lastH=height;
+      nudge();
+    }).observe($("map"));
+  }else{
+    window.addEventListener("resize",nudge);
+    setTimeout(nudge,300);
+  }
 }
 
 /* ---------- helpers ---------- */
