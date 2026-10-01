@@ -147,12 +147,19 @@ async function initMap(){
     if(selId) flyTo(byId(selId)); else fitAll();
   };
   if(window.ResizeObserver){
-    let lastW=0,lastH=0;
+    let lastW=0,lastH=0,debounceId=null;
     new ResizeObserver(entries=>{
       const {width,height}=entries[0].contentRect;
+      /* Ignore near-zero sizes some mobile browsers report mid-layout —
+         fitBounds against a collapsed container produces a bogus,
+         maximally-zoomed-out view, and debounce so we only react once
+         the size has actually settled instead of on every intermediate
+         reflow tick. */
+      if(width<100||height<100) return;
       if(Math.abs(width-lastW)<2 && Math.abs(height-lastH)<2) return;
       lastW=width; lastH=height;
-      nudge();
+      clearTimeout(debounceId);
+      debounceId=setTimeout(nudge,150);
     }).observe($("map"));
   }else{
     window.addEventListener("resize",nudge);
