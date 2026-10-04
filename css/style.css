@@ -183,12 +183,22 @@ main{flex:1;display:flex;min-height:0}
 
 /* ---------- responsive ---------- */
 @media (max-width:880px){
-  body{overflow:auto}
+  /* One continuous page scroll instead of the desktop's fixed-height
+     panes — nested scroll areas on touch are awkward, so every pane
+     that scrolled internally on desktop just flows here instead. */
+  body{overflow-y:auto;overflow-x:hidden}
+  header{position:sticky;top:0;z-index:20;background:var(--sumi)}
   main{flex-direction:column-reverse}
   #sidebar{width:100%;border-right:none;border-top:1px solid var(--line)}
-  #detail{max-height:420px}
-  #map{min-height:52vh}
+  #detail{flex:none;max-height:none;overflow:visible}
   #map-wrap{flex:none}
+  /* dvh tracks the real visible viewport as mobile browser chrome
+     shows/hides, unlike vh — the clamp keeps the map usable on both
+     short and tall phones without needing JS to patch it up after. */
+  #map{height:clamp(260px,45dvh,420px);min-height:260px}
+  .pin{width:30px;height:30px;font-size:13px}
+  #timeline{padding:10px 14px}
+  .t-chip{min-width:108px}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}

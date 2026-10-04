@@ -112,17 +112,8 @@ function buildMarkers(){
 function fitAll(){
   if(!map) return;
   const bounds=new google.maps.LatLngBounds();
-  let ok=0;
-  routePts.forEach(p=>{
-    try{ bounds.extend(p); ok++; }
-    catch(err){ console.error("fitAll: bad route point",p,err); }
-  });
-  const ne=bounds.getNorthEast(), sw=bounds.getSouthWest();
-  console.log(`fitAll: extended with ${ok}/${routePts.length} points; bounds NE(${ne.lat()},${ne.lng()}) SW(${sw.lat()},${sw.lng()}); map container ${$("map").clientWidth}x${$("map").clientHeight}`);
+  routePts.forEach(p=>bounds.extend(p));
   map.fitBounds(bounds,60);
-  google.maps.event.addListenerOnce(map,"idle",()=>{
-    console.log(`fitAll: post-idle zoom=${map.getZoom()} center=(${map.getCenter().lat()},${map.getCenter().lng()})`);
-  });
 }
 
 async function initMap(){
@@ -133,10 +124,15 @@ async function initMap(){
     return;
   }
   defineHtmlMarker();
+  const isMobile=window.matchMedia("(max-width:880px)").matches;
   map=new google.maps.Map($("map"),{
     center:{lat:35.6,lng:137.5}, zoom:6,
     styles:MAP_STYLE,
-    disableDefaultUI:true, zoomControl:true, gestureHandling:"greedy"
+    disableDefaultUI:true, zoomControl:true,
+    /* "greedy" (one-finger pan) suits a full-screen map; on mobile the
+       map sits mid-page now, so "cooperative" lets a one-finger swipe
+       scroll the page through it instead of hijacking the pan. */
+    gestureHandling:isMobile?"cooperative":"greedy"
   });
   routeLine=new google.maps.Polyline({
     path:routePts, map, strokeOpacity:0,
@@ -145,35 +141,24 @@ async function initMap(){
   buildMarkers();
   fitAll();
   /* Google Maps sizes its canvas once at creation and won't notice a
-     container resize on its own. window's resize event doesn't cover
-     this on mobile — the page usually loads directly at its final
-     viewport size, so that event never fires; what actually changes is
-     the #map element's own box (CSS layout settling, font loading
-     reflow, orientation change), so watch that element directly. */
-  const nudge=()=>{
-    if(!map) return;
-    console.log("nudge: container now",$("map").clientWidth,"x",$("map").clientHeight);
-    google.maps.event.trigger(map,"resize");
-    if(selId) flyTo(byId(selId)); else fitAll();
-  };
+     container resize on its own. The CSS now sizes #map with dvh/clamp
+     instead of vh, which is far more stable across the mobile browser
+     chrome showing/hiding — but still watch the container directly in
+     case fonts or other content shift layout right after load. */
   if(window.ResizeObserver){
     let lastW=0,lastH=0,debounceId=null;
     new ResizeObserver(entries=>{
       const {width,height}=entries[0].contentRect;
-      /* Ignore near-zero sizes some mobile browsers report mid-layout —
-         fitBounds against a collapsed container produces a bogus,
-         maximally-zoomed-out view, and debounce so we only react once
-         the size has actually settled instead of on every intermediate
-         reflow tick. */
       if(width<100||height<100) return;
       if(Math.abs(width-lastW)<2 && Math.abs(height-lastH)<2) return;
       lastW=width; lastH=height;
       clearTimeout(debounceId);
-      debounceId=setTimeout(nudge,150);
+      debounceId=setTimeout(()=>{
+        if(!map) return;
+        google.maps.event.trigger(map,"resize");
+        if(selId) flyTo(byId(selId)); else fitAll();
+      },150);
     }).observe($("map"));
-  }else{
-    window.addEventListener("resize",nudge);
-    setTimeout(nudge,300);
   }
 }
 
