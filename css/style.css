@@ -192,6 +192,11 @@ main{flex:1;display:flex;min-height:0}
   #sidebar{width:100%;border-right:none;border-top:1px solid var(--line)}
   #detail{flex:none;max-height:none;overflow:visible}
   #map-wrap{flex:none}
+  /* #map's base rule is flex:1, i.e. flex-basis:0% — that wins over
+     any height set below it for sizing purposes (flex-basis beats
+     height unless flex-basis is auto), which is why nothing here
+     changed the rendered size until this was reset. */
+  #map{flex:none}
   /* vh-based fallback first for browsers without dvh support — an
      unsupported value in the second declaration is simply dropped,
      leaving this one in effect, which is the standard way to layer a
