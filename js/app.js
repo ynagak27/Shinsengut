@@ -112,8 +112,17 @@ function buildMarkers(){
 function fitAll(){
   if(!map) return;
   const bounds=new google.maps.LatLngBounds();
-  routePts.forEach(p=>bounds.extend(p));
+  let ok=0;
+  routePts.forEach(p=>{
+    try{ bounds.extend(p); ok++; }
+    catch(err){ console.error("fitAll: bad route point",p,err); }
+  });
+  const ne=bounds.getNorthEast(), sw=bounds.getSouthWest();
+  console.log(`fitAll: extended with ${ok}/${routePts.length} points; bounds NE(${ne.lat()},${ne.lng()}) SW(${sw.lat()},${sw.lng()}); map container ${$("map").clientWidth}x${$("map").clientHeight}`);
   map.fitBounds(bounds,60);
+  google.maps.event.addListenerOnce(map,"idle",()=>{
+    console.log(`fitAll: post-idle zoom=${map.getZoom()} center=(${map.getCenter().lat()},${map.getCenter().lng()})`);
+  });
 }
 
 async function initMap(){
@@ -143,6 +152,7 @@ async function initMap(){
      reflow, orientation change), so watch that element directly. */
   const nudge=()=>{
     if(!map) return;
+    console.log("nudge: container now",$("map").clientWidth,"x",$("map").clientHeight);
     google.maps.event.trigger(map,"resize");
     if(selId) flyTo(byId(selId)); else fitAll();
   };
