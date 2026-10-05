@@ -146,11 +146,19 @@ async function initMap(){
   });
   buildMarkers();
   fitAll();
+  /* On a slow real device, Maps may not actually finish settling at
+     the same point desktop testing suggests — react to its own
+     readiness signal instead of assuming a fixed moment, and
+     re-assert our intended size (not just accept whatever size
+     Maps/the browser left it at) every time. */
+  google.maps.event.addListenerOnce(map,"idle",()=>{
+    applyMapSizing();
+    google.maps.event.trigger(map,"resize");
+    fitAll();
+  });
   /* Google Maps sizes its canvas once at creation and won't notice a
-     container resize on its own. The CSS now sizes #map with dvh/clamp
-     instead of vh, which is far more stable across the mobile browser
-     chrome showing/hiding — but still watch the container directly in
-     case fonts or other content shift layout right after load. */
+     container resize on its own — watch the container directly in
+     case fonts, Maps itself, or other content shift its layout. */
   if(window.ResizeObserver){
     let lastW=0,lastH=0,debounceId=null;
     new ResizeObserver(entries=>{
@@ -161,6 +169,7 @@ async function initMap(){
       clearTimeout(debounceId);
       debounceId=setTimeout(()=>{
         if(!map) return;
+        applyMapSizing();
         google.maps.event.trigger(map,"resize");
         if(selId) flyTo(byId(selId)); else fitAll();
       },150);
