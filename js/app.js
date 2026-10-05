@@ -358,4 +358,28 @@ function renderAll(){
   renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour();
 }
 renderAll();
+
+/* Force #map's size via inline style rather than trusting the
+   stylesheet — inline style wins over any external CSS rule
+   regardless of cascade, specificity, or flexbox's flex-basis-over-
+   height behavior, so this can't silently lose to something we
+   haven't spotted. Runs independently of whether Google Maps itself
+   loads, and re-applies on resize/orientation change. */
+function applyMapSizing(){
+  const el=$("map");
+  if(!el) return;
+  if(window.matchMedia("(max-width:880px)").matches){
+    el.style.flex="none";
+    el.style.height="min(52vh,420px)";
+    el.style.minHeight="260px";
+  }else{
+    el.style.flex="";
+    el.style.height="";
+    el.style.minHeight="";
+  }
+}
+applyMapSizing();
+window.addEventListener("resize",applyMapSizing);
+window.addEventListener("orientationchange",applyMapSizing);
+
 initMap();
