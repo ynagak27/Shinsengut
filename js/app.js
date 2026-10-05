@@ -369,13 +369,17 @@ function applyMapSizing(){
   const el=$("map");
   if(!el) return;
   if(window.matchMedia("(max-width:880px)").matches){
+    /* Compute the min/max in plain JS and set a bare "Npx" string —
+       no CSS min()/clamp() function, which some mobile browsers still
+       don't support; an unsupported value assigned via style.height
+       is silently rejected, which is exactly what bit the previous
+       version of this fix. A plain px string has no such dependency. */
+    const h=Math.max(260,Math.min(window.innerHeight*0.52,420));
     el.style.flex="none";
-    el.style.height="min(52vh,420px)";
-    el.style.minHeight="260px";
+    el.style.height=h+"px";
   }else{
     el.style.flex="";
     el.style.height="";
-    el.style.minHeight="";
   }
 }
 applyMapSizing();

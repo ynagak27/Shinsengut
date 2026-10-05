@@ -197,11 +197,11 @@ main{flex:1;display:flex;min-height:0}
      height unless flex-basis is auto), which is why nothing here
      changed the rendered size until this was reset. */
   #map{flex:none}
-  /* vh-based fallback first for browsers without dvh support — an
-     unsupported value in the second declaration is simply dropped,
-     leaving this one in effect, which is the standard way to layer a
-     newer unit over an older one without a hard dependency on it. */
-  #map{height:min(52vh,420px);min-height:260px}
+  /* Plain vh, no min()/clamp() — those functions themselves can be
+     unsupported on older mobile browsers, in which case the whole
+     declaration is invalid and dropped. This plain form is the actual
+     fallback floor; min-height still caps how short it can get. */
+  #map{height:52vh;min-height:260px}
   /* dvh tracks the real visible viewport as mobile browser chrome
      shows/hides, unlike vh — the clamp keeps the map usable on both
      short and tall phones without needing JS to patch it up after. */
