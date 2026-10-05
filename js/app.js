@@ -134,6 +134,12 @@ async function initMap(){
        scroll the page through it instead of hijacking the pan. */
     gestureHandling:isMobile?"cooperative":"greedy"
   });
+  /* google.maps.Map's constructor takes over #map's inline style
+     (it sets its own position/overflow directly on the element),
+     which can wipe out the height/flex we just set above — re-assert
+     it now that Maps has had its turn. */
+  applyMapSizing();
+  google.maps.event.trigger(map,"resize");
   routeLine=new google.maps.Polyline({
     path:routePts, map, strokeOpacity:0,
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
