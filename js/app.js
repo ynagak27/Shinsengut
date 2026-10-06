@@ -116,38 +116,13 @@ function fitAll(){
   map.fitBounds(bounds,60);
 }
 
-/* TEMPORARY on-page diagnostic box — visible without any devtools or
-   USB debugging, so its output can just be screenshotted. Remove once
-   the real-device map-sizing issue is resolved. */
-function debugLog(label){
-  let box=document.getElementById("debugBox");
-  if(!box){
-    box=document.createElement("div");
-    box.id="debugBox";
-    box.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99999;background:#ffeb3b;color:#000;font:10px/1.4 monospace;padding:6px;max-height:45vh;overflow:auto;white-space:pre-wrap;border-bottom:3px solid #000";
-    document.body.appendChild(box);
-  }
-  const el=document.getElementById("map");
-  const r=el?el.getBoundingClientRect():null;
-  const cs=el?getComputedStyle(el):null;
-  const line=
-    "["+label+" @"+new Date().toLocaleTimeString()+"] win="+window.innerWidth+"x"+window.innerHeight+
-    " mapObj="+(!!map)+" rect="+(r?Math.round(r.width)+"x"+Math.round(r.height):"-")+
-    " computedH="+(cs?cs.height:"-")+" inlineH="+(el?JSON.stringify(el.style.height):"-")+
-    " inlineFlex="+(el?JSON.stringify(el.style.flex):"-")+" mq880="+window.matchMedia("(max-width:880px)").matches;
-  box.textContent=(box.textContent?box.textContent+"\n":"")+line;
-}
-
 async function initMap(){
-  debugLog("initMap:start");
   try{
     await google.maps.importLibrary("maps");
   }catch(err){
     console.error("Google Maps failed to load — check js/config.js for a valid API key.",err);
-    debugLog("initMap:maps-load-FAILED");
     return;
   }
-  debugLog("initMap:maps-lib-loaded");
   defineHtmlMarker();
   const isMobile=window.matchMedia("(max-width:880px)").matches;
   map=new google.maps.Map($("map"),{
@@ -159,32 +134,27 @@ async function initMap(){
        scroll the page through it instead of hijacking the pan. */
     gestureHandling:isMobile?"cooperative":"greedy"
   });
-  debugLog("initMap:map-constructed");
   /* google.maps.Map's constructor takes over #map's inline style
      (it sets its own position/overflow directly on the element),
      which can wipe out the height/flex we just set above — re-assert
      it now that Maps has had its turn. */
   applyMapSizing();
   google.maps.event.trigger(map,"resize");
-  debugLog("initMap:after-reassert");
   routeLine=new google.maps.Polyline({
     path:routePts, map, strokeOpacity:0,
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
   });
   buildMarkers();
   fitAll();
-  debugLog("initMap:after-fitAll");
   /* On a slow real device, Maps may not actually finish settling at
      the same point desktop testing suggests — react to its own
      readiness signal instead of assuming a fixed moment, and
      re-assert our intended size (not just accept whatever size
      Maps/the browser left it at) every time. */
   google.maps.event.addListenerOnce(map,"idle",()=>{
-    debugLog("idle-event:fired");
     applyMapSizing();
     google.maps.event.trigger(map,"resize");
     fitAll();
-    debugLog("idle-event:after-correction");
   });
   /* Google Maps sizes its canvas once at creation and won't notice a
      container resize on its own — watch the container directly in
@@ -193,7 +163,6 @@ async function initMap(){
     let lastW=0,lastH=0,debounceId=null;
     new ResizeObserver(entries=>{
       const {width,height}=entries[0].contentRect;
-      debugLog("resizeObserver:fired "+Math.round(width)+"x"+Math.round(height));
       if(width<100||height<100) return;
       if(Math.abs(width-lastW)<2 && Math.abs(height-lastH)<2) return;
       lastW=width; lastH=height;
@@ -203,12 +172,9 @@ async function initMap(){
         applyMapSizing();
         google.maps.event.trigger(map,"resize");
         if(selId) flyTo(byId(selId)); else fitAll();
-        debugLog("resizeObserver:after-correction");
       },150);
     }).observe($("map"));
   }
-  setTimeout(()=>debugLog("steady-state-2s"),2000);
-  setTimeout(()=>debugLog("steady-state-5s"),5000);
 }
 
 /* ---------- helpers ---------- */
@@ -432,7 +398,6 @@ function applyMapSizing(){
   }
 }
 applyMapSizing();
-debugLog("top-level:after-first-applyMapSizing");
 window.addEventListener("resize",applyMapSizing);
 window.addEventListener("orientationchange",applyMapSizing);
 
