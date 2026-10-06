@@ -134,45 +134,19 @@ async function initMap(){
        scroll the page through it instead of hijacking the pan. */
     gestureHandling:isMobile?"cooperative":"greedy"
   });
-  /* google.maps.Map's constructor takes over #map's inline style
-     (it sets its own position/overflow directly on the element),
-     which can wipe out the height/flex we just set above — re-assert
-     it now that Maps has had its turn. */
-  applyMapSizing();
-  google.maps.event.trigger(map,"resize");
   routeLine=new google.maps.Polyline({
     path:routePts, map, strokeOpacity:0,
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
   });
   buildMarkers();
   fitAll();
-  /* On a slow real device, Maps may not actually finish settling at
-     the same point desktop testing suggests — react to its own
-     readiness signal instead of assuming a fixed moment, and
-     re-assert our intended size (not just accept whatever size
-     Maps/the browser left it at) every time. */
-  google.maps.event.addListenerOnce(map,"idle",()=>{
-    applyMapSizing();
-    google.maps.event.trigger(map,"resize");
-    fitAll();
-  });
-  /* Google Maps sizes its canvas once at creation and won't notice a
-     container resize on its own — watch the container directly in
-     case fonts, Maps itself, or other content shift its layout. */
+  /* Re-fit the view when the container changes size (rotation, crossing
+     the mobile breakpoint) so the route stays framed. */
   if(window.ResizeObserver){
-    let lastW=0,lastH=0,debounceId=null;
-    new ResizeObserver(entries=>{
-      const {width,height}=entries[0].contentRect;
-      if(width<100||height<100) return;
-      if(Math.abs(width-lastW)<2 && Math.abs(height-lastH)<2) return;
-      lastW=width; lastH=height;
+    let debounceId=null;
+    new ResizeObserver(()=>{
       clearTimeout(debounceId);
-      debounceId=setTimeout(()=>{
-        if(!map) return;
-        applyMapSizing();
-        google.maps.event.trigger(map,"resize");
-        if(selId) flyTo(byId(selId)); else fitAll();
-      },150);
+      debounceId=setTimeout(()=>{ if(selId) flyTo(byId(selId)); else fitAll(); },150);
     }).observe($("map"));
   }
 }
@@ -373,32 +347,4 @@ function renderAll(){
   renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour();
 }
 renderAll();
-
-/* Force #map's size via inline style rather than trusting the
-   stylesheet — inline style wins over any external CSS rule
-   regardless of cascade, specificity, or flexbox's flex-basis-over-
-   height behavior, so this can't silently lose to something we
-   haven't spotted. Runs independently of whether Google Maps itself
-   loads, and re-applies on resize/orientation change. */
-function applyMapSizing(){
-  const el=$("map");
-  if(!el) return;
-  if(window.matchMedia("(max-width:880px)").matches){
-    /* Compute the min/max in plain JS and set a bare "Npx" string —
-       no CSS min()/clamp() function, which some mobile browsers still
-       don't support; an unsupported value assigned via style.height
-       is silently rejected, which is exactly what bit the previous
-       version of this fix. A plain px string has no such dependency. */
-    const h=Math.max(260,Math.min(window.innerHeight*0.52,420));
-    el.style.flex="none";
-    el.style.height=h+"px";
-  }else{
-    el.style.flex="";
-    el.style.height="";
-  }
-}
-applyMapSizing();
-window.addEventListener("resize",applyMapSizing);
-window.addEventListener("orientationchange",applyMapSizing);
-
 initMap();

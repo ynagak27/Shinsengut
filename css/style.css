@@ -183,34 +183,21 @@ main{flex:1;display:flex;min-height:0}
 
 /* ---------- responsive ---------- */
 @media (max-width:880px){
-  /* One continuous page scroll instead of the desktop's fixed-height
-     panes — nested scroll areas on touch are awkward, so every pane
-     that scrolled internally on desktop just flows here instead. */
-  /* Let the document scroll normally. The desktop layout pins body to
-     the screen height; with column-reverse inside that, overflow went
-     upward past the top edge where it can't be scrolled to, hiding the
-     map behind the header. order puts the map first without that. */
+  /* The document scrolls as one page on mobile. Don't reintroduce a
+     fixed body height with column-reverse: overflow then goes upward
+     past the top edge, where it can't be scrolled to. */
   html,body{height:auto}
   body{display:block;overflow:visible}
-  header{position:sticky;top:0;z-index:20;background:var(--sumi)}
+  header{
+    position:sticky;top:0;z-index:20;background:var(--sumi);
+    display:flex;align-items:center;gap:8px;padding:8px 12px;flex-wrap:wrap;row-gap:6px;
+  }
   main{flex:none;flex-direction:column;min-height:0}
-  #map-wrap{order:1}
-  #sidebar{order:2}
-  #sidebar{width:100%;border-right:none;border-top:1px solid var(--line)}
+  #map-wrap{order:1;flex:none}
+  #sidebar{order:2;width:100%;border-right:none;border-top:1px solid var(--line)}
   #detail{flex:none;max-height:none;overflow:visible}
-  #map-wrap{flex:none}
-  /* #map's base rule is flex:1, i.e. flex-basis:0% — that wins over
-     any height set below it for sizing purposes (flex-basis beats
-     height unless flex-basis is auto), which is why nothing here
-     changed the rendered size until this was reset. */
-  #map{flex:none}
-  /* Plain vh/px only — no min()/clamp()/dvh. Confirmed working on the
-     real device this was debugged against via an isolated test page;
-     those modern CSS functions were the actual recurring failure
-     across several earlier attempts, silently dropping the whole
-     declaration on a browser that doesn't recognize them. */
-  #map{height:52vh;min-height:260px;max-height:420px}
-  header{display:flex;align-items:center;gap:8px;padding:8px 12px;flex-wrap:wrap;row-gap:6px}
+  /* flex:none so the height applies; the base rule's flex:1 would override it */
+  #map{flex:none;height:52vh;min-height:260px;max-height:420px}
   .title-block{margin-right:auto;min-width:0}
   h1{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   h1 .sub{display:none}
