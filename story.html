@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新選組とは — Who were the Shinsengumi?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- bump ?v= whenever the file changes, as on index.html -->
+<link rel="stylesheet" href="css/style.css?v=16">
+<link rel="stylesheet" href="css/story.css?v=1">
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1 id="h-title"></h1>
+  </div>
+  <a class="hdr-btn primary" id="btn-map" href="index.html"></a>
+  <button class="hdr-btn" id="btn-lang">English</button>
+</header>
+<div class="dangara" aria-hidden="true"></div>
+
+<article class="story">
+  <div class="story-eyebrow" id="s-eyebrow"></div>
+  <h2 class="story-title" id="s-title"></h2>
+  <p class="story-lede" id="s-lede"></p>
+  <button class="hdr-btn primary story-toggle" id="btn-version" aria-pressed="false"></button>
+
+  <div id="s-long">
+    <nav class="story-toc" aria-labelledby="s-toc-label">
+      <div class="sec-label" id="s-toc-label"></div>
+      <ol id="s-toc"></ol>
+    </nav>
+    <div id="s-chapters"></div>
+  </div>
+
+  <div id="s-short" class="story-short" hidden></div>
+
+  <a class="hdr-btn primary story-cta" id="btn-explore" href="index.html"></a>
+</article>
+
+<script src="data/story.js?v=1"></script>
+<script src="js/story.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* Story page. Loads after style.css, reusing its colour tokens, header,
+   buttons and the dangara strip; this file only adds the reading layout. */
+
+/* style.css pins the map page to the screen height; this page scrolls. */
+html,body{height:auto}
+body{display:block;overflow:visible}
+header{position:sticky;top:0;z-index:20;background:var(--sumi)}
+
+.story{max-width:680px;margin:0 auto;padding:40px 20px 72px}
+.story-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--asagi);text-transform:uppercase;margin-bottom:10px}
+.story-title{font-family:var(--disp);font-weight:800;font-size:clamp(28px,6vw,40px);line-height:1.25;letter-spacing:.03em;text-wrap:balance}
+.story-lede{font-size:16px;line-height:1.9;color:var(--mist);margin:14px 0 24px}
+.story-toggle{font-size:13px}
+
+.story-toc{margin:36px 0 12px;padding:18px 20px;border:1px solid var(--line);border-radius:4px;background:var(--panel)}
+.story-toc ol{margin:0;padding-left:1.6em;display:grid;gap:6px;font-size:14px}
+.story-toc a{color:var(--washi);text-decoration:none}
+.story-toc a:hover{color:var(--asagi)}
+.story-toc li::marker{font-family:var(--mono);color:var(--asagi-dim)}
+
+.chapter h3{
+  font-family:var(--disp);font-weight:700;font-size:22px;line-height:1.4;
+  margin:44px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);
+  display:flex;gap:12px;align-items:baseline;scroll-margin-top:96px;
+}
+.ch-no{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--asagi);letter-spacing:.1em}
+.chapter p,.story-short p{font-size:16px;line-height:1.95;color:#d9d2c1;margin:0 0 1.1em}
+
+.story-short{margin-top:32px;padding:4px 0 4px 18px;border-left:2px solid var(--asagi-dim)}
+.story-cta{margin-top:40px;font-size:13px}
+
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:880px){
+  .story{padding:28px 16px 56px}
+  .chapter h3{font-size:19px;scroll-margin-top:72px}
+  .chapter p,.story-short p{font-size:15px}
+}

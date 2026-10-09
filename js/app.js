@@ -9,6 +9,7 @@ const STR = {
   subtitle:{en:"The Shinsengumi's demon vice-commander — from Tama to Hakodate, 1835–1869",
             ja:"新選組「鬼の副長」— 多摩から箱館へ 1835–1869"},
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
+  story:{en:"About the Shinsengumi",ja:"新選組とは"},
   tour:{en:"Guided tour",ja:"順路をたどる"},
   context:{en:"Historical events",ja:"時代の動き"},
   fit:{en:"Full route",ja:"全体を表示"},
@@ -28,7 +29,7 @@ const STR = {
 };
 
 /* ---------- state ---------- */
-let lang="ja";
+let lang=new URLSearchParams(location.search).get("lang")==="en"?"en":"ja";
 let selId=null, selPerson=null, tourIdx=-1, showContext=true;
 const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const t=o=>(o&&o[lang]!==undefined)?o[lang]:"";
@@ -158,6 +159,8 @@ function monBtn(pid){const p=PEOPLE[pid];return `<span class="mon">${p.kanji}</s
 /* ---------- header ---------- */
 function renderHeader(){
   $("h-title").innerHTML=`${t(STR.title)}<span class="sub">${t(STR.subtitle)}</span>`;
+  $("btn-story").textContent=t(STR.story);
+  $("btn-story").href="story.html"+(lang==="en"?"?lang=en":"");
   $("btn-tour").textContent=t(STR.tour);
   $("btn-context").textContent=t(STR.context);
   $("btn-context").classList.toggle("off",!showContext);
