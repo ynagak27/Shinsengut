@@ -353,5 +353,132 @@ const PEOPLE = {
         b: {en: "In 1867 he left with Itō to form the Goryō Eji. On the night of December 13, 1867, when the survivors came to recover Itō's body at Aburanokōji and were ambushed, Mikisaburō was among those who escaped; he found refuge in the Satsuma domain's residence. The survivors of the Goryō Eji took their revenge where they could — Kondō was shot and wounded from ambush a few weeks later — and in the Boshin War that followed they fought on the side of the new government.\n\nSuzuki lived until 1919, long enough to see the Shinsengumi pass from living memory into legend.",
             ja: "1867年、兄とともに隊を離れ御陵衛士となる。1867年12月13日夜、伊東の遺体を引き取りに来た衛士たちが油小路で待ち伏せを受けたとき、三樹三郎は脱出した一人で、薩摩藩邸に逃れた。御陵衛士の生き残りは機をうかがって報復し——数週間後、近藤は待ち伏せの銃撃で負傷する——続く戊辰戦争では新政府側に立って戦った。\n\n鈴木は1919年（大正8年）まで生きた。新選組が生きた記憶から伝説へと移っていくのを見届けるほどに。"} }
     ]
+  },
+  /* ------------------------------------------------------------ */
+  ito: {
+    kanji: "伊", life: "1835–1867", group: "officers",
+    name: {en: "Itō Kashitarō", ja: "伊東甲子太郎"},
+    role: {en: "Staff officer (sanbō)", ja: "参謀"},
+    summary: {en: "The most learned man ever to join the Shinsengumi: a Mito-trained scholar and master swordsman who brought his own following into the corps in 1864, rose at once to staff officer, and within three years had split it — founding the imperial tomb guards known as the Goryō Eji. He was lured to a party by Kondō and cut down on the way home at Aburanokōji.",
+     ja: "新選組に加わった最大の学識者。水戸学を修めた学者にして剣の達人で、1864年に自らの門人を率いて入隊し、ただちに参謀となった。三年を経ずして隊を割り、天皇陵を守る「御陵衛士」を結成する。近藤の酒宴に招かれ、その帰途、油小路で斬られた。"},
+    sections: [
+      { h: {en: "Scholar and swordsman", ja: "学者にして剣客"},
+        b: {en: "Itō was born in 1835 in Shizuku, Hitachi province (now part of Kasumigaura in Ibaraki), as Suzuki Ōkura, the son of a minor retainer whose family fell on hard times. Hitachi lay next to the Mito domain, the intellectual heart of the sonnō-jōi movement, and Itō absorbed its learning — the study of Japanese history as a story of loyalty to the emperor — alongside its swordsmanship.\n\nHe went to Edo and trained in Hokushin Ittō-ryū at the Fukagawa dōjō of Itō Seiichi. He did so well that the family adopted him as heir; he married into it, took the name Itō, and inherited the school. By his late twenties he was a dōjō master with his own students, a published poet and a man of political convictions — an unusual combination in an age when most swordsmen were one thing or the other.",
+            ja: "1835年（天保6年）、常陸国志筑（現・茨城県かすみがうら市）に、困窮した下級の家臣の子・鈴木大蔵として生まれる。常陸は尊皇攘夷運動の思想的中心・水戸藩の隣国で、伊東はその学問——日本の歴史を天皇への忠義の物語として読む水戸学——を剣とともに身につけた。\n\n江戸へ出て、深川の伊東精一の道場で北辰一刀流を修める。腕を見込まれて婿養子となり、伊東姓を名乗って道場を継いだ。二十代後半にして門人を持つ道場主であり、歌を詠み、政治的な信念を持つ人物となっていた。剣客の多くがそのどれか一つにすぎなかった時代には、珍しい取り合わせである。"} },
+      { h: {en: "Into the corps", ja: "入隊"},
+        b: {en: "In the autumn of 1864, after the Ikedaya had made the Shinsengumi famous, Kondō went east to recruit. Tōdō Heisuke, who had trained in the same school, brought him to Itō. Itō agreed to join and came west with his younger brother Suzuki Mikisaburō and several of his own followers. Because the year was a kinoe-ne (甲子) year in the sixty-year calendar, he took the name Kashitarō to mark it.\n\nKondō gave him an extraordinary welcome: the new post of staff officer (sanbō), outranking the unit captains, and the instructorship in letters. In 1865 and 1866 Itō went with Kondō on the shogunate's missions to Hiroshima to question envoys of Chōshū — work that called for learning and argument, not swordsmanship.",
+            ja: "1864年（元治元年）秋、池田屋で名を上げた新選組の近藤は、隊士募集のため東へ下った。同じ流派の縁を持つ藤堂平助が、近藤を伊東に引き合わせる。伊東は入隊を承諾し、実弟の鈴木三樹三郎と自らの門人数名を連れて西へ上った。この年が六十干支の甲子（きのえね）の年にあたることから、「甲子太郎」と名を改めた。\n\n近藤は破格の待遇で迎えた。組長たちの上に立つ新設の「参謀」の職と、文学師範である。1865年から翌年にかけて、伊東は長州の使者を詰問する幕府の広島派遣に近藤とともに加わった。剣ではなく、学識と弁論が求められる仕事だった。"} },
+      { h: {en: "The split", ja: "分離"},
+        b: {en: "Itō's loyalties were not Kondō's. Kondō served the shogunate; Itō, the Mito scholar, served the emperor, and by 1866 the two causes were visibly pulling apart. Rather than desert — which the corps punished with death — Itō found an honourable exit. In the spring of 1867, with the backing of a court-connected temple, he and more than a dozen men left to become the Goryō Eji, guards of the tomb of the late Emperor Kōmei. Based at a sub-temple of Kōdai-ji in eastern Kyoto, they were also called the Kōdai-ji party.\n\nAmong those who followed him were Tōdō Heisuke and — as the corps would later reveal — Saitō Hajime, who was in fact Kondō's spy. In the months that followed, Itō petitioned the court with proposals for national policy and moved in loyalist circles that the Shinsengumi had been formed to suppress.",
+            ja: "伊東の忠誠の向かう先は、近藤のそれとは違っていた。近藤は幕府に仕え、水戸学者の伊東は天皇に仕えた。1866年には、二つの大義がはっきりと分かれ始めていた。脱走すれば隊は死をもって罰する。伊東は脱走ではなく、名分の立つ出口を見つけた。1867年（慶応3年）春、朝廷とつながりのある寺の後ろ盾を得て、十数名とともに隊を離れ、亡き孝明天皇の御陵を守る「御陵衛士」となったのである。東山・高台寺の塔頭を屯所としたことから「高台寺党」とも呼ばれた。\n\n伊東に従った者のなかには藤堂平助、そして——のちに明らかになるように、実は近藤の間者だった——斎藤一がいた。その後の数か月、伊東は国策について朝廷に建白し、新選組がまさに取り締まるために作られた尊攘派の人脈のなかを動いた。"} },
+      { h: {en: "Aburanokōji", ja: "油小路"},
+        b: {en: "Saitō returned to the corps in the late autumn of 1867 with the report that Itō was plotting to kill Kondō. On December 13, 1867, Kondō invited Itō to drink at his mistress's house. Itō went — whether from confidence, courtesy or a misjudgment of his old comrades. On his way home, near Aburanokōji, he was speared and cut down. His body was left in the street to draw out the Goryō Eji, and when they came to recover it, the Shinsengumi was waiting.\n\nItō was thirty-two. He is buried with Tōdō, Hattori and the other dead of that night at Kaikō-ji, a sub-temple of Sennyū-ji, near the imperial tombs he had sworn to guard.",
+            ja: "1867年晩秋、斎藤は「伊東が近藤の暗殺を企てている」との報を携えて隊に戻った。1867年12月13日（慶応3年11月18日）、近藤は伊東を妾宅での酒宴に招く。伊東は応じた。自信からか、礼儀からか、かつての同志への見込み違いからか。帰途、油小路の近くで槍を受け、斬り倒された。遺体は御陵衛士をおびき出すため路上に放置され、引き取りに来た衛士たちを新選組が待ち構えていた。\n\n伊東、三十二歳（数え三十三歳）。藤堂・服部らその夜の死者とともに、自らが守ると誓った御陵に近い泉涌寺の塔頭・戒光寺に眠る。"} }
+    ],
+    legend: {en: "Whether Itō really planned to assassinate Kondō is unproven; the claim comes from the Shinsengumi side, through Saitō, and served to justify the killing. His famous dying words — \"Traitors!\" — come from later retellings. Many historians see him less as a schemer than as a man of real convictions who tried, and failed, to leave the corps without breaking its law.",
+     ja: "伊東が本当に近藤暗殺を企てていたかは証明されていない。この話は斎藤を経た新選組側からのもので、暗殺を正当化する役割を果たした。「奸賊ばら」という有名な最期の言葉も後年の語りによる。伊東を策士というより、隊の法度を破らずに隊を去ろうとして果たせなかった、信念の人とみる歴史家も多い。"}
+  },
+  /* ------------------------------------------------------------ */
+  shinohara: {
+    kanji: "篠", life: "1828–1911", group: "officers",
+    name: {en: "Shinohara Tainoshin", ja: "篠原泰之進"},
+    role: {en: "Inspector, then Goryō Eji", ja: "監察、のち御陵衛士"},
+    summary: {en: "Itō's right-hand man: a tough, older fighter from Kyushu who joined with him in 1864, served as an inspector and jūjutsu instructor, left with him for the Goryō Eji, survived the night Itō was killed — and lived on into the 20th century, leaving one of the few accounts written from the other side of the corps' great split.",
+     ja: "伊東の片腕。九州出身の年長の猛者で、1864年に伊東とともに入隊し、監察と柔術師範を務めた。伊東に従って御陵衛士となり、伊東が殺された夜を生き延び、20世紀まで生きた。隊の大分裂を「向こう側」から記した数少ない記録を残している。"},
+    sections: [
+      { h: {en: "From Kyushu to Edo", ja: "九州から江戸へ"},
+        b: {en: "Shinohara was born in 1828 in Chikugo province in northern Kyushu, of humble origins. He made his way to Edo, served in the households of samurai, and became a capable fighter with the spear and in jūjutsu. Somewhere along the way he fell in with Itō Kashitarō's circle, and when Itō joined the Shinsengumi in 1864, Shinohara — seven years older and a man of the world — came with him.",
+            ja: "1828年（文政11年）、九州北部の筑後国に生まれる。出自は低かった。江戸へ出て武家奉公をしながら、槍と柔術に優れた遣い手となった。いつしか伊東甲子太郎の一門と交わり、1864年に伊東が新選組に加わると、七つ年上で世故に長けた篠原も行動をともにした。"} },
+      { h: {en: "In the corps", ja: "隊での働き"},
+        b: {en: "In the Shinsengumi he served as an inspector and investigator — the officers who watched the members and gathered intelligence in the city — and as one of the corps' jūjutsu instructors. He was Itō's most dependable lieutenant, and in 1867 he went with him to found the Goryō Eji.",
+            ja: "新選組では諸士取調役兼監察——隊士を監視し、市中で情報を集める役——を務め、柔術師範の一人でもあった。伊東の最も頼れる腹心であり、1867年には伊東とともに御陵衛士の結成に加わった。"} },
+      { h: {en: "Survivor", ja: "生き残った者"},
+        b: {en: "On the night of December 13, 1867, when the Goryō Eji came to recover Itō's body at Aburanokōji and fell into the Shinsengumi's ambush, Shinohara was among those who fought their way out, escaping to the Satsuma domain's residence. The survivors did not forget: a few weeks later Kondō was ambushed and shot through the shoulder near Fushimi, and Shinohara is named among the men responsible. In the Boshin War he fought on the new government's side.\n\nIn the Meiji era he took the name Hata Shigechika and served in minor official posts. He died in 1911, aged about eighty-three. His diary and recollections — a rare view of the Shinsengumi from Itō's side — remain an important source for historians.",
+            ja: "1867年12月13日夜、伊東の遺体を引き取りに来た御陵衛士が油小路で新選組の待ち伏せに遭ったとき、篠原は斬り抜けて薩摩藩邸に逃れた一人だった。生き残った者たちは忘れなかった。数週間後、近藤は伏見近くで待ち伏せを受けて肩を撃ち抜かれる。その実行者の一人として篠原の名が挙がっている。戊辰戦争では新政府軍の側で戦った。\n\n明治に入ると秦林親（はた しげちか）と名乗り、下級の官職に就いた。1911年（明治44年）、八十三歳ほどで没する。彼の日記と回想は、伊東の側から新選組を見た貴重な証言として、いまも歴史家の重要な史料である。"} }
+    ]
+  },
+  /* ------------------------------------------------------------ */
+  hattori: {
+    kanji: "服", life: "1832–1867", group: "officers",
+    name: {en: "Hattori Takeo", ja: "服部武雄"},
+    role: {en: "Goryō Eji", ja: "御陵衛士"},
+    summary: {en: "A powerful two-sword fighter from Akō who joined the corps, followed Itō into the Goryō Eji, and died at Aburanokōji fighting alone against many — a last stand that even his enemies remembered with respect.",
+     ja: "赤穂出身の二刀流の剛の者。新選組に加わり、伊東に従って御陵衛士となり、油小路で多勢を相手に一人戦って死んだ。その最期は、敵方にさえ敬意をもって記憶された。"},
+    sections: [
+      { h: {en: "Origins", ja: "生い立ち"},
+        b: {en: "Hattori was born in 1832 in the Akō domain of Harima province, famous throughout Japan as the home of the Forty-Seven Rōnin. He was a big, strong man and a skilled swordsman who fought with two swords at once — a rare style that demanded both strength and long training. He joined the Shinsengumi in its Kyoto years and served as an inspector, and he was close to Itō Kashitarō's circle.",
+            ja: "1832年（天保3年）、四十七士の故郷として全国に知られる播磨国赤穂に生まれる。大柄で膂力に優れ、両手に刀を執る二刀流の遣い手だった。力と長年の修練をともに要する、珍しい流儀である。京都時代に新選組に加わって監察を務め、伊東甲子太郎の一門と近かった。"} },
+      { h: {en: "The last stand", ja: "最期の奮戦"},
+        b: {en: "In 1867 he left with Itō to join the Goryō Eji. On the night of December 13, 1867, he was among the men who went to Aburanokōji to recover Itō's body. When the Shinsengumi sprang its ambush, Hattori stood his ground with a sword in each hand while those around him fell or fled. He was overwhelmed in the end; his body was found covered in wounds.\n\nShinsengumi survivors, Nagakura Shinpachi among them, later spoke of his courage that night with open admiration. He was thirty-five, and he lies with Itō and Tōdō at Kaikō-ji.",
+            ja: "1867年、伊東とともに隊を離れ御陵衛士に加わる。1867年12月13日夜、伊東の遺体を引き取りに油小路へ向かった一人だった。新選組が待ち伏せを仕掛けると、周囲の者が斃れ、あるいは逃れるなか、服部は両手に刀を執って踏みとどまった。最後には力尽き、その遺体は無数の傷に覆われていたという。\n\n永倉新八をはじめ新選組の生き残りたちは、後年、その夜の服部の勇戦を率直な賞賛をこめて語った。享年三十五（数え三十六）。伊東・藤堂とともに戒光寺に眠る。"} }
+    ],
+    legend: {en: "The details of Hattori's last fight — how many he faced, how long he held out — come mainly from Shinsengumi survivors' later recollections, which may have grown in the telling. That he fought hard and died with many wounds is consistently reported.",
+     ja: "服部の最期の戦いの細部——何人を相手にし、どれほど持ちこたえたか——は、主に新選組の生き残りの後年の回想に拠り、語られるうちに膨らんだ可能性がある。激しく戦い、多くの傷を負って死んだことは、どの記録でも一致している。"}
+  },
+  /* ------------------------------------------------------------ */
+  yamazaki: {
+    kanji: "崎", life: "?–1868", group: "officers",
+    name: {en: "Yamazaki Susumu", ja: "山崎烝"},
+    role: {en: "Inspector (kansatsu)", ja: "諸士調役兼監察"},
+    summary: {en: "The corps' eyes and ears: an Osaka man who became its chief of intelligence, credited with the surveillance that led to the Ikedaya raid, and who later learned field medicine. Wounded in the retreat from Toba–Fushimi, he died on the way to Edo.",
+     ja: "隊の目と耳。大坂の人で、隊の諜報の要となり、池田屋事件につながる探索の功労者とされる。のちには戦場医療も学んだ。鳥羽・伏見からの退却中に負傷し、江戸へ向かう途中で没した。"},
+    sections: [
+      { h: {en: "An Osaka man", ja: "大坂の人"},
+        b: {en: "Yamazaki came from Osaka; by tradition he was the son of an acupuncturist, and his birth year is uncertain. He joined the Shinsengumi in its first Kyoto year, one of the recruits drawn from the Kansai region rather than from Tama, and his knowledge of the merchant cities of Osaka and Kyoto proved more valuable than any sword.",
+            ja: "大坂の出身で、伝えによれば鍼医の子。生年ははっきりしない。京都時代の最初の年に入隊した、多摩ではなく上方出身の隊士の一人である。大坂・京の町人社会に通じていたことが、どんな剣の腕よりも役に立った。"} },
+      { h: {en: "The inspector", ja: "監察"},
+        b: {en: "By 1864 he was serving as an inspector and investigator (shoshi shirabeyaku ken kansatsu) — the officers who watched the corps' own members and gathered intelligence in the city. In the weeks before the Ikedaya incident, Yamazaki and other investigators are credited with the surveillance of the merchant Furutaka Shuntarō, whose arrest and confession revealed the loyalist plot. The corps' most famous night began with his quiet work.\n\nThe inspectors were the least visible and most feared officers in the corps. They reported directly to the leadership, and their findings could mean expulsion or death for a member who broke the code. Yamazaki held the post for the rest of the corps' time in Kyoto.",
+            ja: "1864年（元治元年）には諸士調役兼監察——隊士自身を監視し、市中で情報を集める役——を務めていた。池田屋事件に先立つ数週間、山崎ら探索方は商人・古高俊太郎を内偵したとされ、その捕縛と自白が尊攘派の計画を明るみに出した。隊の最も有名な一夜は、彼の目立たない仕事から始まったのである。\n\n監察は隊でいちばん目立たず、いちばん恐れられた役だった。幹部に直接報告し、その調べは法度を破った隊士にとって除隊か死を意味しえた。山崎は京都時代の終わりまでこの職にあった。"} },
+      { h: {en: "The corps' doctor", ja: "隊の医者"},
+        b: {en: "When the shogunate's physician Matsumoto Ryōjun visited the corps in 1865 to inspect its health, he found the barracks full of sick men and set about reforming its hygiene. Yamazaki is said to have studied under him, learning the dressing of wounds and basic surgery, and to have served thereafter as the corps' medic — a man whom Ryōjun reportedly called the Shinsengumi's own doctor.",
+            ja: "1865年（慶応元年）、幕府の医師・松本良順が隊の衛生状態を視察に訪れると、屯所は病人であふれていた。良順は衛生の改善に乗り出す。山崎はその良順に学び、傷の手当てや簡単な外科を身につけ、以後は隊の医療を担ったと伝わる。良順が「新選組の医者」と呼んだとも言われる。"} },
+      { h: {en: "Death", ja: "最期"},
+        b: {en: "In the fighting at Toba–Fushimi in January 1868, Yamazaki was badly wounded during the retreat south of Kyoto. He was taken aboard the shogunate's ships that carried the defeated army from Osaka back to Edo, and died on the voyage or shortly after arriving; by the most common account he was buried at sea.",
+            ja: "1868年1月（慶応4年）の鳥羽・伏見の戦いで、山崎は京の南への退却中に深手を負った。敗軍を大坂から江戸へ運ぶ幕府の艦船に収容されたが、航海中、あるいは江戸到着の直後に没した。最も広く伝わる説では、水葬に付されたという。"} }
+    ],
+    legend: {en: "Much of Yamazaki's popular image — the master spy in disguise, the acupuncturist's son, the burial at sea — rests on later tradition, and the exact place and date of his death are disputed. His role in the Furutaka surveillance is widely credited but the surviving records name several investigators.",
+     ja: "変装の名人の密偵、鍼医の子、水葬——山崎の通俗的な像の多くは後世の伝承に拠り、没した場所と日付にも異説がある。古高俊太郎の内偵での役割は広く認められているが、現存する記録には複数の探索方の名が見える。"}
+  },
+  /* ------------------------------------------------------------ */
+  yoshimura: {
+    kanji: "吉", life: "?–1868", group: "officers",
+    name: {en: "Yoshimura Kan'ichirō", ja: "吉村貫一郎"},
+    role: {en: "Inspector; sword instructor", ja: "諸士調役兼監察・撃剣師範"},
+    summary: {en: "A swordsman from the Nanbu domain of Morioka who joined in 1865 and rose to inspector and sword instructor. He vanished from the record after Toba–Fushimi; a century and a half later, a bestselling novel turned him into the most loved figure in the Shinsengumi story.",
+     ja: "南部盛岡藩出身の剣客。1865年に入隊し、監察と撃剣師範にまで進んだ。鳥羽・伏見の後に記録から姿を消す。百数十年後、ベストセラー小説が彼を新選組物語でもっとも愛される人物の一人に変えた。"},
+    sections: [
+      { h: {en: "From Nanbu", ja: "南部から"},
+        b: {en: "Yoshimura came from the Nanbu domain of Morioka, in the far north of Honshu, where he is generally said to have been a low-ranking retainer. He left the domain and joined the Shinsengumi in 1865, in one of the recruiting drives that brought new men from the east after the Ikedaya made the corps famous.",
+            ja: "本州北端の南部盛岡藩の出身で、身分の低い藩士だったとされる。藩を離れ、1865年（慶応元年）に新選組に加わった。池田屋事件で名を上げた隊が東国で行った隊士募集の一つで、新たに上ってきた一人である。"} },
+      { h: {en: "In the corps", ja: "隊での働き"},
+        b: {en: "His skill with the sword quickly earned him a place among the corps' instructors in swordsmanship, and he served as an inspector and investigator. These appointments place him among the trusted middle officers of the corps' later Kyoto years.",
+            ja: "剣の腕を認められてほどなく撃剣師範の一人となり、諸士調役兼監察も務めた。これらの職から、京都時代後期の隊で信頼された中堅の幹部だったことがわかる。"} },
+      { h: {en: "Disappearance", ja: "消息不明"},
+        b: {en: "After the battle of Toba–Fushimi in January 1868, Yoshimura disappears from the record. He may have been killed in the fighting or in the retreat; no reliable account of his end survives.",
+            ja: "1868年1月の鳥羽・伏見の戦いの後、吉村は記録から姿を消す。戦闘あるいは退却のなかで斃れたのかもしれないが、その最期を伝える確かな記録は残っていない。"} }
+    ],
+    legend: {en: "Yoshimura is best known today through Asada Jirō's novel Mibu Gishiden (2000) and its film and television adaptations: a poor samurai who left his family to earn money for them, and who died by seppuku at the Nanbu domain's Osaka residence after Toba–Fushimi. That story is fiction, built on the handful of facts above. It has shaped how many readers picture the whole corps.",
+     ja: "吉村は今日、浅田次郎の小説『壬生義士伝』（2000年）とその映画・ドラマ化で最もよく知られている。家族を養う金を稼ぐために国を出た貧しい侍で、鳥羽・伏見の後に大坂の南部藩蔵屋敷で切腹した——という物語である。これは上記のわずかな事実をもとに作られた創作だが、多くの読者が思い描く新選組全体の姿を形づくってきた。"}
+  },
+  /* ------------------------------------------------------------ */
+  ogata: {
+    kanji: "尾", life: "?–?", group: "officers",
+    name: {en: "Ogata Shuntarō", ja: "尾形俊太郎"},
+    role: {en: "Inspector; instructor in letters", ja: "諸士調役兼監察・文学師範"},
+    summary: {en: "A learned man from Higo (Kumamoto) who served the corps from its early Kyoto years as an officer, inspector and teacher of letters, travelled with Kondō on the shogunate's missions to Hiroshima, and followed the corps as far as Aizu — where he slips out of the record.",
+     ja: "肥後（熊本）出身の学識ある人物。京都時代初期から幹部・監察・文学師範として仕え、幕府の広島派遣に近藤とともに加わり、会津まで隊に従った。そこで記録から姿を消す。"},
+    sections: [
+      { h: {en: "A scholar among swordsmen", ja: "剣客のなかの学者"},
+        b: {en: "Ogata came from Higo province in Kyushu. He joined the Shinsengumi early in its Kyoto period and was valued less for his sword than for his learning: he served as an assistant vice-commander, as an inspector and investigator, and as one of the corps' instructors in letters — the men who could read, write and argue in the formal language of politics.",
+            ja: "九州の肥後国の出身。京都時代の早い時期に入隊し、剣よりも学識を重んじられた。副長助勤、諸士調役兼監察、そして文学師範——政治の正式な言葉で読み、書き、論じることのできる者——の一人を務めた。"} },
+      { h: {en: "Close to Kondō", ja: "近藤の側近"},
+        b: {en: "In 1865 and 1866 he accompanied Kondō and Itō on the shogunate's missions to Hiroshima to question envoys of Chōshū, a sign of how far Kondō trusted him. He remained with the corps through the fall of the shogunate, the retreat to Edo and the march north.",
+            ja: "1865年から翌年にかけて、長州の使者を詰問する幕府の広島派遣に近藤・伊東とともに加わった。近藤の信頼の厚さを示している。幕府の崩壊、江戸への撤退、北への転戦まで隊にとどまった。"} },
+      { h: {en: "Into silence", ja: "沈黙へ"},
+        b: {en: "Ogata is last clearly recorded with the corps in Aizu in 1868. What happened to him afterwards is not known with certainty.",
+            ja: "尾形が隊とともにいたことがはっきり記録されているのは、1868年の会津が最後である。その後どうなったかは確かにはわかっていない。"} }
+    ],
+    legend: {en: "Some researchers have argued that Ogata returned to Kumamoto and lived on quietly under another name into the Meiji era. The theory is interesting but not proven, and the absence of any account from him — for a man so close to Kondō — is itself one of the small mysteries of the corps.",
+     ja: "尾形は熊本に戻り、別の名で明治まで静かに生きたとする研究者もいる。興味深い説だが証明はされていない。近藤のこれほど近くにいた人物が何の証言も残していないこと自体が、隊の小さな謎の一つである。"}
   }
 };
