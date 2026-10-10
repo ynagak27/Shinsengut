@@ -211,7 +211,7 @@ function renderEra(){
     b.setAttribute("aria-pressed",b.dataset.era===era);
   });
   const view=map.getBounds();
-  const shown=era==="edo"&&view?OLD_MAPS.filter(m=>view.intersects(oldBounds(m))&&map.getZoom()>=m.zooms[0]):[];
+  const shown=era==="edo"&&view?OLD_MAPS.filter(m=>view.intersects(oldBounds(m))&&map.getZoom()>=m.zooms[0]&&map.getZoom()<=m.zooms[1]):[];
   /* credit line for whichever old maps are on screen */
   eraUI.credit.replaceChildren(...shown.flatMap((m,i)=>{
     const a=document.createElement("a");

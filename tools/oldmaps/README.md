@@ -70,3 +70,28 @@ To add a new map:
 2. Add an entry to `data/oldmaps.js` with the credit wording the holder
    requires.
 3. Add a `<script>` tag for its `tiles.js` in `index.html`.
+
+## How the Inō layer was made (`ino-chuzu`)
+
+The source is the Tokyo National Museum's 伊能忠敬『日本沿海輿地図（中図）』
+(P-2906). Its images come from ColBase, and the record for each sheet is
+`colbaseapi/v2/collection_items/tnm/P-2906-<n>`. The images are free to use,
+commercial use included, as long as the source is credited. Four of the eight
+sheets are used:
+
+| Sheet | Covers | Landmarks used to align it |
+| --- | --- | --- |
+| 5 | Kinki–Chūbu | Capes, Ōtsu, Atsuta |
+| 4 | Kantō | Bōsō and Miura capes, Fuji, Izu, Ōshima, Inawashiro |
+| 3 | Tōhoku | Capes and islands |
+| 2 | Hokkaidō | Hakodate-yama, Esan, Sōya, Okushiri |
+
+1. Each sheet is a single JPEG, 3000 px tall, about 220–260 m per pixel. That
+   suits zoom levels 5–11.
+2. Each sheet has its own control-point file, `ino-chuzu-sheet<n>.gcps.json`.
+   Its `clip_polygon` is the sheet's printed frame.
+3. `tiles_multi.py OUT 5 11 sheet5.json:img5 sheet4.json:img4 ...` cuts all the
+   sheets into one tile set. Where sheets overlap, each pixel comes from the
+   sheet it lies furthest inside. That keeps compass roses and margins from
+   covering a neighbouring sheet.
+4. Index the tiles with `index_tiles.py ino-chuzu`.

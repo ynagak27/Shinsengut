@@ -17,6 +17,18 @@
 
 const OLD_MAPS = [
 
+ /* Regional base layer (zoomed out). Listed first so the city maps draw on top. */
+ {id:"ino-chuzu",
+  place:{en:"all of Japan", ja:"全国"},
+  bounds:[32.41, 134.99, 46.03, 143.18],
+  zooms:[5, 11],
+  focus:{lat:37.2, lng:139.2, zoom:6},
+  title:{en:"Inō Tadataka, Dai Nihon enkai yochi zenzu (medium scale), early 19th c.",
+         ja:"伊能忠敬『日本沿海輿地図（中図）』（19世紀前半）"},
+  credit:{en:"Tokyo National Museum (P-2906), Important Cultural Property. Source: ColBase (https://colbase.nich.go.jp). Four sheets (Kinki–Chūbu, Kantō, Tōhoku, Hokkaidō) georeferenced for this site — positions are approximate.",
+          ja:"東京国立博物館所蔵（P-2906）重要文化財。出典：ColBase (https://colbase.nich.go.jp)。近畿・中部／関東／東北／北海道の4図を本サイトで現代の地図に合わせて変形。位置は概略です。"},
+  url:"https://colbase.nich.go.jp/collection_items/tnm/P-2906"},
+
  {id:"kyoto-genji",
   place:{en:"Kyoto", ja:"京都"},
   bounds:[34.9325, 135.7380, 35.0371, 135.7926],
