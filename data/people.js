@@ -17,7 +17,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   hijikata: {
-    kanji: "土", life: "1835–1869",
+    kanji: "土", life: "1835–1869", group: "leaders",
     name: {en: "Hijikata Toshizō", ja: "土方歳三"},
     role: {en: "Vice-commander (fukuchō)", ja: "副長"},
     summary: {
@@ -42,7 +42,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   kondo: {
-    kanji: "近", life: "1834–1868",
+    kanji: "近", life: "1834–1868", group: "leaders",
     name: {en: "Kondō Isami", ja: "近藤勇"},
     role: {en: "Commander (kyokuchō)", ja: "局長"},
     summary: {
@@ -67,7 +67,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   okita: {
-    kanji: "沖", life: "1842?–1868",
+    kanji: "沖", life: "1842?–1868", group: "captains",
     name: {en: "Okita Sōji", ja: "沖田総司"},
     role: {en: "Captain, 1st unit", ja: "一番隊組長"},
     summary: {
@@ -96,7 +96,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   saito: {
-    kanji: "斎", life: "1844–1915",
+    kanji: "斎", life: "1844–1915", group: "captains",
     name: {en: "Saitō Hajime", ja: "斎藤一"},
     role: {en: "Captain, 3rd unit", ja: "三番隊組長"},
     summary: {
@@ -122,7 +122,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   nagakura: {
-    kanji: "永", life: "1839–1915",
+    kanji: "永", life: "1839–1915", group: "captains",
     name: {en: "Nagakura Shinpachi", ja: "永倉新八"},
     role: {en: "Captain, 2nd unit", ja: "二番隊組長"},
     summary: {
@@ -144,7 +144,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   harada: {
-    kanji: "原", life: "1840–1868",
+    kanji: "原", life: "1840–1868", group: "captains",
     name: {en: "Harada Sanosuke", ja: "原田左之助"},
     role: {en: "Captain, 10th unit", ja: "十番隊組長"},
     summary: {
@@ -170,7 +170,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   inoue: {
-    kanji: "井", life: "1829–1868",
+    kanji: "井", life: "1829–1868", group: "captains",
     name: {en: "Inoue Genzaburō", ja: "井上源三郎"},
     role: {en: "Captain, 6th unit", ja: "六番組組長"},
     summary: {
@@ -199,7 +199,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   yamanami: {
-    kanji: "山", life: "1833–1865",
+    kanji: "山", life: "1833–1865", group: "leaders",
     name: {en: "Yamanami Keisuke", ja: "山南敬助"},
     role: {en: "General secretary (sōchō)", ja: "総長"},
     summary: {
@@ -225,7 +225,7 @@ const PEOPLE = {
 
   /* ------------------------------------------------------------ */
   serizawa: {
-    kanji: "芹", life: "c.1826–1863",
+    kanji: "芹", life: "c.1826–1863", group: "leaders",
     name: {en: "Serizawa Kamo", ja: "芹沢鴨"},
     role: {en: "Founding commander", ja: "筆頭局長"},
     summary: {
@@ -247,5 +247,111 @@ const PEOPLE = {
       en: "Serizawa is history's designated villain, and much of the surviving detail comes from the winning faction's descendants and from the Yagi family's later reminiscences. The outrages are well attested; the cartoonish brute is partly narrative convenience. Some historians read him as a genuine radical who considered the corps his movement, not Kondō's.",
       ja: "芹沢は歴史の「悪役」に配役された男であり、現存する逸話の多くは勝った側の系譜と、後年の八木家の回想に由来する。乱暴狼藉の数々はよく裏付けられているが、漫画的な粗暴漢像には物語上の都合も混じる。彼を、新選組を近藤のものではなく自らの運動と考えていた本物の過激派と読み直す歴史家もいる。"
     }
+  },
+  /* ------------------------------------------------------------ */
+  todo: {
+    kanji: "藤", life: "1844–1867", group: "captains",
+    name: {en: "Tōdō Heisuke", ja: "藤堂平助"},
+    role: {en: "Captain, 8th unit", ja: "八番組組長"},
+    summary: {en: "The youngest of the original Shieikan circle, nicknamed \"Sakigake-sensei\" — Mr. First-In — for always charging first. He took a sword cut across the forehead at the Ikedaya, brought Itō Kashitarō into the corps, then left with him, and was killed at Aburanokōji fighting the men he had marched beside for four years.",
+     ja: "試衛館以来の同志のなかで最年少。いつも真っ先に斬り込むことから「魁先生」と呼ばれた。池田屋で額を斬られ、伊東甲子太郎を隊に引き入れ、やがて伊東とともに隊を去り、油小路で、四年間ともに歩んだ仲間たちと斬り合って死んだ。"},
+    sections: [
+      { h: {en: "Origins", ja: "生い立ち"},
+        b: {en: "Tōdō was born in Edo in 1844. He claimed — or it was claimed for him — to be an unacknowledged son of the lord of the Tsu domain, whose family name he shared; the story was never proven, and it may have been no more than a way for a young man of uncertain birth to stand a little taller among swordsmen. What is clearer is that he trained in Hokushin Ittō-ryū, the polished Edo school of the Chiba family, before drifting into the rough company of Kondō's Shieikan.\n\nHe was barely nineteen when the Rōshigumi marched west in 1863, the youngest of the men who would form the core of the Shinsengumi.",
+            ja: "1844年（弘化元年）、江戸に生まれる。伊勢津藩主・藤堂家の落胤だと称した、あるいはそう噂されたが、証明されたことはない。出自のはっきりしない若者が剣客たちのなかで少しでも胸を張るための話だったのかもしれない。確かなのは、千葉家の洗練された江戸の流派・北辰一刀流を学んだのち、近藤の試衛館の荒っぽい一門に加わったことである。\n\n1863年（文久3年）に浪士組が西へ上ったとき、彼はようやく十九歳。のちの新選組の中核をなす面々のなかで最も若かった。"} },
+      { h: {en: "First through the door", ja: "魁先生"},
+        b: {en: "In Kyoto Tōdō served as an assistant vice-commander and earned his nickname by always being first into a fight. At the Ikedaya in July 1864 he was one of the handful of men who went in with Kondō. In the stifling heat he pushed back his protective headband, and a sword stroke opened his forehead; he fought on half-blinded by blood and was carried out with the wound that marked him for the rest of his short life.\n\nThat autumn he went ahead to Edo to prepare a recruiting drive, and through his old ties in Hokushin Ittō-ryū circles he brought Kondō an important catch: Itō Kashitarō, a learned swordsman with his own following. When the corps was reorganized in 1865, Tōdō took command of the 8th unit.",
+            ja: "京都では副長助勤を務め、いつも真っ先に斬り込むことからその異名がついた。1864年7月（元治元年6月）の池田屋では、近藤とともに踏み込んだわずかな手勢の一人だった。蒸し暑さに鉢金を押し上げたところへ刀を受けて額を割られ、流れる血で目もよく見えぬまま戦い続け、深手を負って運び出された。この傷は短い生涯の終わりまで残った。\n\nその秋、隊士募集の準備のため一足先に江戸へ下り、北辰一刀流の旧縁を通じて近藤に大きな人材を引き合わせる。自らの門弟を持つ学識ある剣客、伊東甲子太郎である。1865年に隊が再編されると、八番組の組長となった。"} },
+      { h: {en: "With Itō", ja: "伊東とともに"},
+        b: {en: "Itō's arrival changed the corps. He was a scholar of the imperial cause, and his views drifted steadily away from Kondō's loyalty to the shogunate. In the spring of 1867 Itō left to found the Goryō Eji, guards of the late Emperor Kōmei's tomb, taking more than a dozen men with him. Tōdō went with him. Whether he went from conviction, from loyalty to the man he had recruited, or from old ties to their shared sword school, no one can now say.",
+            ja: "伊東の加入は隊を変えた。伊東は尊王の学者でもあり、その考えは近藤の幕府への忠義から次第に離れていった。1867年（慶応3年）春、伊東は孝明天皇の御陵を守る「御陵衛士」を結成して隊を離れ、十数名がこれに従った。藤堂もその一人だった。思想に共鳴したのか、自ら引き入れた人への義理か、同じ流派の縁か。今となっては誰にもわからない。"} },
+      { h: {en: "Aburanokōji", ja: "油小路"},
+        b: {en: "On December 13, 1867, Itō was invited to a drinking party at Kondō's mistress's house, cut down on his way home, and his body left in the street at Aburanokōji as bait. When the Goryō Eji came to recover it, the Shinsengumi was waiting. Tōdō died in the fight that followed, at twenty-three. He is buried with Itō and the other fallen of the Goryō Eji at Kaikō-ji, a sub-temple of Sennyū-ji in eastern Kyoto.",
+            ja: "1867年12月13日（慶応3年11月18日）、伊東は近藤の妾宅での酒宴に招かれ、その帰途に斬られた。遺体は油小路の路上に放置され、おとりとされた。御陵衛士が引き取りに来たところを、新選組が待ち構えていた。続く斬り合いのなかで藤堂は死んだ。二十三歳だった。伊東ら御陵衛士の殉難者とともに、東山・泉涌寺の塔頭、戒光寺に眠る。"} }
+    ],
+    legend: {en: "Nagakura Shinpachi later wrote that Kondō wanted Tōdō spared, and that Nagakura himself opened a way for him to escape — only for another member, not knowing the order, to cut him down from behind. It is a moving story, told by a man who was there, but it comes from a memoir written decades later and cannot be checked. The Tsu-domain parentage is likewise unproven.",
+     ja: "近藤は藤堂を生かすよう命じ、永倉新八自身が逃げ道を開けたが、その命を知らない別の隊士が背後から斬った——のちに永倉はそう書き残した。現場にいた人の胸を打つ証言だが、数十年後の回想録に拠るもので、確かめようがない。津藩主の落胤説も同様に証明されていない。"}
+  },
+  /* ------------------------------------------------------------ */
+  takeda: {
+    kanji: "武", life: "?–1867", group: "captains",
+    name: {en: "Takeda Kanryūsai", ja: "武田観柳斎"},
+    role: {en: "Captain, 5th unit; military instructor", ja: "五番組組長・軍学師範"},
+    summary: {en: "The corps' instructor in traditional military science and one of its most ambitious officers. He fought at the Ikedaya and rose to captain the 5th unit, but when the corps turned to Western drill his learning became obsolete, his standing collapsed, and he left — and was killed by the corps in 1867.",
+     ja: "隊の軍学師範であり、最も野心的な幹部の一人。池田屋で戦い五番組組長にまで昇ったが、隊が西洋式の調練に切り替えると彼の軍学は時代遅れとなり、立場は崩れた。隊を離れ、1867年、隊の手で討たれた。"},
+    sections: [
+      { h: {en: "A military scholar", ja: "軍学者"},
+        b: {en: "Takeda came from Izumo province, on the Sea of Japan coast, and made his way as a teacher of Kōshū-style military science — the classical Japanese art of armies, formations and strategy, descended from the campaigns of the Takeda clan of Kai. He joined the corps in Kyoto in 1863, after the Rōshigumi had split, and his learning gave him a place few rank-and-file swordsmen could claim: he became the corps' instructor in military science, and later also taught letters. In a corps of swordsmen, he was the man who could talk about armies.",
+            ja: "日本海側の出雲国の出身で、甲州流軍学——甲斐武田氏の兵法に由来する、軍勢・陣形・戦略を説く日本古来の兵学——の師として身を立てた。浪士組分裂後の1863年（文久3年）、京都で入隊。その学識によって、並の剣客には得られない地位を得た。隊の軍学師範であり、のちには文学師範も兼ねた。剣客ばかりの隊のなかで、軍勢を語ることのできる男だった。"} },
+      { h: {en: "Rise", ja: "栄達"},
+        b: {en: "He was one of the handful of men who went into the Ikedaya with Kondō in July 1864 and was rewarded accordingly. When the corps was reorganized in 1865 he was given the 5th unit. Contemporaries and later writers alike portray him as an assiduous courtier of Kondō's favour, and he seems to have made enemies among men who valued plain dealing.",
+            ja: "1864年7月の池田屋では、近藤とともに踏み込んだわずかな手勢の一人であり、相応の恩賞を受けた。1865年の再編では五番組を任される。同時代人にも後世の書き手にも、近藤の歓心を熱心に求めた人物として描かれ、実直を重んじる隊士たちのあいだに敵を作ったらしい。"} },
+      { h: {en: "Obsolete", ja: "時代遅れ"},
+        b: {en: "From 1865 the corps began training in Western-style drill and firearms, and the shogunate itself was rebuilding its army on French lines. Kōshū-style military science, Takeda's whole claim to rank, became a relic almost overnight. His influence waned; he is said to have sought new patrons outside the corps, including, by some accounts, among its enemies. Sometime in 1866 or early 1867 he left.\n\nIn the summer of 1867 he was killed on the bank of the Kamo river near the Zenitori bridge, by men of the corps sent after him. For an officer who had left and was suspected of dealing with the other side, the Shinsengumi's code allowed only one outcome.",
+            ja: "1865年頃から隊は西洋式の調練と銃砲の訓練を始め、幕府自身もフランス式に軍を作り直しつつあった。武田の地位の拠りどころだった甲州流軍学は、ほとんど一夜にして過去の遺物となった。影響力は衰え、隊の外に新たな後ろ盾を求めたと言われ、一説には敵方にまで近づいたという。1866年から1867年初めのあいだに、彼は隊を去った。\n\n1867年（慶応3年）夏、鴨川の銭取橋付近で、差し向けられた隊士たちの手にかかって死んだ。隊を離れ、敵方との内通を疑われた幹部に、新選組の掟が許す結末は一つしかなかった。"} }
+    ],
+    legend: {en: "Which members killed Takeda is not recorded with certainty; popular accounts name Saitō Hajime, but that rests on later tradition. Later fiction also made much of his personal life, with little basis in the record. His exact date of birth is unknown.",
+     ja: "武田を討った隊士が誰だったかは確かな記録がない。通俗的には斎藤一の名が挙がるが、後世の伝承に拠る。私生活をめぐる後年の創作も多いが、記録上の根拠は乏しい。生年も不明である。"}
+  },
+  /* ------------------------------------------------------------ */
+  tani: {
+    kanji: "谷", life: "?–1866", group: "captains",
+    name: {en: "Tani Sanjūrō", ja: "谷三十郎"},
+    role: {en: "Captain, 7th unit; spear instructor", ja: "七番組組長・槍術師範"},
+    summary: {en: "A spearman from a samurai family of Bitchū Matsuyama who joined with his two younger brothers. He captained the 7th unit and taught the spear; his youngest brother was adopted by Kondō as heir. He died suddenly in Gion in 1866, and how he died is still argued over.",
+     ja: "備中松山の武士の家に生まれた槍の名手で、二人の弟とともに入隊した。七番組組長として槍術を教え、末弟は近藤の養子に迎えられた。1866年、祇園で急死。その死因は今も議論が分かれる。"},
+    sections: [
+      { h: {en: "Three brothers", ja: "谷三兄弟"},
+        b: {en: "Tani came from a samurai family of the Bitchū Matsuyama domain, in what is now Okayama prefecture. The family lost its position and the brothers made their living by their skills; Sanjūrō and his brother Mantarō were spearmen, and Mantarō ran a dōjō in Osaka. The three brothers — Sanjūrō, Mantarō and the youngest, Masatake — all joined the Shinsengumi in its Kyoto years.\n\nTheir home domain had an unusual connection to the regime the corps served: its lord, Itakura Katsukiyo, was one of the shogunate's senior councillors (rōjū) through much of the 1860s. Whether that tie helped the brothers find a place in a shogunal police corps is not recorded, but men from Matsuyama had reason to see the shogunate's cause as their own.",
+            ja: "現在の岡山県にあたる備中松山藩の武士の家の出身。家は禄を失い、兄弟は腕一本で身を立てた。三十郎と弟の万太郎は槍の遣い手で、万太郎は大坂で道場を開いていた。三十郎・万太郎・末弟の昌武の三兄弟は、そろって京都時代の新選組に加わった。\n\n郷里の藩は、隊が仕えた政権と特別なつながりを持っていた。藩主の板倉勝静は、1860年代の大半を通じて幕府の老中を務めていたのである。その縁が兄弟の入隊を後押ししたかどうかは記録にないが、松山の人間にとって幕府の大義は他人事ではなかったはずだ。"} },
+      { h: {en: "Captain and kinsman", ja: "組長、そして近藤の縁者"},
+        b: {en: "Sanjūrō's standing rose quickly. Around this time the corps formalised its training by appointing instructors in each discipline — swordsmanship, spear, jūjutsu, military science, letters, gunnery and horsemanship — so that a captain was often also a teacher. When the corps was reorganized in 1865 Tani received the 7th unit and served as its instructor in the spear, the weapon of choice for holding a narrow street or doorway. That year Kondō, who had no son, adopted the youngest brother Masatake as his heir under the name Kondō Shūhei — a remarkable honour that bound the Tani family to the commander himself.",
+            ja: "三十郎の地位は急速に上がった。この頃、隊は撃剣・槍術・柔術・軍学・文学・砲術・馬術と分野ごとに師範を置いて訓練を制度化しており、組長が師範を兼ねることも多かった。1865年の再編で七番組を任され、槍術師範を務めた。槍は狭い路地や戸口を押さえるのに最も頼りになる武器だった。同じ年、男子のいない近藤は末弟の昌武を養子に迎え、近藤周平と名乗らせる。谷家を局長その人に結びつける、異例の厚遇だった。"} },
+      { h: {en: "Death in Gion", ja: "祇園での急死"},
+        b: {en: "In the spring of 1866 Tani died suddenly near the stone steps of the Yasaka shrine in Gion. The records of the corps do not explain how. After his death, the Tani family's place close to Kondō did not last; Shūhei's adoption was later dissolved.",
+            ja: "1866年（慶応2年）春、祇園・八坂神社の石段下付近で急死した。隊の記録はその理由を語らない。彼の死後、近藤のそばにあった谷家の立場は長く続かず、周平の養子縁組ものちに解消された。"} }
+    ],
+    legend: {en: "Because his death was sudden and unexplained, rumour filled the gap. Popular accounts say he was assassinated by his own comrades, and Saitō Hajime is often named — but no contemporary record supports this, and illness remains just as possible. Stories that he was disliked and incompetent come largely from later writers.",
+     ja: "急死で説明がないため、噂がその空白を埋めた。通俗的には同志の手で暗殺されたとされ、斎藤一の名がよく挙げられるが、同時代の記録による裏付けはなく、病死の可能性も同じくらいある。嫌われ者で無能だったという話も、多くは後世の書き手による。"}
+  },
+  /* ------------------------------------------------------------ */
+  matsubara: {
+    kanji: "松", life: "?–1865", group: "captains",
+    name: {en: "Matsubara Chūji", ja: "松原忠司"},
+    role: {en: "Captain, 4th unit; jūjutsu instructor", ja: "四番組組長・柔術師範"},
+    summary: {en: "A big, shaven-headed jūjutsu master from Osaka, known for his kindness, who captained the 4th unit. He died in 1865, and the circumstances are lost under one of the most enduring legends of the corps.",
+     ja: "坊主頭の大男で、大坂の柔術の達人。人の好さで知られ、四番組を率いた。1865年に死去。その経緯は、新選組でも指折りの根強い伝説の下に埋もれている。"},
+    sections: [
+      { h: {en: "The \"modern Benkei\"", ja: "今弁慶"},
+        b: {en: "Matsubara was a master of Sekiguchi-ryū jūjutsu from the Osaka area who joined the corps in its early Kyoto days. Sekiguchi-ryū was one of the oldest schools of jūjutsu, founded in the early Edo period and taught across western Japan — a respectable pedigree for a fighter whose art relied on throws, locks and close grappling rather than the sword. A large man who kept his head shaved, he was nicknamed after Benkei, the giant warrior-monk of medieval legend. He was remembered as good-natured and generous — in a corps known for its severity, a man people liked.",
+            ja: "大坂方面の関口流柔術の達人で、京都時代の初期に入隊した。関口流は江戸時代初期に興った最古級の柔術流派の一つで、西日本に広く伝わった。刀ではなく投げ・関節・組み討ちを拠りどころとする武術家にとって、申し分のない系譜である。大柄で頭を丸めていたことから、中世の伝説の怪僧・弁慶になぞらえて「今弁慶」と呼ばれた。人柄は穏やかで面倒見がよく、厳しさで知られた隊のなかで、人に好かれる人物として記憶されている。"} },
+      { h: {en: "Captain", ja: "組長"},
+        b: {en: "When the corps was reorganized in 1865, Matsubara was given command of the 4th unit and served as the corps' instructor in jūjutsu, the art of fighting unarmed or close in. In these years the corps formalised its training by appointing instructors in each discipline — swordsmanship, spear, jūjutsu, military science, letters, gunnery and horsemanship — so that a captain was often also a teacher. Beyond these appointments, the record of Matsubara's service is thin.",
+            ja: "1865年の再編で四番組の組長となり、素手や組み討ちの武術である柔術の師範を務めた。この時期、隊は撃剣・槍術・柔術・軍学・文学・砲術・馬術と分野ごとに師範を置いて訓練を制度化しており、組長が師範を兼ねることも多かった。こうした役職のほかには、彼の働きを伝える記録は乏しい。"} },
+      { h: {en: "Death", ja: "最期"},
+        b: {en: "Matsubara died in the autumn of 1865. Contemporary records note the death but say little about its cause, and some accounts suggest he had fallen from favour shortly before. Into that silence stepped one of the corps' most famous stories.",
+            ja: "1865年（慶応元年）秋、松原は死去した。同時代の記録は死を伝えるのみで原因をほとんど語らず、直前に不興を買っていたとする記述もある。その沈黙のなかに、隊でも指折りの有名な物語が入り込んだ。"} }
+    ],
+    legend: {en: "The \"Mibu double suicide\" story — that Matsubara killed a man in a quarrel, fell in love with his widow while caring for her, and died with her — was popularised by Shimozawa Kan in the 20th century. It is a powerful tale, but it has no support in contemporary records and should be read as fiction built around a real man's unexplained death.",
+     ja: "「壬生心中」——松原が喧嘩で人を斬り、その未亡人の面倒を見るうちに恋に落ち、ともに死んだという話——は、20世紀に子母澤寛によって広められた。心を打つ物語だが、同時代の記録による裏付けはなく、ある人物の説明のつかない死をもとに作られた創作として読むべきものである。"}
+  },
+  /* ------------------------------------------------------------ */
+  suzuki: {
+    kanji: "鈴", life: "1837–1919", group: "captains",
+    name: {en: "Suzuki Mikisaburō", ja: "鈴木三樹三郎"},
+    role: {en: "Captain, 9th unit", ja: "九番組組長"},
+    summary: {en: "Itō Kashitarō's younger brother, who joined with him in 1864 and captained the 9th unit. He left with Itō for the Goryō Eji, survived the ambush at Aburanokōji that killed his brother, fought against the shogunate in the Boshin War, and lived on into the 20th century.",
+     ja: "伊東甲子太郎の実弟。1864年に兄とともに入隊し、九番組を率いた。兄に従って御陵衛士となり、兄の命を奪った油小路の待ち伏せを生き延び、戊辰戦争では幕府と戦う側に回り、20世紀まで生きた。"},
+    sections: [
+      { h: {en: "Itō's brother", ja: "伊東の弟"},
+        b: {en: "Suzuki was born in 1837 in Shizuku, Hitachi province, the younger brother of the man who would become Itō Kashitarō; the family name was Suzuki, and Itō took his new name on being adopted into a dōjō family in Edo. When Itō joined the Shinsengumi in the autumn of 1864, Mikisaburō came with him.",
+            ja: "1837年（天保8年）、常陸国志筑に生まれる。のちの伊東甲子太郎の実弟である。生家の姓は鈴木で、兄は江戸の道場の家に養子に入って伊東を名乗った。1864年秋に伊東が新選組に加わると、三樹三郎も兄に従った。"} },
+      { h: {en: "Captain", ja: "組長"},
+        b: {en: "In the 1865 reorganization he received the 9th unit. His position owed a great deal to his brother, whose learning and following made him one of the most important men in the corps; Mikisaburō's own record in these years is modest.",
+            ja: "1865年の再編で九番組を任される。この地位は、学識と門人を背景に隊の重鎮となった兄に負うところが大きかった。この時期の三樹三郎自身の事績は控えめである。"} },
+      { h: {en: "The Goryō Eji and after", ja: "御陵衛士、そしてその後"},
+        b: {en: "In 1867 he left with Itō to form the Goryō Eji. On the night of December 13, 1867, when the survivors came to recover Itō's body at Aburanokōji and were ambushed, Mikisaburō was among those who escaped; he found refuge in the Satsuma domain's residence. The survivors of the Goryō Eji took their revenge where they could — Kondō was shot and wounded from ambush a few weeks later — and in the Boshin War that followed they fought on the side of the new government.\n\nSuzuki lived until 1919, long enough to see the Shinsengumi pass from living memory into legend.",
+            ja: "1867年、兄とともに隊を離れ御陵衛士となる。1867年12月13日夜、伊東の遺体を引き取りに来た衛士たちが油小路で待ち伏せを受けたとき、三樹三郎は脱出した一人で、薩摩藩邸に逃れた。御陵衛士の生き残りは機をうかがって報復し——数週間後、近藤は待ち伏せの銃撃で負傷する——続く戊辰戦争では新政府側に立って戦った。\n\n鈴木は1919年（大正8年）まで生きた。新選組が生きた記憶から伝説へと移っていくのを見届けるほどに。"} }
+    ]
   }
 };

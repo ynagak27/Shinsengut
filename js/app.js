@@ -256,11 +256,28 @@ function renderHeader(){
 }
 
 /* ---------- people row ---------- */
+/* People are listed in groups (each person's "group" in data/people.js).
+   Unit captains sort by unit number; everyone else keeps file order. */
+const PEOPLE_GROUPS=[
+  {id:"leaders",   label:{en:"Leaders",       ja:"局長・副長・総長"}},
+  {id:"captains",  label:{en:"Unit captains", ja:"組長"}},
+  {id:"officers",  label:{en:"Officers",      ja:"幹部"}},
+  {id:"hakodate",  label:{en:"Hakodate",      ja:"箱館"}},
+  {id:"associates",label:{en:"Associates",    ja:"関係者"}}
+];
+const unitNo=p=>{const m=/(\d+)\w* unit/.exec(p.role.en);return m?+m[1]:99;};
 function renderPeople(){
-  $("people-grid").innerHTML=Object.entries(PEOPLE).map(([id,p])=>`
+  const all=Object.entries(PEOPLE);
+  $("people-grid").innerHTML=PEOPLE_GROUPS.map(g=>{
+    let members=all.filter(([,p])=>(p.group||"officers")===g.id);
+    if(g.id==="captains") members=members.sort((a,b)=>unitNo(a[1])-unitNo(b[1]));
+    if(!members.length) return "";
+    return `<div class="p-group"><div class="p-group-label">${t(g.label)}</div><div class="p-group-chips">`+
+      members.map(([id,p])=>`
     <button class="p-chip" data-p="${id}" aria-pressed="${selPerson===id}">
       ${monBtn(id)}<span class="pn">${t(p.name)}</span>
-    </button>`).join("");
+    </button>`).join("")+`</div></div>`;
+  }).join("");
   $("people-grid").querySelectorAll(".p-chip").forEach(b=>b.onclick=()=>selectPerson(b.dataset.p));
 }
 

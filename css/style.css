@@ -57,7 +57,9 @@ main{flex:1;display:flex;min-height:0}
 /* ---------- people row ---------- */
 #people{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
 .sec-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--mist);text-transform:uppercase;margin-bottom:10px}
-.people-grid{display:flex;flex-wrap:wrap;gap:8px}
+.people-grid{display:flex;flex-direction:column;gap:10px}
+.p-group-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:5px}
+.p-group-chips{display:flex;flex-wrap:wrap;gap:6px}
 .p-chip{
   display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:3px;
   background:var(--panel);padding:5px 10px 5px 5px;transition:border-color .15s,background .15s;
