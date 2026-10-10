@@ -169,6 +169,35 @@ const PEOPLE = {
   },
 
   /* ------------------------------------------------------------ */
+  inoue: {
+    kanji: "井", life: "1829–1868",
+    name: {en: "Inoue Genzaburō", ja: "井上源三郎"},
+    role: {en: "Captain, 6th unit", ja: "六番組組長"},
+    summary: {
+      en: "The quiet elder of the Shieikan circle. A Hino man from a family of part-time shogunal guards, he spent more than a decade earning a sword licence that came easily to younger men, followed Kondō and Hijikata to Kyoto as their senior, and was killed at Yodo in the first days of the Boshin War — the first of the original Tama comrades to die in battle.",
+      ja: "試衛館一門の物静かな年長者。八王子千人同心の家に生まれた日野の人で、若い仲間がたやすく手にした免許を十年以上かけて得た。兄貴分として近藤・土方に従い京へ上り、戊辰戦争の初戦、淀で戦死した。多摩以来の同志のなかで、戦場に斃れた最初の一人である。"
+    },
+    sections: [
+      { h: {en: "A Hino family of guards", ja: "日野の千人同心の家"},
+        b: {en: "Inoue was born in 1829 in Hino, the post town on the Kōshū road a few kilometres from Hijikata's village of Ishida. His family belonged to the Hachiōji Thousand-Man Guard (Hachiōji sennin dōshin), a peculiar institution of the Tama region: some thousand households of farmers who held minor shogunal rank, kept their swords and their fields, and took turns on guard duty, most famously at the Tokugawa shrines at Nikkō. They were not quite samurai and not quite peasants — exactly the in-between class that would later fill the Shinsengumi's ranks.\n\nHe was a younger son, with no claim on the family's position. His elder brother Matsugorō inherited it, and the brothers stayed close; Matsugorō's later journey to Kyoto would leave one of the few eyewitness glimpses of the corps' first months.",
+            ja: "1829年（文政12年）、甲州道中の宿場・日野宿に生まれる。土方の生まれた石田村からは数キロの距離である。生家は八王子千人同心の家だった。多摩地方特有の制度で、千戸ほどの農家が幕府の下級の身分を与えられ、刀を差し田畑を耕しながら、交代で警備に就いた。日光東照宮の火の番が最もよく知られる。武士とも農民とも言い切れない——のちに新選組を満たすことになる、まさにその中間の階層である。\n\n次男以下であったため家督の望みはなく、家は兄の松五郎が継いだ。兄弟の仲は良く、のちに松五郎が京へ上った際の記録は、結成直後の隊を外から見た数少ない証言の一つとなる。"} },
+      { h: {en: "The Shieikan's elder", ja: "試衛館の年長者"},
+        b: {en: "As a youth Inoue entered the Tennen Rishin-ryū under Kondō Shūsuke, the master who would adopt Kondō Isami. The school's real base was not its small Edo dojo but the farming houses of Tama, where Shūsuke and his successors gave lessons on circuit; the Hino headman Satō Hikogorō kept a practice hall in his own home. Inoue trained there and in Edo for well over a decade before receiving his full licence, around 1860 — slowly, by the standards of younger men like Okita.\n\nThat slowness became part of his character in later memory: not a gifted swordsman but a dependable one, older than Kondō and Hijikata, quietly loyal, the one who kept the house running. In the Shieikan's crowded, rowdy years he was something like an elder brother to the younger men, and tradition — affectionate, if hard to document — remembers him as the steady presence everyone took for granted.",
+            ja: "少年期に、のちに近藤勇を養子とする近藤周助のもとで天然理心流に入門した。同流の本当の地盤は江戸の小さな道場ではなく多摩の農家で、周助ら歴代の師は出稽古で村々を回った。日野宿名主の佐藤彦五郎は自宅に道場を構えていた。井上はここと江戸とで十年以上修行を重ね、免許を得たのは1860年頃とされる。沖田のような若者と比べれば、遅い歩みである。\n\nその遅さは、後世の人物像の一部にもなった。天才肌ではないが確かな剣。近藤や土方より年長で、静かに忠実で、所帯を回す役を担った人。騒がしい試衛館時代、彼は若い仲間たちの兄貴分のような存在だったと伝えられる。記録で裏付けるのは難しいが、愛情をこめて語り継がれてきた姿である。"} },
+      { h: {en: "Kyoto", ja: "京都時代"},
+        b: {en: "In early 1863 Inoue marched west with the Rōshigumi and was one of the Shieikan men who stayed behind in Kyoto with Kondō when the rest returned to Edo. In the new corps he served as an assistant to the vice-commander (fukuchō jokin), the band of officers between the leadership and the rank and file.\n\nOn the night of the Ikedaya incident in July 1864 he was in Hijikata's column, which searched the riverside inns before converging on the Ikedaya to seal the area. When the corps was reorganized into numbered units in 1865, he took command of the 6th unit. In 1867 he was among the officers made direct retainers of the shogunate. He was never one of the corps' famous swordsmen or schemers; his role was the less visible work of an officer who could be relied on.",
+            ja: "1863年（文久3年）初め、浪士組とともに西へ上り、本隊が江戸へ引き返した後も近藤とともに京に残った試衛館一門の一人となった。新しい組織では副長助勤を務めた。幹部と平隊士のあいだに立つ士官の役である。\n\n1864年7月（元治元年6月）の池田屋事件の夜は土方隊に属し、鴨川沿いの旅籠を捜索したのち池田屋に合流して周辺を固めた。1865年に隊が番組に再編されると、六番組の組長となる。1867年には、隊の幹部たちとともに幕臣に取り立てられた。名の轟く剣客でも策士でもない。彼の役目は、頼りになる士官としての目立たない仕事だった。"} },
+      { h: {en: "Death at Yodo", ja: "淀に斃れる"},
+        b: {en: "When war came in January 1868, the corps fought first at Fushimi and then fell back south with the retreating shogunal army. On January 29, 1868, in the fighting along the Yodo river embankment at Senryōmatsu, Inoue was shot and killed. He was about forty.\n\nHis nephew Inoue Taisuke, a boy of about twelve serving with the corps, tried to carry his uncle's head and sword away from the field so they could be taken home. The weight was too much for him in the rout; he is said to have buried them near a temple on the way, at a spot that has never been identified. In Hino, the family raised a memorial at Hōsen-ji, and his descendants still keep his memory in a small family museum near the old post town.",
+            ja: "1868年1月（慶応4年）に戦端が開かれると、隊はまず伏見で戦い、敗走する幕府軍とともに南へ退いた。1868年1月29日（慶応4年1月5日）、淀・千両松の淀川堤の戦闘で、井上は銃弾を受けて戦死した。四十歳前後だった。\n\n隊に加わっていた十二歳ほどの甥・井上泰助が、叔父の首と刀を故郷へ持ち帰ろうと戦場から運び出した。しかし敗走のなかでその重さに耐えきれず、途中の寺の近くに埋めたと伝わる。その場所は今もわかっていない。日野では宝泉寺に墓が建てられ、子孫は旧宿場に近い自宅の資料館で、いまもその記憶を守っている。"} }
+    ],
+    legend: {
+      en: "The story of Taisuke and his uncle's head comes down through the Inoue family and later retellings; its outline is consistent, but details such as the exact temple vary and cannot be checked. So does the popular picture of Inoue as a plodding swordsman: his late licence is documented, but \"slow\" may say more about the prodigies around him than about him.",
+      ja: "泰助が叔父の首を運んだ話は井上家とその後の語りによって伝えられたもので、大筋は一致しているが、寺の名など細部には異同があり確かめようがない。「剣の上達が遅い人」という通俗的な人物像も同様である。免許取得が遅かったことは記録にあるが、「遅い」という印象は、本人よりも周囲の天才たちを物語っているのかもしれない。"
+    }
+  },
+
+  /* ------------------------------------------------------------ */
   yamanami: {
     kanji: "山", life: "1833–1865",
     name: {en: "Yamanami Keisuke", ja: "山南敬助"},

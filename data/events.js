@@ -30,8 +30,9 @@ const EVENTS = [
   title:{en:"Joins the Shieikan dojo", ja:"試衛館に入門"},
   desc:{en:"Hijikata formally enters the Tennen Rishin-ryū — a rough, practical rural school scorned by Edo's fashionable dojos as \"potato-samurai\" fencing. The Shieikan in Ichigaya is less an institution than a household: Kondō presiding, the teenage prodigy Okita as live-in disciple, the scholarly Yamanami and professional dojo-guests like Nagakura and Harada around the dinner table. It is poor, tight-knit, and ambitious. When the shogunate calls for swordsmen in 1863, this household will answer as one.",
         ja:"土方、天然理心流に正式入門。同流は「田舎剣法」「芋道場」と江戸の名門道場に侮られた、荒く実戦的な流派である。市谷の試衛館は道場というより一つの所帯だった。近藤が主宰し、内弟子の天才少年・沖田、学のある山南、食客の永倉や原田が同じ釜の飯を食う。貧しく、結束が固く、野心があった。1863年、幕府が剣客を募ったとき、この所帯は一つの塊として応じることになる。"},
-  people:["hijikata","kondo","okita","yamanami","nagakura","harada"],
+  people:["hijikata","kondo","okita","inoue","yamanami","nagakura","harada"],
   roles:{
+    inoue:{en:"A senior pupil of more than ten years' standing and a fellow Hino man — the steady elder of the house.", ja:"入門十年を超える古参で、同じ日野の人。一門の落ち着いた年長者。"},
     kondo:{en:"Master of the house — a farmer's son turned school head, hungry for a stage worthy of his sword.", ja:"一門の主。農民の子から宗家となり、剣にふさわしい舞台を渇望していた。"},
     okita:{en:"The live-in prodigy, already effectively head instructor while still in his teens.", ja:"住み込みの天才児。十代にして事実上の塾頭を務めた。"},
     nagakura:{en:"A dojo-guest from the Matsumae clan who found the food bad and the company excellent.", ja:"松前藩出身の食客。飯はまずいが人は良い、と居着いた。"},
@@ -45,8 +46,9 @@ const EVENTS = [
   title:{en:"Arrival at Mibu", ja:"壬生に到着"},
   desc:{en:"The shogunate, desperate to police a Kyoto seething with loyalist assassins, recruits masterless swordsmen into the Rōshigumi and marches them west. The scheme immediately unravels — its organizer intends to turn the men to the loyalist cause — and the militia is ordered home. Two factions refuse: Serizawa's Mito men and Kondō's Shieikan household. Petitioning the Aizu domain, the protector of Kyoto, they are taken on as the Mibu Rōshigumi: two dozen unemployed swordsmen billeted on the farming village of Mibu, mocked in town as the \"wolves of Mibu.\" It is a shabby beginning to a black-and-white legend.",
         ja:"尊攘派志士の暗殺が横行する京都の治安に窮した幕府は、浪士を募って浪士組を結成、西へ上らせる。しかし計画は即座に破綻——発案者の清河八郎が一同を尊攘運動に転用しようとしたのだ——浪士組には江戸帰還命令が下る。これを拒んだのが芹沢の水戸派と近藤の試衛館一党だった。京都守護職・会津藩に嘆願して御預となり、「壬生浪士組」が発足する。壬生村に間借りした二十数名の浪人たち。町では「壬生狼（みぶろ）」と嘲られた。誠の旗の伝説は、このみすぼらしさから始まった。"},
-  people:["hijikata","kondo","okita","saito","nagakura","harada","yamanami","serizawa"],
+  people:["hijikata","kondo","okita","saito","nagakura","harada","yamanami","inoue","serizawa"],
   roles:{
+    inoue:{en:"Stays in Kyoto with Kondō's group and becomes an assistant vice-commander (副長助勤).", ja:"近藤らとともに京に残り、副長助勤となる。"},
     serizawa:{en:"Senior commander by birth and pedigree — and already a walking diplomatic incident.", ja:"家格と経歴で筆頭に座る。そしてすでに歩く不祥事だった。"},
     kondo:{en:"Junior commander, quietly building his own faction's credit with Aizu.", ja:"局長の一角。会津藩に対する近藤派の信用を静かに積み上げていく。"},
     hijikata:{en:"Begins organizing the corps' internal order — the work that will define him.", ja:"隊の内部秩序の構築に着手する。彼を定義する仕事の始まり。"}
@@ -75,8 +77,9 @@ const EVENTS = [
   title:{en:"The Ikedaya Incident", ja:"池田屋事件"},
   desc:{en:"Under torture, the arrested merchant-loyalist Furutaka Shuntarō reveals a plot: loyalist bands will fire Kyoto in the summer wind, and in the chaos carry the emperor off to Chōshū. On the night of the Gion festival's eve, the corps splits into two search columns to comb the riverside inn districts. Kondō's small party finds the conspirators — over twenty of them — in council upstairs at the Ikedaya. Rather than wait, Kondō attacks with a handful of men, announcing \"official business!\" at the door. Two hours of close-quarters slaughter follow in the dark, on stairs and in corridors, until Hijikata's column arrives and seals the block. Around eight loyalists are killed and over twenty arrested; the corps loses three, with others dying of wounds. Overnight, the Shinsengumi becomes the most famous — and most hated — sword in Japan. Historians still debate whether the raid delayed the Meiji Restoration or, by enraging Chōshū, hastened it.",
         ja:"捕縛された商人志士・古高俊太郎が拷問の末に自白する。祇園祭の宵、風の強い日を選んで京に火を放ち、混乱に乗じて天皇を長州へ動座させるという計画である。祭りの前夜、隊は二手に分かれて鴨川沿いの旅籠街を捜索。近藤隊が三条木屋町の池田屋で、二階に会合中の志士二十数名を発見する。応援を待たず、近藤はわずかな手勢で「御用改めである！」と踏み込んだ。暗闇の階段と廊下で二時間におよぶ白兵戦。やがて土方隊が到着して周辺を封鎖した。志士側は討死約8名・捕縛20名超、新選組も3名が死亡、負傷者から後日の死者も出た。一夜にして新選組は日本一有名な——そして最も憎まれる——剣となった。この事件が明治維新を遅らせたのか、長州を激昂させてかえって早めたのか、歴史家の議論は今も続く。"},
-  people:["kondo","okita","nagakura","hijikata","saito","harada"],
+  people:["kondo","okita","nagakura","hijikata","saito","harada","inoue"],
   roles:{
+    inoue:{en:"In Hijikata's column, which combed the riverside inns before converging on the Ikedaya.", ja:"土方隊に属し、鴨川沿いの旅籠を捜索したのち池田屋に合流した。"},
     kondo:{en:"Led the assault party through the front door with only a handful of men, fighting in the melee himself; his prized \"Kotetsu\" survived intact, as he proudly wrote home.", ja:"わずかな手勢で表口から突入、自ら乱戦を戦った。自慢の「虎徹」は刃こぼれ一つなかったと故郷に書き送っている。"},
     okita:{en:"Cut down several men in the opening melee, then collapsed mid-fight and was carried out (see legend note).", ja:"斬り込み直後に数名を斬り伏せるが、戦闘の途中で昏倒し運び出された（下の伝承欄を参照）。"},
     nagakura:{en:"Fought at the heart of it to the end — sword snapped, thumb split open, saved by his chain mail.", ja:"最後まで乱戦の中心で戦い続けた。刀は折れ、親指は割れ、鎖帷子が命を救った。"},
@@ -157,8 +160,9 @@ const EVENTS = [
   title:{en:"Battle of Toba–Fushimi", ja:"鳥羽・伏見の戦い"},
   desc:{en:"The Boshin War opens. A shogunal army of some 15,000 marches on Kyoto to \"clear the emperor's side of traitors\" — meaning Satsuma — and collides with 5,000 Satsuma-Chōshū troops at Toba and Fushimi. Numbers prove worthless against drilled riflemen and artillery. The Shinsengumi fights in the burning streets around the Fushimi magistrate's office, where swords against Satsuma's guns achieve little but casualties. On the third day the imperial brocade banner is raised over the Satsuma lines: the shogunal army is now, formally, an army of traitors, and its commanders' will collapses. The shogun slips away to Edo by warship. The corps retreats with the army and sails east — Hijikata, by later accounts, concluding that the age of the sword ended in those streets.",
         ja:"戊辰戦争、開戦。「君側の奸」——すなわち薩摩——を除くべく京へ進んだ幕府軍約1万5千は、鳥羽と伏見で薩長軍約5千と衝突する。訓練された銃兵と砲兵の前に、数の優位は無意味だった。新選組は伏見奉行所周辺の燃える市街で戦うが、薩摩の銃火に刀で挑んでも損害が積み上がるばかりである。三日目、薩摩の陣に錦の御旗が翻った。幕府軍は今や公式に「賊軍」であり、指揮官たちの戦意は崩壊する。将軍慶喜は軍艦で江戸へ脱出。隊も軍とともに退き、海路東へ下った——「もう刀の時代ではない」。土方がそう悟ったのは、この市街戦だったと後に伝えられる。"},
-  people:["hijikata","saito","nagakura","harada"],
+  people:["hijikata","inoue","saito","nagakura","harada"],
   roles:{
+    inoue:{en:"Shot and killed at Yodo-Senryōmatsu on January 29, the first of the Tama comrades to die in battle. His young nephew tried to carry his head home.", ja:"1月29日（慶応4年1月5日）、淀・千両松で銃弾に斃れる。多摩以来の同志で最初の戦死者。幼い甥が首を故郷へ運ぼうとした。"},
     hijikata:{en:"Commanded the corps in Kondō's absence, learning modern war the hardest way.", ja:"負傷した近藤に代わって隊を指揮。近代戦を最も苛烈な形で学んだ。"},
     saito:{en:"Fought in the street fighting around the Fushimi magistrate's office.", ja:"伏見奉行所周辺の市街戦を戦った。"},
     nagakura:{en:"Fought at Fushimi; one of the corps' steadiest hands in the rout.", ja:"伏見で奮戦。潰走の中でも最も崩れなかった一人。"},
