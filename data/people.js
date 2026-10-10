@@ -480,5 +480,162 @@ const PEOPLE = {
     ],
     legend: {en: "Some researchers have argued that Ogata returned to Kumamoto and lived on quietly under another name into the Meiji era. The theory is interesting but not proven, and the absence of any account from him — for a man so close to Kondō — is itself one of the small mysteries of the corps.",
      ja: "尾形は熊本に戻り、別の名で明治まで静かに生きたとする研究者もいる。興味深い説だが証明はされていない。近藤のこれほど近くにいた人物が何の証言も残していないこと自体が、隊の小さな謎の一つである。"}
+  },
+  /* ------------------------------------------------------------ */
+  shimada: {
+    kanji: "島", life: "1828–1900", group: "hakodate",
+    name: {en: "Shimada Kai", ja: "島田魁"},
+    role: {en: "Sergeant (gochō); officer at Hakodate", ja: "伍長、箱館では幹部"},
+    summary: {en: "A giant of a man who joined in 1863, served as a sergeant through the Kyoto years, followed Hijikata all the way to Hakodate, and survived. He spent his last years as a guard at Nishi Honganji — the corps' old headquarters — and his diary is one of the most important records of the Shinsengumi.",
+     ja: "1863年に入隊した巨漢。京都時代を通じて伍長を務め、土方に従って箱館まで戦い抜き、生き延びた。晩年はかつての屯所・西本願寺の守衛として過ごした。彼の日記は新選組の最も重要な記録の一つである。"},
+    sections: [
+      { h: {en: "Origins", ja: "生い立ち"},
+        b: {en: "Shimada was born in 1828 in Mino province, in what is now Gifu prefecture. He grew into an exceptionally large and strong man — the sort others remembered first by his size — and trained as a swordsman in Edo, where he came to know Nagakura Shinpachi. In 1863 he joined the newly formed corps in Kyoto.",
+            ja: "1828年（文政11年）、現在の岐阜県にあたる美濃国に生まれる。並外れた大柄で力の強い男に育ち、人々にはまずその体格で記憶された。江戸で剣術を修め、永倉新八と知り合った。1863年（文久3年）、結成まもない京都の隊に加わった。"} },
+      { h: {en: "The sergeant", ja: "伍長"},
+        b: {en: "Through the Kyoto years Shimada served as a sergeant (gochō), one of the non-commissioned officers who led small squads on patrol under the unit captains. He took part in the corps' surveillance of the loyalist underground and in its major actions. He was steady, loyal and well liked — never one of the famous names, but one of the men the corps ran on.",
+            ja: "京都時代を通じて伍長を務めた。組長の下で小隊を率いて巡察する下士官である。尊攘派の地下組織の探索や、隊の主な出動に加わった。実直で忠実で、人に好かれた。名の知れた一人ではなかったが、隊を支えた男たちの一人だった。"} },
+      { h: {en: "To the end", ja: "最後まで"},
+        b: {en: "When the shogunate fell, Shimada stayed. He fought at Toba–Fushimi, at Katsunuma, in the north, and finally at Hakodate, where he was one of Hijikata's closest followers and an officer of the much-reduced corps. He surrendered with the corps at Benten Daiba in 1869 and was held as a prisoner.",
+            ja: "幕府が倒れても、島田は隊を去らなかった。鳥羽・伏見、勝沼、北関東から東北、そして最後の箱館で戦った。箱館では土方の最も身近な部下の一人であり、人数の減った隊の幹部でもあった。1869年（明治2年）、弁天台場で隊とともに降伏し、捕虜となった。"} },
+      { h: {en: "Keeper of memory", ja: "記憶を守った人"},
+        b: {en: "After his release Shimada settled in Kyoto and found work as a guard at Nishi Honganji, the great temple where the corps had once kept its headquarters. He kept the memory of his dead comrades for the rest of his life. He died in 1900, aged seventy-two.\n\nThe diary he kept — covering the corps' movements from Kyoto to Hakodate — is one of the core sources on which every history of the Shinsengumi depends.",
+            ja: "釈放後は京都に住み、かつて隊が屯所を置いた大寺院・西本願寺の守衛となった。生涯、死んだ同志たちの記憶を守り続けた。1900年（明治33年）、七十二歳で没する。\n\n京都から箱館までの隊の動きを記した彼の日記は、あらゆる新選組史が拠りどころとする根本史料の一つである。"} }
+    ],
+    legend: {en: "Popular stories make Shimada a gentle giant with a sweet tooth, or have him hauling Nagakura over a wall in a single heave. They suit his size and his reputation, but they come from later anecdote rather than record.",
+     ja: "甘いもの好きの気のいい大男、あるいは永倉を片手で塀の上に引き上げた——通俗的な逸話は島田をそう描く。体格と評判にはよく似合うが、記録ではなく後年の逸話に拠るものである。"}
+  },
+  /* ------------------------------------------------------------ */
+  soma: {
+    kanji: "相", life: "1843–1875", group: "hakodate",
+    name: {en: "Sōma Kazue", ja: "相馬主計"},
+    role: {en: "Last commander of the Shinsengumi", ja: "新選組最後の隊長"},
+    summary: {en: "A Kasama man who joined late, stood beside Kondō at Nagareyama when Kondō gave himself up, fought on to Hakodate, and became the last commander of the Shinsengumi in its final days — signing its surrender. Exiled, pardoned, he took his own life in 1875.",
+     ja: "笠間の人。遅れて入隊し、流山で近藤が投降したときそのそばにいた。箱館まで戦い、最後の数日に新選組最後の隊長となって降伏を受け入れた。流罪ののち赦されたが、1875年に自ら命を絶った。"},
+    sections: [
+      { h: {en: "A late recruit", ja: "遅れて来た隊士"},
+        b: {en: "Sōma was born in 1843 in the Kasama domain of Hitachi province. He joined the Shinsengumi late, in its last Kyoto period, and so missed the corps' famous early years — but he would see its very end.",
+            ja: "1843年（天保14年）、常陸国笠間藩に生まれる。京都時代末期に遅れて入隊したため、隊の名高い初期を知らない。しかし、その最期を見届けることになる。"} },
+      { h: {en: "Nagareyama", ja: "流山"},
+        b: {en: "In April 1868, when the new government's army surrounded the corps at Nagareyama and Kondō decided to give himself up under an assumed name, Sōma was one of the few men who went with him to the enemy camp. He was detained for a time; Kondō was recognised and executed.",
+            ja: "1868年4月（慶応4年）、新政府軍が流山の隊を包囲し、近藤が偽名のまま出頭すると決めたとき、相馬は敵陣まで同行したわずかな者の一人だった。相馬はしばらく拘束され、近藤は正体を見破られて処刑された。"} },
+      { h: {en: "The last commander", ja: "最後の隊長"},
+        b: {en: "Sōma made his way north and joined the corps again at Hakodate. In the last days of the campaign in May 1869, with Hijikata dead and the corps' remaining officers falling or captured, he became its commander. When the defenders of Benten Daiba gave up, it fell to him to surrender the Shinsengumi.",
+            ja: "相馬は北へ向かい、箱館で再び隊に加わる。1869年5月（明治2年）、戦いの最後の数日、土方は戦死し、残る幹部も次々に斃れ、あるいは捕らえられるなかで、相馬が隊長となった。弁天台場の守備兵が降伏したとき、新選組の降伏を引き受けたのは彼だった。"} },
+      { h: {en: "After", ja: "その後"},
+        b: {en: "He was sentenced to exile on the island of Niijima. Pardoned in 1872, he served briefly as an official, then in 1875 took his own life. Why is not known.",
+            ja: "新島への流罪を言い渡され、1872年（明治5年）に赦免される。一時は官吏として勤めたが、1875年（明治8年）、自ら命を絶った。理由はわかっていない。"} }
+    ],
+    legend: {en: "Sōma's exact title and the date he took command at Hakodate vary between sources, and the reasons for his suicide have attracted speculation — from disgrace at work to the weight of being the man who surrendered the corps — none of it documented.",
+     ja: "箱館で隊長となった正確な役名と日付は史料によって異なる。自死の理由もさまざまに推測されてきた——職務上の不面目から、隊を降伏させた者としての重荷まで——が、いずれも記録はない。"}
+  },
+  /* ------------------------------------------------------------ */
+  mori: {
+    kanji: "森", life: "1826–1869", group: "hakodate",
+    name: {en: "Mori Tsunekichi", ja: "森常吉"},
+    role: {en: "Chief officer (tōdori) of the corps at Hakodate", ja: "箱館新選組頭取"},
+    summary: {en: "A senior retainer of the Kuwana domain who followed his lord to Hakodate, took command of the Shinsengumi there as its chief officer, and after the surrender accepted responsibility for Kuwana's part in the war — dying for it in 1869.",
+     ja: "桑名藩の重臣。藩主に従って箱館へ渡り、そこで新選組の頭取として隊を率いた。降伏後、桑名藩の戦争の責任を一身に負い、1869年に命を落とした。"},
+    sections: [
+      { h: {en: "A Kuwana retainer", ja: "桑名藩士"},
+        b: {en: "Mori was a senior retainer of the Kuwana domain, whose lord Matsudaira Sadaaki was Katamori's younger brother and had served as the shogunate's governor of Kyoto — the corps' other great patron. When Sadaaki fled north rather than submit, Mori and a band of Kuwana men went with him, all the way to Hakodate.",
+            ja: "桑名藩の重臣。藩主・松平定敬は会津の容保の実弟で、京都所司代として新選組のもう一つの大きな後ろ盾だった。定敬が恭順せず北へ逃れると、森ら桑名藩士の一団も従い、箱館まで渡った。"} },
+      { h: {en: "Chief officer", ja: "頭取"},
+        b: {en: "At Hakodate the Kuwana men were enrolled in the Shinsengumi, and Mori became one of its chief officers (tōdori). A man of rank and age, he gave the corps — by then a mix of Kyoto veterans and newcomers from the north — a commander of standing in the last campaign.",
+            ja: "箱館で桑名藩士たちは新選組に編入され、森はその頭取の一人となった。身分も年齢もある人物として、京都以来の古参と北国の新参が入り混じった最後の隊に、重みのある指揮官をもたらした。"} },
+      { h: {en: "Responsibility", ja: "責任"},
+        b: {en: "After the surrender in 1869, the new government demanded that each rebel domain name the men responsible. Mori accepted that role for Kuwana. In the winter of 1869 he was put to death — by most accounts ordered to commit seppuku — so that his domain could be pardoned. He is remembered in Kuwana for that sacrifice.",
+            ja: "1869年の降伏後、新政府は反抗した各藩に責任者を差し出すよう求めた。森は桑名藩の責任者としてそれを引き受け、1869年冬、藩の赦免と引き換えに死を賜った。多くの記録によれば切腹を命じられたという。桑名ではいまもその献身が記憶されている。"} }
+    ],
+    legend: {en: "Sources differ on Mori's exact title in the corps and on the date and manner of his death; he is often described as the only man put to death for the Hakodate war, a claim worth checking against the full record.",
+     ja: "隊での正確な役名や、死の日付と形には史料により異同がある。箱館戦争で処刑された唯一の人物とされることが多いが、全体の記録と照らし合わせて確かめるべき点である。"}
+  },
+  /* ------------------------------------------------------------ */
+  ono: {
+    kanji: "野", life: "1836–1911", group: "hakodate",
+    name: {en: "Ōno Uchū", ja: "大野右仲"},
+    role: {en: "Chief officer (tōdori), then on Hijikata's staff", ja: "頭取、のち陸軍奉行添役"},
+    summary: {en: "A Karatsu retainer who came north with his domain's heir, joined the Shinsengumi as a chief officer, and served on Hijikata's staff in Hakodate. He was with Hijikata on his last day, and his account is one of the main sources for how Hijikata died.",
+     ja: "唐津藩士。藩の世子に従って北へ下り、新選組の頭取となり、箱館では土方の幕僚を務めた。土方の最期の日もそばにいた。その記録は、土方の死を伝える主要な史料の一つである。"},
+    sections: [
+      { h: {en: "From Karatsu", ja: "唐津から"},
+        b: {en: "Ōno was a retainer of the Karatsu domain in northern Kyushu. His domain's heir, Ogasawara Nagamichi, had been one of the shogunate's senior councillors and refused to submit to the new government; Ōno followed him north into the war.",
+            ja: "九州北部・唐津藩の藩士。藩の世子・小笠原長行は幕府の老中を務めた人物で、新政府への恭順を拒んだ。大野は長行に従い、北の戦場へ向かった。"} },
+      { h: {en: "With Hijikata", ja: "土方とともに"},
+        b: {en: "In the north he joined the Shinsengumi as one of its chief officers (tōdori), and at Hakodate he served under Hijikata, who had become one of the army's senior commanders. On the last day of Hijikata's life, May 11 by the old calendar (June 20, 1869), Ōno was in the fighting with him near Ippongi. He survived the war.",
+            ja: "北方で新選組の頭取の一人として加わり、箱館では陸軍奉行並となった土方のもとで働いた。土方の生涯最後の日——明治2年5月11日（1869年6月20日）——大野は一本木付近で土方とともに戦っていた。彼は戦争を生き延びた。"} },
+      { h: {en: "The witness", ja: "証言者"},
+        b: {en: "After the war Ōno served in the Meiji government and lived until 1911. His written account of the Hakodate campaign records Hijikata's final hours from close by, and every modern telling of Hijikata's death draws on it.",
+            ja: "戦後は明治政府に仕え、1911年（明治44年）まで生きた。彼が書き残した箱館戦争の記録は土方の最期を間近から伝えており、土方の死を語る現代の叙述はみなこれに拠っている。"} }
+    ],
+    legend: {en: "Ōno's account is invaluable but not the only one, and the various witnesses disagree on details of Hijikata's death — where exactly he fell and what he said. Ōno's title and duties also differ between sources.",
+     ja: "大野の記録はかけがえのないものだが唯一のものではなく、土方の最期の細部——どこで斃れ、何を言ったか——については証言者のあいだで食い違いがある。大野自身の役名や職務も史料によって異なる。"}
+  },
+  /* ------------------------------------------------------------ */
+  niimi: {
+    kanji: "新", life: "1836–1863", group: "leaders",
+    name: {en: "Niimi Nishiki", ja: "新見錦"},
+    role: {en: "Commander, Serizawa faction", ja: "局長（芹沢派）"},
+    summary: {en: "Serizawa Kamo's chief lieutenant: a Mito swordsman who briefly shared command of the corps with Serizawa and Kondō, was demoted for misconduct, and was forced to commit seppuku in a Gion teahouse in the autumn of 1863 — the first blow of the purge that destroyed his faction.",
+     ja: "芹沢鴨の右腕。水戸の剣客で、一時は芹沢・近藤とともに局長として隊を率いたが、不行跡により降格され、1863年秋、祇園の料亭で切腹を強いられた。芹沢派を滅ぼした粛清の最初の一撃である。"},
+    sections: [
+      { h: {en: "Serizawa's man", ja: "芹沢の腹心"},
+        b: {en: "Niimi came, like Serizawa, from the Mito region and its radical loyalist circles, and was a skilled swordsman of Shintō Munen-ryū. He travelled to Kyoto with Serizawa in the Rōshigumi and stayed with him when the rest returned east. His real name and early life are uncertain.",
+            ja: "芹沢と同じく水戸周辺の過激な尊攘派の出身で、神道無念流の遣い手だった。浪士組として芹沢とともに京へ上り、本隊が東へ戻った後も芹沢とともに残った。本名や前半生ははっきりしない。"} },
+      { h: {en: "Three commanders", ja: "三人の局長"},
+        b: {en: "In the corps' first months its command was shared among three commanders: Serizawa, Kondō and Niimi. It was an uneasy arrangement between two factions with very different habits. Niimi was soon demoted to vice-commander, and the Serizawa faction's extortion and violence in the city were steadily turning the corps' Aizu patrons against them.",
+            ja: "結成直後の数か月、隊は芹沢・近藤・新見の三人の局長によって率いられた。気風のまるで違う二つの派閥の、不安定な共存である。新見はほどなく副長に降格された。芹沢派の市中での強請や乱暴は、庇護者の会津藩を確実に彼らから離反させつつあった。"} },
+      { h: {en: "Death in Gion", ja: "祇園での死"},
+        b: {en: "In the autumn of 1863 Niimi was confronted at a teahouse in Gion with charges of misconduct and forced to commit seppuku. A few days later Serizawa himself was killed at the Yagi house in Mibu. Niimi's death removed Serizawa's strongest supporter first — whether by design or not, it cleared the way for everything that followed.",
+            ja: "1863年（文久3年）秋、新見は祇園の料亭で不行跡を問われ、切腹を強いられた。その数日後、芹沢自身が壬生の八木邸で殺される。新見の死は、まず芹沢の最も強い支えを取り除いた。意図されたものかどうかはともかく、それがその後のすべてへの道を開いた。"} }
+    ],
+    legend: {en: "Niimi's identity has been debated; some researchers identify him with a Mito man named Niinomi Kumetarō. The exact charges against him, and who pressed them, come mostly from accounts by the winning side.",
+     ja: "新見の素性には議論があり、水戸の新家粂太郎と同一人物とする研究者もいる。彼が問われた罪状や、誰がそれを突きつけたかは、主に勝った側の記録に拠っている。"}
+  },
+  /* ------------------------------------------------------------ */
+  katamori: {
+    kanji: "容", life: "1836–1893", group: "associates",
+    name: {en: "Matsudaira Katamori", ja: "松平容保"},
+    role: {en: "Lord of Aizu; Protector of Kyoto", ja: "会津藩主・京都守護職"},
+    summary: {en: "The lord of Aizu who accepted the thankless post of Protector of Kyoto in 1862, took the Shinsengumi under his authority, and won the deep trust of Emperor Kōmei — only to be branded a rebel after the emperor's death, besieged in his own castle, and defeated. He outlived the corps by a quarter of a century.",
+     ja: "1862年に損な役回りの京都守護職を引き受け、新選組を配下に置き、孝明天皇の厚い信頼を得た会津藩主。しかし天皇の死後は朝敵とされ、自らの城で包囲され、敗れた。隊が滅んだ後も四半世紀を生きた。"},
+    sections: [
+      { h: {en: "A reluctant guardian", ja: "気の進まぬ守護者"},
+        b: {en: "Katamori was born in Edo in 1836, a son of the lord of the small Takasu domain, and was adopted into the ruling house of Aizu, which he inherited in 1852. Aizu was bound to the shogunate by the precepts of its founder, Hoshina Masayuki, who had charged his descendants to serve the Tokugawa above all.\n\nIn 1862 the shogunate created a new post — Protector of Kyoto (Kyōto shugoshoku) — to restore order in a capital overrun by loyalist assassins, and pressed it on Katamori. His senior retainers warned him that it would ruin the domain. He accepted anyway, out of duty, and in early 1863 entered Kyoto with a thousand Aizu troops.",
+            ja: "1836年（天保7年）、美濃高須藩主の子として江戸に生まれ、会津松平家に養子に入って1852年に家督を継いだ。会津藩は藩祖・保科正之の家訓によって、何よりも徳川家に尽くすよう定められていた。\n\n1862年（文久2年）、尊攘派の暗殺が横行する都の治安を回復するため、幕府は「京都守護職」を新設し、容保にその就任を迫った。家老たちは藩を滅ぼすと諫めたが、容保は義によってこれを受け、1863年初め、千人の藩兵を率いて京に入った。"} },
+      { h: {en: "Patron of the Shinsengumi", ja: "新選組の庇護者"},
+        b: {en: "When the Rōshigumi fell apart in the spring of 1863, the men who stayed behind in Kyoto under Kondō and Serizawa were placed under Aizu's authority. It was Aizu that gave the corps its legitimacy, its pay and, after the coup of August 18, 1863, its name: Shinsengumi. Katamori's men demanded order of their new auxiliaries, and Aizu's patience with Serizawa's outrages ran out that autumn.\n\nFrom then on the corps was Aizu's instrument in the streets of Kyoto: it reported to Aizu, fought beside Aizu at the Ikedaya and in the Kinmon incident, and rose with Aizu's standing.",
+            ja: "1863年春に浪士組が瓦解すると、近藤・芹沢のもとで京に残った者たちは会津藩の預かりとなった。隊に正統性と給金を与え、八月十八日の政変の後に「新選組」の名を与えたのは会津である。容保の家臣たちは新たな配下に規律を求め、その秋、芹沢の乱行に対する会津の忍耐は尽きた。\n\n以後、新選組は都の路上における会津の手足となった。会津に報告し、池田屋や禁門の変では会津とともに戦い、会津の地位とともに浮き沈みした。"} },
+      { h: {en: "The emperor's trust", ja: "天皇の信頼"},
+        b: {en: "Emperor Kōmei, who distrusted the radicals of Chōshū, came to rely on Katamori more than on any other lord. In 1863 he sent him a personal letter of thanks and a poem — an extraordinary mark of favour that Katamori kept close for the rest of his life. When Chōshū troops attacked the palace in the Kinmon incident of 1864, Katamori's Aizu forces held the gates.",
+            ja: "長州の過激派を嫌った孝明天皇は、どの大名よりも容保を頼りにするようになる。1863年、天皇は容保に感謝の宸翰と御製を賜った。破格の厚遇であり、容保は生涯それを肌身離さず持ち続けたという。1864年の禁門の変で長州軍が御所に迫ったとき、門を守り抜いたのは容保の会津兵だった。"} },
+      { h: {en: "Defeat and survival", ja: "敗北と生存"},
+        b: {en: "Kōmei's sudden death in early 1867 removed Katamori's protector at court. Within a year the shogunate had fallen, and Aizu — the domain that had policed Kyoto for the Tokugawa — was declared an enemy of the court. In the autumn of 1868 the new government's armies besieged Tsuruga castle for a month; the town burned, and the youths of the Byakkotai and many others died. Katamori surrendered in November 1868.\n\nHe was spared. After years of confinement he became chief priest of the Tōshō-gū shrine at Nikkō, dedicated to the first Tokugawa shogun, and died in 1893. The emperor's letter was found among his belongings.",
+            ja: "1867年初めの孝明天皇の急死で、容保は朝廷における後ろ盾を失った。一年のうちに幕府は倒れ、徳川のために都の治安を担った会津は朝敵とされる。1868年秋、新政府軍は鶴ヶ城を一か月にわたって包囲し、城下は焼け、白虎隊の少年たちをはじめ多くの者が死んだ。1868年11月（明治元年9月）、容保は降伏した。\n\n命は助けられた。長い謹慎ののち、初代将軍を祀る日光東照宮の宮司となり、1893年（明治26年）に没する。遺品のなかから、孝明天皇の宸翰が見つかった。"} }
+    ]
+  },
+  /* ------------------------------------------------------------ */
+  kiyokawa: {
+    kanji: "清", life: "1830–1863", group: "associates",
+    name: {en: "Kiyokawa Hachirō", ja: "清河八郎"},
+    role: {en: "Founder of the Rōshigumi", ja: "浪士組の発案者"},
+    summary: {en: "The brilliant, restless schemer who talked the shogunate into recruiting masterless swordsmen to guard Kyoto — and then, the moment they arrived, tried to turn them against it. The men who refused to follow him became the Shinsengumi. He was assassinated in Edo weeks later.",
+     ja: "幕府を説いて浪士を募らせ京の警護に当たらせた、才気あふれる落ち着きのない策士。そして到着するや、その浪士たちを幕府に背かせようとした。彼に従わなかった者たちが新選組となる。数週間後、江戸で暗殺された。"},
+    sections: [
+      { h: {en: "Scholar and agitator", ja: "学者にして扇動者"},
+        b: {en: "Kiyokawa was born in 1830 in the Shōnai region of Dewa province, the son of a wealthy sake-brewing family. He went to Edo to study, mastered both Confucian learning and Hokushin Ittō-ryū swordsmanship, and opened a school that taught both. By 1860 he was at the centre of a circle of young men dedicated to expelling the foreigners, among them Yamaoka Tesshū.\n\nIn 1861 he killed a man who had provoked him in the street and became a fugitive, travelling the country and building connections with radical loyalists in Kyushu and Kyoto.",
+            ja: "1830年（天保元年）、出羽国庄内の裕福な酒造家に生まれる。江戸に出て学び、儒学と北辰一刀流の剣の両方を修めて、双方を教える塾を開いた。1860年には、山岡鉄舟らとともに攘夷を志す若者たちの集まりの中心にいた。\n\n1861年（文久元年）、路上で挑発してきた町人を斬って追われる身となり、諸国を巡って九州や京の尊攘派と人脈を築いた。"} },
+      { h: {en: "The Rōshigumi", ja: "浪士組"},
+        b: {en: "In 1862 Kiyokawa proposed a bold idea to the shogunate through sympathetic officials: pardon the masterless samurai and swordsmen roaming the country and recruit them as a corps to guard the shogun on his coming visit to Kyoto. The shogunate, short of reliable men and alarmed by the chaos in the capital, agreed. In early 1863 some 230 recruits — Kondō Isami and his Shieikan circle and Serizawa Kamo's Mito group among them — set out along the Nakasendō.",
+            ja: "1862年（文久2年）、清河は理解ある幕臣を通じて大胆な策を幕府に建言する。諸国を流浪する浪人や剣客を赦し、将軍上洛の警護にあたる組として募るというのである。信頼できる人手に乏しく、都の混乱に危機感を抱いていた幕府はこれを容れた。1863年初め、近藤勇の試衛館一門や芹沢鴨の水戸派を含む約230名が、中山道を西へ向かった。"} },
+      { h: {en: "The turn", ja: "変心"},
+        b: {en: "The day after the Rōshigumi reached Kyoto and settled in Mibu, Kiyokawa revealed his real aim: the corps would serve the emperor and the cause of expelling the foreigners, not the shogunate. He had a petition to that effect submitted to the court. Alarmed, the shogunate recalled the Rōshigumi to Edo.\n\nMost of the men went back with him. But a small group refused — Kondō's men and Serizawa's — insisting that they had come to guard the shogun and would stay to do so. Taken under the authority of Aizu, they became the Shinsengumi. Kiyokawa's plan had created the very corps that would spend the next five years hunting men like him.",
+            ja: "浪士組が京に着き壬生に落ち着いた翌日、清河は本当の狙いを明かす。この組は幕府ではなく、天皇と攘夷の大義のために働くのだ、と。その趣旨の建白書が朝廷に提出された。驚いた幕府は浪士組を江戸へ呼び戻す。\n\n大半は清河とともに帰った。だが近藤の一門と芹沢の一派という小さな集団が、将軍警護のために来たのだから残ってその務めを果たすと言い張った。会津藩の預かりとなった彼らが、新選組となる。清河の策は、その後五年にわたって彼のような人間を狩ることになる隊そのものを生み出したのである。"} },
+      { h: {en: "Assassination", ja: "暗殺"},
+        b: {en: "Back in Edo, Kiyokawa was assassinated in April 1863 near the Ichinohashi bridge in Azabu, cut down by a group of shogunal swordsmen. He was thirty-three. The men he had led back to Edo were reorganised as the Shinchōgumi, a police force under the Shōnai domain — his own home province.",
+            ja: "江戸に戻った清河は、1863年4月（文久3年）、麻布一ノ橋付近で幕府方の剣客の一団に斬られた。三十三歳（数え三十四歳）だった。彼が江戸へ連れ帰った浪士たちは、郷里の庄内藩の預かりとして新徴組に再編された。"} }
+    ],
+    legend: {en: "Kiyokawa remains hard to judge: a principled loyalist to some, an opportunist who used the shogunate's money to raise a force for its enemies to others. The traditional story that he announced his plan in a dramatic speech to the assembled men at Mibu's Shintoku-ji is well established in outline, though accounts of what he said differ.",
+     ja: "清河の評価はいまも定まらない。信念ある尊攘家とみる者もいれば、幕府の金で敵方の兵を集めた機会主義者とみる者もいる。壬生の新徳寺に集めた浪士たちを前に計画を宣言したという伝統的な話は、大筋ではよく裏付けられているが、彼が何を語ったかについては記録により異なる。"}
   }
 };

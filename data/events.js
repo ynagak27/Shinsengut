@@ -47,8 +47,11 @@ const EVENTS = [
   title:{en:"Arrival at Mibu", ja:"壬生に到着"},
   desc:{en:"The shogunate, desperate to police a Kyoto seething with loyalist assassins, recruits masterless swordsmen into the Rōshigumi and marches them west. The scheme immediately unravels — its organizer intends to turn the men to the loyalist cause — and the militia is ordered home. Two factions refuse: Serizawa's Mito men and Kondō's Shieikan household. Petitioning the Aizu domain, the protector of Kyoto, they are taken on as the Mibu Rōshigumi: two dozen unemployed swordsmen billeted on the farming village of Mibu, mocked in town as the \"wolves of Mibu.\" It is a shabby beginning to a black-and-white legend.",
         ja:"尊攘派志士の暗殺が横行する京都の治安に窮した幕府は、浪士を募って浪士組を結成、西へ上らせる。しかし計画は即座に破綻——発案者の清河八郎が一同を尊攘運動に転用しようとしたのだ——浪士組には江戸帰還命令が下る。これを拒んだのが芹沢の水戸派と近藤の試衛館一党だった。京都守護職・会津藩に嘆願して御預となり、「壬生浪士組」が発足する。壬生村に間借りした二十数名の浪人たち。町では「壬生狼（みぶろ）」と嘲られた。誠の旗の伝説は、このみすぼらしさから始まった。"},
-  people:["hijikata","kondo","okita","saito","nagakura","harada","yamanami","inoue","serizawa","todo"],
+  people:["hijikata","kondo","okita","saito","nagakura","harada","yamanami","inoue","serizawa","todo","kiyokawa","niimi","katamori"],
   roles:{
+    kiyokawa:{en:"Organiser of the Rōshigumi; at Mibu he reveals that he means to serve the emperor, not the shogunate, and leads most of the men back east.", ja:"浪士組の発案者。壬生で、幕府ではなく天皇に仕えるのだと本心を明かし、大半の浪士を連れて東へ戻る。"},
+    niimi:{en:"One of the corps' three first commanders, with Serizawa and Kondō.", ja:"芹沢・近藤とともに、結成時の三人の局長の一人。"},
+    katamori:{en:"As Protector of Kyoto, takes the men who stayed behind under Aizu's authority.", ja:"京都守護職として、京に残った浪士たちを会津藩の預かりとする。"},
     todo:{en:"Stays in Kyoto with Kondō's group; at nineteen, the youngest of the founding core.", ja:"近藤らとともに京に残る。十九歳、結成時の中核で最年少。"},
     inoue:{en:"Stays in Kyoto with Kondō's group and becomes an assistant vice-commander (副長助勤).", ja:"近藤らとともに京に残り、副長助勤となる。"},
     serizawa:{en:"Senior commander by birth and pedigree — and already a walking diplomatic incident.", ja:"家格と経歴で筆頭に座る。そしてすでに歩く不祥事だった。"},
@@ -62,8 +65,9 @@ const EVENTS = [
   title:{en:"Purge of Serizawa Kamo", ja:"芹沢鴨の粛清"},
   desc:{en:"After months of extortion, arson, and brawls that mortify the corps' Aizu patrons, the sentence comes down. On a night of driving rain, after a banquet at the Sumiya, assassins enter the Yagi house where Serizawa sleeps beside his mistress Oume. Both are killed; his lieutenant Hirayama dies in the next room. The corps blames Chōshū agents and stages a magnificent funeral. Everyone in the barracks understands. Command is now Kondō's alone, and the instrument of the purge — Hijikata's faction — becomes the corps' true spine. The Yagi family's descendants would later show visitors the sword scars in the doorframe.",
         ja:"強請、放火、乱闘——会津藩の面目を潰し続けた数ヶ月の末、処断が下る。豪雨の夜、島原・角屋の宴会の後、刺客たちは八木邸に忍び入り、愛妾お梅と眠る芹沢を襲った。二人とも斬殺され、隣室の平山五郎も殺された。隊は「長州の仕業」と称して盛大な葬儀を営む。屯所の誰もが真相を察していた。指揮権は近藤に一本化され、粛清の実行部隊——土方派——が隊の背骨となる。八木家には今も、この夜の刀傷が鴨居に残る。"},
-  people:["hijikata","okita","yamanami","harada","serizawa"],
+  people:["hijikata","okita","yamanami","harada","serizawa","niimi"],
   roles:{
+    niimi:{en:"Forced to commit seppuku in a Gion teahouse a few days before Serizawa was killed.", ja:"芹沢暗殺の数日前、祇園の料亭で切腹を強いられた。"},
     hijikata:{en:"Widely held to have planned and led the assassination party.", ja:"襲撃の計画者・指揮者と広く目される。"},
     okita:{en:"Named among the assassins in most accounts.", ja:"多くの記録が実行者の一人に数える。"},
     yamanami:{en:"Named among the assassins in several accounts — the gentle man's darkest night.", ja:"複数の記録が実行者に挙げる。「仏の山南」の最も暗い夜。"},
@@ -101,8 +105,9 @@ const EVENTS = [
   title:{en:"The Kinmon Incident", ja:"禁門の変"},
   desc:{en:"Enraged by the Ikedaya and by its expulsion from court the previous year, Chōshū marches armies on Kyoto to \"appeal\" at the palace gates by force. The fiercest fighting erupts at the Hamaguri Gate, where Aizu and Kuwana troops buckle until Satsuma reinforcements swing the day. The Shinsengumi deploys under Aizu command and joins the pursuit of the broken Chōshū columns. The battle's cost falls on the city: fires spread for two days, burning tens of thousands of homes — the great \"Donburi-yake.\" Chōshū is declared an enemy of the court, and the shogunate's punitive expeditions against it will consume the regime's remaining strength.",
         ja:"池田屋事件と前年の追放処分に激昂した長州藩は、武力をもって御所に「嘆願」すべく京へ軍を進めた。最激戦地は蛤御門。会津・桑名勢が押し込まれるが、薩摩の来援で形勢は逆転する。新選組は会津の指揮下で出動し、敗走する長州兵の掃討に加わった。戦いの代償を払ったのは京の町である。火災は二日間燃え広がり、数万戸を焼いた——世に言う「どんどん焼け」。長州は朝敵とされ、以後の長州征討が幕府の残る体力を食い尽くしていく。"},
-  people:["hijikata","kondo","saito","nagakura","harada"],
+  people:["hijikata","kondo","saito","nagakura","harada","katamori"],
   roles:{
+    katamori:{en:"His Aizu troops held the palace gates against Chōshū's attack.", ja:"会津兵が長州の攻撃から御所の門を守り抜いた。"},
     kondo:{en:"Led the corps into the field under Aizu's command.", ja:"会津藩の指揮下、隊を率いて出動。"},
     hijikata:{en:"Commanded in the field beside Kondō during the pursuit operations.", ja:"近藤とともに掃討戦を指揮した。"}
   }},
@@ -201,8 +206,9 @@ const EVENTS = [
   title:{en:"Parting at Nagareyama", ja:"流山の別れ"},
   desc:{en:"Rebuilding with fresh recruits at the river town of Nagareyama, the corps is surprised and surrounded by imperial forces. Battle means annihilation. Kondō — still under his alias — walks into the enemy camp to negotiate, presenting himself as a mere pacification officer, reportedly to buy his men's escape. It nearly works. Then a former Goryō Eji man attached to the imperial staff looks at the prisoner's face and names him: Kondō Isami of the Shinsengumi. Hijikata races to Edo and moves every contact he has — including an appeal through the old shogunal leadership — to save him. On May 17, Kondō is beheaded as a common criminal at Itabashi, denied seppuku; his head is salted and displayed in Kyoto. He and Hijikata had said goodbye at Nagareyama as if it were routine. Both, the accounts suggest, knew better.",
         ja:"流山で新兵を集めて再建中の隊は、新政府軍に急襲され包囲される。戦えば全滅。近藤は——変名のまま——ただの鎮撫隊指揮官を装い、隊士たちを逃がすためか、単身敵陣に出頭して交渉した。もう少しで通るところだった。だが新政府軍に随行していた元御陵衛士が捕虜の顔を見て告げる。「新選組局長、近藤勇である」と。土方は江戸へ疾駆し、旧幕府首脳への嘆願を含むあらゆる伝手を動かして助命に奔走した。5月17日、近藤は板橋で斬首される。切腹は許されず、罪人としての死だった。首は塩漬けにされ京で晒された。流山での二人の別れは、何気ない日常のようだったと伝わる。おそらく、二人とも分かっていた。"},
-  people:["kondo","hijikata"],
+  people:["kondo","hijikata","soma"],
   roles:{
+    soma:{en:"One of the few who went with Kondō to the enemy camp when he gave himself up; detained for a time.", ja:"近藤の出頭に敵陣まで同行したわずかな一人。しばらく拘束された。"},
     kondo:{en:"Chose surrender over a hopeless fight — the last command decision of his life, made for his men.", ja:"勝ち目のない戦いより投降を選んだ。部下のための、生涯最後の指揮官としての決断だった。"},
     hijikata:{en:"Rode to Edo and spent everything — contacts, pride, pleading — trying to save his friend. It was not enough.", ja:"江戸へ走り、伝手も面子もかなぐり捨てて助命に奔走した。それでも足りなかった。"}
   }},
@@ -237,8 +243,9 @@ const EVENTS = [
   title:{en:"The Aizu campaign", ja:"会津戦争"},
   desc:{en:"Aizu — the domain that took in the masterless swordsmen of Mibu five years earlier — is the imperial coalition's designated villain, and its punishment is total war. Hijikata, recovered from his wound, fights in the doomed defensive campaign as the ring closes on Wakamatsu castle. The remnant Shinsengumi under Saitō fights at Bonari Pass and beyond. When the strategic decision comes to fall back and continue the war from the north, Saitō refuses: to abandon Aizu in its extremity, he reportedly says, would betray everything the corps had claimed to stand for. About a dozen men stay with him. He and Hijikata — the corps' two hardest men, choosing opposite duties — never meet again.",
         ja:"会津——五年前、壬生の浪士たちを拾い上げたその藩が、新政府の「朝敵」の筆頭として、殲滅戦の対象となった。傷の癒えた土方は、若松城への包囲が狭まる中、絶望的な防衛戦を戦う。斎藤率いる新選組の残余は母成峠などで防戦した。やがて戦略上、北へ退いて戦争を継続する決定が下ると、斎藤は拒む。「今、危急の会津を見捨てるのは、隊が掲げてきたすべてへの背信である」と。十数名が彼と共に残った。新選組で最も苛烈な二人の男が、正反対の義務を選び——二度と相まみえることはなかった。"},
-  people:["hijikata","saito"],
+  people:["hijikata","saito","katamori"],
   roles:{
+    katamori:{en:"Defends Tsuruga castle through a month-long siege and surrenders in November 1868.", ja:"一か月にわたる籠城の末、1868年11月に鶴ヶ城を開城する。"},
     hijikata:{en:"Fought the defensive campaign, then moved north to continue the war with Enomoto's forces.", ja:"防衛戦を戦い、榎本軍と合流して戦争を継続すべく北へ向かった。"},
     saito:{en:"Refused to leave, fought Aizu's last battles with a dozen men, and shared the domain's surrender and exile.", ja:"退去を拒否。十数名と会津最後の戦いを戦い抜き、降伏と流謫の運命を藩と分かち合った。"}
   }},
@@ -260,8 +267,11 @@ const EVENTS = [
   title:{en:"The Republic of Ezo", ja:"蝦夷共和国"},
   desc:{en:"The fleet lands on Ezo in early winter. Hijikata commands one of the two columns that converge on Hakodate, takes the Western-style star fortress of Goryōkaku, then leads the brutal winter campaign along the gale-swept Matsumae coast that clears the island. In December the officers hold Japan's first election — votes among themselves, but an election — and constitute the \"Republic of Ezo\" under President Enomoto. Hijikata is chosen as a magistrate of the army, effectively a vice-minister of war. Foreign observers in the harbor take the new government seriously enough to deal with it de facto. The peddler of Ishida sanyaku has become a founding officer of a republic; it will last five months.",
         ja:"初冬、艦隊は蝦夷地に上陸する。土方は箱館へ向かう二隊のうち一隊を指揮し、洋式の星形城塞・五稜郭を接収。さらに吹雪の松前海岸を進む苛烈な冬季作戦を率いて全島を平定した。12月、士官たちによる日本初の「入札」（選挙）が行われ——投票権は幹部のみとはいえ、選挙である——総裁・榎本武揚の下に「蝦夷共和国」が成立する。土方は陸軍奉行並に選出された。実質的な陸軍次官である。港の外国人観察者たちは、この新政権を事実上の政府として遇した。石田散薬の行商人が、共和国の創設幹部となったのだ。その共和国の寿命は、五ヶ月だった。"},
-  people:["hijikata"],
+  people:["hijikata","shimada","mori","ono"],
   roles:{
+    shimada:{en:"One of Hijikata's closest followers in the last campaign.", ja:"最後の戦いで土方に最も近く従った一人。"},
+    mori:{en:"Kuwana retainer who took command of the reformed corps as a chief officer (頭取).", ja:"再編された隊を頭取として率いた桑名藩士。"},
+    ono:{en:"Chief officer of the corps, then on Hijikata's staff.", ja:"隊の頭取、のち土方の幕僚。"},
     hijikata:{en:"Led the landing column and the winter conquest of Matsumae; elected army magistrate in Japan's first (officers-only) election.", ja:"上陸部隊の一翼と松前平定の冬季作戦を指揮。日本初の（幹部限定の）選挙で陸軍奉行並に選出された。"}
   }},
 
@@ -282,8 +292,10 @@ const EVENTS = [
   title:{en:"Death at Hakodate", ja:"箱館に散る"},
   desc:{en:"The imperial general assault on Hakodate. The town falls street by street; a detachment is cut off at the Benten battery near the harbor — among them the last men of the Shinsengumi. Hijikata gathers a relief force and rides out through the Ippongi gate toward the fighting, by most accounts driving his men forward from horseback in the open, and is shot through the lower abdomen. He dies within hours, age 34, days before the republic's surrender. He had sent his photograph, a strand of hair, and his sword back to his family in Hino — a man settling his affairs. His burial place was deliberately concealed and has never been found. The death poem attributed to him: though his body rot on the isle of Ezo, his spirit would guard his lord in the east.",
         ja:"新政府軍、箱館総攻撃。市街は一区画ずつ陥落し、港近くの弁天台場に一隊が孤立する——その中に新選組最後の隊士たちがいた。土方は救援部隊を率いて一本木関門から戦場へ馬を進め、遮蔽もない中で馬上から兵を叱咤していたところを、腹部に銃弾を受けた。数時間のうちに絶命。満34歳、共和国降伏の数日前だった。彼はすでに写真と遺髪と愛刀を日野の家族へ送り届けていた——身辺を整えた男の死である。埋葬地は意図的に秘され、今日まで発見されていない。伝えられる辞世——たとひ身は蝦夷の島辺に朽ちぬとも、魂は東の君やまもらむ。"},
-  people:["hijikata"],
+  people:["hijikata","ono","shimada"],
   roles:{
+    ono:{en:"Fighting near Ippongi with Hijikata on his last day; his account is a main source for how Hijikata fell.", ja:"最期の日、一本木付近で土方とともに戦った。その記録は土方の死を伝える主要な史料である。"},
+    shimada:{en:"Holding Benten Daiba with the corps — the position Hijikata rode out to relieve.", ja:"隊とともに弁天台場を守っていた。土方が救援に向かったのがこの台場である。"},
     hijikata:{en:"Killed riding to the relief of the corps' last cut-off men — in death as in life, the enforcer who would not abandon his own.", ja:"孤立した最後の隊士たちの救援に向かう馬上で斃れた。生においても死においても、身内を見捨てぬ執行者だった。"}
   },
   legend:{en:"Multiple accounts of his final ride differ in detail (the exact spot, his last words, who recovered his body). The concealed grave has produced a century and a half of theories, none proven.",
