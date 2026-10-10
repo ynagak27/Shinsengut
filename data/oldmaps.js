@@ -29,6 +29,19 @@ const OLD_MAPS = [
           ja:"東京国立博物館所蔵（P-2906）重要文化財。出典：ColBase (https://colbase.nich.go.jp)。近畿・中部／関東／東北／北海道の4図を本サイトで現代の地図に合わせて変形。位置は概略です。"},
   url:"https://colbase.nich.go.jp/collection_items/tnm/P-2906"},
 
+ /* Inō large-scale sheets along the route (zoomed in on Hino, Kōshū, Utsunomiya, Aizu). Drawn over
+    the medium-scale map, under the city maps. */
+ {id:"ino-daizu",
+  place:{en:"Hino & the Kōshū road", ja:"日野・甲州道中"},
+  bounds:[35.4986, 138.5240, 37.6662, 140.1826],
+  zooms:[12, 15],
+  focus:{lat:35.665, lng:139.40, zoom:13},
+  title:{en:"Inō Tadataka, Dai Nihon enkai yochi zenzu (large scale), 1873 copy",
+         ja:"伊能忠敬『大日本沿海輿地全図（大図）』明治6年（1873）写"},
+  credit:{en:"National Diet Library, Japan (call no. WB39-6), public domain. Four sheets (Musashi, Kai, Shimotsuke, Aizu) georeferenced for this site — positions are approximate.",
+          ja:"国立国会図書館デジタルコレクション（請求記号 WB39-6）パブリックドメイン。武蔵・甲斐・下野・会津の4図を本サイトで現代の地図に合わせて変形。位置は概略です。"},
+  url:"https://dl.ndl.go.jp/pid/1286636"},
+
  {id:"kyoto-genji",
   place:{en:"Kyoto", ja:"京都"},
   bounds:[34.9325, 135.7380, 35.0371, 135.7926],

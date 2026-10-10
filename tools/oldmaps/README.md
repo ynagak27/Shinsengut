@@ -95,3 +95,59 @@ sheets are used:
    sheet it lies furthest inside. That keeps compass roses and margins from
    covering a neighbouring sheet.
 4. Index the tiles with `index_tiles.py ino-chuzu`.
+
+The current tiles were cut with the sea trimmed off:
+
+```
+tiles_multi.py --land=japan-land-z8.png:japan-land-z8.json:6000 OUT 5 11 ...
+```
+
+The land mask is a water-only Google render, saved with its Mercator bounds.
+The layer fades out 6 km offshore of today's coast. That removes the empty
+sea paper, the sheet rectangles and most of the compass roses, while keeping
+Inō's own coastline.
+
+How the sheets are joined:
+
+- **Clip.** Each sheet is clipped to its paper edge, so neighbouring sheets
+  overlap. The two outer edges with no neighbour, the west of Kinki and the
+  east of Hokkaidō, use the printed frame instead.
+- **Blending.** `tiles_multi.py` blends overlapping sheets, weighting each one
+  by how deep inside it a pixel lies. Before blending, it shifts every sheet's
+  median colour to a shared paper tone, so photos taken under different light
+  don't leave seams.
+
+## How the Inō large-scale layer was made (`ino-daizu`)
+
+The source is the NDL's 1873 copy of the large-scale sheets (大図), call number
+WB39-6, which is public domain. There is one NDL record per sheet, and image
+1 of each record is the sheet. Each image is about 9000 px across, about
+8–14 m per pixel. Fetch them with `NDL_SCALE=1 ndl_fetch.py <pid> R0000001 out.jpg`.
+
+| Sheet | NDL pid | Covers | Warp model |
+| --- | --- | --- | --- |
+| 90 | 1286636 | Kobotoke → Hachiōji → Hino → Fuchū → Edo, Kawasaki | `tps` |
+| 97 | 1286643 | Yose → Sasago → Katsunuma (Kashiwao) → Isawa | `tps` |
+| 69 | 1286621 | Koganei → Utsunomiya → Ujiie | `similarity+local` |
+| 67 | 1286619 | Aizu-Wakamatsu (Tsuruga castle), Takizawa, Bandai | `similarity+local` |
+
+How these differ from the other maps:
+
+- **Surveyed strips.** These sheets only draw a band along each surveyed road.
+  `"content_mask": true` (`contentmask.py`) keeps only the parts with dense ink
+  strokes, so the blank paper fades out.
+- **Compass roses.** `clip_holes` cuts out each rose as a circle given as
+  `[x, y, r]`.
+- **Strip sheets.** When all the control points sit along one road, a thin-plate
+  spline swings the sides of the strip wildly. These sheets use
+  `"model": "similarity+local"` instead: one rotation, scale and shift, plus
+  corrections that pull each control point exactly onto its spot and fade out
+  about `local_m` metres away.
+- **Gaps.** Sendai, Miyako, Hakodate and Nagareyama have no large-scale sheet
+  at the NDL, so they keep the medium-scale map.
+
+Cut the tiles with:
+
+```
+tiles_multi.py OUT 9 15 s90.json:s90.jpg s97.json:s97.jpg s69.json:s69.jpg s67.json:s67.jpg
+```

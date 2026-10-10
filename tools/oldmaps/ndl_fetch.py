@@ -5,7 +5,7 @@ from PIL import Image
 pid, cv, out = sys.argv[1], sys.argv[2], sys.argv[3]
 base = f"https://dl.ndl.go.jp/api/iiif/{pid}/{cv}"
 info = json.loads(subprocess.check_output(["curl", "-sS", "-m", "60", "--retry", "4", base + "/info.json"]))
-W, H = info["width"], info["height"]; S = 2; T = 1024 * S
+W, H = info["width"], info["height"]; S = int(os.environ.get("NDL_SCALE", "2")); T = 1024 * S
 tmp = out + ".parts"; os.makedirs(tmp, exist_ok=True)
 jobs = []
 for y in range(0, H, T):

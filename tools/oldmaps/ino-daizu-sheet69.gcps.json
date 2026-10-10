@@ -1,0 +1,85 @@
+{
+ "renders": {},
+ "gcps": [
+  [
+   "Koganei-juku",
+   2280,
+   8930,
+   "LL",
+   36.374734,
+   139.841461
+  ],
+  [
+   "Ishibashi-juku",
+   2490,
+   8370,
+   "LL",
+   36.436905,
+   139.86618
+  ],
+  [
+   "Suzumenomiya",
+   2550,
+   7390,
+   "LL",
+   36.493231,
+   139.877166
+  ],
+  [
+   "Utsunomiya castle",
+   2930,
+   6510,
+   "LL",
+   36.5554,
+   139.8836
+  ],
+  [
+   "Ujiie-juku",
+   3690,
+   4580,
+   "LL",
+   36.685084,
+   139.964763
+  ]
+ ],
+ "source": {
+  "mosaic_width": 6129,
+  "mosaic_height": 9499,
+  "gcp_to_mosaic": 1.0,
+  "color": true
+ },
+ "clip_polygon": [
+  [
+   1700,
+   4300
+  ],
+  [
+   4600,
+   4300
+  ],
+  [
+   4600,
+   9100
+  ],
+  [
+   1700,
+   9100
+  ]
+ ],
+ "clip_holes": [
+  [
+   1150,
+   8950,
+   330
+  ],
+  [
+   4750,
+   8950,
+   330
+  ]
+ ],
+ "content_mask": true,
+ "feather_px": 120,
+ "model": "similarity+local",
+ "local_m": 5000
+}
