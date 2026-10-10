@@ -359,5 +359,11 @@
  "clip_exclude": [
   "Fujinomori shrine",
   "Gokonomiya"
- ]
+ ],
+ "source": {
+  "mosaic_width": 6350,
+  "mosaic_height": 4561,
+  "gcp_to_mosaic": 1.667980036774363,
+  "color": false
+ }
 }

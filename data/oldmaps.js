@@ -26,6 +26,17 @@ const OLD_MAPS = [
          ja:"『元治改正新増細見京繪圖大全』（元治・慶応頃）"},
   credit:{en:"Held by Tohoku University Main Library (Kanō Collection, 3/8432/1), CC BY. Georeferenced for this site — positions are approximate.",
           ja:"東北大学附属図書館所蔵（狩野文庫 3/8432/1）CC BY。本サイトで現代の地図に合わせて変形しています。位置は概略です。"},
-  url:"https://touda.tohoku.ac.jp/collection/database/library/10010000010766"}
+  url:"https://touda.tohoku.ac.jp/collection/database/library/10010000010766"},
+
+ {id:"edo-keio",
+  place:{en:"Edo", ja:"江戸"},
+  bounds:[35.6180, 139.6868, 35.7415, 139.8349],
+  zooms:[12, 17],
+  focus:{lat:35.6880, lng:139.7550, zoom:14},
+  title:{en:"Keiō kaisei O-Edo ōezu (1867), drawn by Takai Ranzan",
+         ja:"『慶応改正御江戸大絵図』（慶応3年・1867）高井蘭山 図"},
+  credit:{en:"National Diet Library, Japan (call no. 特7-694), public domain. Georeferenced for this site — positions are approximate.",
+          ja:"国立国会図書館デジタルコレクション（請求記号 特7-694）パブリックドメイン。本サイトで現代の地図に合わせて変形しています。位置は概略です。"},
+  url:"https://dl.ndl.go.jp/pid/2543121"}
 
 ];
