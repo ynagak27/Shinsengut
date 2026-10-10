@@ -25,7 +25,12 @@ const STR = {
   introTitle:{en:"Follow the journey",ja:"軌跡をたどる"},
   introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to just his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own movements. Toggle them with \"Historical events.\" The guided tour walks the route in order, from a Tama farmhouse to the gates of Hakodate.",
              ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその足取りだけに絞られ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の動きと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、多摩の農家から箱館の関門まで、時系列で旅をご案内します。"},
-  stepOf:{en:(a,b)=>`${a} / ${b}`,ja:(a,b)=>`${a} / ${b}`}
+  stepOf:{en:(a,b)=>`${a} / ${b}`,ja:(a,b)=>`${a} / ${b}`},
+  eraNow:{en:"Today",ja:"現代"},
+  eraEdo:{en:"Edo era",ja:"江戸"},
+  eraLabel:{en:"Map era",ja:"地図の時代"},
+  eraOnly:{en:"Period maps so far:",ja:"江戸期の地図（公開中）:"},
+  eraGo:{en:p=>`Show ${p}`,ja:p=>`${p}へ`}
 };
 
 /* ---------- state ---------- */
@@ -130,6 +135,8 @@ async function initMap(){
     center:{lat:35.6,lng:137.5}, zoom:6,
     styles:MAP_STYLE,
     disableDefaultUI:true, zoomControl:true,
+    /* on phones the bottom edge holds the old-map credit, so zoom goes top-right */
+    zoomControlOptions:{position:isMobile?google.maps.ControlPosition.RIGHT_TOP:google.maps.ControlPosition.RIGHT_BOTTOM},
     /* "greedy" (one-finger pan) suits a full-screen map; on mobile the
        map sits mid-page now, so "cooperative" lets a one-finger swipe
        scroll the page through it instead of hijacking the pan. */
@@ -140,6 +147,7 @@ async function initMap(){
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
   });
   buildMarkers();
+  buildEraUI();
   fitAll();
   /* Re-fit the view when the container changes size (rotation, crossing
      the mobile breakpoint) so the route stays framed. */
@@ -149,6 +157,79 @@ async function initMap(){
       clearTimeout(debounceId);
       debounceId=setTimeout(()=>{ if(selId) flyTo(byId(selId)); else fitAll(); },150);
     }).observe($("map"));
+  }
+}
+
+/* ---------- Edo-era map layer ---------- */
+/* Each OLD_MAPS entry (data/oldmaps.js) is a scanned period map already
+   warped and cut into tiles under oldmaps/<id>/. Switching to 江戸 lays
+   them over the modern map; the switch and the credit line are Google
+   Maps custom controls, so they only exist once the map has loaded. */
+let era="now", eraUI=null;
+const oldLayers=[];
+function oldBounds(m){ return new google.maps.LatLngBounds({lat:m.bounds[0],lng:m.bounds[1]},{lat:m.bounds[2],lng:m.bounds[3]}); }
+function buildEraUI(){
+  const index=typeof OLD_MAP_TILES!=="undefined"?OLD_MAP_TILES:{};
+  OLD_MAPS.forEach(m=>{
+    const have=index[m.id];
+    oldLayers.push(new google.maps.ImageMapType({
+      name:m.id, tileSize:new google.maps.Size(256,256), opacity:.95,
+      minZoom:m.zooms[0], maxZoom:m.zooms[1],
+      getTileUrl:(c,z)=>{
+        if(z<m.zooms[0]||z>m.zooms[1]) return null;
+        const col=have&&have[z]&&have[z][c.x];
+        if(have&&!(col&&col.includes(c.y))) return null;   // tile outside the map's shape
+        return `oldmaps/${m.id}/${z}/${c.x}/${c.y}.webp`;
+      }
+    }));
+  });
+  const box=document.createElement("div");
+  box.className="era-ui";
+  box.innerHTML=`<div class="era-switch" role="group"><button type="button" data-era="now"></button><button type="button" data-era="edo"></button></div><div class="era-hint" hidden></div>`;
+  box.querySelectorAll("[data-era]").forEach(b=>b.onclick=()=>setEra(b.dataset.era));
+  const credit=document.createElement("div");
+  credit.className="era-credit"; credit.hidden=true;
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(box);
+  map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(credit);
+  eraUI={box,credit};
+  map.addListener("idle",renderEra);
+  renderEra();
+}
+function setEra(e){
+  era=e;
+  map.overlayMapTypes.clear();
+  if(era==="edo") oldLayers.forEach(l=>map.overlayMapTypes.push(l));
+  /* no old-map tiles exist past their max zoom, so cap zooming while they're on */
+  map.setOptions({maxZoom:era==="edo"?Math.max(...OLD_MAPS.map(m=>m.zooms[1])):null});
+  renderEra();
+}
+function renderEra(){
+  if(!eraUI) return;
+  eraUI.box.querySelector(".era-switch").setAttribute("aria-label",t(STR.eraLabel));
+  eraUI.box.querySelectorAll("[data-era]").forEach(b=>{
+    b.textContent=t(b.dataset.era==="edo"?STR.eraEdo:STR.eraNow);
+    b.setAttribute("aria-pressed",b.dataset.era===era);
+  });
+  const view=map.getBounds();
+  const shown=era==="edo"&&view?OLD_MAPS.filter(m=>view.intersects(oldBounds(m))&&map.getZoom()>=m.zooms[0]):[];
+  /* credit line for whichever old maps are on screen */
+  eraUI.credit.replaceChildren(...shown.flatMap((m,i)=>{
+    const a=document.createElement("a");
+    a.href=m.url; a.target="_blank"; a.rel="noopener"; a.textContent=t(m.title);
+    return [...(i?[document.createElement("br")]:[]), a, document.createTextNode(" "+t(m.credit))];
+  }));
+  eraUI.credit.hidden=!shown.length;
+  /* Edo is on but no old map is in view: say where they exist and offer to go there */
+  const hint=eraUI.box.querySelector(".era-hint");
+  hint.hidden=!(era==="edo"&&!shown.length);
+  if(!hint.hidden){
+    const label=document.createElement("span"); label.textContent=t(STR.eraOnly);
+    hint.replaceChildren(label,...OLD_MAPS.map(m=>{
+      const b=document.createElement("button"); b.type="button"; b.className="era-go";
+      b.textContent=t(STR.eraGo)(t(m.place));
+      b.onclick=()=>{ map.setCenter({lat:m.focus.lat,lng:m.focus.lng}); map.setZoom(m.focus.zoom); };
+      return b;
+    }));
   }
 }
 
@@ -347,7 +428,7 @@ $("tour-prev").onclick=()=>stepTour(-1);
 $("tour-exit").onclick=exitTour;
 
 function renderAll(){
-  renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour();
+  renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour(); renderEra();
 }
 renderAll();
 initMap();

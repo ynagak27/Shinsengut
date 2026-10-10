@@ -166,6 +166,30 @@ main{flex:1;display:flex;min-height:0}
 }
 .pin:hover .tt{display:block}
 
+/* ---------- 現代 / 江戸 map switch (Google Maps custom controls) ---------- */
+.era-ui{margin:10px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-family:var(--ui)}
+.era-switch{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.45)}
+.era-switch button{
+  appearance:none;border:0;background:none;cursor:pointer;
+  padding:7px 14px;min-height:34px;font-family:var(--disp);font-weight:700;font-size:14px;color:var(--mist);
+}
+.era-switch button+button{border-left:1px solid var(--line)}
+.era-switch button[aria-pressed="true"]{background:var(--asagi);color:var(--sumi)}
+.era-switch button:focus-visible{outline:2px solid var(--washi);outline-offset:-2px}
+.era-hint{
+  display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;max-width:260px;
+  background:var(--panel);border:1px solid var(--line);border-radius:4px;
+  padding:6px 10px;font-size:12px;color:var(--washi);box-shadow:0 1px 4px rgba(0,0,0,.45);
+}
+.era-hint[hidden],.era-credit[hidden]{display:none}
+.era-go{appearance:none;border:0;background:none;cursor:pointer;padding:2px 0;font:inherit;color:var(--asagi);text-decoration:underline}
+.era-credit{
+  margin:0 0 4px 6px;max-width:min(560px,72vw);
+  background:rgba(16,21,29,.88);color:var(--mist);border-radius:3px;
+  padding:4px 8px;font-family:var(--ui);font-size:10.5px;line-height:1.5;
+}
+.era-credit a{color:var(--washi)}
+
 /* ---------- tour bar ---------- */
 #tourbar{
   display:none;align-items:center;gap:14px;padding:10px 16px;
@@ -184,6 +208,9 @@ main{flex:1;display:flex;min-height:0}
 
 /* ---------- responsive ---------- */
 @media (max-width:880px){
+  .era-ui{margin:8px}
+  .era-switch button{padding:5px 11px;min-height:30px;font-size:13px}
+  .era-credit{max-width:calc(100vw - 100px);font-size:10px;margin-bottom:16px}
   /* The document scrolls as one page on mobile. Don't reintroduce a
      fixed body height with column-reverse: overflow then goes upward
      past the top edge, where it can't be scrolled to. */

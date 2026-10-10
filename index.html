@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- bump ?v= on css/app.js whenever either changes, so GitHub Pages' CDN and browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=16">
+<link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
 
@@ -49,6 +49,8 @@
 <script src="data/people.js"></script>
 <script src="data/events.js"></script>
 <script src="data/context.js"></script>
+<script src="data/oldmaps.js?v=1"></script>
+<script src="oldmaps/kyoto-genji/tiles.js?v=2"></script>
 <script>
   /* Google's official dynamic-library-import bootstrap loader.
      Defines google.maps.importLibrary(); the real API script is fetched
@@ -59,6 +61,6 @@
     console.warn("No Google Maps API key found — copy js/config.example.js to js/config.js and add your key. See README.");
   }
 </script>
-<script src="js/app.js?v=16"></script>
+<script src="js/app.js?v=17"></script>
 </body>
 </html>
