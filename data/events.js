@@ -14,6 +14,54 @@
 
 const EVENTS = [
 
+ {id:"serizawabirth", sort:"1826-06-01", year:"1826", coords:[36.1404,140.4360], zoom:12,
+  date:{en:"c. 1826", ja:"1826年ごろ（文政9年ごろ）"},
+  loc:{en:"Serizawa village, Hitachi — now Namegata, Ibaraki", ja:"常陸国行方郡芹沢村（現・茨城県行方市）"},
+  title:{en:"Serizawa Kamo is born", ja:"芹沢鴨、生まれる"},
+  desc:{en:"The future Serizawa Kamo is born, by most accounts a younger son of a family of country samurai in Serizawa village, near Lake Kasumigaura in the Mito domain's sphere. The family took its name from the village and claimed descent from the district's medieval warriors. He grows up in the Mito world of revere-the-emperor scholarship and sword training that will produce the assassins of the Sakurada Gate — and him.",
+        ja:"のちの芹沢鴨が、霞ヶ浦に近い水戸藩の影響圏・芹沢村の郷士の家に、多くの記録によれば次男以下として生まれる。家は村の名を姓とし、この地の中世の武士の末裔を称していた。尊王の学問と剣術の稽古に満ちた水戸の世界で育つ。その世界が、のちに桜田門外の刺客たちを、そして彼を生むことになる。"},
+  people:["serizawa"],
+  roles:{
+    serizawa:{en:"Born into a gōshi family; even his birth year is uncertain.", ja:"郷士の家に生まれる。生年さえ確かではない。"}
+  },
+  legend:{en:"His birth year, original name and place in the family are all disputed.",
+          ja:"生年、もとの名、家のなかでの立場は、いずれも異説がある。"}},
+
+ {id:"inouebirth", sort:"1829-04-01", year:"1829", coords:[35.6801,139.3972], zoom:15,
+  date:{en:"1829", ja:"1829年（文政12年）"},
+  loc:{en:"Hino, Musashi — now Hino, Tokyo", ja:"武蔵国日野（現・東京都日野市）"},
+  title:{en:"Inoue Genzaburō is born", ja:"井上源三郎、生まれる"},
+  desc:{en:"Inoue Genzaburō is born in Hino, the post town on the Kōshū road, into a family of the Hachiōji Thousand-Man Guard — farmers who held minor shogunal rank, kept their swords and took turns guarding the Tokugawa shrines at Nikkō. A younger son with no claim on the family's place, he will spend more than ten years earning his licence in the Tennen Rishin-ryū, the steady elder of a school full of prodigies. His descendants still keep his memory in a small museum near the old post town.",
+        ja:"井上源三郎が、甲州街道の宿場・日野で、八王子千人同心の家に生まれる。千人同心は幕府の下級の身分を持つ農民で、刀を帯び、交代で日光の東照宮の警護にあたった。家督を継ぐ見込みのない次男坊の彼は、天然理心流の免許を得るまでに十年以上をかけ、天才ぞろいの一門の落ち着いた年長者となる。子孫はいまも旧宿場の近くの小さな資料館で、その記憶を伝えている。"},
+  people:["inoue"],
+  roles:{
+    inoue:{en:"Born a younger son of a Thousand-Man Guard family.", ja:"千人同心の家の次男として生まれる。"}
+  }},
+
+ {id:"kiyokawabirth", sort:"1830-11-24", year:"1830", coords:[38.7848,140.0251], zoom:12,
+  date:{en:"November 24, 1830", ja:"1830年11月24日（天保元年10月10日）"},
+  loc:{en:"Kiyokawa village, Shōnai — now Shōnai, Yamagata", ja:"出羽国庄内・清川村（現・山形県庄内町）"},
+  title:{en:"Kiyokawa Hachirō is born", ja:"清河八郎、生まれる"},
+  desc:{en:"The man who will set the Shinsengumi's story in motion is born Saitō Motoji, the son of a wealthy sake-brewing family in the village of Kiyokawa on the Mogami river, in the Shōnai domain. He will take the village's name as his own. Restless and brilliant, he goes to Edo to study, masters both Confucian learning and the sword, and becomes one of the most daring loyalist agitators of his generation — the man who talks the shogunate into raising the Rōshigumi. A memorial museum stands in the village today.",
+        ja:"新選組の物語を動かすことになる男が、庄内藩領、最上川沿いの清川村の裕福な酒造家に、斎藤元司として生まれる。のちに村の名を自らの名とする。落ち着きがなく才気にあふれた彼は江戸に出て学び、儒学と剣術をともに修め、同世代で最も大胆な尊攘の志士の一人となる。幕府を説いて浪士組を作らせたのは、この男である。村にはいま記念館が建っている。"},
+  people:["kiyokawa"],
+  roles:{
+    kiyokawa:{en:"Born Saitō Motoji to a sake-brewing family.", ja:"酒造家に斎藤元司として生まれる。"}
+  }},
+
+ {id:"yamanamibirth", sort:"1833-03-01", year:"1833", coords:[38.2531,140.8567], zoom:12,
+  date:{en:"1833 (traditional)", ja:"1833年（伝承）"},
+  loc:{en:"Sendai — by tradition", ja:"仙台（伝承）"},
+  title:{en:"Yamanami Keisuke is born", ja:"山南敬助、生まれる"},
+  desc:{en:"By tradition Yamanami Keisuke is born in 1833 into a family of retainers of the Sendai domain, the great house of the Date in the north. Almost nothing about his early life is documented. He will make his way to Edo, train in the Chiba family's Hokushin Ittō-ryū and become a man of learning as well as the sword, before attaching himself, by one story after losing a bout, to Kondō Isami's Shieikan.",
+        ja:"伝えによれば、山南敬助は1833年、北の大藩・伊達家の仙台藩の藩士の家に生まれる。その前半生はほとんど記録がない。のちに江戸へ出て千葉家の北辰一刀流を学び、剣とともに学問を修めた人となり、ある話によれば立ち合いに敗れたのを機に、近藤勇の試衛館に身を寄せることになる。"},
+  people:["yamanami"],
+  roles:{
+    yamanami:{en:"Born, by tradition, into a Sendai retainer family.", ja:"伝えでは仙台藩士の家に生まれる。"}
+  },
+  legend:{en:"His Sendai origin and birth year rest on tradition; other places have been suggested.",
+          ja:"仙台の出身と生年は伝承に拠り、ほかの出身地を挙げる説もある。"}},
+
  {id:"kondobirth", sort:"1834-10-09", year:"1834", coords:[35.6790,139.5259], zoom:14,
   date:{en:"October 9, 1834", ja:"1834年10月9日（天保5年10月9日）"},
   loc:{en:"Kami-ishihara village, Musashi — now Chōfu, Tokyo", ja:"武蔵国多摩郡上石原村（現・東京都調布市）"},
@@ -28,16 +76,69 @@ const EVENTS = [
  {id:"birth", sort:"1835-05-31", year:"1835", coords:[35.6600,139.4200], zoom:12,
   date:{en:"May 31, 1835", ja:"1835年5月31日（天保6年5月5日）"},
   loc:{en:"Ishida village, Musashi — now Hino, Tokyo", ja:"武蔵国多摩郡石田村（現・東京都日野市）"},
-  title:{en:"Born in Ishida village", ja:"石田村に生まれる"},
+  title:{en:"Hijikata Toshizō is born", ja:"土方歳三、生まれる"},
   desc:{en:"Hijikata Toshizō is born the tenth and last child of a wealthy farming family on the Tama plain, west of Edo. His father dies before his birth, his mother when he is five. The Tama region is peculiar ground: legally farmland, but administered directly by the shogunate, its prosperous farmers proudly literate, sword-trained, and loyal to the Tokugawa house. Out of this soil — peasant status, samurai self-image — the future vice-commander grows. As a young man he peddles the family medicine, Ishida sanyaku, with a shinai strapped to his pack.\n\nHis sister Nobu married Satō Hikogorō, the headman of Hino, a patron of the Tennen Rishin-ryū who kept a practice hall in his own house; the school's masters came out from Edo to teach there, and it is there that Hijikata came to know Kondō Isami. Tradition says he was sent to Edo as a shop apprentice as a boy and came home after a quarrel. He also wrote haiku, and before leaving for Kyoto he gathered his poems into a small book under the pen name Hōgyoku.",
         ja:"土方歳三、武蔵国多摩の豪農の家に十人兄弟の末子として生まれる。父は出生前に、母は5歳で世を去った。多摩は特異な土地である。身分の上では農地だが幕府直轄領（天領）であり、豪農たちは読み書きを誇り、剣を学び、徳川家への忠誠心が強かった。農民の身分と武士の自意識——その土壌から未来の副長は育つ。青年期は竹刀を荷に括りつけ、家伝薬「石田散薬」を行商して歩いた。\n\n姉のノブは日野宿の名主・佐藤彦五郎に嫁いだ。彦五郎は天然理心流の後援者で、自宅に道場を構え、江戸から師範が出稽古に来ていた。土方が近藤勇と知り合ったのもこの道場である。少年のころ江戸の商家へ奉公に出たが、いさかいを起こして帰ってきたと伝わる。俳句も詠み、京へ発つ前には「豊玉」の号で自作をまとめた小さな句集を残している。"},
   people:["hijikata"],
   roles:{}},
 
+ {id:"itobirth", sort:"1835-06-01", year:"1835", coords:[36.0943,140.3308], zoom:11,
+  date:{en:"1835", ja:"1835年（天保6年）"},
+  loc:{en:"Shizuku, Hitachi — now Kasumigaura, Ibaraki", ja:"常陸国志筑（現・茨城県かすみがうら市）"},
+  title:{en:"Itō Kashitarō is born", ja:"伊東甲子太郎、生まれる"},
+  desc:{en:"Itō Kashitarō is born Suzuki Ōkura in Shizuku, Hitachi province, the son of a minor retainer whose family soon falls on hard times. Hitachi lies next to Mito, the heartland of reverence for the emperor, and the boy absorbs its learning along with its swordsmanship. In Edo he will be adopted into the family of a Hokushin Ittō-ryū master and inherit his dōjō; his younger brother, Suzuki Mikisaburō, will follow him there and, later, into the Shinsengumi.",
+        ja:"伊東甲子太郎が、常陸国志筑で、まもなく家運の傾く小禄の家臣の子・鈴木大蔵として生まれる。常陸は尊王思想の本拠・水戸の隣国であり、少年はその学問を剣術とともに吸収した。のちに江戸で北辰一刀流の師範の家の養子となって道場を継ぐ。弟の鈴木三樹三郎もそのあとを追って江戸へ、そして新選組へと従うことになる。"},
+  people:["ito","suzuki"],
+  roles:{
+    ito:{en:"Born Suzuki Ōkura, son of a minor retainer.", ja:"小禄の家臣の子・鈴木大蔵として生まれる。"},
+    suzuki:{en:"Born here two years later, in 1837.", ja:"二年後の1837年に、ここで生まれる。"}
+  },
+  legend:{en:"The map point is approximate: the exact site is not known or no longer exists.",
+          ja:"地図上の位置はおおよそのもので、正確な場所はわかっていないか、すでに失われている。"}},
+
+ {id:"nagakurabirth", sort:"1839-05-23", year:"1839", coords:[35.7060,139.7845], zoom:13,
+  date:{en:"May 23, 1839", ja:"1839年5月23日（天保10年4月11日）"},
+  loc:{en:"Matsumae domain residence, Shitaya, Edo", ja:"江戸下谷・松前藩上屋敷"},
+  title:{en:"Nagakura Shinpachi is born", ja:"永倉新八、生まれる"},
+  desc:{en:"Nagakura Shinpachi is born in the Edo residence of the Matsumae domain, the small northern house that guarded the strait to Ezo, the son of a retainer with a respectable stipend. He is a samurai by birth, unlike most of Kondō's circle, and will give that up to live for the sword. The domain he leaves will take him back after the war — and, forty years later, it is to the far north, to Hokkaido, that he will retire.",
+        ja:"永倉新八が、蝦夷地への海峡を守る北の小藩・松前藩の江戸屋敷で、相応の禄を持つ藩士の子として生まれる。近藤一門の多くと違い、彼は生まれながらの武士であり、剣に生きるためにその身分を捨てることになる。彼が去った藩は戦後に彼を再び迎え入れ、四十年後、彼が晩年を過ごすのも北の果て、北海道である。"},
+  people:["nagakura"],
+  roles:{
+    nagakura:{en:"Born the son of a Matsumae retainer with a 150-koku stipend.", ja:"百五十石取りの松前藩士の子として生まれる。"}
+  },
+  legend:{en:"The map point is approximate: the exact site is not known or no longer exists.",
+          ja:"地図上の位置はおおよそのもので、正確な場所はわかっていないか、すでに失われている。"}},
+
+ {id:"haradabirth", sort:"1840-06-01", year:"1840", coords:[33.8456,132.7655], zoom:13,
+  date:{en:"1840", ja:"1840年（天保11年）"},
+  loc:{en:"Matsuyama, Iyo province", ja:"伊予国松山"},
+  title:{en:"Harada Sanosuke is born", ja:"原田左之助、生まれる"},
+  desc:{en:"Harada Sanosuke is born in the castle town of Matsuyama on Shikoku, seat of a branch of the Tokugawa's own Matsudaira kin. He grows up to serve the domain as a chūgen, a servant below samurai rank — and, by his own oft-told story, answers a samurai's sneer that he did not know how to cut his belly by slashing it open on the spot. He survives, keeps the scar, and leaves Matsuyama to make his name with the spear.",
+        ja:"原田左之助が、徳川一門・松平家の分家の居城がある四国の城下町・松山に生まれる。長じて藩の中間——武士より下の奉公人——となり、本人が繰り返し語った話によれば、腹の切り方も知らぬと嘲った侍に、その場で自分の腹を切ってみせた。彼は生き延び、傷を残し、槍で名を上げるために松山を去る。"},
+  people:["harada"],
+  roles:{
+    harada:{en:"Born in Matsuyama; later a chūgen of the domain.", ja:"松山に生まれ、のちに藩の中間となる。"}
+  },
+  legend:{en:"The seppuku story comes from Harada himself and later retellings; the exact year and place are uncertain.",
+          ja:"切腹の話は原田自身と後年の語り直しに拠り、正確な年と場所は確かではない。"}},
+
+ {id:"okitabirth", sort:"1842-07-01", year:"1842", coords:[35.6584,139.7231], zoom:14,
+  date:{en:"1842 or 1844", ja:"1842年または1844年（天保13年または15年）"},
+  loc:{en:"Shirakawa domain residence, Azabu, Edo", ja:"江戸麻布・白河藩屋敷"},
+  title:{en:"Okita Sōji is born", ja:"沖田総司、生まれる"},
+  desc:{en:"Okita Sōji is born in the Edo residence of the Shirakawa domain, where his father serves as a low-ranking retainer. The father dies when the boy is small; the family's place passes to his elder sister Mitsu's husband, Okita Rintarō, and at about nine Sōji is sent to live as a pupil in Kondō Shūsuke's Shieikan. The family temple, Senshō-ji, stands a few streets away — and it is there, some twenty-five years later, that he will be buried.",
+        ja:"沖田総司が、父が軽輩の藩士として仕える白河藩の江戸屋敷で生まれる。父は彼が幼いうちに亡くなり、家督は姉ミツの夫・沖田林太郎が継ぎ、九歳ほどの総司は近藤周助の試衛館に内弟子として預けられる。数筋先には沖田家の菩提寺・専称寺があり、二十数年後、彼はそこに葬られることになる。"},
+  people:["okita"],
+  roles:{
+    okita:{en:"Born the son of a low-ranking Shirakawa retainer.", ja:"白河藩の軽輩の子として生まれる。"}
+  },
+  legend:{en:"His birth year is given as both 1842 and 1844, and the site of the domain residence is approximate.",
+          ja:"生年は1842年とも1844年ともいわれ、屋敷の位置もおおよそのものである。"}},
+
  {id:"shieikan", sort:"1859-06-01", year:"1859", coords:[35.6926,139.7333], zoom:13,
   date:{en:"1859", ja:"1859年（安政6年）"},
   loc:{en:"Shieikan dojo, Ichigaya, Edo", ja:"江戸市谷・試衛館"},
-  title:{en:"Joins the Shieikan dojo", ja:"試衛館に入門"},
+  title:{en:"Hijikata enters the Tennen Rishin-ryū", ja:"土方、天然理心流に入門"},
   desc:{en:"Hijikata formally enters the Tennen Rishin-ryū — a rough, practical rural school scorned by Edo's fashionable dojos as \"potato-samurai\" fencing. The Shieikan in Ichigaya is less an institution than a household: Kondō presiding, the teenage prodigy Okita as live-in disciple, the scholarly Yamanami and professional dojo-guests like Nagakura and Harada around the dinner table. It is poor, tight-knit, and ambitious. When the shogunate calls for swordsmen in 1863, this household will answer as one.\n\nKondō, a farmer's son from Kami-ishihara, had been adopted by the school's third master, Kondō Shūsuke. In 1861 he was formally installed as fourth master, celebrated with a mock battle between two teams of the school's men at the Rokusho shrine in Fuchū. The school now had a young head, a loyal following in the villages of Tama, and very little money. Two years later the shogunate's call for swordsmen offered something none of them had: a career.",
         ja:"土方、天然理心流に正式入門。同流は「田舎剣法」「芋道場」と江戸の名門道場に侮られた、荒く実戦的な流派である。市谷の試衛館は道場というより一つの所帯だった。近藤が主宰し、内弟子の天才少年・沖田、学のある山南、食客の永倉や原田が同じ釜の飯を食う。貧しく、結束が固く、野心があった。1863年、幕府が剣客を募ったとき、この所帯は一つの塊として応じることになる。\n\n近藤は上石原村の農家の子で、流派三代目の近藤周助の養子となっていた。1861年（文久元年）には府中の六所宮で、門人たちが紅白に分かれて戦う野試合を催して四代目襲名を披露している。流派は若い宗家と、多摩の村々の忠実な門人を得たが、金はほとんどなかった。二年後、幕府が剣客を募ったとき、それは彼らの誰も持っていなかったもの——世に出る道——を差し出したのである。"},
   people:["hijikata","kondo","okita","inoue","yamanami","nagakura","harada","todo"],
@@ -244,8 +345,12 @@ const EVENTS = [
   title:{en:"Headquarters at Nishi Honganji", ja:"屯所を西本願寺へ"},
   desc:{en:"Swollen with post-Ikedaya recruits to some two hundred men, the corps outgrows Mibu and moves its barracks into the compound of Nishi Honganji — head temple of a Buddhist sect with millions of adherents, and one suspected of quiet sympathy for Chōshū. The choice is deliberate intimidation as much as logistics. The monks endure drilling, gunfire, and reportedly pigs being raised and slaughtered on sacred ground for the corps' table (a menu encouraged by the physician Matsumoto Ryōjun for the men's health). The temple would eventually help finance the corps' next, purpose-built headquarters just to be rid of them.\n\nAround this time the corps takes its mature shape: ten numbered units, each under a captain, and appointed instructors in the sword, spear, jūjutsu, military science, letters, gunnery and horsemanship. The corps' code is applied to its officers as harshly as to anyone. Of the new captains, Matsubara is dead by the autumn, Tani the following spring — both in circumstances the records do not explain — and Takeda, having left the corps, is hunted down and killed in 1867.",
         ja:"池田屋以後の募集で二百名規模に膨張した隊は壬生に収まりきらず、屯所を西本願寺境内へ移す。西本願寺は数百万の門徒を抱える浄土真宗の本山であり、長州への内々の同情も疑われていた。移転は兵站であると同時に、意図的な威圧だった。僧侶たちは境内での調練と砲声に耐え、伝えられるところでは、隊の食膳のため聖域で豚まで飼育・屠殺された（幕医・松本良順が隊士の健康のため肉食を奨励したという）。寺は最終的に、彼らを追い出すために次の屯所の建設費を負担することになる。\n\nこのころ隊は完成した形をとる。一番から十番までの組それぞれに組長を置き、剣術・槍術・柔術・軍学・文学・砲術・馬術に師範を任じた。法度は幹部にも容赦なく適用された。新しい組長のうち、松原はその秋に、谷は翌年の春に世を去る——いずれも記録がその事情を語らない死である——。武田は隊を離れたのち、1867年に追われて殺された。"},
-  people:["kondo","hijikata","okita","saito","nagakura","harada","matsubara","takeda","inoue","tani","todo","suzuki","ito","yamazaki","shimada"],
+  people:["kondo","hijikata","okita","saito","nagakura","harada","matsubara","takeda","inoue","tani","todo","suzuki","ito","yamazaki","shimada","yoshimura","ogata","hattori","shinohara"],
   roles:{
+    hattori:{en:"Inspector, close to Itō's circle.", ja:"監察。伊東の一門と近かった。"},
+    shinohara:{en:"Inspector and jūjutsu instructor, and Itō's chief lieutenant.", ja:"監察兼柔術師範。伊東の腹心。"},
+    yoshimura:{en:"Joined in 1865 in the recruiting drive in the east, and became a sword instructor.", ja:"1865年の東国での隊士募集で加わり、撃剣師範となった。"},
+    ogata:{en:"Assistant vice-commander and instructor in letters.", ja:"副長助勤、文学師範。"},
     okita:{en:"Given the 1st unit — the corps' sharpest sword at its head.", ja:"一番組長に。隊随一の剣が先頭に立つ。"},
     nagakura:{en:"Given the 2nd unit.", ja:"二番組長に。"},
     saito:{en:"Given the 3rd unit.", ja:"三番組長に。"},
@@ -262,6 +367,19 @@ const EVENTS = [
     hijikata:{en:"Managed the move and the expanded corps' organization into the unit system.", ja:"移転と、拡大した隊の組織再編（組長制）を差配した。"}
   }},
 
+ {id:"matsubaradeath", sort:"1865-10-20", year:"1865", coords:[34.9922,135.7515], zoom:15,
+  date:{en:"Autumn 1865", ja:"1865年秋（慶応元年）"},
+  loc:{en:"Kyoto — the corps at Nishi Honganji", ja:"京都（西本願寺屯所の時代）"},
+  title:{en:"Death of Matsubara Chūji", ja:"松原忠司の死"},
+  desc:{en:"Matsubara Chūji, captain of the 4th unit and the corps' jūjutsu instructor — the big, shaven-headed man the corps called its \"modern Benkei\" — dies within months of receiving his unit. The corps' records note the death and almost nothing else; some accounts say he had fallen from favour shortly before. He is the first of the new unit captains to die, and the silence around how he died says a good deal about the corps in its Honganji years.",
+        ja:"四番組長で柔術師範、隊に「今弁慶」と呼ばれた頭を剃った大男・松原忠司が、組を任されてわずか数か月で世を去る。隊の記録はその死を記すだけで、ほかにはほとんど何も語らない。直前に不興を買っていたとする記録もある。新しい組長たちのなかで最初の死者であり、その死をめぐる沈黙は、西本願寺時代の隊について多くを物語っている。"},
+  people:["matsubara"],
+  roles:{
+    matsubara:{en:"Died, in circumstances the records do not explain.", ja:"記録が事情を語らないまま世を去った。"}
+  },
+  legend:{en:"The famous story that he died in a double suicide with the widow of a man he had killed is Shimozawa Kan's 20th-century invention. Where he died is not recorded; the map point marks the corps' headquarters at the time.",
+          ja:"殺した男の未亡人と心中したという有名な話は、20世紀の子母澤寛の創作である。どこで死んだかは記録されておらず、地図の位置は当時の屯所を示している。"}},
+
  {id:"hiroshima", sort:"1865-12-20", year:"1865", coords:[34.3857,132.4565], zoom:13,
   date:{en:"Winter 1865 – early 1866", ja:"1865年冬〜1866年初め（慶応元年〜2年）"},
   loc:{en:"Hiroshima", ja:"広島"},
@@ -276,6 +394,19 @@ const EVENTS = [
   },
   legend:{en:"Who went on which of the two journeys varies between accounts; Itō's and Ogata's presence is the best attested.",
           ja:"二度の出張それぞれに誰が同行したかは記録によって異なる。伊東と尾形の同行がもっともよく裏付けられている。"}},
+
+ {id:"tanideath", sort:"1866-05-15", year:"1866", coords:[35.0037,135.7786], zoom:16,
+  date:{en:"Spring 1866", ja:"1866年春（慶応2年4月）"},
+  loc:{en:"Stone steps of the Yasaka shrine, Gion", ja:"祇園・八坂神社石段下"},
+  title:{en:"Death of Tani Sanjūrō", ja:"谷三十郎の死"},
+  desc:{en:"Tani Sanjūrō, captain of the 7th unit and the corps' instructor in the spear, dies suddenly near the stone steps at the foot of the Yasaka shrine in Gion, one of the busiest corners of the city. The corps' records do not say how. His family's place close to Kondō — his youngest brother had been adopted as Kondō's heir — does not survive him, and the adoption is later dissolved.",
+        ja:"七番組長で槍術師範の谷三十郎が、京で最もにぎわう一角、祇園の八坂神社の石段下で急死する。隊の記録はその事情を語らない。末弟が近藤の養子に迎えられたことで近藤のそばに占めていた一家の地位も、彼の死とともに失われ、養子縁組はのちに解かれた。"},
+  people:["tani"],
+  roles:{
+    tani:{en:"Died suddenly here; the cause is not recorded.", ja:"ここで急死した。死因は記録されていない。"}
+  },
+  legend:{en:"Popular accounts say he was assassinated by his own comrades and often name Saitō Hajime; no contemporary record supports it, and illness is just as possible.",
+          ja:"仲間に暗殺されたとする俗説があり、しばしば斎藤一の名が挙がるが、同時代の記録の裏付けはなく、病死の可能性も同じくらいある。"}},
 
  {id:"sanjo", sort:"1866-10-20", year:"1866", coords:[35.0091,135.7718], zoom:15,
   date:{en:"October 1866", ja:"1866年10月（慶応2年9月）"},
@@ -316,12 +447,26 @@ const EVENTS = [
   title:{en:"Direct retainers of the shogun", ja:"幕臣に取り立てられる"},
   desc:{en:"The corps is elevated en masse into the shogun's direct service — Kondō with the standing of a yoriai-class retainer, Hijikata as a fukugoshin — and moves into a lavish new compound at Fudōdō, complete with a bathhouse said to fit thirty men, paid for in large part by Nishi Honganji's relief at their departure. For the Tama farmers it is the summit of a lifetime's climb: they are, at last and officially, samurai. The irony is total. The Tokugawa order that just ennobled them has months to live, and the rank will soon mark them not as gentlemen but as rebels.\n\nNot everyone wanted the honour. A small group of members, who had hoped to follow Itō Kashitarō out of the corps rather than become the shogun's men, went to the Aizu residence to plead to be released. Four of them died there — by their own hands, the corps reported; the circumstances have been questioned ever since.",
         ja:"隊士一同、幕府直参に取り立てられる——近藤は旗本寄合席並、土方は幕府復御新（見廻組並格）の待遇。屯所は不動堂村に新築された豪壮なもので、三十人が一度に入れたという風呂まで備え、費用の多くは「厄介払い」を喜ぶ西本願寺が負担した。多摩の農民たちにとって、これは生涯をかけた階段の頂上だった。ついに、公式に、武士になったのである。皮肉は完璧だった。彼らを士分に上げた徳川の世は余命数ヶ月であり、この身分はまもなく、栄誉ではなく「賊」の印となる。\n\nその栄誉を望まない者もいた。幕臣となるよりも伊東甲子太郎のあとを追って隊を離れたいと願った数名の隊士は、会津藩邸に出向いて離隊を嘆願した。そのうち四人がそこで命を落とす。隊は自刃と届け出たが、その事情にはその後ずっと疑問が呈されている。"},
-  people:["kondo","hijikata","okita","nagakura","harada","inoue"],
+  people:["kondo","hijikata","okita","nagakura","harada","inoue","ogata"],
   roles:{
+    ogata:{en:"Made a shogunal retainer with the other senior officers.", ja:"他の幹部とともに幕臣に取り立てられた。"},
     inoue:{en:"Made a direct retainer of the shogun with the other senior officers.", ja:"他の幹部とともに幕臣に取り立てられた。"},
     kondo:{en:"Attains the dream of his life — samurai rank — months before it becomes a death sentence.", ja:"生涯の悲願・士分を得る。それが死罪状に変わる数ヶ月前に。"},
     hijikata:{en:"The medicine peddler of Ishida village is now a retainer of the shogun.", ja:"石田村の薬売りが、将軍直参となった。"}
   }},
+
+ {id:"takedadeath", sort:"1867-07-23", year:"1867", coords:[34.9898,135.7685], zoom:14,
+  date:{en:"Summer 1867", ja:"1867年夏（慶応3年）"},
+  loc:{en:"Bank of the Kamo river, Kyoto", ja:"京都・鴨川べり"},
+  title:{en:"Takeda Kanryūsai killed", ja:"武田観柳斎、斬られる"},
+  desc:{en:"Takeda Kanryūsai, once captain of the 5th unit and the corps' instructor in military science, has left the Shinsengumi; his classical learning made obsolete by Western drill, he is suspected of seeking new patrons among the corps' enemies. In the summer of 1867 he is cut down on the bank of the Kamo river, near the Zenitori bridge, by men of the corps sent after him. For an officer who left and was suspected of dealing with the other side, the corps' code allowed only one outcome.",
+        ja:"かつての五番組長で軍学師範の武田観柳斎は、新選組を離れていた。その古い学問は洋式調練によって時代遅れとなり、隊の敵方に新しい後ろ盾を求めていると疑われていた。1867年夏、彼は鴨川べりの銭取橋のあたりで、追手として送られた隊士たちに斬られる。隊を離れ、敵方と通じたと疑われた幹部に、法度が許す結末は一つしかなかった。"},
+  people:["takeda"],
+  roles:{
+    takeda:{en:"Killed by men of the corps after leaving it.", ja:"隊を離れたのち、隊士たちに斬られた。"}
+  },
+  legend:{en:"The date (some accounts put it in 1866), the exact place and the killers are all uncertain; popular accounts name Saitō Hajime. The map point is approximate.",
+          ja:"日付（1866年とする記録もある）、正確な場所、下手人はいずれも確かではない。俗には斎藤一の名が挙がる。地図の位置はおおよそのものである。"}},
 
  {id:"aburanokoji", sort:"1867-12-13", year:"1867", coords:[34.9931,135.7546], zoom:15,
   date:{en:"December 13, 1867", ja:"1867年12月13日（慶応3年11月18日）"},
@@ -410,8 +555,9 @@ const EVENTS = [
   title:{en:"Back to Edo by sea", ja:"海路、江戸へ"},
   desc:{en:"After Toba–Fushimi the shogunal army falls back on Osaka castle — and then learns that the shogun has slipped away by night on a warship to Edo. The army breaks up. The Shinsengumi, its wounded and sick among them, is shipped east aboard the shogunate's vessels. Yamazaki Susumu, wounded in the retreat, dies on the voyage. The survivors land at Shinagawa, the post town at the southern gate of Edo, and are quartered at the Kamaya inn.\n\nOf the men who had left Edo five years before, Inoue Genzaburō is dead, Kondō has a shattered shoulder and Okita is dying of tuberculosis; they are taken into the care of Matsumoto Ryōjun. Hijikata soon changes into Western clothes and cuts his hair short. By one account he tells a visitor that from now on war belongs to the gun, and that swords and spears are of no further use.",
         ja:"鳥羽・伏見の後、幕府軍は大坂城に退いたが、将軍が夜陰にまぎれて軍艦で江戸へ去ったことを知る。軍は崩れた。新選組は負傷者・病人とともに幕府の船で東へ送られた。退却中に負傷した山崎烝は、航海の途中で息を引き取る。生き残った隊士たちは江戸の南の玄関口・品川宿に上陸し、旅籠の釜屋に入った。\n\n五年前に江戸を発った仲間のうち、井上源三郎は戦死し、近藤は肩を砕かれ、沖田は労咳で死の床にあった。二人は松本良順のもとに預けられる。土方はほどなく洋装に改め、髪を短く切った。ある記録によれば、訪ねてきた人に、これからの戦は鉄砲の世だ、刀や槍はもう役に立たない、と語ったという。"},
-  people:["hijikata","kondo","okita","yamazaki","nagakura","harada","saito","shimada"],
+  people:["hijikata","kondo","okita","yamazaki","nagakura","harada","saito","shimada","ogata"],
   roles:{
+    ogata:{en:"Returned with the survivors.", ja:"生き残りとともに江戸へ戻った。"},
     hijikata:{en:"Brought the corps home and began remaking himself — Western dress, short hair, and a new creed of firepower.", ja:"隊を連れ帰り、自らを作り変え始める。洋装、短髪、そして火力を重んじる新しい信条。"},
     kondo:{en:"Shipped east with his wounded shoulder and placed in Matsumoto Ryōjun's care.", ja:"肩の傷を抱えて東へ送られ、松本良順に預けられた。"},
     okita:{en:"Brought back to Edo gravely ill.", ja:"重い病のまま江戸へ戻った。"},
@@ -441,10 +587,27 @@ const EVENTS = [
     harada:{en:"Fought at Katsunuma and left with Nagakura to form the Seiheitai.", ja:"勝沼を戦い、永倉と共に離隊、靖兵隊を結成する。"}
   }},
 
+ {id:"kaikoji", sort:"1868-04-01", year:"1868", coords:[34.9810,135.7782], zoom:15,
+  date:{en:"1868", ja:"1868年（慶応4年）"},
+  loc:{en:"Kaikō-ji, Sennyū-ji, Higashiyama", ja:"東山・泉涌寺塔頭 戒光寺"},
+  title:{en:"The Goryō Eji dead laid to rest", ja:"御陵衛士、戒光寺に眠る"},
+  desc:{en:"After the new government takes Kyoto, the surviving Goryō Eji recover the bodies of Itō Kashitarō, Tōdō Heisuke, Hattori Takeo and Mōnai Arinosuke, killed at Aburanokōji, and rebury them at Kaikō-ji, a sub-temple of Sennyū-ji — the temple of the imperial tombs that the Goryō Eji had been appointed to guard. The men who had left the Shinsengumi to serve the emperor lie, in the end, beside the emperors.",
+        ja:"新政府が京を押さえたのち、生き残った御陵衛士たちは、油小路で斃れた伊東甲子太郎、藤堂平助、服部武雄、毛内有之助の遺体を引き取り、泉涌寺の塔頭・戒光寺に改めて葬った。泉涌寺は、御陵衛士が守るよう任じられた歴代天皇の陵がある寺である。天皇に仕えるために新選組を去った男たちは、最後に、天皇たちのそばに眠ることになった。"},
+  people:["ito","todo","hattori","suzuki","shinohara"],
+  roles:{
+    ito:{en:"Reburied here with his comrades.", ja:"同志たちとともにここに改葬された。"},
+    todo:{en:"Reburied here beside Itō.", ja:"伊東の傍らに改葬された。"},
+    hattori:{en:"Reburied here beside Itō.", ja:"伊東の傍らに改葬された。"},
+    suzuki:{en:"Among the survivors who reburied the dead.", ja:"死者を改葬した生き残りの一人。"},
+    shinohara:{en:"Among the survivors who reburied the dead.", ja:"死者を改葬した生き残りの一人。"}
+  },
+  legend:{en:"The exact date of the reburial varies between accounts.",
+          ja:"改葬の正確な日付は記録によって異なる。"}},
+
  {id:"nagareyama", sort:"1868-04-25", year:"1868", coords:[35.8563,139.9029], zoom:11,
   date:{en:"April 1868", ja:"1868年4月（慶応4年）"},
   loc:{en:"Nagareyama, Shimōsa province", ja:"下総国・流山"},
-  title:{en:"Parting at Nagareyama", ja:"流山の別れ"},
+  title:{en:"Kondō surrenders at Nagareyama", ja:"近藤、流山で投降"},
   desc:{en:"Rebuilding with fresh recruits at the river town of Nagareyama, the corps is surprised and surrounded by imperial forces. Battle means annihilation. Kondō — still under his alias — walks into the enemy camp to negotiate, presenting himself as a mere pacification officer, reportedly to buy his men's escape. It nearly works — until he is recognised at the enemy's headquarters at Itabashi. Hijikata races to Edo and moves every contact he has, including an appeal through the old shogunal leadership, to save him. He and Kondō had said goodbye at Nagareyama as if it were routine. Both, the accounts suggest, knew better. The two never saw each other again.",
         ja:"流山で新兵を集めて再建中の隊は、新政府軍に急襲され包囲される。戦えば全滅。近藤は——変名のまま——ただの鎮撫隊指揮官を装い、隊士たちを逃がすためか、単身敵陣に出頭して交渉した。もう少しで通るところだった——板橋の新政府軍本営で正体を見破られるまでは。土方は江戸へ疾駆し、旧幕府首脳への嘆願を含むあらゆる伝手を動かして助命に奔走した。流山での二人の別れは、何気ない日常のようだったと伝わる。おそらく、二人とも分かっていた。二人が再び会うことはなかった。"},
   people:["kondo","hijikata","soma"],
@@ -457,7 +620,7 @@ const EVENTS = [
  {id:"konodai", sort:"1868-05-03", year:"1868", coords:[35.7484,139.9021], zoom:13,
   date:{en:"May 1868", ja:"1868年5月（慶応4年4月）"},
   loc:{en:"Kōnodai, Shimōsa province", ja:"下総国・国府台"},
-  title:{en:"Joining Ōtori's army at Kōnodai", ja:"国府台で大鳥軍に合流"},
+  title:{en:"Hijikata joins Ōtori's army at Kōnodai", ja:"土方、国府台で大鳥軍に合流"},
   desc:{en:"Edo castle has been surrendered to the new government, and thousands of shogunal soldiers who refuse to accept it slip out of the city. They gather at Kōnodai, a hill across the Edo river where the shogunate had drilled troops, and organise themselves into an army under Ōtori Keisuke, a Western-trained officer who had commanded the shogunate's modern infantry.\n\nHijikata arrives days after parting from Kondō at Nagareyama, bringing a few Shinsengumi men with him. Ōtori's army has drilled riflemen and French-style officers but few experienced field commanders, and Hijikata is put in charge of its vanguard. It is the beginning of his second career: no longer the police officer of Kyoto, but a commander of modern troops in open war.",
         ja:"江戸城は新政府に明け渡され、これを認めない数千の幕府兵が江戸を抜け出した。彼らは、江戸川を渡った先の、幕府が調練に用いていた台地・国府台に集まり、幕府の洋式歩兵を率いた洋学者の士官・大鳥圭介のもとで軍に編成された。\n\n流山で近藤と別れて数日後、土方はわずかな隊士を連れてここに加わる。大鳥の軍には洋式の調練を受けた銃兵とフランス式の士官はいても、実戦経験のある指揮官は少なく、土方は先鋒の指揮を任された。第二の経歴の始まりである。もはや京の治安部隊の幹部ではなく、野戦で近代的な部隊を率いる指揮官となったのである。"},
   people:["hijikata"],
@@ -507,7 +670,7 @@ const EVENTS = [
  {id:"utsunomiya", sort:"1868-05-11", year:"1868", coords:[36.5551,139.8853], zoom:11,
   date:{en:"May 1868", ja:"1868年5月（慶応4年4月）"},
   loc:{en:"Utsunomiya Castle, Shimotsuke", ja:"下野国・宇都宮城"},
-  title:{en:"Storming Utsunomiya Castle", ja:"宇都宮城の戦い"},
+  title:{en:"Hijikata storms Utsunomiya castle", ja:"宇都宮城の戦い"},
   desc:{en:"Attached now to Ōtori Keisuke's old-shogunate column, Hijikata leads a vanguard against Utsunomiya castle and takes it by storm — the medicine peddler commanding professional soldiers, and well. The victory shows his new creed in action: firepower, discipline, momentum. A grim anecdote survives: when a soldier broke and ran, Hijikata cut him down on the spot to hold the line, then reportedly wept for him that night and paid for his memorial — the old corps' code, exported to a modern battlefield. Days later, in the fighting when imperial forces retake the castle, Hijikata is shot in the foot and carried north to Aizu to recover.",
         ja:"大鳥圭介率いる旧幕府軍に加わった土方は、先鋒を率いて宇都宮城を強襲、これを陥落させる。薬の行商人が職業軍人たちを指揮し、しかも巧みに指揮したのである。火力、規律、勢い——彼の新しい信条がここで実を結んだ。苛烈な逸話が残る。逃げ出した兵をその場で斬り捨てて戦線を支え、その夜は人知れずその兵のために涙し、後に供養料を出したという——局中法度の掟が、近代の戦場に持ち込まれた瞬間である。数日後、新政府軍の城奪回戦で足に銃創を負い、会津へ後送された。"},
   people:["hijikata"],
@@ -533,7 +696,7 @@ const EVENTS = [
  {id:"sendai", sort:"1868-10-12", year:"1868", coords:[38.2682,140.8694], zoom:10,
   date:{en:"October 1868", ja:"1868年10月（明治元年）"},
   loc:{en:"Sendai", ja:"仙台"},
-  title:{en:"Joining Enomoto's fleet", ja:"榎本艦隊と合流"},
+  title:{en:"Hijikata joins Enomoto's fleet", ja:"土方、仙台で榎本艦隊に合流"},
   desc:{en:"At Sendai, as the northern alliance collapses domain by domain, Hijikata boards the runaway shogunal fleet of Admiral Enomoto Takeaki — eight warships that refused to be handed over to the new government, carrying some two thousand soldiers, French military advisers among them. In the councils aboard, the one-time farm boy is treated as a proven field commander; there is an account of officers proposing him for overall command of land operations. The fleet weighs anchor for Ezo (Hokkaido), carrying the last armed remnant of the Tokugawa order — the Shinsengumi now a company-sized unit among them — toward one final improvisation: a republic at the edge of the map.",
         ja:"奥羽越列藩同盟が藩ごとに崩れていく中、土方は仙台で榎本武揚率いる旧幕府艦隊と合流する。新政府への引き渡しを拒んだ軍艦八隻、将兵約二千、そこにはフランス軍事顧問団の姿もあった。艦上の軍議で、かつての農家の子は歴戦の指揮官として遇される。陸戦の総指揮に土方を推す声があったという記録も残る。艦隊は錨を上げ、蝦夷地へ——中隊規模となった新選組を含む、徳川体制最後の武装勢力を乗せて、地図の果ての「共和国」という最後の即興へと向かった。"},
   people:["hijikata","shimada","mori","ono"],
@@ -613,7 +776,7 @@ const EVENTS = [
  {id:"futamata", sort:"1869-05-24", year:"1869", coords:[41.9454,140.5456], zoom:12,
   date:{en:"May 24 – June 4, 1869", ja:"1869年5月24日〜6月4日（明治2年4月13日〜24日）"},
   loc:{en:"Futamata pass, on the road from Esashi to Hakodate", ja:"江差から箱館への道・二股口"},
-  title:{en:"Holding the pass at Futamata", ja:"二股口の戦い"},
+  title:{en:"Hijikata holds the pass at Futamata", ja:"二股口の戦い"},
   desc:{en:"The new government's army lands on Ezo in the spring of 1869 and advances on Hakodate by several roads. On the mountain road from Esashi, at the pass of Futamata, Hijikata waits with a few hundred men behind lines of earthworks and trenches dug into the hillside. The first assault comes on May 24 and is beaten off after fighting through the night. Ten days later the enemy returns in greater strength, and again the line holds.\n\nIt is the finest defensive action of Hijikata's career: his men, firing in relays from cover, hold a far larger force for days on end, and the earthworks can still be traced in the woods today. But the other roads are not held. When the coastal route falls and his position is in danger of being cut off, Hijikata is ordered back to Goryōkaku. He has not lost the pass. He leaves it because the war is being lost everywhere else.",
         ja:"1869年春、新政府軍は蝦夷地に上陸し、いくつもの道から箱館へ迫った。江差からの山道にある二股口では、土方が数百の兵を率い、山腹に掘った胸壁と塹壕の線で待ち構えていた。5月24日の最初の攻撃は、夜を徹した戦いの末に撃退された。十日後、敵は兵力を増やして再び押し寄せたが、陣地はまたも持ちこたえた。\n\n土方の生涯で最もみごとな防御戦である。物陰から交代で撃ち続ける兵たちは、はるかに大きな敵を何日にもわたって食い止めた。その胸壁の跡は、いまも林の中にたどることができる。しかし他の道は守り切れなかった。海沿いの道が破られ、退路を断たれるおそれが出ると、土方は五稜郭への撤退を命じられる。峠を失ったのではない。他のすべての場所で、戦が負けつつあったから去ったのである。"},
   people:["hijikata"],
@@ -626,7 +789,7 @@ const EVENTS = [
  {id:"death", sort:"1869-06-20", year:"1869", coords:[41.7737,140.7269], zoom:13,
   date:{en:"June 20, 1869", ja:"1869年6月20日（明治2年5月11日）"},
   loc:{en:"Ippongi gate, Hakodate", ja:"箱館・一本木関門"},
-  title:{en:"Death at Hakodate", ja:"箱館に散る"},
+  title:{en:"Hijikata killed at Hakodate", ja:"土方歳三、箱館に散る"},
   desc:{en:"The imperial general assault on Hakodate. The town falls street by street; a detachment is cut off at the Benten battery near the harbor — among them the last men of the Shinsengumi. Hijikata gathers a relief force and rides out through the Ippongi gate toward the fighting, by most accounts driving his men forward from horseback in the open, and is shot through the lower abdomen. He dies within hours, age 34, days before the republic's surrender. He had sent his photograph, a strand of hair, and his sword back to his family in Hino — a man settling his affairs. His burial place was deliberately concealed and has never been found. The death poem attributed to him: though his body rot on the isle of Ezo, his spirit would guard his lord in the east.",
         ja:"新政府軍、箱館総攻撃。市街は一区画ずつ陥落し、港近くの弁天台場に一隊が孤立する——その中に新選組最後の隊士たちがいた。土方は救援部隊を率いて一本木関門から戦場へ馬を進め、遮蔽もない中で馬上から兵を叱咤していたところを、腹部に銃弾を受けた。数時間のうちに絶命。満34歳、共和国降伏の数日前だった。彼はすでに写真と遺髪と愛刀を日野の家族へ送り届けていた——身辺を整えた男の死である。埋葬地は意図的に秘され、今日まで発見されていない。伝えられる辞世——たとひ身は蝦夷の島辺に朽ちぬとも、魂は東の君やまもらむ。"},
   people:["hijikata","ono","shimada","soma"],
@@ -665,6 +828,19 @@ const EVENTS = [
   },
   legend:{en:"The scene in which Hijikata threatened to cut Ichimura down if he refused comes from the Satō family's account of what the boy told them. The date of his arrival in Hino is not certain.",
           ja:"拒めば斬ると土方が迫った場面は、少年が語ったことを佐藤家が伝えたものである。日野に着いた日付は確かではない。"}},
+
+ {id:"morideath", sort:"1869-12-15", year:"1869", coords:[35.0641,136.6986], zoom:13,
+  date:{en:"Winter 1869", ja:"1869年冬（明治2年）"},
+  loc:{en:"Remembered in Kuwana", ja:"桑名に記憶される"},
+  title:{en:"Mori Tsunekichi gives his life for Kuwana", ja:"森常吉、桑名のために死す"},
+  desc:{en:"After the surrender at Hakodate, the new government demands that each rebel domain name the men responsible for its resistance. For Kuwana, Mori Tsunekichi — the senior retainer who had followed his lord north and served as a chief officer of the Shinsengumi in Ezo — accepts that role. In the winter of 1869 he is put to death in Tokyo, by most accounts ordered to commit seppuku, so that his domain can be pardoned. He is remembered in Kuwana, the castle town on Ise Bay, for that sacrifice.",
+        ja:"箱館の降伏後、新政府は抵抗した各藩に、その責任者を差し出すよう求めた。桑名藩では、主君に従って北へ渡り、蝦夷地で新選組の頭取を務めた重臣・森常吉がその役を引き受ける。1869年冬、彼は東京で、多くの記録によれば切腹を命じられて死に、藩は赦された。伊勢湾に臨む城下町・桑名で、彼はその犠牲によって記憶されている。"},
+  people:["mori"],
+  roles:{
+    mori:{en:"Took responsibility for Kuwana's resistance and was put to death in Tokyo.", ja:"桑名藩の抵抗の責めを負い、東京で死を賜った。"}
+  },
+  legend:{en:"He died in Tokyo; the map point marks Kuwana, where he is remembered. The manner and date of his death, and the claim that he was the only man put to death for the Hakodate war, need checking against the full record.",
+          ja:"彼が死んだのは東京で、地図の位置は彼が記憶される桑名を示している。死の様子と日付、そして箱館戦争で処刑された唯一の人物だという説は、史料に当たって確かめる必要がある。"}},
 
  {id:"tonami", sort:"1870-06-01", year:"1870", coords:[40.5240,141.3060], zoom:11,
   date:{en:"1870", ja:"1870年（明治3年）"},
