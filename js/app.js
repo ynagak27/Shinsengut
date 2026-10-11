@@ -30,12 +30,15 @@ const STR = {
   eraEdo:{en:"Edo era",ja:"江戸"},
   eraLabel:{en:"Map era",ja:"地図の時代"},
   eraOnly:{en:"Period maps so far:",ja:"江戸期の地図（公開中）:"},
-  eraGo:{en:p=>`Show ${p}`,ja:p=>`${p}へ`}
+  eraGo:{en:p=>`Show ${p}`,ja:p=>`${p}へ`},
+  allMembers:{en:n=>`All ${n} members →`,ja:n=>`隊士一覧（${n}名）→`},
+  bioPage:{en:"Open his page →",ja:"人物ページを開く →"}
 };
 
 /* ---------- state ---------- */
 let lang=new URLSearchParams(location.search).get("lang")==="en"?"en":"ja";
 let selId=null, selPerson=null, tourIdx=-1, showContext=true;
+const href=(page,params={})=>{const q=new URLSearchParams(params); if(lang==="en") q.set("lang","en"); const s=q.toString(); return page+(s?"?"+s:"");};
 const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const t=o=>(o&&o[lang]!==undefined)?o[lang]:"";
 
@@ -115,6 +118,20 @@ function buildMarkers(){
   });
   paintStates();
 }
+/* Frame the current selection: an event, a person's whole path, or the route. */
+function frame(){
+  if(selId) flyTo(byId(selId));
+  else if(selPerson) fitPerson(selPerson);
+  else fitAll();
+}
+function fitPerson(pid){
+  const pts=ALL.filter(e=>e.people&&e.people.includes(pid)&&(e.kind!=="context"||showContext));
+  if(!pts.length) return fitAll();
+  if(pts.length===1) return flyTo(pts[0]);
+  const bounds=new google.maps.LatLngBounds();
+  pts.forEach(e=>bounds.extend({lat:e.coords[0],lng:e.coords[1]}));
+  map.fitBounds(bounds,60);
+}
 function fitAll(){
   if(!map) return;
   const bounds=new google.maps.LatLngBounds();
@@ -148,14 +165,14 @@ async function initMap(){
   });
   buildMarkers();
   buildEraUI();
-  fitAll();
+  frame();
   /* Re-fit the view when the container changes size (rotation, crossing
      the mobile breakpoint) so the route stays framed. */
   if(window.ResizeObserver){
     let debounceId=null;
     new ResizeObserver(()=>{
       clearTimeout(debounceId);
-      debounceId=setTimeout(()=>{ if(selId) flyTo(byId(selId)); else fitAll(); },150);
+      debounceId=setTimeout(frame,150);
     }).observe($("map"));
   }
 }
@@ -256,28 +273,14 @@ function renderHeader(){
 }
 
 /* ---------- people row ---------- */
-/* People are listed in groups (each person's "group" in data/people.js).
-   Unit captains sort by unit number; everyone else keeps file order. */
-const PEOPLE_GROUPS=[
-  {id:"leaders",   label:{en:"Leaders",       ja:"局長・副長・総長"}},
-  {id:"captains",  label:{en:"Unit captains", ja:"組長"}},
-  {id:"officers",  label:{en:"Officers",      ja:"幹部"}},
-  {id:"hakodate",  label:{en:"Hakodate",      ja:"箱館"}},
-  {id:"associates",label:{en:"Associates",    ja:"関係者"}}
-];
-const unitNo=p=>{const m=/(\d+)\w* unit/.exec(p.role.en);return m?+m[1]:99;};
+/* Only the core cast (PEOPLE_ON_MAP in data/people.js) sits here; the
+   full roster lives on people.html, one link away. */
 function renderPeople(){
-  const all=Object.entries(PEOPLE);
-  $("people-grid").innerHTML=PEOPLE_GROUPS.map(g=>{
-    let members=all.filter(([,p])=>(p.group||"officers")===g.id);
-    if(g.id==="captains") members=members.sort((a,b)=>unitNo(a[1])-unitNo(b[1]));
-    if(!members.length) return "";
-    return `<div class="p-group"><div class="p-group-label">${t(g.label)}</div><div class="p-group-chips">`+
-      members.map(([id,p])=>`
+  $("people-grid").innerHTML=PEOPLE_ON_MAP.map(id=>`
     <button class="p-chip" data-p="${id}" aria-pressed="${selPerson===id}">
-      ${monBtn(id)}<span class="pn">${t(p.name)}</span>
-    </button>`).join("")+`</div></div>`;
-  }).join("");
+      ${monBtn(id)}<span class="pn">${t(PEOPLE[id].name)}</span>
+    </button>`).join("")+
+    `<a class="p-all" href="${href("people.html")}">${t(STR.allMembers)(Object.keys(PEOPLE).length)}</a>`;
   $("people-grid").querySelectorAll(".p-chip").forEach(b=>b.onclick=()=>selectPerson(b.dataset.p));
 }
 
@@ -301,7 +304,7 @@ function renderPersonDetail(pid){
   let html=`
     <div class="eyebrow">${t(p.role)}</div>
     <div class="d-title">${t(p.name)}</div>
-    <div class="life">${p.life}</div>
+    <div class="life">${p.life}<a class="bio-link" href="${href("people.html",{p:pid})}">${t(STR.bioPage)}</a></div>
     <div class="summary">${t(p.summary)}</div>`;
   (p.sections||[]).forEach(s=>{
     html+=`<div class="d-sect-h">${t(s.h)}</div><p class="d-body">${t(s.b)}</p>`;
@@ -447,5 +450,16 @@ $("tour-exit").onclick=exitTour;
 function renderAll(){
   renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour(); renderEra();
 }
+/* Deep links from the people page: index.html?ev=<event> or ?person=<id> */
+{
+  const q=new URLSearchParams(location.search);
+  if(byId(q.get("ev"))){ selId=q.get("ev"); if(byId(selId).kind==="context") showContext=true; }
+  else if(PEOPLE[q.get("person")]) selPerson=q.get("person");
+}
 renderAll();
+if(selId){
+  /* centre the deep-linked event's chip without scrolling the page */
+  const tl=$("timeline"), chip=tl.querySelector(`[data-ev="${selId}"]`);
+  if(chip) tl.scrollLeft+=chip.getBoundingClientRect().left-tl.getBoundingClientRect().left-(tl.clientWidth-chip.offsetWidth)/2;
+}
 initMap();

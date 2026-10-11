@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新選組の隊士 — The men of the Shinsengumi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- bump ?v= whenever the file changes, as on index.html -->
+<link rel="stylesheet" href="css/style.css?v=19">
+<link rel="stylesheet" href="css/people.css?v=1">
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1 id="h-title"></h1>
+  </div>
+  <a class="hdr-btn primary" id="btn-map" href="index.html"></a>
+  <button class="hdr-btn" id="btn-lang">English</button>
+</header>
+<div class="dangara" aria-hidden="true"></div>
+
+<!-- people.html lists everyone; people.html?p=<id> shows one biography -->
+<main class="pp" id="pp"></main>
+
+<script src="data/people.js?v=6"></script>
+<script src="data/events.js?v=5"></script>
+<script src="data/context.js"></script>
+<script src="js/people.js?v=1"></script>
+</body>
+</html>

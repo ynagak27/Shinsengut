@@ -1,0 +1,87 @@
+/* People page. Loads after style.css, reusing its colour tokens, header,
+   buttons, .mon crest, .legend-box and .link-item; this file only adds
+   the directory cards and the biography layout. */
+
+/* style.css pins the map page to the screen height; this page scrolls. */
+html,body{height:auto}
+body{display:block;overflow:visible}
+header{position:sticky;top:0;z-index:20;background:var(--sumi)}
+
+/* style.css lays the map page's <main> out as a flex row; this one is a plain column */
+main.pp{display:block;min-height:0}
+.pp{max-width:1040px;margin:0 auto;padding:40px 20px 72px}
+.pp.pp-bio{max-width:680px}
+
+.pp-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--asagi);text-transform:uppercase;margin-bottom:10px}
+.pp-title{font-family:var(--disp);font-weight:800;font-size:clamp(28px,6vw,40px);line-height:1.25;letter-spacing:.03em;text-wrap:balance}
+.pp-lede{font-size:16px;line-height:1.9;color:var(--mist);margin:14px 0 0;max-width:680px}
+.pp-n{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--mist);letter-spacing:.05em}
+
+/* group jump links */
+.pp-jump{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+.pp-jump a{
+  border:1px solid var(--line);border-radius:3px;background:var(--panel);padding:6px 12px;
+  font-size:13px;color:var(--washi);text-decoration:none;transition:border-color .15s;
+}
+.pp-jump a:hover{border-color:var(--asagi-dim)}
+
+/* ---------- directory ---------- */
+.pp-group-h{
+  font-family:var(--disp);font-weight:700;font-size:22px;line-height:1.4;
+  margin:44px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);
+  display:flex;gap:12px;align-items:baseline;scroll-margin-top:84px;
+}
+.pp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.pp-card{
+  display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px;
+  border:1px solid var(--line);border-radius:4px;background:var(--panel);
+  color:var(--washi);text-decoration:none;transition:border-color .15s,background .15s;
+}
+.pp-card:hover{border-color:var(--asagi-dim);background:var(--panel-2)}
+.pp-card-top{display:flex;align-items:center;gap:10px}
+.pp-card .mon{width:34px;height:34px;font-size:16px}
+.pp-card-names{display:flex;flex-direction:column;min-width:0}
+.pp-card-name{font-family:var(--disp);font-weight:700;font-size:17px;line-height:1.3}
+.pp-card-alt{font-size:12px;color:var(--mist)}
+.pp-card-meta{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--asagi)}
+.pp-card-life{font-family:var(--mono);color:var(--mist);flex-shrink:0}
+.pp-card-sum{font-size:13px;line-height:1.75;color:#c9c2b2}
+
+/* ---------- biography ---------- */
+.pp-back{display:inline-block;font-size:13px;color:var(--asagi);text-decoration:none;margin-bottom:24px}
+.pp-back:hover{text-decoration:underline}
+.pp-bio-head{display:flex;gap:16px;align-items:center}
+.mon.big{width:64px;height:64px;font-size:30px}
+.pp-bio-head .pp-eyebrow{margin-bottom:6px;text-transform:none;letter-spacing:.1em}
+.pp-bio-alt{font-size:14px;color:var(--mist);margin-top:6px}
+.pp-summary{
+  font-size:16px;line-height:1.95;color:var(--washi);margin:24px 0 20px;
+  padding-left:16px;border-left:2px solid var(--asagi-dim);
+}
+.pp-mapbtn{font-size:13px}
+.pp-sect h3{
+  font-family:var(--disp);font-weight:700;font-size:20px;line-height:1.4;color:var(--asagi);
+  margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);letter-spacing:.04em;
+}
+.pp-sect p{font-size:16px;line-height:1.95;color:#d9d2c1;margin:0 0 1.1em}
+.pp-legend{margin-top:32px;font-size:14px}
+.pp-legend p+p{margin-top:.8em}
+.pp .d-sub{margin-top:40px}
+.pp a.link-item{color:var(--washi);text-decoration:none}
+
+.pp-pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
+.pp-pn a{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--washi);padding:10px 14px;border:1px solid var(--line);border-radius:3px;background:var(--panel)}
+.pp-pn a:hover{border-color:var(--asagi-dim)}
+.pp-pn-next{text-align:right}
+.pp-pn-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.pp-pn-name{font-family:var(--disp);font-weight:700;font-size:15px}
+
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:880px){
+  .pp{padding:28px 16px 56px}
+  .pp-cards{grid-template-columns:1fr}
+  .pp-group-h{font-size:19px;margin-top:36px;scroll-margin-top:64px}
+  .pp-lede,.pp-summary,.pp-sect p{font-size:15px}
+  .pp-sect h3{font-size:18px}
+  .mon.big{width:52px;height:52px;font-size:24px}
+}

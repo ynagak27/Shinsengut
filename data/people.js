@@ -11,6 +11,10 @@
      (fiction, later embellishment, disputed accounts). Keep it honest.
    - To add a NEW person: copy a block, give it a new key (e.g. todo:),
      and reference that key from events' people/roles lists.
+   - "group" decides where they're listed on people.html (see
+     PEOPLE_GROUPS at the bottom). Only the ids in PEOPLE_ON_MAP get a
+     button on the map page; everyone else is reached from people.html
+     or from the events that name them.
    ===================================================================== */
 
 const PEOPLE = {
@@ -639,3 +643,18 @@ const PEOPLE = {
      ja: "清河の評価はいまも定まらない。信念ある尊攘家とみる者もいれば、幕府の金で敵方の兵を集めた機会主義者とみる者もいる。壬生の新徳寺に集めた浪士たちを前に計画を宣言したという伝統的な話は、大筋ではよく裏付けられているが、彼が何を語ったかについては記録により異なる。"}
   }
 };
+
+/* ---------- how people are listed ---------- */
+/* The people page (people.html) lists everyone, grouped by "group" above.
+   Unit captains sort by unit number; everyone else keeps file order. */
+const PEOPLE_GROUPS = [
+  {id: "leaders",    label: {en: "Leaders",       ja: "局長・副長・総長"}},
+  {id: "captains",   label: {en: "Unit captains", ja: "組長"}},
+  {id: "officers",   label: {en: "Officers",      ja: "幹部"}},
+  {id: "hakodate",   label: {en: "Hakodate",      ja: "箱館"}},
+  {id: "associates", label: {en: "Associates",    ja: "関係者"}}
+];
+
+/* The map page's sidebar shows only these; everyone else is one tap
+   away on the people page (and from any event that names them). */
+const PEOPLE_ON_MAP = ["hijikata", "kondo", "okita", "saito", "nagakura", "harada", "yamanami", "serizawa"];

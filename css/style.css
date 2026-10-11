@@ -57,9 +57,9 @@ main{flex:1;display:flex;min-height:0}
 /* ---------- people row ---------- */
 #people{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
 .sec-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--mist);text-transform:uppercase;margin-bottom:10px}
-.people-grid{display:flex;flex-direction:column;gap:10px}
-.p-group-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:5px}
-.p-group-chips{display:flex;flex-wrap:wrap;gap:6px}
+.people-grid{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.p-all{font-size:12px;color:var(--asagi);text-decoration:none;padding:5px 6px;white-space:nowrap}
+.p-all:hover{text-decoration:underline}
 .p-chip{
   display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:3px;
   background:var(--panel);padding:5px 10px 5px 5px;transition:border-color .15s,background .15s;
@@ -86,6 +86,8 @@ main{flex:1;display:flex;min-height:0}
   margin:22px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line);letter-spacing:.05em;
 }
 .life{font-family:var(--mono);font-size:12px;color:var(--mist);margin-bottom:12px}
+.bio-link{font-family:var(--ui);font-size:12px;color:var(--asagi);text-decoration:none;margin-left:14px}
+.bio-link:hover{text-decoration:underline}
 .summary{font-size:14px;line-height:1.9;color:var(--washi);margin-bottom:6px;white-space:pre-line;
   padding-left:12px;border-left:2px solid var(--asagi-dim)}
 
