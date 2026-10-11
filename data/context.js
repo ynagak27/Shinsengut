@@ -36,6 +36,19 @@ const CONTEXT = [
         ja:"薩摩藩の大名行列を横切った英国商人を、供の藩士が斬殺する。一年後の報復——英国艦隊による鹿児島砲撃（薩英戦争）——は薩摩に現実の力の差を教え、藩は「攘夷」から英国製の艦船と銃の購入へと転換した。尊攘陣営が排外主義から近代化へと静かに転向していくこと——それがこの十年の戦略的本筋である。新選組は、この教訓をいち早く得た敵を相手に、刀で1860年代を戦うことになる。"},
   people:[], roles:{}},
 
+ {id:"shugoshoku", sort:"1863-02-12", year:"1863", coords:[35.0195,135.7875], zoom:14,
+  date:{en:"February 12, 1863", ja:"1863年2月12日（文久2年12月24日）"},
+  loc:{en:"Konkai Kōmyō-ji, Kurodani, Kyoto", ja:"京都黒谷・金戒光明寺"},
+  title:{en:"Aizu takes up the guard of Kyoto", ja:"京都守護職・会津藩の入京"},
+  desc:{en:"To restore order in a capital terrorised by loyalist assassins, the shogunate creates a new post, Protector of Kyoto, and presses it on Matsudaira Katamori, the young lord of Aizu. His advisers warn him that it will ruin the domain; he accepts out of duty to the Tokugawa house. He enters Kyoto with a thousand men and makes his headquarters at the hilltop temple of Konkai Kōmyō-ji. Within weeks, the masterless swordsmen of Mibu will be placed under his protection — the start of a bond between Aizu and the Shinsengumi that will last to the end.",
+        ja:"尊攘派の暗殺がはびこる都の治安を回復するため、幕府は京都守護職という新たな職を設け、若い会津藩主・松平容保に就任を強く求めた。家臣たちは藩を滅ぼすと諫めたが、容保は徳川家への義によってこれを受ける。千名の兵を率いて京に入り、丘の上の金戒光明寺に本陣を置いた。数週間のうちに、壬生の浪士たちが彼の預かりとなる。最後まで続く会津と新選組の絆の始まりである。"},
+  people:["katamori"],
+  roles:{
+    katamori:{en:"Accepted the post against his advisers' warnings and entered Kyoto.", ja:"家臣の諫めを退けて職を受け、京に入った。"}
+  },
+  legend:{en:"The retainers' warning that the post would be like carrying firewood into a fire is a well-known tradition of the Aizu side.",
+          ja:"家臣が「薪を背負って火を消しに行くようなもの」と諫めたという話は、会津側でよく知られた伝承である。"}},
+
  {id:"shogunkyoto", sort:"1863-04-21", year:"1863", coords:[35.0142,135.7481], zoom:14,
   date:{en:"April 21, 1863", ja:"1863年4月21日（文久3年3月4日）"},
   loc:{en:"Nijō castle, Kyoto", ja:"京都・二条城"},
