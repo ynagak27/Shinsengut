@@ -60,12 +60,14 @@ ALL.forEach(e=>{ e.no = e.kind==="corps" ? ++rn : "◇"; });
 let HtmlMarker;
 function defineHtmlMarker(){
   HtmlMarker=class extends google.maps.OverlayView{
-    constructor(pos,html,onClick){ super(); this.pos=pos; this.html=html; this.onClick=onClick; this.div=null; }
+    constructor(pos,html,onClick){ super(); this.pos=pos; this.html=html; this.onClick=onClick; this.div=null; this.visible=true; }
+    setVisible(v){ this.visible=v; if(this.div) this.div.style.display=v?"":"none"; }
     onAdd(){
       this.div=document.createElement("div");
       this.div.style.position="absolute";
       this.div.style.transform="translate(-50%,-50%)";
       this.div.innerHTML=this.html;
+      this.div.style.display=this.visible?"":"none";
       this.div.addEventListener("click",ev=>{ev.stopPropagation(); this.onClick&&this.onClick();});
       this.getPanes().overlayMouseTarget.appendChild(this.div);
     }
@@ -113,6 +115,65 @@ function buildMarkers(){
   });
   paintStates();
 }
+/* ---------- pin clustering ---------- */
+/* Pins closer than CLUSTER_PX on screen merge into one bubble showing how
+   many events it holds; tapping it zooms in until they come apart. Done by
+   hand because our pins are custom overlays, not google.maps.Marker. The
+   selected event always keeps its own pin, and while a person is selected
+   their events only cluster with each other, never with the dimmed rest. */
+const CLUSTER_PX=34;
+let clusterMarkers=[];
+function recluster(){
+  if(!map||!map.getProjection()) return;
+  const proj=map.getProjection(), scale=2**map.getZoom();
+  const isRel=e=>!selPerson||!!(e.people&&e.people.includes(selPerson));
+  const groups=[];
+  shown().forEach(e=>{
+    const m=markers[e.id]; if(!m) return;
+    if(e.id===selId){ m.setVisible(true); return; }
+    const w=proj.fromLatLngToPoint(new google.maps.LatLng(e.coords[0],e.coords[1]));
+    groups.push({x:w.x*scale,y:w.y*scale,rel:isRel(e),items:[e]});
+  });
+  /* merge the closest overlapping pair until none overlap; a merged group
+     sits at its members' average position */
+  for(;;){
+    let best=null;
+    for(let i=0;i<groups.length;i++) for(let j=i+1;j<groups.length;j++){
+      const a=groups[i], c=groups[j];
+      if(a.rel!==c.rel) continue;
+      const d=Math.hypot(a.x-c.x,a.y-c.y);
+      if(d<CLUSTER_PX&&(!best||d<best.d)) best={i,j,d};
+    }
+    if(!best) break;
+    const a=groups[best.i], c=groups.splice(best.j,1)[0], n=a.items.length, k=c.items.length;
+    a.x=(a.x*n+c.x*k)/(n+k); a.y=(a.y*n+c.y*k)/(n+k);
+    a.items.push(...c.items);
+  }
+  clusterMarkers.forEach(c=>c.setMap(null));
+  clusterMarkers=[];
+  groups.forEach(g=>{
+    const solo=g.items.length===1;
+    g.items.sort((a,b)=>a.sort.localeCompare(b.sort));
+    g.items.forEach(e=>markers[e.id].setVisible(solo));
+    if(solo) return;
+    const lat=g.items.reduce((a,e)=>a+e.coords[0],0)/g.items.length;
+    const lng=g.items.reduce((a,e)=>a+e.coords[1],0)/g.items.length;
+    const list=g.items.slice(0,6).map(e=>`${e.no} ${t(e.title)}`).join("<br>")+(g.items.length>6?"<br>…":"");
+    const html=`<div class="pin cluster${g.rel?"":" dim"}">${g.items.length}<span class="tt">${list}</span></div>`;
+    const c=new HtmlMarker({lat,lng},html,()=>{
+      const z0=map.getZoom(), b=new google.maps.LatLngBounds();
+      g.items.forEach(e=>b.extend(ll(e)));
+      map.fitBounds(b,80);
+      google.maps.event.addListenerOnce(map,"idle",()=>{
+        if(map.getZoom()<=z0) map.setZoom(z0+2);
+        else if(map.getZoom()>17) map.setZoom(17);
+      });
+    });
+    c.setMap(map);
+    clusterMarkers.push(c);
+  });
+}
+
 /* Frame the current selection: an event, a person's whole path, or everything. */
 function frame(){
   if(selId) flyTo(byId(selId));
@@ -160,6 +221,8 @@ async function initMap(){
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
   });
   buildMarkers();
+  map.addListener("zoom_changed",recluster);
+  google.maps.event.addListenerOnce(map,"idle",recluster);
   buildEraUI();
   frame();
   /* Re-fit the view when the container changes size (rotation, crossing
@@ -371,7 +434,7 @@ function renderDetail(){
 function paintStates(){
   if(pathLine) pathLine.setPath(selPerson ? shown().filter(e=>e.people&&e.people.includes(selPerson)).map(ll) : []);
   const related = selPerson ? new Set(ALL.filter(e=>e.people&&e.people.includes(selPerson)).map(e=>e.id)) : null;
-  document.querySelectorAll(".pin").forEach(el=>{
+  document.querySelectorAll(".pin[data-ev]").forEach(el=>{
     const id=el.dataset.ev;
     el.classList.toggle("sel",id===selId);
     el.classList.toggle("dim",!!related&&!related.has(id));
@@ -385,6 +448,7 @@ function paintStates(){
     el.classList.toggle("active",el.dataset.p===selPerson);
     el.setAttribute("aria-pressed",el.dataset.p===selPerson);
   });
+  recluster();
 }
 
 /* ---------- interactions ---------- */

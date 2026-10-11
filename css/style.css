@@ -157,6 +157,16 @@ main{flex:1;display:flex;min-height:0}
 .pin.sel{background:var(--asagi);color:var(--sumi);transform:scale(1.25)}
 .pin.ctx.sel{background:var(--mist);color:var(--sumi)}
 .pin.dim{opacity:.3}
+/* a bubble standing for several pins; the number is how many. Dark with a
+   double ring, so it reads differently from a numbered pin and from the
+   filled selected pin */
+.pin.cluster{
+  width:34px;height:34px;background:var(--panel-2);color:var(--washi);border-color:var(--asagi);
+  font-family:var(--ui);font-size:13px;font-weight:700;
+  box-shadow:0 0 0 3px var(--sumi),0 0 0 5px var(--asagi-dim),0 0 0 8px rgba(16,21,29,.6);
+}
+.pin.cluster:hover{transform:scale(1.1)}
+.pin.cluster .tt{text-align:left;line-height:1.6}
 .pin .tt{
   display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
   background:var(--panel);border:1px solid var(--line);color:var(--washi);
