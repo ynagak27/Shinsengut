@@ -48,13 +48,14 @@ function paragraphs(parent, text) {
 }
 const mon = (p, cls) => el("span", "mon " + (cls || ""), p.kanji);
 
-/* Same event order and numbering as the map (js/app.js): corps events
-   are numbered in date order, national events are ◇. */
+/* Same event order and numbering as the map (js/app.js): main-story
+   events are numbered in date order, other corps events are "•", national
+   events are ◇. */
 EVENTS.forEach(e => { e.kind = "corps"; });
 CONTEXT.forEach(e => { e.kind = "context"; });
 const ALL = [...EVENTS, ...CONTEXT].sort((a, b) => a.sort.localeCompare(b.sort));
 let rn = 0;
-ALL.forEach(e => { e.no = e.kind === "corps" ? ++rn : "◇"; });
+ALL.forEach(e => { e.no = e.kind === "context" ? "◇" : e.story ? ++rn : "•"; });
 
 /* Directory order: by group, captains by unit number. */
 const unitNo = p => { const m = /(\d+)\w* unit/.exec(p.role.en); return m ? +m[1] : 99; };

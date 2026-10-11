@@ -23,8 +23,8 @@ const STR = {
   contextTag:{en:"national event",ja:"時代の動き"},
   legendLabel:{en:"Legend & disputed accounts",ja:"伝承・異説"},
   introTitle:{en:"Follow the journey",ja:"軌跡をたどる"},
-  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to his events and draws his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own story. Toggle them with \"Historical events.\" The guided tour walks through the corps' main story, from the Shieikan to the surrender at Hakodate and the survivors who told the tale. Choose a person first, and it follows his life instead, from his birth to his grave.",
-             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその人物の出来事だけに絞られて足取りが線で結ばれ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の歩みと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、試衛館から箱館での降伏、そして物語を語り残した生き残りたちまで、新選組の本筋をご案内します。先に隊士を選ぶと、その人物の生涯——生まれてから墓所まで——をたどる案内に変わります。"},
+  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map adds every event of his life, from his birth, dims the rest and draws his path, and his page gives his life in full. Without a name selected, the map shows the corps' main story.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own story. Toggle them with \"Historical events.\" The guided tour walks through the corps' main story, from the Shieikan to the surrender at Hakodate and the survivors who told the tale. Choose a person first, and it follows his life instead, from his birth to his grave.",
+             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図には生まれから始まるその人物の出来事がすべて加わり、ほかは薄くなって足取りが線で結ばれ、人物ページには生涯が詳しく記されます。隊士を選ばないときは、新選組の本筋が表示されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の歩みと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、試衛館から箱館での降伏、そして物語を語り残した生き残りたちまで、新選組の本筋をご案内します。先に隊士を選ぶと、その人物の生涯——生まれてから墓所まで——をたどる案内に変わります。"},
   stepOf:{en:(a,b)=>`${a} / ${b}`,ja:(a,b)=>`${a} / ${b}`},
   eraNow:{en:"Today",ja:"現代"},
   eraEdo:{en:"Edo era",ja:"江戸"},
@@ -50,9 +50,11 @@ CONTEXT.forEach(e=>{e.kind="context";});
 const ALL=[...EVENTS,...CONTEXT].sort((a,b)=>a.sort.localeCompare(b.sort));
 const byId=id=>ALL.find(e=>e.id===id);
 
-/* corps events are numbered in date order; national events are ◇ */
+/* Main-story events (story:true) are numbered in date order; the corps'
+   other events — births, side incidents, later lives — are "•", and only
+   appear when a person they belong to is selected. National events are ◇. */
 let rn=0;
-ALL.forEach(e=>{ e.no = e.kind==="corps" ? ++rn : "◇"; });
+ALL.forEach(e=>{ e.no = e.kind==="context" ? "◇" : e.story ? ++rn : "•"; });
 
 /* ---------- map ---------- */
 /* Google Maps has no built-in HTML marker like Leaflet's divIcon, so we
@@ -101,7 +103,16 @@ const MAP_STYLE=[
 ];
 
 let map,pathLine;
-const shown=()=>ALL.filter(e=>e.kind!=="context"||showContext);
+/* What the map and timeline show: the main story (and ◇ if on); with a
+   person selected or toured, also every event of his life; and always the
+   selected event, wherever it came from. */
+function visible(e){
+  if(e.kind==="context") return showContext;
+  if(e.story||e.id===selId) return true;
+  const fp=focusPerson();
+  return !!(fp&&e.people&&e.people.includes(fp));
+}
+const shown=()=>ALL.filter(visible);
 const ll=e=>({lat:e.coords[0],lng:e.coords[1]});
 
 const markers={};
@@ -109,8 +120,7 @@ function buildMarkers(){
   if(!map) return;
   Object.values(markers).forEach(m=>m.setMap(null));
   ALL.forEach(e=>{
-    if(e.kind==="context" && !showContext) return;
-    const cls = e.kind==="context" ? "ctx" : "";
+    const cls = e.kind==="context" ? "ctx" : e.story ? "" : "minor";
     const html=`<div class="pin ${cls}" data-ev="${e.id}">${e.no}<span class="tt">${t(e.title)}</span></div>`;
     const m=new HtmlMarker({lat:e.coords[0],lng:e.coords[1]},html,()=>selectEvent(e.id,true));
     m.setMap(map);
@@ -131,8 +141,10 @@ function recluster(){
   const proj=map.getProjection(), scale=2**map.getZoom();
   const fp=focusPerson();
   const isRel=e=>!fp||!!(e.people&&e.people.includes(fp));
-  const groups=[];
-  shown().forEach(e=>{
+  const groups=[], vis=shown();
+  const visIds=new Set(vis.map(e=>e.id));
+  Object.entries(markers).forEach(([id,m])=>{ if(!visIds.has(id)) m.setVisible(false); });
+  vis.forEach(e=>{
     const m=markers[e.id]; if(!m) return;
     if(e.id===selId){ m.setVisible(true); return; }
     const w=proj.fromLatLngToPoint(new google.maps.LatLng(e.coords[0],e.coords[1]));
@@ -348,17 +360,22 @@ function renderPeople(){
 }
 
 /* ---------- timeline ---------- */
+let timelineKey="";
 function renderTimeline(){
-  $("timeline").innerHTML=ALL.filter(e=>e.kind!=="context"||showContext).map(e=>{
+  const vis=shown();
+  timelineKey=vis.map(e=>e.id).join();
+  $("timeline").innerHTML=vis.map(e=>{
     const mark = e.kind==="context" ? `<span class="ctxmark">◇</span>` :
                  `<span>${e.no}</span>`;
-    return `<button class="t-chip ${e.kind==="context"?"ctx":""}" data-ev="${e.id}">
+    return `<button class="t-chip ${e.kind==="context"?"ctx":e.story?"":"minor"}" data-ev="${e.id}">
       <span class="t-yr">${mark}${e.year}</span>
       <span class="t-ti">${t(e.title)}</span>
     </button>`;
   }).join("");
   $("timeline").querySelectorAll(".t-chip").forEach(b=>b.onclick=()=>selectEvent(b.dataset.ev,true));
 }
+/* re-render the timeline only when what it should show has changed */
+function syncTimeline(){ if(shown().map(e=>e.id).join()!==timelineKey) renderTimeline(); }
 
 /* ---------- detail: person ---------- */
 function renderPersonDetail(pid){
@@ -436,6 +453,7 @@ function renderDetail(){
 
 /* ---------- paint selection / dimming ---------- */
 function paintStates(){
+  syncTimeline();
   const fp=focusPerson();
   if(pathLine) pathLine.setPath(fp ? shown().filter(e=>e.people&&e.people.includes(fp)).map(ll) : []);
   const related = fp ? new Set(ALL.filter(e=>e.people&&e.people.includes(fp)).map(e=>e.id)) : null;
@@ -507,7 +525,6 @@ function toggleContext(){
   showContext=!showContext;
   if(!showContext && selId && byId(selId).kind==="context"){ selId=null; }
   renderHeader(); renderTimeline(); buildMarkers(); renderDetail();
-  $("timeline").querySelectorAll(".t-chip").forEach(b=>b.onclick=()=>selectEvent(b.dataset.ev,true));
 }
 
 /* ---------- wiring ---------- */

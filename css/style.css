@@ -143,6 +143,7 @@ main{flex:1;display:flex;min-height:0}
 .t-chip .t-yr{font-family:var(--mono);font-size:10px;color:var(--asagi);letter-spacing:.1em;display:flex;gap:6px}
 .t-chip .t-yr .ctxmark{color:var(--mist)}
 .t-chip.ctx .t-yr{color:var(--mist)}
+.t-chip.minor{opacity:.85}
 .t-chip .t-ti{font-size:12px;font-weight:500;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
 .t-chip.ctx .t-ti{color:var(--mist)}
 
@@ -157,6 +158,8 @@ main{flex:1;display:flex;min-height:0}
 .pin.sel{background:var(--asagi);color:var(--sumi);transform:scale(1.25)}
 .pin.ctx.sel{background:var(--mist);color:var(--sumi)}
 .pin.dim{opacity:.3}
+/* "•" events off the main story (births, later lives...), shown with a person */
+.pin.minor{width:20px;height:20px;font-size:14px;border-width:1.5px}
 /* a bubble standing for several pins; the number is how many. Dark with a
    double ring, so it reads differently from a numbered pin and from the
    filled selected pin */
