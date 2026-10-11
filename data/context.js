@@ -36,6 +36,17 @@ const CONTEXT = [
         ja:"薩摩藩の大名行列を横切った英国商人を、供の藩士が斬殺する。一年後の報復——英国艦隊による鹿児島砲撃（薩英戦争）——は薩摩に現実の力の差を教え、藩は「攘夷」から英国製の艦船と銃の購入へと転換した。尊攘陣営が排外主義から近代化へと静かに転向していくこと——それがこの十年の戦略的本筋である。新選組は、この教訓をいち早く得た敵を相手に、刀で1860年代を戦うことになる。"},
   people:[], roles:{}},
 
+ {id:"shogunkyoto", sort:"1863-04-21", year:"1863", coords:[35.0142,135.7481], zoom:14,
+  date:{en:"April 21, 1863", ja:"1863年4月21日（文久3年3月4日）"},
+  loc:{en:"Nijō castle, Kyoto", ja:"京都・二条城"},
+  title:{en:"The shogun comes to Kyoto", ja:"将軍家茂の上洛"},
+  desc:{en:"The young shogun Tokugawa Iemochi enters Kyoto — the first shogun to come in person since 1634. He comes as a supplicant: the court, under the sway of the loyalist radicals, extracts from him a promise to expel the foreigners by a fixed date that the shogunate has no means of keeping. It is to guard this visit that the Rōshigumi was raised, and the Mibu men's first duties are escorting his processions.",
+        ja:"若い将軍・徳川家茂が京に入る。将軍の上洛は1634年以来のことだった。だが彼は請願者として来たのである。尊攘急進派の影響下にある朝廷は、期限を切って攘夷を実行するという約束を家茂から引き出す。幕府には守るすべのない約束だった。浪士組はこの上洛を警護するために集められたのであり、壬生の浪士たちの最初の務めも将軍の行列の警護だった。"},
+  people:["katamori"],
+  roles:{
+    katamori:{en:"As Protector of Kyoto, responsible for the city's order during the shogun's stay.", ja:"京都守護職として、将軍滞京中の都の治安を担った。"}
+  }},
+
  {id:"coup818", sort:"1863-09-30", year:"1863", coords:[35.0254,135.7621], zoom:14,
   date:{en:"September 30, 1863", ja:"1863年9月30日（文久3年8月18日）"},
   loc:{en:"Kyoto Imperial Palace", ja:"京都御所"},
@@ -58,6 +69,28 @@ const CONTEXT = [
   desc:{en:"In deepest secrecy, brokered by the Tosa rōnin Sakamoto Ryōma and Nakaoka Shintarō, the bitter rivals Satsuma and Chōshū — enemies since the coup of 8/18 and the Kinmon fighting — form a covert alliance. Satsuma will front British weapons purchases for blockaded Chōshū; each pledges the other support against the shogunate. Nothing about the corps' Kyoto patrols is different the next morning, yet everything is decided: the combination that will destroy the shogunate now exists. The Shinsengumi never manages to lay hands on Ryōma, though it hunts him.",
         ja:"土佐脱藩浪士・坂本龍馬と中岡慎太郎の周旋により、犬猿の仲だった薩摩と長州——八月十八日の政変と禁門の変以来の仇敵同士——が極秘の同盟を結ぶ。薩摩名義で封鎖下の長州のために英国製武器を購入し、互いに対幕府で支援し合うという密約である。翌朝の新選組の市中巡察は何ひとつ変わらない。だが、すべてはこの夜に決した。幕府を倒す組み合わせが、この世に存在してしまったのだ。隊は龍馬を追い続けたが、ついにその手が届くことはなかった。"},
   people:[], roles:{}},
+
+ {id:"iemochi", sort:"1866-08-29", year:"1866", coords:[34.6868,135.5287], zoom:14,
+  date:{en:"August 29, 1866", ja:"1866年8月29日（慶応2年7月20日）"},
+  loc:{en:"Osaka castle", ja:"大坂城"},
+  title:{en:"The shogun dies; the war on Chōshū fails", ja:"家茂の死と長州征討の失敗"},
+  desc:{en:"The shogunate's second expedition against Chōshū has gone badly wrong: on every front Chōshū's rifle units, drilled in Western tactics and quietly supplied through Satsuma, beat the shogun's larger armies. In the middle of the campaign Iemochi, aged twenty, dies at Osaka castle. The fighting is called off under cover of mourning. Hitotsubashi Yoshinobu succeeds him as the last shogun, and the whole country has seen that the Tokugawa can no longer win a war against a single domain.",
+        ja:"幕府の第二次長州征討は散々な結果となっていた。洋式の調練を受け、薩摩を通じてひそかに武器を得た長州の銃隊が、あらゆる戦線で数にまさる幕府軍を破ったのである。その戦いのさなか、家茂は大坂城で二十歳（数え二十一歳）の若さで没した。戦は喪を理由に打ち切られる。一橋慶喜が最後の将軍として後を継ぐが、徳川がもはや一藩との戦にすら勝てないことは、国中の知るところとなった。"},
+  people:[],
+  roles:{}},
+
+ {id:"komei", sort:"1867-01-30", year:"1867", coords:[35.0244,135.7617], zoom:14,
+  date:{en:"January 30, 1867", ja:"1867年1月30日（慶応2年12月25日）"},
+  loc:{en:"Kyoto Imperial Palace", ja:"京都御所"},
+  title:{en:"Death of Emperor Kōmei", ja:"孝明天皇の崩御"},
+  desc:{en:"Emperor Kōmei dies suddenly at thirty-five, of smallpox by the official account. He had hated foreigners, but he had also trusted Aizu and wanted the shogunate preserved; with him the shogunate's friends lose their protector at court. His successor is a boy of fourteen, the future Emperor Meiji, and the court falls under the influence of men who want the Tokugawa gone. Within a year, the shogunate will be.",
+        ja:"孝明天皇が三十五歳（数え三十六歳）で急逝する。公式には天然痘とされた。異国を嫌った天皇だったが、会津を信頼し、幕府の存続を望んでもいた。その死によって、幕府方は朝廷における庇護者を失う。後を継いだのは十四歳（数え十六歳）の少年、のちの明治天皇であり、朝廷は徳川の退場を望む者たちの影響下に入っていく。一年のうちに、幕府は消える。"},
+  people:["katamori"],
+  roles:{
+    katamori:{en:"Lost the emperor who had trusted him above all others.", ja:"誰よりも自分を信頼してくれた天皇を失った。"}
+  },
+  legend:{en:"Rumours that Kōmei was poisoned circulated at the time and have never quite died; most historians accept smallpox as the cause.",
+          ja:"毒殺説は当時から流れ、いまも完全には消えていない。ただし多くの歴史家は天然痘による死と見ている。"}},
 
  {id:"taisei", sort:"1867-11-09", year:"1867", coords:[35.0142,135.7481], zoom:14,
   date:{en:"November 9, 1867", ja:"1867年11月9日（慶応3年10月14日）"},

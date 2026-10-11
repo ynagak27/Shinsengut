@@ -75,6 +75,19 @@ const EVENTS = [
     hijikata:{en:"Begins organizing the corps' internal order — the work that will define him.", ja:"隊の内部秩序の構築に着手する。彼を定義する仕事の始まり。"}
   }},
 
+ {id:"kiyokawadeath", sort:"1863-05-30", year:"1863", route:false, coords:[35.6555,139.7373], zoom:15,
+  date:{en:"May 30, 1863", ja:"1863年5月30日（文久3年4月13日）"},
+  loc:{en:"Ichinohashi bridge, Azabu, Edo", ja:"江戸麻布・一之橋"},
+  title:{en:"Kiyokawa Hachirō assassinated", ja:"清河八郎、暗殺される"},
+  desc:{en:"Back in Edo with the Rōshigumi men who followed him home, Kiyokawa Hachirō is still scheming — now, it is feared, for a rising against the foreigners in Yokohama. The shogunate, which paid for his corps and was then betrayed by it, decides he must be stopped. Returning from a visit in Azabu, he is cut down near the Ichinohashi bridge by a group of shogunal swordsmen. He is thirty-two.\n\nHis death settles the shape of what he started. The men he led back east are reorganised as the Shinchōgumi, a police force in Edo under the Shōnai domain. The handful who refused to follow him are in Kyoto, under Aizu, and about to become the Shinsengumi. The two halves of the Rōshigumi will spend the rest of the decade serving the same shogunate, three hundred miles apart.",
+        ja:"自分に従って江戸へ戻った浪士組の面々とともに、清河八郎はなお策を巡らせていた——今度は横浜の外国人居留地を襲う挙兵ではないかと恐れられた。浪士組の費用を出しながら裏切られた幕府は、彼を止めねばならないと決める。麻布での訪問の帰り、清河は一之橋の近くで幕府方の剣客の一団に斬られた。三十二歳（数え三十四歳）だった。\n\n彼の死が、彼の始めたことの形を定める。江戸へ連れ帰られた浪士たちは、庄内藩預かりの江戸の警察組織・新徴組に再編された。彼に従わなかった一握りの者たちは京で会津藩の預かりとなり、まもなく新選組となる。浪士組の二つの半分は、その後の十年近くを、遠く離れた江戸と京で、同じ幕府のために働いて過ごすことになる。"},
+  people:["kiyokawa"],
+  roles:{
+    kiyokawa:{en:"Killed by shogunal swordsmen, weeks after turning the Rōshigumi against the regime that had paid for it.", ja:"浪士組を、その費用を出した幕府に背かせてから数週間後、幕府方の剣客に斬られた。"}
+  },
+  legend:{en:"The killers are generally named as Sasaki Tadasaburō and his companions — the same Sasaki who, by later evidence, led the Mimawarigumi squad that killed Sakamoto Ryōma in 1867.",
+          ja:"下手人は一般に佐々木只三郎らとされる。のちの証言によれば、1867年に坂本龍馬を斬った見廻組の一隊を率いたのも、この佐々木である。"}},
+
  {id:"osakasumo", sort:"1863-08-28", year:"1863", route:false, coords:[34.6984,135.4970], zoom:14,
   date:{en:"August 1863", ja:"1863年8月（文久3年7月）"},
   loc:{en:"Kitashinchi, Osaka", ja:"大坂・北新地"},
@@ -148,6 +161,24 @@ const EVENTS = [
     kondo:{en:"Led the corps into the field under Aizu's command.", ja:"会津藩の指揮下、隊を率いて出動。"},
     hijikata:{en:"Commanded in the field beside Kondō during the pursuit operations.", ja:"近藤とともに掃討戦を指揮した。"}
   }},
+
+ {id:"petition1864", sort:"1864-09-10", year:"1864", route:false, coords:[35.0195,135.7875], zoom:15,
+  date:{en:"Autumn 1864", ja:"1864年秋（元治元年）"},
+  loc:{en:"Konkai Kōmyō-ji, Kurodani — Aizu's Kyoto headquarters", ja:"黒谷・金戒光明寺（会津藩本陣）"},
+  title:{en:"The petition against Kondō", ja:"近藤非行五箇条の建白"},
+  desc:{en:"After the Ikedaya, Kondō is a celebrity, and some of his oldest comrades think it has gone to his head. He is treating the men who founded the corps with him as his retainers rather than his equals. Six members — Nagakura Shinpachi, Harada Sanosuke, Saitō Hajime, Shimada Kai and two others — take the extraordinary step of going over his head: they submit a written complaint, listing his faults, to the Aizu domain at its Kyoto headquarters, the temple of Konkai Kōmyō-ji in Kurodani. They stake their lives on it: if the charges are found false, they are ready to commit seppuku themselves.\n\nMatsudaira Katamori himself intervenes. He summons the two sides, scolds and soothes, and reconciles them over sake. The corps holds together. But its code does not forget: within weeks one of the six, Kuzuyama Takehachirō, is ordered to commit seppuku on another charge — and few at the time doubted the connection.",
+        ja:"池田屋の後、近藤は時の人となり、古くからの同志のなかには、それが彼を増長させていると感じる者もいた。ともに隊を興した仲間を、同志ではなく家来のように扱い始めていたのである。永倉新八、原田左之助、斎藤一、島田魁ら六人は、異例の手段に出た。近藤の非行を書き連ねた建白書を、黒谷の金戒光明寺に置かれた会津藩の本陣に提出したのである。訴えが誤りとされれば自分たちが切腹する覚悟だった、と伝わる。\n\n松平容保みずからが仲裁に乗り出した。双方を呼び、叱り、なだめ、酒を酌み交わさせて和解させた。隊は割れずにすんだ。だが法度は忘れなかった。数週間のうちに六人の一人、葛山武八郎が別の罪状で切腹を命じられる。当時、この二つを結びつけて考えない者はほとんどいなかった。"},
+  people:["nagakura","harada","saito","shimada","kondo","katamori"],
+  roles:{
+    nagakura:{en:"Led the protest — and later told the story himself in his memoir.", ja:"抗議の中心となり、のちに自らの回想録でこの一件を語った。"},
+    harada:{en:"Signed the complaint.", ja:"建白書に名を連ねた。"},
+    saito:{en:"Signed the complaint — the same Saitō who would later be Kondō's most trusted spy.", ja:"建白書に名を連ねた。のちに近藤の最も信頼する間者となる、あの斎藤である。"},
+    shimada:{en:"Signed the complaint.", ja:"建白書に名を連ねた。"},
+    kondo:{en:"Accused by his own founding comrades of treating them as retainers; reconciled with them at Katamori's order.", ja:"結成以来の同志から、自分たちを家来扱いしていると訴えられ、容保の命で和解した。"},
+    katamori:{en:"Mediated in person and kept the corps from splitting.", ja:"みずから仲裁に立ち、隊の分裂を防いだ。"}
+  },
+  legend:{en:"Almost everything about the petition comes from Nagakura's own later accounts, which naturally present the six in a good light. The link between the protest and Kuzuyama's death is an inference, not a documented fact.",
+          ja:"この建白について知られていることのほとんどは、永倉自身の後年の記述に拠り、当然ながら六人を好意的に描いている。建白と葛山の切腹の結びつきは推測であり、記録で確かめられた事実ではない。"}},
 
  {id:"recruit1864", sort:"1864-10-20", year:"1864", route:false, coords:[35.6800,139.7990], zoom:13,
   date:{en:"Autumn 1864", ja:"1864年秋（元治元年）"},
@@ -396,6 +427,17 @@ const EVENTS = [
   legend:{en:"Kondō's death poem, and accounts of his calm at the execution ground, come from later sources. Where his body lies is uncertain: besides Itabashi, a grave at Ryūgen-ji in Mitaka is said by family tradition to hold remains recovered by his relatives.",
           ja:"近藤の辞世や、刑場での落ち着いた態度についての話は後年の記録に拠る。遺体がどこに眠るかも確かではない。板橋のほか、三鷹の龍源寺の墓には、親族がひそかに持ち帰った遺体が葬られていると家に伝わる。"}},
 
+ {id:"shirakawa", sort:"1868-06-20", year:"1868", route:false, coords:[37.1324,140.2137], zoom:13,
+  date:{en:"June – July 1868", ja:"1868年6月〜7月（慶応4年閏4月〜6月）"},
+  loc:{en:"Shirakawa, gateway to the north", ja:"奥州の玄関口・白河"},
+  title:{en:"The corps at Shirakawa", ja:"白河口の戦い"},
+  desc:{en:"Shirakawa, with its castle on the Ōshū highway, is the gate between the Kantō plain and the north. As the new government's army advances on Aizu, the northern domains and Aizu make their stand here, and the Shinsengumi — reduced to a few dozen men, with Hijikata recovering from his wound — fights under Saitō Hajime, now going by the name Yamaguchi Jirō.\n\nThe defenders hold the town at first and throw back an early assault. Then a smaller, better-armed government force takes the castle in a single day's fighting, and repeated attempts to retake it fail with heavy losses. The north's front door is open. Over the summer the government armies push on, and the corps falls back towards Aizu with them at its heels.",
+        ja:"奥州街道に城を構える白河は、関東平野と奥州を隔てる門である。新政府軍が会津に迫るなか、奥羽諸藩と会津はここで迎え撃った。数十名にまで減った新選組は、傷の癒えない土方に代わり、山口次郎と名を変えた斎藤一の指揮で戦った。\n\n守備側は当初、町を保ち、最初の攻撃を退けた。しかしその後、より少数ながら装備にまさる新政府軍が一日の戦いで城を奪い、奪還の試みは大きな犠牲を出してことごとく失敗する。奥州の表門は開かれた。夏のあいだに新政府軍はさらに進み、隊は追われるように会津へ退いていった。"},
+  people:["saito"],
+  roles:{
+    saito:{en:"Commanded the corps in the fighting, as Yamaguchi Jirō.", ja:"山口次郎の名で、隊を率いて戦った。"}
+  }},
+
  {id:"okitadeath", sort:"1868-07-19", year:"1868", route:false, coords:[35.6800,139.7120], zoom:12,
   date:{en:"July 19, 1868", ja:"1868年7月19日（慶応4年5月30日）"},
   loc:{en:"Sendagaya, Edo", ja:"江戸・千駄ヶ谷"},
@@ -448,6 +490,19 @@ const EVENTS = [
     ono:{en:"Followed his domain's heir, the former senior councillor Ogasawara Nagamichi, who sailed with the fleet.", ja:"艦隊とともに渡った唐津藩世子で元老中の小笠原長行に従った。"},
     hijikata:{en:"Joined the fleet's leadership councils as a field commander of proven reputation.", ja:"歴戦の指揮官として艦隊首脳の軍議に加わった。"}
   }},
+
+ {id:"nyoraido", sort:"1868-10-20", year:"1868", route:false, coords:[37.5091,139.8913], zoom:13,
+  date:{en:"October 1868", ja:"1868年10月（慶応4年9月）"},
+  loc:{en:"Nyoraidō, outside Aizu-Wakamatsu", ja:"会津若松郊外・如来堂"},
+  title:{en:"Saitō's last stand at Nyoraidō", ja:"如来堂の戦い"},
+  desc:{en:"Hijikata has gone north; Saitō and the men who would not abandon Aizu have stayed. With the castle town under siege, they hold a position at the small temple of Nyoraidō outside Wakamatsu. In October a government force falls on them. The little band is overwhelmed and scattered, and word spreads that Saitō and his men have all been killed.\n\nThey have not. Saitō and several others survive and fight on until Aizu surrenders in November, then go with the domain's men into captivity. When the defeated domain is moved north to the bleak lands of Tonami, at the tip of Honshu, Saitō goes with it. He will spend the rest of his long life among Aizu people — his wife was from an Aizu family — and later serve the new government as a Tokyo policeman under the name Fujita Gorō.",
+        ja:"土方は北へ去り、会津を見捨てることを拒んだ斎藤らは残った。城下が包囲されるなか、彼らは若松郊外の小さな堂・如来堂に陣を構えた。10月、新政府軍がこれを襲う。小部隊は圧倒されて四散し、斎藤らは全員討ち死にしたという報が広まった。\n\nだが彼らは死んでいなかった。斎藤ほか数名は生き延び、11月の会津降伏まで戦い続け、藩士たちとともに謹慎の身となった。敗れた会津藩が本州北端の荒涼とした斗南の地へ移されると、斎藤もそれに従った。彼は長い余生を会津の人々のあいだで送り——妻も会津の家の出だった——のちには藤田五郎の名で、新政府の東京の警察官として仕えることになる。"},
+  people:["saito"],
+  roles:{
+    saito:{en:"Held Nyoraidō until the band was overrun; reported dead, he survived to share Aizu's surrender and exile.", ja:"隊が崩れるまで如来堂を守った。戦死と伝えられたが生き延び、会津の降伏と移封をともにした。"}
+  },
+  legend:{en:"Who fought at Nyoraidō, and how many died, is uncertain; the report of Saitō's death that circulated shows how confused the news was even then.",
+          ja:"如来堂で誰が戦い、何人が死んだかは確かではない。斎藤戦死の報が流れたこと自体、当時でさえ情報がいかに混乱していたかを示している。"}},
 
  {id:"goryokaku", sort:"1869-01-27", year:"1868", route:true, coords:[41.7967,140.7570], zoom:12,
   date:{en:"December 1868 – January 1869", ja:"1868年12月〜1869年1月（明治元年）"},
@@ -529,5 +584,32 @@ const EVENTS = [
     shimada:{en:"Held the battery with the corps to the end and went into captivity.", ja:"最後まで隊とともに台場を守り、捕虜となった。"}
   },
   legend:{en:"Sōma's exact title and the date he took command vary between sources; the letter of the physician Takamatsu Ryōun is often cited for his appointment.",
-          ja:"相馬の正確な肩書きと隊長に就いた日付は史料によって異なる。その就任については、医師・高松凌雲の書簡がよく引かれる。"}}
+          ja:"相馬の正確な肩書きと隊長に就いた日付は史料によって異なる。その就任については、医師・高松凌雲の書簡がよく引かれる。"}},
+
+ {id:"ichimura", sort:"1869-07-15", year:"1869", route:false, coords:[35.6774,139.3998], zoom:15,
+  date:{en:"Summer 1869", ja:"1869年夏（明治2年）"},
+  loc:{en:"Satō Hikogorō's house, Hino", ja:"日野・佐藤彦五郎家"},
+  title:{en:"A photograph comes home to Hino", ja:"写真、日野へ帰る"},
+  desc:{en:"Weeks before his death, Hijikata ordered his young page Ichimura Tetsunosuke, a boy of about sixteen, to leave Hakodate on a foreign ship and carry a package to his family in Hino. Ichimura refused, wanting to die with the corps, and gave way only when Hijikata threatened to cut him down. He slipped through the lines, crossed to the mainland, and made his way south to the house of Satō Hikogorō, Hijikata's brother-in-law, where the Tennen Rishin-ryū had been taught all those years before.\n\nHe brought a photograph of Hijikata in Western uniform, taken in Hakodate, a lock of his hair, and a few lines of writing. The photograph is the image of Hijikata the world knows today. The Satō family hid Ichimura for a time and kept what he carried, and the family's descendants in Hino, who run a small museum in the house, still look after Hijikata's memory.",
+        ja:"死の数週間前、土方は十六歳ほどの小姓・市村鉄之助に、外国船で箱館を脱出し、日野の家族に包みを届けるよう命じた。市村は隊とともに死にたいと拒み、従わなければ斬ると言われてようやく承知した。彼は包囲を抜けて本州へ渡り、南へ下って、土方の義兄・佐藤彦五郎の家にたどり着く。かつて天然理心流が教えられていた、あの家である。\n\n彼が携えていたのは、箱館で撮られた洋装の土方の写真、遺髪、そしてわずかな書き付けだった。その写真こそ、今日世界が知る土方の姿である。佐藤家はしばらく市村をかくまい、届けられた品を守った。日野の佐藤家の子孫はいまも家の一角で小さな資料館を営み、土方の記憶を伝えている。"},
+  people:["hijikata"],
+  roles:{
+    hijikata:{en:"Sent his photograph and a lock of his hair home before the end, by a boy he refused to let die with him.", ja:"最期の前に、ともに死なせることを拒んだ少年に託して、写真と遺髪を故郷へ送った。"}
+  },
+  legend:{en:"The scene in which Hijikata threatened to cut Ichimura down if he refused comes from the Satō family's account of what the boy told them. The date of his arrival in Hino is not certain.",
+          ja:"拒めば斬ると土方が迫った場面は、少年が語ったことを佐藤家が伝えたものである。日野に着いた日付は確かではない。"}},
+
+ {id:"otaru", sort:"1913-03-17", year:"1913", route:false, coords:[43.2046,141.0020], zoom:13,
+  date:{en:"1913", ja:"1913年（大正2年）"},
+  loc:{en:"Otaru, Hokkaido", ja:"北海道・小樽"},
+  title:{en:"Nagakura tells the story", ja:"永倉新八、語る"},
+  desc:{en:"Forty-four years after Hakodate, the Shinsengumi is remembered in Japan, if at all, as a band of murderers who fought the Restoration. In Otaru, a port town in Hokkaido, a reporter for the Otaru Shimbun sits down with an old swordsman living in the town: Sugimura Yoshie, born Nagakura Shinpachi, captain of the 2nd unit. Through the spring of 1913 the paper runs his recollections in instalments, from the Shieikan to the end.\n\nNagakura is one of a handful of survivors who left accounts: Shimada Kai kept a diary; Nishimura Kanefumi, who had watched the corps from Nishi Honganji, wrote a history from the Kyoto side; Nagakura had already written a memoir of his own. His newspaper story, though, is the voice in which most of the corps' famous scenes first reached the public, and almost every later history and novel draws on it. He dies in 1915, aged seventy-five.",
+        ja:"箱館から四十四年。新選組は世間で思い出されるとしても、維新に刃向かった人斬り集団としてだった。北海道の港町・小樽で、小樽新聞の記者が、町に暮らす一人の老剣客のもとを訪ねる。杉村義衛——かつての永倉新八、二番組長である。1913年（大正2年）春、新聞は試衛館から最後までの彼の回想を連載した。\n\n記録を残した生き残りは永倉だけではない。島田魁は日記をつけ、西本願寺の寺侍として隊を間近に見た西村兼文は京の側から歴史を書き、永倉自身もすでに手記をまとめていた。それでも、隊の有名な場面の多くが初めて世に届いたのはこの連載の語り口によってであり、のちの歴史書や小説のほとんどがこれに拠っている。永倉は1915年（大正4年）、七十五歳（数え七十七歳）で世を去った。"},
+  people:["nagakura","shimada"],
+  roles:{
+    nagakura:{en:"Told the corps' story to the Otaru Shimbun in 1913 — the source behind most of its famous scenes.", ja:"1913年、小樽新聞に隊の物語を語った。有名な場面の多くの出どころである。"},
+    shimada:{en:"His diary of the corps' movements from Kyoto to Hakodate is the other great survivor's record.", ja:"京都から箱館までの隊の動きを記した日記は、生き残りが残したもう一つの重要な記録である。"}
+  },
+  legend:{en:"Nagakura was telling the story half a century later, as the corps' chief survivor and with his own reputation to protect. Historians treat his account as indispensable and as needing to be checked wherever possible.",
+          ja:"永倉が語ったのは半世紀後のことであり、隊の代表的な生き残りとして、自分の名誉を守る立場にもあった。歴史家は彼の証言を欠かせないものとしつつ、できるかぎり裏付けをとるべきものとして扱っている。"}}
 ];
