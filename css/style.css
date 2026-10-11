@@ -75,7 +75,6 @@ main{flex:1;display:flex;min-height:0}
 /* ---------- detail card ---------- */
 #detail{flex:1;overflow-y:auto;padding:18px 20px 28px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--asagi);margin-bottom:8px}
-.eyebrow .aside-tag{color:var(--makoto);margin-left:8px}
 .eyebrow .ctx-tag{color:var(--mist);margin-left:8px}
 .d-title{font-family:var(--disp);font-weight:700;font-size:22px;line-height:1.35;margin-bottom:6px}
 .d-loc{font-size:12px;color:var(--mist);margin-bottom:14px}
@@ -120,7 +119,6 @@ main{flex:1;display:flex;min-height:0}
 .link-item .li-top{display:flex;gap:10px;align-items:baseline}
 .link-item .no{font-family:var(--mono);font-size:11px;color:var(--asagi);flex-shrink:0;min-width:16px}
 .link-item .no.ctx{color:var(--mist)}
-.link-item .no.aside{color:var(--makoto)}
 .link-item .yr{font-family:var(--mono);font-size:11px;color:var(--mist);flex-shrink:0}
 .link-item .li-role{font-size:11.5px;color:var(--mist);margin-top:3px;line-height:1.6;padding-left:26px}
 .intro-seal{
@@ -143,7 +141,6 @@ main{flex:1;display:flex;min-height:0}
 .t-chip.dim{opacity:.32}
 .t-chip.ctx{border-style:dashed;background:transparent}
 .t-chip .t-yr{font-family:var(--mono);font-size:10px;color:var(--asagi);letter-spacing:.1em;display:flex;gap:6px}
-.t-chip .t-yr .aside{color:var(--makoto)}
 .t-chip .t-yr .ctxmark{color:var(--mist)}
 .t-chip.ctx .t-yr{color:var(--mist)}
 .t-chip .t-ti{font-size:12px;font-weight:500;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
@@ -156,10 +153,8 @@ main{flex:1;display:flex;min-height:0}
   background:var(--sumi);color:var(--asagi);border:2px solid var(--asagi);
   box-shadow:0 0 0 3px rgba(16,21,29,.6);transition:transform .12s;
 }
-.pin.aside{border-color:var(--makoto);color:var(--makoto);font-family:var(--disp)}
 .pin.ctx{border-color:var(--mist);border-style:dashed;color:var(--mist);border-radius:4px}
 .pin.sel{background:var(--asagi);color:var(--sumi);transform:scale(1.25)}
-.pin.aside.sel{background:var(--makoto);color:var(--washi)}
 .pin.ctx.sel{background:var(--mist);color:var(--sumi)}
 .pin.dim{opacity:.3}
 .pin .tt{

@@ -48,16 +48,13 @@ function paragraphs(parent, text) {
 }
 const mon = (p, cls) => el("span", "mon " + (cls || ""), p.kanji);
 
-/* Same event order and numbering as the map (js/app.js): only events on
-   Hijikata's route are numbered; † marks side events, ◇ national ones. */
+/* Same event order and numbering as the map (js/app.js): corps events
+   are numbered in date order, national events are ◇. */
 EVENTS.forEach(e => { e.kind = "corps"; });
-CONTEXT.forEach(e => { e.kind = "context"; e.route = false; });
+CONTEXT.forEach(e => { e.kind = "context"; });
 const ALL = [...EVENTS, ...CONTEXT].sort((a, b) => a.sort.localeCompare(b.sort));
 let rn = 0;
-ALL.forEach(e => {
-  if (e.kind === "corps" && e.route) e.no = ++rn;
-  else e.no = e.kind === "context" ? "◇" : "†";
-});
+ALL.forEach(e => { e.no = e.kind === "corps" ? ++rn : "◇"; });
 
 /* Directory order: by group, captains by unit number. */
 const unitNo = p => { const m = /(\d+)\w* unit/.exec(p.role.en); return m ? +m[1] : 99; };
@@ -158,7 +155,7 @@ function renderPerson(root, id) {
       a.href = href("index.html", {ev: e.id});
       const top = el("div", "li-top");
       top.append(
-        el("span", "no " + (e.kind === "context" ? "ctx" : e.route ? "" : "aside"), String(e.no)),
+        el("span", "no " + (e.kind === "context" ? "ctx" : ""), String(e.no)),
         el("span", "yr", e.year),
         el("span", "", t(e.title))
       );

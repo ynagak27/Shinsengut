@@ -6,25 +6,24 @@
 /* ---------- UI strings ---------- */
 const STR = {
   title:{en:"The Road of Shinsengumi, the last group of Samurai",ja:"新選組の軌跡"},
-  subtitle:{en:"The Shinsengumi's demon vice-commander — from Tama to Hakodate, 1835–1869",
-            ja:"新選組「鬼の副長」— 多摩から箱館へ 1835–1869"},
+  subtitle:{en:"The rise and fall of the shogun's last swordsmen — from Tama to Hakodate, 1863–1869",
+            ja:"幕府最後の剣客集団の興亡 — 多摩から箱館へ 1863–1869"},
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
   story:{en:"About the Shinsengumi",ja:"新選組とは"},
   tour:{en:"Guided tour",ja:"順路をたどる"},
   context:{en:"Historical events",ja:"時代の動き"},
-  fit:{en:"Full route",ja:"全体を表示"},
+  fit:{en:"Show all",ja:"全体を表示"},
   lang:{en:"日本語",ja:"English"},
   next:{en:"Next →",ja:"次へ →"},
   prev:{en:"← Back",ja:"← 前へ"},
   exit:{en:"Explore freely",ja:"自由に見る"},
   whoWasThere:{en:"Who was there — and what they did",ja:"関与した隊士 — その働き"},
   appearsIn:{en:"Appears in",ja:"関連する出来事"},
-  aside:{en:"off Hijikata's route",ja:"土方の進路外"},
   contextTag:{en:"national event",ja:"時代の動き"},
   legendLabel:{en:"Legend & disputed accounts",ja:"伝承・異説"},
   introTitle:{en:"Follow the journey",ja:"軌跡をたどる"},
-  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to just his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own movements. Toggle them with \"Historical events.\" The guided tour walks the route in order, from a Tama farmhouse to the gates of Hakodate.",
-             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその足取りだけに絞られ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の動きと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、多摩の農家から箱館の関門まで、時系列で旅をご案内します。"},
+  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to his events and draws his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own story. Toggle them with \"Historical events.\" The guided tour walks through every event in order, from the Tama dojo to the surrender at Hakodate and the survivors who told the tale.",
+             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその人物の出来事だけに絞られて足取りが線で結ばれ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の歩みと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、多摩の道場から箱館での降伏、そして物語を語り残した生き残りたちまで、すべての出来事を時系列でご案内します。"},
   stepOf:{en:(a,b)=>`${a} / ${b}`,ja:(a,b)=>`${a} / ${b}`},
   eraNow:{en:"Today",ja:"現代"},
   eraEdo:{en:"Edo era",ja:"江戸"},
@@ -44,17 +43,13 @@ const t=o=>(o&&o[lang]!==undefined)?o[lang]:"";
 
 /* ---------- merge + order all timeline items ---------- */
 EVENTS.forEach(e=>{e.kind="corps";});
-CONTEXT.forEach(e=>{e.kind="context"; e.route=false;});
+CONTEXT.forEach(e=>{e.kind="context";});
 const ALL=[...EVENTS,...CONTEXT].sort((a,b)=>a.sort.localeCompare(b.sort));
 const byId=id=>ALL.find(e=>e.id===id);
 
-/* route numbering (only Hijikata's path gets numbers) */
+/* corps events are numbered in date order; national events are ◇ */
 let rn=0;
-ALL.forEach(e=>{
-  if(e.kind==="corps"&&e.route) e.no=(++rn);
-  else if(e.kind==="context") e.no="◇";
-  else e.no="†";
-});
+ALL.forEach(e=>{ e.no = e.kind==="corps" ? ++rn : "◇"; });
 
 /* ---------- map ---------- */
 /* Google Maps has no built-in HTML marker like Leaflet's divIcon, so we
@@ -100,9 +95,9 @@ const MAP_STYLE=[
   {featureType:"water",elementType:"labels.text.fill",stylers:[{color:"#4d8f98"}]}
 ];
 
-let map,routeLine;
-const routePts=EVENTS.filter(e=>e.route).sort((a,b)=>a.sort.localeCompare(b.sort))
-  .map(e=>({lat:e.coords[0],lng:e.coords[1]}));
+let map,pathLine;
+const shown=()=>ALL.filter(e=>e.kind!=="context"||showContext);
+const ll=e=>({lat:e.coords[0],lng:e.coords[1]});
 
 const markers={};
 function buildMarkers(){
@@ -110,7 +105,7 @@ function buildMarkers(){
   Object.values(markers).forEach(m=>m.setMap(null));
   ALL.forEach(e=>{
     if(e.kind==="context" && !showContext) return;
-    const cls = e.kind==="context" ? "ctx" : (e.route ? "" : "aside");
+    const cls = e.kind==="context" ? "ctx" : "";
     const html=`<div class="pin ${cls}" data-ev="${e.id}">${e.no}<span class="tt">${t(e.title)}</span></div>`;
     const m=new HtmlMarker({lat:e.coords[0],lng:e.coords[1]},html,()=>selectEvent(e.id,true));
     m.setMap(map);
@@ -118,24 +113,24 @@ function buildMarkers(){
   });
   paintStates();
 }
-/* Frame the current selection: an event, a person's whole path, or the route. */
+/* Frame the current selection: an event, a person's whole path, or everything. */
 function frame(){
   if(selId) flyTo(byId(selId));
   else if(selPerson) fitPerson(selPerson);
   else fitAll();
 }
 function fitPerson(pid){
-  const pts=ALL.filter(e=>e.people&&e.people.includes(pid)&&(e.kind!=="context"||showContext));
+  const pts=shown().filter(e=>e.people&&e.people.includes(pid));
   if(!pts.length) return fitAll();
   if(pts.length===1) return flyTo(pts[0]);
   const bounds=new google.maps.LatLngBounds();
-  pts.forEach(e=>bounds.extend({lat:e.coords[0],lng:e.coords[1]}));
+  pts.forEach(e=>bounds.extend(ll(e)));
   map.fitBounds(bounds,60);
 }
 function fitAll(){
   if(!map) return;
   const bounds=new google.maps.LatLngBounds();
-  routePts.forEach(p=>bounds.extend(p));
+  shown().forEach(e=>bounds.extend(ll(e)));
   map.fitBounds(bounds,60);
 }
 
@@ -159,15 +154,16 @@ async function initMap(){
        scroll the page through it instead of hijacking the pan. */
     gestureHandling:isMobile?"cooperative":"greedy"
   });
-  routeLine=new google.maps.Polyline({
-    path:routePts, map, strokeOpacity:0,
+  /* dashed line through the selected person's events, in date order (see paintStates) */
+  pathLine=new google.maps.Polyline({
+    path:[], map, strokeOpacity:0,
     icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:.65,strokeColor:"#8ed8df",scale:2},offset:"0",repeat:"10px"}]
   });
   buildMarkers();
   buildEraUI();
   frame();
   /* Re-fit the view when the container changes size (rotation, crossing
-     the mobile breakpoint) so the route stays framed. */
+     the mobile breakpoint) so the selection stays framed. */
   if(window.ResizeObserver){
     let debounceId=null;
     new ResizeObserver(()=>{
@@ -288,7 +284,7 @@ function renderPeople(){
 function renderTimeline(){
   $("timeline").innerHTML=ALL.filter(e=>e.kind!=="context"||showContext).map(e=>{
     const mark = e.kind==="context" ? `<span class="ctxmark">◇</span>` :
-                 e.route ? `<span>${e.no}</span>` : `<span class="aside">†</span>`;
+                 `<span>${e.no}</span>`;
     return `<button class="t-chip ${e.kind==="context"?"ctx":""}" data-ev="${e.id}">
       <span class="t-yr">${mark}${e.year}</span>
       <span class="t-ti">${t(e.title)}</span>
@@ -314,11 +310,10 @@ function renderPersonDetail(pid){
   }
   html+=`<div class="d-sub">${t(STR.appearsIn)} — ${evs.length}</div><div class="link-list">`;
   evs.forEach(e=>{
-    const noCls = e.kind==="context"?"ctx":e.route?"":"aside";
-    const noTxt = e.kind==="context"?"◇":e.route?e.no:"†";
+    const noCls = e.kind==="context"?"ctx":"";
     const role = e.roles&&e.roles[pid] ? `<div class="li-role">${t(e.roles[pid])}</div>` : "";
     html+=`<button class="link-item" data-ev="${e.id}">
-      <div class="li-top"><span class="no ${noCls}">${noTxt}</span><span class="yr">${e.year}</span><span>${t(e.title)}</span></div>
+      <div class="li-top"><span class="no ${noCls}">${e.no}</span><span class="yr">${e.year}</span><span>${t(e.title)}</span></div>
       ${role}
     </button>`;
   });
@@ -333,7 +328,6 @@ function renderEventDetail(id){
   const e=byId(id);
   let tag="";
   if(e.kind==="context") tag=`<span class="ctx-tag">◇ ${t(STR.contextTag)}</span>`;
-  else if(!e.route) tag=`<span class="aside-tag">† ${t(STR.aside)}</span>`;
   let html=`
     <div class="eyebrow">${t(e.date)}${tag}</div>
     <div class="d-title">${t(e.title)}</div>
@@ -375,6 +369,7 @@ function renderDetail(){
 
 /* ---------- paint selection / dimming ---------- */
 function paintStates(){
+  if(pathLine) pathLine.setPath(selPerson ? shown().filter(e=>e.people&&e.people.includes(selPerson)).map(ll) : []);
   const related = selPerson ? new Set(ALL.filter(e=>e.people&&e.people.includes(selPerson)).map(e=>e.id)) : null;
   document.querySelectorAll(".pin").forEach(el=>{
     const id=el.dataset.ev;
@@ -414,7 +409,7 @@ function selectPerson(id){
   renderDetail(); paintStates();
 }
 
-/* ---------- guided tour (Hijikata's route + asides, chronological) ---------- */
+/* ---------- guided tour (every corps event, chronological) ---------- */
 let TOUR=[];
 function rebuildTour(){ TOUR=ALL.filter(e=>e.kind!=="context"); }
 function renderTour(){
