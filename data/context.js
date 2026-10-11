@@ -42,8 +42,10 @@ const CONTEXT = [
   title:{en:"The Coup of 8/18", ja:"八月十八日の政変"},
   desc:{en:"Aizu and Satsuma, in a dawn palace coup, expel Chōshū's troops and its allied radical nobles from Kyoto, breaking loyalist control of the court overnight. The Mibu Rōshigumi turns out under arms to guard the palace approaches — its first real deployment. For its service that day, the corps receives from the court of the protector of Kyoto a new name: Shinsengumi, \"the newly selected corps.\" The exiled Chōshū radicals scatter into hiding across the city; hunting them down becomes the corps' daily work, and leads directly to the Ikedaya.",
         ja:"会津と薩摩が未明の宮中クーデターで長州兵と急進派公卿を京から追放し、朝廷における尊攘派の支配を一夜で覆す。壬生浪士組も武装して御所警備に出動した——初めての本格的な出役である。この日の働きにより、隊は「新選組」の名を下賜される。追放された長州系志士たちは市中に潜伏し、その探索と捕縛が隊の日常業務となる。その先にあったのが、池田屋だった。"},
-  people:["kondo","hijikata","serizawa"],
+  people:["kondo","hijikata","serizawa","katamori","niimi"],
   roles:{
+    katamori:{en:"As Protector of Kyoto, planned the coup with Satsuma and put his troops on the palace gates.", ja:"京都守護職として薩摩とともに政変を計画し、御所の門を自藩の兵で固めた。"},
+    niimi:{en:"Turned out with the corps, still one of its commanders.", ja:"まだ局長の一人として、隊とともに出動した。"},
     serizawa:{en:"Led the corps to the palace; an anecdote has him facing down Aizu troops who barred the way, iron fan in hand.", ja:"隊を率いて御所へ。行く手を阻んだ会津兵を鉄扇片手に一喝したという逸話が残る。"},
     kondo:{en:"Marched with the corps in its first deployment under arms.", ja:"初の武装出動に隊とともに参加。"},
     hijikata:{en:"Marched with the corps; the day's service won it the name Shinsengumi.", ja:"隊とともに出動。この日の働きが「新選組」の名をもたらした。"}

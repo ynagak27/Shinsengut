@@ -288,7 +288,7 @@ function renderPeople(){
 function renderTimeline(){
   $("timeline").innerHTML=ALL.filter(e=>e.kind!=="context"||showContext).map(e=>{
     const mark = e.kind==="context" ? `<span class="ctxmark">◇</span>` :
-                 e.route ? e.no : `<span class="aside">†</span>`;
+                 e.route ? `<span>${e.no}</span>` : `<span class="aside">†</span>`;
     return `<button class="t-chip ${e.kind==="context"?"ctx":""}" data-ev="${e.id}">
       <span class="t-yr">${mark}${e.year}</span>
       <span class="t-ti">${t(e.title)}</span>
