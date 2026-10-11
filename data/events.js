@@ -5,6 +5,9 @@
    - "sort" (YYYY-MM-DD) controls timeline order. Approximate is fine.
    - Events are numbered on the map in "sort" order. Selecting a person
      draws a line through the events that list them, in that order.
+   - "story": true marks the corps' main story — the stops of the guided
+     tour (順路をたどる). Births, later lives and side incidents leave it
+     out; they still appear on the map, and in a person's own tour.
    - "people": who appears on the event card.
    - "roles": what each of them specifically did there. Add or expand
      these freely as your research deepens — one entry per person id.
@@ -152,7 +155,7 @@ const EVENTS = [
     yamanami:{en:"The educated Hokushin Ittō-ryū man, lending the rough house some polish.", ja:"北辰一刀流帰りの学識派。荒っぽい所帯に知性の重しを加えた。"}
   }},
 
- {id:"succession", sort:"1861-10-01", year:"1861", coords:[35.6674,139.4790], zoom:15,
+ {id:"succession", sort:"1861-10-01", year:"1861", story:true, coords:[35.6674,139.4790], zoom:15,
   date:{en:"October 1, 1861", ja:"1861年10月1日（文久元年8月27日）"},
   loc:{en:"Rokusho shrine, Fuchū — now Ōkunitama shrine", ja:"府中・六所宮（現・大國魂神社）"},
   title:{en:"Kondō becomes fourth master", ja:"近藤、天然理心流四代目を襲名"},
@@ -169,7 +172,7 @@ const EVENTS = [
   legend:{en:"The roster of the mock battle survives, but the roles given to particular men in it vary between later retellings.",
           ja:"野試合の名簿は残っているが、個々の人物の役割については、後年の語り直しによって異同がある。"}},
 
- {id:"roshigumi", sort:"1863-03-26", year:"1863", coords:[35.7124,139.7469], zoom:15,
+ {id:"roshigumi", sort:"1863-03-26", year:"1863", story:true, coords:[35.7124,139.7469], zoom:15,
   date:{en:"March 26, 1863", ja:"1863年3月26日（文久3年2月8日）"},
   loc:{en:"Denzū-in temple, Koishikawa, Edo", ja:"江戸小石川・伝通院"},
   title:{en:"The Rōshigumi marches west", ja:"浪士組、京へ"},
@@ -185,7 +188,7 @@ const EVENTS = [
     okita:{en:"Not yet twenty, and already the best swordsman of Kondō's house.", ja:"まだ二十歳前だが、すでに近藤一門随一の剣の使い手。"}
   }},
 
- {id:"mibu", sort:"1863-04-10", year:"1863", coords:[35.0024,135.7413], zoom:14,
+ {id:"mibu", sort:"1863-04-10", year:"1863", story:true, coords:[35.0024,135.7413], zoom:14,
   date:{en:"April 1863", ja:"1863年4月（文久3年）"},
   loc:{en:"Mibu village, Kyoto", ja:"京都・壬生村"},
   title:{en:"Arrival at Mibu", ja:"壬生に到着"},
@@ -234,7 +237,7 @@ const EVENTS = [
   legend:{en:"Almost everything known about the night — who was there, who struck first, how many wrestlers died — comes from Nagakura's recollections decades later. The settlement and the charity tournament are better attested than the details of the fight.",
           ja:"この夜について知られていること——誰がいたか、誰が先に手を出したか、力士が何人死んだか——のほとんどは、数十年後の永倉の回想に拠る。和解と勧進相撲のほうが、乱闘の細部よりも裏付けは確かである。"}},
 
- {id:"serizawa", sort:"1863-10-30", year:"1863", coords:[35.0035,135.7420], zoom:15,
+ {id:"serizawa", sort:"1863-10-30", year:"1863", story:true, coords:[35.0035,135.7420], zoom:15,
   date:{en:"October 1863 — exact date disputed", ja:"1863年10月（文久3年9月）※日付に異説"},
   loc:{en:"Yagi residence, Mibu", ja:"壬生・八木邸"},
   title:{en:"Purge of Serizawa Kamo", ja:"芹沢鴨の粛清"},
@@ -253,7 +256,7 @@ const EVENTS = [
   legend:{en:"Participant lists vary across sources (some add Tōdō Heisuke or Inoue Genzaburō, some drop Yamanami), and even the date differs between accounts. The rain, the party at the Sumiya, and the survival of the Yagi children hiding under their bedding come mainly from the Yagi family's later reminiscences.",
           ja:"実行者の顔ぶれは史料によって異なり（藤堂平助や井上源三郎を加えるもの、山南を外すものもある）、日付さえ一致しない。豪雨、角屋での宴、布団をかぶって難を逃れた八木家の子供たち——これらの細部は主に後年の八木家の回想に由来する。"}},
 
- {id:"ikedaya", sort:"1864-07-08", year:"1864", coords:[35.0090,135.7701], zoom:15,
+ {id:"ikedaya", sort:"1864-07-08", year:"1864", story:true, coords:[35.0090,135.7701], zoom:15,
   date:{en:"July 8, 1864", ja:"1864年7月8日（元治元年6月5日）"},
   loc:{en:"Ikedaya inn, Sanjō-Kiyamachi, Kyoto", ja:"京都三条木屋町・池田屋"},
   title:{en:"The Ikedaya Incident", ja:"池田屋事件"},
@@ -278,7 +281,7 @@ const EVENTS = [
   legend:{en:"Okita coughing blood on the Ikedaya floor is the most famous scene in Shinsengumi fiction — and is probably not what happened. Nagakura's account says only that Okita fell ill during the fight; heatstroke on a stifling festival night is a common modern reading.",
           ja:"池田屋の床に喀血して倒れる沖田——新選組フィクション最大の名場面だが、おそらく史実ではない。永倉の手記は「戦闘中に病に倒れた」と記すのみで、蒸し暑い祭りの夜の熱中症とみる説が現在は有力である。"}},
 
- {id:"kinmon", sort:"1864-08-20", year:"1864", coords:[35.0243,135.7595], zoom:14,
+ {id:"kinmon", sort:"1864-08-20", year:"1864", story:true, coords:[35.0243,135.7595], zoom:14,
   date:{en:"August 20, 1864", ja:"1864年8月20日（元治元年7月19日）"},
   loc:{en:"Hamaguri Gate, Kyoto Imperial Palace", ja:"京都御所・蛤御門"},
   title:{en:"The Kinmon Incident", ja:"禁門の変"},
@@ -291,7 +294,7 @@ const EVENTS = [
     hijikata:{en:"Commanded in the field beside Kondō during the pursuit operations.", ja:"近藤とともに掃討戦を指揮した。"}
   }},
 
- {id:"petition1864", sort:"1864-09-10", year:"1864", coords:[35.0195,135.7875], zoom:15,
+ {id:"petition1864", sort:"1864-09-10", year:"1864", story:true, coords:[35.0195,135.7875], zoom:15,
   date:{en:"Autumn 1864", ja:"1864年秋（元治元年）"},
   loc:{en:"Konkai Kōmyō-ji, Kurodani — Aizu's Kyoto headquarters", ja:"黒谷・金戒光明寺（会津藩本陣）"},
   title:{en:"The petition against Kondō", ja:"近藤非行五箇条の建白"},
@@ -309,7 +312,7 @@ const EVENTS = [
   legend:{en:"Almost everything about the petition comes from Nagakura's own later accounts, which naturally present the six in a good light. The link between the protest and Kuzuyama's death is an inference, not a documented fact.",
           ja:"この建白について知られていることのほとんどは、永倉自身の後年の記述に拠り、当然ながら六人を好意的に描いている。建白と葛山の切腹の結びつきは推測であり、記録で確かめられた事実ではない。"}},
 
- {id:"recruit1864", sort:"1864-10-20", year:"1864", coords:[35.6800,139.7990], zoom:13,
+ {id:"recruit1864", sort:"1864-10-20", year:"1864", story:true, coords:[35.6800,139.7990], zoom:13,
   date:{en:"Autumn 1864", ja:"1864年秋（元治元年）"},
   loc:{en:"Fukagawa, Edo", ja:"江戸・深川"},
   title:{en:"Recruiting in Edo: Itō Kashitarō joins", ja:"江戸で隊士募集——伊東甲子太郎の入隊"},
@@ -324,7 +327,7 @@ const EVENTS = [
     shinohara:{en:"Came west with Itō as one of his closest followers.", ja:"伊東の側近の一人として上京。"}
   }},
 
- {id:"yamanami", sort:"1865-03-20", year:"1865", coords:[35.0027,135.7408], zoom:15,
+ {id:"yamanami", sort:"1865-03-20", year:"1865", story:true, coords:[35.0027,135.7408], zoom:15,
   date:{en:"March 20, 1865", ja:"1865年3月20日（元治2年2月23日）"},
   loc:{en:"Mibu barracks, Kyoto", ja:"京都・壬生屯所"},
   title:{en:"Yamanami's seppuku", ja:"山南敬助の切腹"},
@@ -339,7 +342,7 @@ const EVENTS = [
   legend:{en:"The farewell with his lover Akesato through the barracks' lattice window first appears in Shimozawa Kan's 20th-century semi-fictional chronicles.",
           ja:"恋人・明里との格子窓越しの別れは、子母澤寛による20世紀の半ば創作的な聞き書きが初出である。"}},
 
- {id:"honganji", sort:"1865-04-15", year:"1865", coords:[34.9922,135.7515], zoom:14,
+ {id:"honganji", sort:"1865-04-15", year:"1865", story:true, coords:[34.9922,135.7515], zoom:14,
   date:{en:"Spring 1865", ja:"1865年春（慶応元年）"},
   loc:{en:"Nishi Honganji temple, Kyoto", ja:"京都・西本願寺"},
   title:{en:"Headquarters at Nishi Honganji", ja:"屯所を西本願寺へ"},
@@ -421,7 +424,7 @@ const EVENTS = [
   legend:{en:"The number of attackers, how many were killed or captured, and the exact placing of the squads differ between accounts.",
           ja:"襲撃者の人数、討ち取り・捕縛の数、各隊の配置は、記録によって異なる。"}},
 
- {id:"goryo", sort:"1867-04-24", year:"1867", coords:[35.0008,135.7813], zoom:15,
+ {id:"goryo", sort:"1867-04-24", year:"1867", story:true, coords:[35.0008,135.7813], zoom:15,
   date:{en:"April 1867", ja:"1867年4月（慶応3年3月）"},
   loc:{en:"Gesshin-in, Kōdai-ji, Higashiyama, Kyoto", ja:"京都東山・高台寺月真院"},
   title:{en:"The split: Itō founds the Goryō Eji", ja:"分離——伊東、御陵衛士を結成"},
@@ -441,7 +444,7 @@ const EVENTS = [
   legend:{en:"Whether Saitō went over as a planted spy from the start, or changed sides later, cannot be settled from the record; the corps' own side always presented him as its agent.",
           ja:"斎藤が最初から送り込まれた間者だったのか、のちに寝返ったのかは、記録からは決められない。隊の側は一貫して彼を自分たちの密偵として語っている。"}},
 
- {id:"hatamoto", sort:"1867-06-25", year:"1867", coords:[34.9899,135.7480], zoom:14,
+ {id:"hatamoto", sort:"1867-06-25", year:"1867", story:true, coords:[34.9899,135.7480], zoom:14,
   date:{en:"June 1867", ja:"1867年6月（慶応3年）"},
   loc:{en:"Fudōdō village, Kyoto", ja:"京都・不動堂村"},
   title:{en:"Direct retainers of the shogun", ja:"幕臣に取り立てられる"},
@@ -468,7 +471,7 @@ const EVENTS = [
   legend:{en:"The date (some accounts put it in 1866), the exact place and the killers are all uncertain; popular accounts name Saitō Hajime. The map point is approximate.",
           ja:"日付（1866年とする記録もある）、正確な場所、下手人はいずれも確かではない。俗には斎藤一の名が挙がる。地図の位置はおおよそのものである。"}},
 
- {id:"aburanokoji", sort:"1867-12-13", year:"1867", coords:[34.9931,135.7546], zoom:15,
+ {id:"aburanokoji", sort:"1867-12-13", year:"1867", story:true, coords:[34.9931,135.7546], zoom:15,
   date:{en:"December 13, 1867", ja:"1867年12月13日（慶応3年11月18日）"},
   loc:{en:"Aburanokōji street, Kyoto", ja:"京都・油小路"},
   title:{en:"The Aburanokōji Incident", ja:"油小路事件"},
@@ -501,7 +504,7 @@ const EVENTS = [
   legend:{en:"The numbers on each side and who led the corps' detail differ between accounts.",
           ja:"双方の人数や、隊の護衛を誰が率いていたかは、記録によって異なる。"}},
 
- {id:"sumizome", sort:"1868-01-12", year:"1868", coords:[34.9479,135.7682], zoom:15,
+ {id:"sumizome", sort:"1868-01-12", year:"1868", story:true, coords:[34.9479,135.7682], zoom:15,
   date:{en:"January 12, 1868", ja:"1868年1月12日（慶応3年12月18日）"},
   loc:{en:"Sumizome, Fushimi", ja:"伏見・墨染"},
   title:{en:"Kondō shot at Sumizome", ja:"近藤、墨染で狙撃される"},
@@ -517,7 +520,7 @@ const EVENTS = [
   legend:{en:"Who fired the shot is disputed: the Goryō Eji survivors' own accounts name different men, and Shinohara's share is not certain.",
           ja:"誰が撃ったかには異説がある。御陵衛士の生き残りたち自身の証言でも名前が異なり、篠原の役割も確かではない。"}},
 
- {id:"tobafushimi", sort:"1868-01-27", year:"1868", coords:[34.9291,135.7570], zoom:12,
+ {id:"tobafushimi", sort:"1868-01-27", year:"1868", story:true, coords:[34.9291,135.7570], zoom:12,
   date:{en:"January 27–31, 1868", ja:"1868年1月27日（慶応4年1月3日）"},
   loc:{en:"Fushimi, south of Kyoto", ja:"京都南郊・伏見"},
   title:{en:"Battle of Toba–Fushimi", ja:"鳥羽・伏見の戦い"},
@@ -549,7 +552,7 @@ const EVENTS = [
   legend:{en:"The story of Taisuke and his uncle's head comes down through the Inoue family; its outline is consistent, but the temple and exact spot vary. The modern placename Senryōmatsu-chō lies a little north of the old battle line; the map point is approximate.",
           ja:"泰助と叔父の首の話は井上家に伝わるもので、大筋は一致しているが、寺や正確な場所には異同がある。現在の千両松町は当時の戦線よりやや北にあり、地図上の位置はおおよそのものである。"}},
 
- {id:"shinagawa", sort:"1868-02-08", year:"1868", coords:[35.6094,139.7443], zoom:15,
+ {id:"shinagawa", sort:"1868-02-08", year:"1868", story:true, coords:[35.6094,139.7443], zoom:15,
   date:{en:"February 1868", ja:"1868年2月（慶応4年1月）"},
   loc:{en:"Shinagawa, Edo", ja:"江戸・品川"},
   title:{en:"Back to Edo by sea", ja:"海路、江戸へ"},
@@ -570,7 +573,7 @@ const EVENTS = [
   legend:{en:"Which ships carried which men, the exact landing dates, and the place and manner of Yamazaki's death vary between accounts. Hijikata's remark about the gun comes from the recollection of the scholar Yoda Gakkai.",
           ja:"どの船に誰が乗ったか、上陸の正確な日付、山崎の死の場所と様子は、記録によって異なる。鉄砲についての土方の言葉は、漢学者・依田学海の記録に拠る。"}},
 
- {id:"koshu", sort:"1868-03-29", year:"1868", coords:[35.6636,138.7290], zoom:11,
+ {id:"koshu", sort:"1868-03-29", year:"1868", story:true, coords:[35.6636,138.7290], zoom:11,
   date:{en:"March 29, 1868", ja:"1868年3月29日（慶応4年3月6日）"},
   loc:{en:"Katsunuma, Kai province", ja:"甲斐国・勝沼"},
   title:{en:"Defeat at Kōshū-Katsunuma", ja:"甲州勝沼の敗戦"},
@@ -604,7 +607,7 @@ const EVENTS = [
   legend:{en:"The exact date of the reburial varies between accounts.",
           ja:"改葬の正確な日付は記録によって異なる。"}},
 
- {id:"nagareyama", sort:"1868-04-25", year:"1868", coords:[35.8563,139.9029], zoom:11,
+ {id:"nagareyama", sort:"1868-04-25", year:"1868", story:true, coords:[35.8563,139.9029], zoom:11,
   date:{en:"April 1868", ja:"1868年4月（慶応4年）"},
   loc:{en:"Nagareyama, Shimōsa province", ja:"下総国・流山"},
   title:{en:"Kondō surrenders at Nagareyama", ja:"近藤、流山で投降"},
@@ -628,7 +631,7 @@ const EVENTS = [
     hijikata:{en:"Joined Ōtori's army and was given command of its vanguard.", ja:"大鳥軍に加わり、先鋒の指揮を任された。"}
   }},
 
- {id:"itabashi", sort:"1868-05-17", year:"1868", coords:[35.7456,139.7194], zoom:15,
+ {id:"itabashi", sort:"1868-05-17", year:"1868", story:true, coords:[35.7456,139.7194], zoom:15,
   date:{en:"May 17, 1868", ja:"1868年5月17日（慶応4年4月25日）"},
   loc:{en:"Itabashi, north of Edo", ja:"江戸北郊・板橋"},
   title:{en:"Execution of Kondō Isami", ja:"近藤勇、板橋で処刑"},
@@ -643,7 +646,7 @@ const EVENTS = [
   legend:{en:"Kondō's death poem, and accounts of his calm at the execution ground, come from later sources. Where his body lies is uncertain: besides Itabashi, a grave at Ryūgen-ji in Mitaka is said by family tradition to hold remains recovered by his relatives.",
           ja:"近藤の辞世や、刑場での落ち着いた態度についての話は後年の記録に拠る。遺体がどこに眠るかも確かではない。板橋のほか、三鷹の龍源寺の墓には、親族がひそかに持ち帰った遺体が葬られていると家に伝わる。"}},
 
- {id:"shirakawa", sort:"1868-06-20", year:"1868", coords:[37.1324,140.2137], zoom:13,
+ {id:"shirakawa", sort:"1868-06-20", year:"1868", story:true, coords:[37.1324,140.2137], zoom:13,
   date:{en:"June – July 1868", ja:"1868年6月〜7月（慶応4年閏4月〜6月）"},
   loc:{en:"Shirakawa, gateway to the north", ja:"奥州の玄関口・白河"},
   title:{en:"The corps at Shirakawa", ja:"白河口の戦い"},
@@ -654,7 +657,7 @@ const EVENTS = [
     saito:{en:"Commanded the corps in the fighting, as Yamaguchi Jirō.", ja:"山口次郎の名で、隊を率いて戦った。"}
   }},
 
- {id:"okitadeath", sort:"1868-07-19", year:"1868", coords:[35.6800,139.7120], zoom:12,
+ {id:"okitadeath", sort:"1868-07-19", year:"1868", story:true, coords:[35.6800,139.7120], zoom:12,
   date:{en:"July 19, 1868", ja:"1868年7月19日（慶応4年5月30日）"},
   loc:{en:"Sendagaya, Edo", ja:"江戸・千駄ヶ谷"},
   title:{en:"Death of Okita Sōji", ja:"沖田総司の死"},
@@ -667,7 +670,7 @@ const EVENTS = [
   legend:{en:"The black cat story comes from later reminiscence and may be embellished; it has become inseparable from his legend.",
           ja:"黒猫の逸話は後年の回想に由来し脚色の可能性があるが、いまや沖田伝説と不可分のものとなっている。"}},
 
- {id:"utsunomiya", sort:"1868-05-11", year:"1868", coords:[36.5551,139.8853], zoom:11,
+ {id:"utsunomiya", sort:"1868-05-11", year:"1868", story:true, coords:[36.5551,139.8853], zoom:11,
   date:{en:"May 1868", ja:"1868年5月（慶応4年4月）"},
   loc:{en:"Utsunomiya Castle, Shimotsuke", ja:"下野国・宇都宮城"},
   title:{en:"Hijikata storms Utsunomiya castle", ja:"宇都宮城の戦い"},
@@ -678,7 +681,7 @@ const EVENTS = [
     hijikata:{en:"Led the vanguard that stormed the castle; wounded in the foot days later when it was retaken.", ja:"先鋒を率いて城を攻略。数日後の奪回戦で足を負傷した。"}
   }},
 
- {id:"aizu", sort:"1868-10-06", year:"1868", coords:[37.4877,139.9294], zoom:10,
+ {id:"aizu", sort:"1868-10-06", year:"1868", story:true, coords:[37.4877,139.9294], zoom:10,
   date:{en:"Autumn 1868", ja:"1868年秋（慶応4年〜明治元年）"},
   loc:{en:"Aizu-Wakamatsu", ja:"会津若松"},
   title:{en:"The Aizu campaign", ja:"会津戦争"},
@@ -693,7 +696,7 @@ const EVENTS = [
     saito:{en:"Refused to leave, fought Aizu's last battles with a dozen men, and shared the domain's surrender and exile.", ja:"退去を拒否。十数名と会津最後の戦いを戦い抜き、降伏と流謫の運命を藩と分かち合った。"}
   }},
 
- {id:"sendai", sort:"1868-10-12", year:"1868", coords:[38.2682,140.8694], zoom:10,
+ {id:"sendai", sort:"1868-10-12", year:"1868", story:true, coords:[38.2682,140.8694], zoom:10,
   date:{en:"October 1868", ja:"1868年10月（明治元年）"},
   loc:{en:"Sendai", ja:"仙台"},
   title:{en:"Hijikata joins Enomoto's fleet", ja:"土方、仙台で榎本艦隊に合流"},
@@ -720,7 +723,7 @@ const EVENTS = [
   legend:{en:"Who fought at Nyoraidō, and how many died, is uncertain; the report of Saitō's death that circulated shows how confused the news was even then.",
           ja:"如来堂で誰が戦い、何人が死んだかは確かではない。斎藤戦死の報が流れたこと自体、当時でさえ情報がいかに混乱していたかを示している。"}},
 
- {id:"washinoki", sort:"1868-12-03", year:"1868", coords:[42.1091,140.5247], zoom:12,
+ {id:"washinoki", sort:"1868-12-03", year:"1868", story:true, coords:[42.1091,140.5247], zoom:12,
   date:{en:"December 3, 1868", ja:"1868年12月3日（明治元年10月20日）"},
   loc:{en:"Washinoki, Ezo", ja:"蝦夷地・鷲ノ木"},
   title:{en:"Landing at Washinoki", ja:"鷲ノ木上陸"},
@@ -734,7 +737,7 @@ const EVENTS = [
     ono:{en:"Landed with the corps.", ja:"隊とともに上陸した。"}
   }},
 
- {id:"goryokaku", sort:"1869-01-27", year:"1868", coords:[41.7967,140.7570], zoom:12,
+ {id:"goryokaku", sort:"1869-01-27", year:"1868", story:true, coords:[41.7967,140.7570], zoom:12,
   date:{en:"December 1868 – January 1869", ja:"1868年12月〜1869年1月（明治元年）"},
   loc:{en:"Goryōkaku fortress, Hakodate", ja:"箱館・五稜郭"},
   title:{en:"The Republic of Ezo", ja:"蝦夷共和国"},
@@ -762,7 +765,7 @@ const EVENTS = [
   legend:{en:"The story that Hijikata, watching the Kaiyō Maru founder, struck a pine tree in grief belongs to tradition; the tree is still pointed out in Esashi.",
           ja:"開陽丸の座礁を見た土方が、悔しさのあまり松の木を叩いたという話は伝承である。その松はいまも江差で案内されている。"}},
 
- {id:"miyako", sort:"1869-05-06", year:"1869", coords:[39.6414,141.9723], zoom:9,
+ {id:"miyako", sort:"1869-05-06", year:"1869", story:true, coords:[39.6414,141.9723], zoom:9,
   date:{en:"May 6, 1869", ja:"1869年5月6日（明治2年3月25日）"},
   loc:{en:"Miyako Bay, Rikuchū", ja:"陸中・宮古湾"},
   title:{en:"Raid on Miyako Bay", ja:"宮古湾海戦"},
@@ -786,7 +789,7 @@ const EVENTS = [
   legend:{en:"Famous details — tens of thousands of rounds fired in a single night, rifles too hot to hold being cooled with buckets of water, Hijikata passing among the men with a cask of sake but allowing each only one cup — come from participants' later accounts and may have grown with retelling.",
           ja:"一夜に数万発を撃った、熱くなった銃身を桶の水で冷やした、土方が酒樽を持って兵のあいだを回り、一人一杯だけ許した——といった有名な話は、参加者の後年の記録に拠り、語り継がれるうちに膨らんだ部分もあるかもしれない。"}},
 
- {id:"death", sort:"1869-06-20", year:"1869", coords:[41.7737,140.7269], zoom:13,
+ {id:"death", sort:"1869-06-20", year:"1869", story:true, coords:[41.7737,140.7269], zoom:13,
   date:{en:"June 20, 1869", ja:"1869年6月20日（明治2年5月11日）"},
   loc:{en:"Ippongi gate, Hakodate", ja:"箱館・一本木関門"},
   title:{en:"Hijikata killed at Hakodate", ja:"土方歳三、箱館に散る"},
@@ -802,7 +805,7 @@ const EVENTS = [
   legend:{en:"Multiple accounts of his final ride differ in detail (the exact spot, his last words, who recovered his body). The concealed grave has produced a century and a half of theories, none proven.",
           ja:"最期の突撃の細部（正確な地点、最期の言葉、遺体の収容者）は記録によって異なる。秘匿された埋葬地をめぐっては一世紀半にわたり諸説が唱えられてきたが、いずれも証明されていない。"}},
 
- {id:"benten", sort:"1869-06-24", year:"1869", coords:[41.7742,140.7041], zoom:15,
+ {id:"benten", sort:"1869-06-24", year:"1869", story:true, coords:[41.7742,140.7041], zoom:15,
   date:{en:"June 24, 1869", ja:"1869年6月24日（明治2年5月15日）"},
   loc:{en:"Benten Daiba fort, Hakodate harbour", ja:"箱館港・弁天台場"},
   title:{en:"The last of the Shinsengumi: Benten Daiba", ja:"新選組の終わり——弁天台場"},
@@ -889,7 +892,7 @@ const EVENTS = [
     nagakura:{en:"Sword instructor to the prison's guards for about four years.", ja:"約四年にわたり看守たちの剣術師範を務めた。"}
   }},
 
- {id:"takahata", sort:"1888-07-01", year:"1888", coords:[35.6618,139.4108], zoom:15,
+ {id:"takahata", sort:"1888-07-01", year:"1888", story:true, coords:[35.6618,139.4108], zoom:15,
   date:{en:"1888", ja:"1888年（明治21年）"},
   loc:{en:"Takahata Fudō temple, Hino", ja:"日野・高幡不動尊"},
   title:{en:"A monument to the two heroes", ja:"殉節両雄之碑"},
@@ -915,7 +918,7 @@ const EVENTS = [
   legend:{en:"Accounts differ on whether he died at the temple while on duty, as a popular story has it, or at home.",
           ja:"よく語られるように勤務中に寺で亡くなったのか、自宅で亡くなったのかについては、記録によって異なる。"}},
 
- {id:"otaru", sort:"1913-03-17", year:"1913", coords:[43.2046,141.0020], zoom:13,
+ {id:"otaru", sort:"1913-03-17", year:"1913", story:true, coords:[43.2046,141.0020], zoom:13,
   date:{en:"1913", ja:"1913年（大正2年）"},
   loc:{en:"Otaru, Hokkaido", ja:"北海道・小樽"},
   title:{en:"Nagakura tells the story", ja:"永倉新八、語る"},

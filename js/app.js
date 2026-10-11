@@ -11,6 +11,7 @@ const STR = {
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
   story:{en:"About the Shinsengumi",ja:"新選組とは"},
   tour:{en:"Guided tour",ja:"順路をたどる"},
+  tourPerson:{en:p=>`Follow ${p.name.en.split(" ")[0]}`,ja:p=>`${p.name.ja}の足取り`},
   context:{en:"Historical events",ja:"時代の動き"},
   fit:{en:"Show all",ja:"全体を表示"},
   lang:{en:"日本語",ja:"English"},
@@ -22,8 +23,8 @@ const STR = {
   contextTag:{en:"national event",ja:"時代の動き"},
   legendLabel:{en:"Legend & disputed accounts",ja:"伝承・異説"},
   introTitle:{en:"Follow the journey",ja:"軌跡をたどる"},
-  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to his events and draws his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own story. Toggle them with \"Historical events.\" The guided tour walks through every event in order, from the Tama dojo to the surrender at Hakodate and the survivors who told the tale.",
-             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその人物の出来事だけに絞られて足取りが線で結ばれ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の歩みと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、多摩の道場から箱館での降伏、そして物語を語り残した生き残りたちまで、すべての出来事を時系列でご案内します。"},
+  introBody:{en:"Tap any numbered point on the map or the timeline to open an event, or tap a name above to follow one man through the whole story — the map dims to his events and draws his path, and his page gives his life in full.\n\nThe ◇ diamonds are the great events of the age — Perry's ships, the Satsuma–Chōshū alliance, the fall of Edo — set beside the corps' own story. Toggle them with \"Historical events.\" The guided tour walks through the corps' main story, from the Shieikan to the surrender at Hakodate and the survivors who told the tale. Choose a person first, and it follows his life instead, from his birth to his grave.",
+             ja:"地図やタイムラインの番号をタップすると出来事の詳細が開きます。上の隊士名をタップすれば、その人物の物語を最初から追えます——地図はその人物の出来事だけに絞られて足取りが線で結ばれ、人物ページには生涯が詳しく記されます。\n\n◇印は時代の大事件です——黒船、薩長同盟、江戸開城——を隊の歩みと並べて配置しています。「時代の動き」で表示を切り替えられます。「順路をたどる」では、試衛館から箱館での降伏、そして物語を語り残した生き残りたちまで、新選組の本筋をご案内します。先に隊士を選ぶと、その人物の生涯——生まれてから墓所まで——をたどる案内に変わります。"},
   stepOf:{en:(a,b)=>`${a} / ${b}`,ja:(a,b)=>`${a} / ${b}`},
   eraNow:{en:"Today",ja:"現代"},
   eraEdo:{en:"Edo era",ja:"江戸"},
@@ -36,7 +37,9 @@ const STR = {
 
 /* ---------- state ---------- */
 let lang=new URLSearchParams(location.search).get("lang")==="en"?"en":"ja";
-let selId=null, selPerson=null, tourIdx=-1, showContext=true;
+let selId=null, selPerson=null, tourIdx=-1, tourPerson=null, showContext=true;
+/* whose path the map is showing: the selected person, or the person being toured */
+const focusPerson=()=>selPerson||tourPerson;
 const href=(page,params={})=>{const q=new URLSearchParams(params); if(lang==="en") q.set("lang","en"); const s=q.toString(); return page+(s?"?"+s:"");};
 const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const t=o=>(o&&o[lang]!==undefined)?o[lang]:"";
@@ -126,7 +129,8 @@ let clusterMarkers=[];
 function recluster(){
   if(!map||!map.getProjection()) return;
   const proj=map.getProjection(), scale=2**map.getZoom();
-  const isRel=e=>!selPerson||!!(e.people&&e.people.includes(selPerson));
+  const fp=focusPerson();
+  const isRel=e=>!fp||!!(e.people&&e.people.includes(fp));
   const groups=[];
   shown().forEach(e=>{
     const m=markers[e.id]; if(!m) return;
@@ -318,7 +322,7 @@ function renderHeader(){
   $("h-title").innerHTML=`${t(STR.title)}<span class="sub">${t(STR.subtitle)}</span>`;
   $("btn-story").textContent=t(STR.story);
   $("btn-story").href="story.html"+(lang==="en"?"?lang=en":"");
-  $("btn-tour").textContent=t(STR.tour);
+  $("btn-tour").textContent=tourLabel();
   $("btn-context").textContent=t(STR.context);
   $("btn-context").classList.toggle("off",!showContext);
   $("btn-context").setAttribute("aria-pressed",showContext);
@@ -432,8 +436,10 @@ function renderDetail(){
 
 /* ---------- paint selection / dimming ---------- */
 function paintStates(){
-  if(pathLine) pathLine.setPath(selPerson ? shown().filter(e=>e.people&&e.people.includes(selPerson)).map(ll) : []);
-  const related = selPerson ? new Set(ALL.filter(e=>e.people&&e.people.includes(selPerson)).map(e=>e.id)) : null;
+  const fp=focusPerson();
+  if(pathLine) pathLine.setPath(fp ? shown().filter(e=>e.people&&e.people.includes(fp)).map(ll) : []);
+  const related = fp ? new Set(ALL.filter(e=>e.people&&e.people.includes(fp)).map(e=>e.id)) : null;
+  $("btn-tour").textContent=tourLabel();
   document.querySelectorAll(".pin[data-ev]").forEach(el=>{
     const id=el.dataset.ev;
     el.classList.toggle("sel",id===selId);
@@ -473,21 +479,28 @@ function selectPerson(id){
   renderDetail(); paintStates();
 }
 
-/* ---------- guided tour (every corps event, chronological) ---------- */
+/* ---------- guided tour ---------- */
+/* With no one selected, the tour walks the corps' main story (events
+   marked story:true in data/events.js). With a person selected, it walks
+   that person's whole path instead, birth to grave. */
 let TOUR=[];
-function rebuildTour(){ TOUR=ALL.filter(e=>e.kind!=="context"); }
+const tourLabel=()=>selPerson?STR.tourPerson[lang](PEOPLE[selPerson]):t(STR.tour);
+function rebuildTour(){
+  tourPerson=selPerson;
+  TOUR = tourPerson ? shown().filter(e=>e.people&&e.people.includes(tourPerson)) : ALL.filter(e=>e.story);
+}
 function renderTour(){
   $("tourbar").classList.toggle("on",tourIdx>=0);
   if(tourIdx<0) return;
   $("tri-track").innerHTML=TOUR.map((_,i)=>
     `<div class="tri${i<tourIdx?" done":i===tourIdx?" here":""}"></div>`).join("");
-  $("tour-step").textContent=STR.stepOf[lang](tourIdx+1,TOUR.length);
+  $("tour-step").textContent=(tourPerson?PEOPLE[tourPerson].name[lang].split(" ")[0]+" · ":"")+STR.stepOf[lang](tourIdx+1,TOUR.length);
   $("tour-prev").disabled=tourIdx===0;
   $("tour-next").disabled=tourIdx===TOUR.length-1;
 }
-function startTour(){ rebuildTour(); tourIdx=0; renderTour(); selectEvent(TOUR[0].id,true); }
+function startTour(){ rebuildTour(); if(!TOUR.length) return; tourIdx=0; renderTour(); selectEvent(TOUR[0].id,true); }
 function stepTour(d){ tourIdx=Math.min(Math.max(tourIdx+d,0),TOUR.length-1); renderTour(); selectEvent(TOUR[tourIdx].id,true); }
-function exitTour(){ tourIdx=-1; renderTour(); }
+function exitTour(){ tourIdx=-1; tourPerson=null; renderTour(); paintStates(); }
 
 /* ---------- context toggle ---------- */
 function toggleContext(){
