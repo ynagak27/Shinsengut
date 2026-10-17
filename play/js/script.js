@@ -38,6 +38,15 @@ function stamp(id) {
 	} };
 }
 
+/* The chapter's closing card (drawn by main.js). It replaces the last
+   line rather than sitting over it, and waits for a tap. */
+function endCard(id) {
+	return { 'Function': {
+		'Apply': () => { if (window.showEndCard) window.showEndCard(id); return false; },
+		'Revert': () => { if (window.hideEndCard) window.hideEndCard(); return true; }
+	} };
+}
+
 function buildChapter(ch, lang) {
 	const out = [];
 	const tags = {};
@@ -50,7 +59,7 @@ function buildChapter(ch, lang) {
 		out.push(b.who ? `${b.who}${ja ? '_ja' : '_en'} ${text}` : text);
 	});
 	out.push(stamp(ch.id));
-	out.push(`centered ${ja ? ch.end.ja : ch.end.en}`);
+	out.push(endCard(ch.id));
 	out.push('end');
 	window.SOURCE_TAGS[lang][ch.id] = tags;
 	return out;

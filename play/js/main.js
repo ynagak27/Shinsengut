@@ -24,7 +24,9 @@ const UI = {
 	chapters: { ja: '章', en: 'Chapters' },
 	begin:    { ja: '読みはじめる', en: 'Begin' },
 	again:    { ja: '読了 · もう一度', en: 'Read · again' },
-	maps:     { ja: '地図の出典', en: 'Maps' }
+	maps:     { ja: '地図の出典', en: 'Maps' },
+	ended:    { ja: '了', en: 'End' },
+	toList:   { ja: 'タップして章の一覧へ', en: 'Tap to return to the chapters' }
 };
 
 /* Language follows the rest of the site: ?lang=en, otherwise Japanese. */
@@ -180,6 +182,25 @@ function updateBeat() {
 	}
 }
 
+/* ---------- End of chapter: our own card, in place of the last line ---------- */
+window.showEndCard = function (id) {
+	const screen = document.querySelector('game-screen');
+	const ch = PLAY.chapters.find(c => c.id === id);
+	if (!screen || !ch) return;
+	let card = screen.querySelector('.ss-end');
+	if (!card) { card = el('div', 'ss-end'); screen.appendChild(card); }
+	card.innerHTML = `<div class="ss-endinner">
+		<div class="ss-endno">${t(ch.no)}</div>
+		<div class="ss-endtitle">${t(ch.title)}</div>
+		<div class="ss-endmark">${t(UI.ended)}</div>
+		<div class="ss-endhint">${t(UI.toList)}</div></div>`;
+	screen.classList.add('ss-ending');
+};
+window.hideEndCard = function () {
+	const screen = document.querySelector('game-screen');
+	if (screen) screen.classList.remove('ss-ending');
+};
+
 /* Set the language before the engine loads its saved preferences. */
 monogatari.preferences({ 'Language': wantedLang() });
 
@@ -192,7 +213,7 @@ $_ready(() => {
 		['didUpdateState', 'didRunAction', 'didRevertAction', 'didLoadGame', 'didLocalize']
 			.forEach(e => monogatari.on(e, () => setTimeout(updateBeat, 0)));
 		// refresh the chapter list (and its "read" marks) on returning to it
-		new MutationObserver(() => { if (document.querySelector('main-screen.active')) buildTitle(); })
+		new MutationObserver(() => { if (document.querySelector('main-screen.active')) { window.hideEndCard(); buildTitle(); } })
 			.observe(document.querySelector('main-screen'), { attributes: true, attributeFilter: ['class'] });
 	});
 });
