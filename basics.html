@@ -199,5 +199,20 @@
     <a class="hdr-btn story-cta" href="play/?lang=en">Experience the story →</a>
   </div>
 </article>
+<script src="js/resume.js?v=1"></script>
+<script>
+  /* remember the section on screen for "pick up where you left off" */
+  (function () {
+    if (!window.SSG_RESUME) return;
+    const place = id => {
+      const h = id && document.getElementById(id) ? document.getElementById(id).querySelector("h3") : null;
+      const title = h ? h.lastChild.textContent.trim() : "Shinsengumi basics";
+      return {kind: "basics", href: "basics.html" + (id ? "#" + id : ""), title: {ja: title, en: title},
+              sub: {ja: "Shinsengumi basics", en: "Shinsengumi basics"}, action: {ja: "続きを読む", en: "Continue reading"}};
+    };
+    if (!location.hash) SSG_RESUME.save(place(null));
+    SSG_RESUME.watchSections(".basics .chapter", place);
+  })();
+</script>
 </body>
 </html>

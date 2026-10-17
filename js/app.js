@@ -451,6 +451,19 @@ function renderDetail(){
   if(selPerson) renderPersonDetail(selPerson);
   else if(selId) renderEventDetail(selId);
   else renderIntro();
+  rememberPlace();
+}
+
+/* Remember what's open, so the front page can offer to pick up here
+   next time (js/resume.js; stored only in this browser). */
+function rememberPlace(){
+  if(!window.SSG_RESUME) return;
+  if(selPerson) SSG_RESUME.save({kind:"person", href:"map.html?person="+selPerson, title:PEOPLE[selPerson].name,
+    sub:{ja:"隊士の生涯をたどる",en:"Following one man’s life"}, action:{ja:"足跡の続きを見る",en:"Back to his road"}});
+  else if(selId) SSG_RESUME.save({kind:"event", href:"map.html?ev="+selId, title:byId(selId).title,
+    sub:{ja:"地図",en:"The map"}, action:{ja:"地図で続きを見る",en:"Back to the map"}});
+  else SSG_RESUME.save({kind:"map", href:"map.html", title:{ja:"地図",en:"The map"},
+    sub:{ja:"自由に見て回る",en:"Exploring on your own"}, action:{ja:"地図を開く",en:"Open the map"}});
 }
 
 /* ---------- paint selection / dimming ---------- */

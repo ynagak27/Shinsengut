@@ -111,6 +111,8 @@ function renderDirectory(root) {
 /* ---------- one biography ---------- */
 function renderPerson(root, id) {
   const p = PEOPLE[id];
+  if (p && window.SSG_RESUME) SSG_RESUME.save({kind: "bio", href: "people.html?p=" + id, title: p.name,
+    sub: {ja: "隊士", en: "The members"}, action: {ja: "生涯を読む", en: "Read his life"}});
   document.title = `${t(p.name)} — ${t(UI.title)}`;
 
   const back = el("a", "pp-back", t(UI.all));
