@@ -1,0 +1,71 @@
+/* The "質問する / Ask" button and panel (js/ask.js), on every page.
+   Colours are set here so it also works on the play page, which has
+   its own stylesheet. */
+.ssg-ask{
+  --a-sumi:#10151d;--a-panel:#171f2b;--a-panel2:#1e2836;--a-line:#2a3646;--a-asagi:#8ed8df;--a-asagi-dim:#4d8f98;
+  --a-makoto:#c8452e;--a-washi:#ece5d3;--a-mist:#8b96a8;
+  --a-ui:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --a-disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  font-family:var(--a-ui);color:var(--a-washi);text-align:left;
+  position:fixed;right:18px;bottom:18px;z-index:9000;
+}
+.ssg-ask.on-map{bottom:96px}
+.ssg-ask.on-play{top:84px;bottom:auto;right:12px}
+
+.ssg-ask-fab{
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  font-family:var(--a-ui);font-size:14px;font-weight:500;letter-spacing:.05em;color:var(--a-asagi);
+  background:var(--a-panel);border:1px solid var(--a-asagi-dim);border-radius:24px;padding:8px 16px 8px 8px;
+  box-shadow:0 6px 18px rgba(0,0,0,.45);
+}
+.ssg-ask-fab .q{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--a-makoto);color:#fff;font-family:var(--a-disp);font-weight:700;font-size:15px}
+.ssg-ask-fab:hover{background:var(--a-panel2)}
+.ssg-ask.on-play .ssg-ask-fab{padding:6px 12px 6px 6px;font-size:12px}
+.ssg-ask.on-play .ssg-ask-fab .q{width:24px;height:24px;font-size:13px}
+.ssg-ask.open .ssg-ask-fab{display:none}
+
+.ssg-ask-panel{
+  position:fixed;right:18px;bottom:18px;width:min(420px,calc(100vw - 24px));max-height:min(640px,calc(100vh - 36px));
+  display:flex;flex-direction:column;background:var(--a-sumi);border:1px solid var(--a-asagi-dim);border-radius:6px;
+  box-shadow:0 12px 40px rgba(0,0,0,.6);overflow:hidden;
+}
+.ssg-ask-panel[hidden]{display:none}
+.ssg-ask-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px 10px;border-bottom:1px solid var(--a-line);
+  background:linear-gradient(var(--a-sumi),var(--a-sumi)) padding-box}
+.ssg-ask-head::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:
+  conic-gradient(from 122deg at 50% 100%, transparent 0 116deg, var(--a-asagi) 116deg 244deg, transparent 244deg);background-size:12px 4px;opacity:.8}
+.ssg-ask-title{font-family:var(--a-disp);font-weight:700;font-size:16px}
+.ssg-ask-x{font-size:22px;line-height:1;color:var(--a-mist);background:none;border:none;cursor:pointer;padding:2px 6px}
+.ssg-ask-x:hover{color:var(--a-washi)}
+.ssg-ask-ctx{margin:10px 14px 0;font-size:12px;color:var(--a-washi);padding:6px 10px;border:1px dashed var(--a-line);border-radius:4px}
+.ssg-ask-ctx span{display:block;text-align:left;font-size:10px;letter-spacing:.12em;color:var(--a-mist);margin-bottom:2px}
+.ssg-ask-ctx[hidden]{display:none}
+.ssg-ask-log{flex:1;overflow-y:auto;padding:10px 14px 4px;display:flex;flex-direction:column;gap:10px}
+.ssg-ask-log:empty{display:none}
+.ssg-ask-q{align-self:flex-end;max-width:85%;background:var(--a-panel2);border:1px solid var(--a-line);border-radius:10px 10px 2px 10px;padding:8px 12px;font-size:14px;line-height:1.6}
+.ssg-ask-a{font-size:14px;line-height:1.85;color:#ddd6c5}
+.ssg-ask-a p{margin:0 0 .7em}
+.ssg-ask-a.wait{color:var(--a-mist);font-size:13px;animation:ssg-pulse 1.4s ease-in-out infinite}
+.ssg-ask-a.err{color:#e59a8a;font-size:13px}
+@keyframes ssg-pulse{50%{opacity:.45}}
+.ssg-ref{display:inline-block;font-size:11px;color:var(--a-asagi);text-decoration:none;border:1px solid var(--a-asagi-dim);border-radius:3px;padding:0 6px;margin:0 1px;line-height:1.6;white-space:nowrap}
+.ssg-ref:hover{background:rgba(142,216,223,.1)}
+.ssg-ask-out{margin-top:6px;border:1px dashed var(--a-makoto);border-radius:4px;padding:8px 12px 2px;background:rgba(200,69,46,.05)}
+.ssg-ask-out .lbl{font-size:11px;letter-spacing:.06em;color:#e08a76;margin-bottom:6px}
+.ssg-ask-sug{display:flex;flex-wrap:wrap;gap:6px;padding:4px 14px 8px}
+.ssg-ask-sug:empty{display:none}
+.ssg-ask-sug button{font-family:var(--a-ui);font-size:12px;color:var(--a-washi);background:var(--a-panel);border:1px solid var(--a-line);border-radius:14px;padding:5px 11px;cursor:pointer}
+.ssg-ask-sug button:hover{border-color:var(--a-asagi-dim);color:var(--a-asagi)}
+.ssg-ask-form{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--a-line)}
+.ssg-ask-form textarea{flex:1;resize:none;font-family:var(--a-ui);font-size:14px;line-height:1.5;color:var(--a-washi);background:var(--a-panel);border:1px solid var(--a-line);border-radius:4px;padding:8px 10px}
+.ssg-ask-form textarea:focus{outline:none;border-color:var(--a-asagi-dim)}
+.ssg-ask-send{font-family:var(--a-ui);font-size:13px;color:var(--a-asagi);background:var(--a-panel);border:1px solid var(--a-asagi-dim);border-radius:4px;padding:0 14px;cursor:pointer}
+.ssg-ask-send:disabled{opacity:.4;cursor:default}
+.ssg-ask-note{font-size:10px;line-height:1.5;color:var(--a-mist);padding:0 14px 10px}
+
+@media (max-width:600px){
+  .ssg-ask{right:12px;bottom:12px}
+  .ssg-ask.on-map{bottom:12px}
+  .ssg-ask-panel{right:0;left:0;bottom:0;width:100%;max-height:82vh;border-radius:12px 12px 0 0}
+  .ssg-ask-form textarea{font-size:16px}  /* stops iOS zooming in */
+}
