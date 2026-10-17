@@ -249,3 +249,9 @@ main{flex:1;display:flex;min-height:0}
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
 }
+
+/* the "new here?" link on the map, story and play pages (English only) */
+.basics-link{display:block;margin:0 0 18px;padding:10px 14px;border:1px dashed var(--asagi-dim);border-radius:4px;color:var(--asagi);text-decoration:none;font-size:14px;line-height:1.5}
+.basics-link:hover{background:rgba(142,216,223,.06)}
+.basics-link b{font-weight:700;color:var(--washi)}
+.basics-link[hidden]{display:none}

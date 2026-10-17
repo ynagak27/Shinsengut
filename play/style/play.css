@@ -53,6 +53,9 @@ main-screen .ss-dangara{width:100%}
 .ss-h1{font-family:var(--disp);font-weight:800;font-size:clamp(44px,13vw,72px);line-height:1.1;letter-spacing:.06em;margin:0;color:var(--washi)}
 .ss-span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mist);margin-top:12px}
 .ss-lede{font-size:15px;line-height:1.9;color:#d9d2c1;margin:22px 0 0;max-width:34em}
+.ss-basics{display:block;margin:16px 0 0;padding:10px 14px;border:1px dashed var(--asagi-dim,#4d8f98);border-radius:4px;color:#8ed8df;text-decoration:none;font-size:14px;line-height:1.5}
+.ss-basics:hover{background:rgba(142,216,223,.06)}
+.ss-basics b{font-weight:700;color:#ece5d3}
 .ss-key{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
 .ss-chip{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:3px 8px;border-radius:3px}
 .ss-chip.rec{color:var(--asagi);border:1px solid var(--asagi-dim)}

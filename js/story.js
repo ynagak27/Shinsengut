@@ -39,6 +39,7 @@ function render() {
   $("s-eyebrow").textContent = t(STORY.eyebrow);
   $("s-title").textContent = t(STORY.title);
   $("s-lede").textContent = t(STORY.lede);
+  $("s-basics").hidden = lang !== "en";
   $("s-toc-label").textContent = t(UI.toc);
   $("btn-explore").textContent = t(UI.explore);
   $("btn-explore").href = mapHref;
