@@ -40,7 +40,13 @@ const PLAY = {
     azabu:    {ja: "江戸・麻布 一之橋",    en: "Ichinohashi, Azabu, Edo",    map: "edo-keio"},
     kurodani: {ja: "京都・黒谷 金戒光明寺", en: "Kurodani, Kyoto",            map: "kyoto-genji"},
     nijo:     {ja: "京都・二条城",         en: "Nijō castle, Kyoto",         map: "kyoto-genji"},
-    gosho:    {ja: "京都御所",             en: "The Imperial Palace, Kyoto", map: "kyoto-genji"}
+    gosho:    {ja: "京都御所",             en: "The Imperial Palace, Kyoto", map: "kyoto-genji"},
+    osaka:    {ja: "大坂・北新地",         en: "Kitashinchi, Osaka",         map: "none", img: "unmapped"},
+    nakadachiuri: {ja: "京都・中立売あたり", en: "Nakadachiuri, Kyoto",      map: "kyoto-genji"},
+    gion:     {ja: "京都・祇園",           en: "Gion, Kyoto",                map: "kyoto-genji"},
+    shimabara:{ja: "京都・島原",           en: "Shimabara, Kyoto",           map: "kyoto-genji"},
+    yagi:     {ja: "壬生・八木家",         en: "The Yagi house, Mibu",       map: "kyoto-genji", img: "mibu"},
+    mibudera: {ja: "壬生寺",               en: "Mibu-dera temple",           map: "kyoto-genji", img: "mibu"}
   },
 
   /* Short credit shown under the header while a map is on screen. The
@@ -53,7 +59,9 @@ const PLAY = {
     "ino-chuzu":   {ja: "地図：伊能忠敬『日本沿海輿地図（中図）』東京国立博物館",
                     en: "Map: Inō Tadataka, medium-scale map, Tokyo National Museum"},
     "kyoto-genji": {ja: "地図：『元治改正新増細見京繪圖大全』東北大学附属図書館",
-                    en: "Map: Genji kaisei Kyō ezu taizen, Tohoku University Library"}
+                    en: "Map: Genji kaisei Kyō ezu taizen, Tohoku University Library"},
+    "none":        {ja: "大坂は、当サイトの古地図の範囲外です",
+                    en: "Osaka lies outside the site’s period maps"}
   },
 
   /* Words spoken in the story (poems etc.) are attributed to these people. */
@@ -337,7 +345,154 @@ const PLAY = {
         ja: "名と務めを得た新選組。だがその内側には、芹沢という火種がくすぶり続けていた。",
         en: "The Shinsengumi now has a name and a duty. Inside it, the problem of Serizawa is still smouldering." }
 
+    ] },
+
+  { id: "serizawa",
+    no:    {ja: "第三章", en: "Chapter 3"},
+    title: {ja: "芹沢鴨", en: "Serizawa"},
+    span:  {ja: "1863　京都・大坂", en: "1863 · Kyoto and Osaka"},
+    lede:  {ja: "新選組の初代筆頭局長は、水戸の急進派で、酒乱だった。乱行が重なり、会津藩の忍耐が尽きたとき、同志たちが彼を討つ。",
+            en: "The corps’ first senior commander was a Mito radical and a dangerous drunk. When his outrages exhausted Aizu’s patience, his own comrades came for him."},
+    cover: "mibu",
+    end:   {ja: "第三章　芹沢鴨　了", en: "End of Chapter 3 · Serizawa"},
+    beats: [
+
+      { scene: "mibu", kind: "context", year: "1863",
+        ja: "新選組の名を得る前から、壬生の屯所の内側では一つの問題が膨らんでいた。筆頭局長、芹沢鴨である。時を少し戻して、1863年の夏から。",
+        en: "Even before the corps had its name, a problem was growing inside the Mibu barracks: its senior commander, Serizawa Kamo. We go back a little, to the summer of 1863." },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "芹沢は常陸国、霞ヶ浦に近い芹沢村の郷士の家の出。尊王の教えの本場である水戸の世界で育ち、神道無念流を学んだ。学があり、筆が立ち、歌も詠んだ。",
+        en: "Serizawa came from a family of country samurai in Serizawa village, near Lake Kasumigaura in Hitachi. He grew up in the world of Mito, home of the doctrine of reverence for the emperor, and trained in the Shintō Munen-ryū. He was educated, wrote a fine hand and composed verse.",
+        src: {ja: "芹沢家の伝え、隊士の回想。生年や家のことには異説あり", en: "Family tradition and members’ recollections; his birth year and family details are disputed"} },
+
+      { scene: "mibu", kind: "anecdote", year: "1863",
+        ja: "水戸の急進派として投獄され、死罪を言い渡されたが、1862年の大赦で放たれたとされる。獄中で指を噛み切り、血で辞世を書いたという話も伝わる。",
+        en: "He is identified with a Mito radical who was jailed and condemned to death, then freed in the amnesty of 1862. A story has him biting his finger and writing a death poem in blood in his cell.",
+        src: {ja: "伝承。この志士との同一視には異説あり", en: "Tradition; his identification with that activist is debated"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "彼は「尽忠報国之士 芹沢鴨」と刻んだ大きな鉄扇を持ち歩いていた。",
+        en: "He carried a great iron war fan inscribed “Serizawa Kamo, a man of utmost loyalty and patriotism”.",
+        src: {ja: "隊士・八木家の回想", en: "Recollections of members and the Yagi family"} },
+
+      { scene: "yagi", kind: "record", year: "1863",
+        ja: "隊が宿を借りた八木家の人々は、二つの芹沢を覚えていた。素面のときは家の者に礼儀正しく、子どもとも気さくに遊ぶ男。酔えば物を壊し、人を脅す男。",
+        en: "The Yagi family, who housed the corps, remembered two Serizawas: one who, sober, was courteous to the household and played easily with the children, and one who, drunk, smashed things and threatened people.",
+        src: {ja: "八木家の後年の回想", en: "The Yagi family’s later recollections"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "隊には厳しい掟があった。士道に背くこと、隊を脱けること、勝手に金策すること、勝手に訴訟を扱うことを禁じ、背けば切腹。この掟を守らせる役を担ったのが、副長の土方である。",
+        en: "The corps had a strict code. It forbade straying from the way of the samurai, deserting, raising money on one’s own account and taking up private lawsuits, on pain of seppuku. Enforcing it fell to the vice-commander, Hijikata.",
+        src: {ja: "永倉新八の回想。成立の時期には諸説あり", en: "Nagakura Shinpachi’s memoirs; when it was drawn up is debated"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "芹沢はその掟を、自ら破り続けた。商家から金を押し借りし、断られれば脅した。",
+        en: "Serizawa broke the code himself, again and again. He forced loans out of merchants and threatened those who refused.",
+        src: {ja: "隊士の回想、京の商家の記録", en: "Members’ recollections; Kyoto merchants’ records"} },
+
+      { scene: "osaka", kind: "record", year: "1863",
+        ja: "七月、大坂に出張した隊の一行は、芹沢に率いられて北新地の遊里へ向かう。狭い橋で道を譲らなかった力士を、芹沢が打ち倒した。",
+        en: "In the 7th month, on duty in Osaka, a party led by Serizawa heads for the pleasure quarter of Kitashinchi. On a narrow bridge a sumo wrestler will not give way, and Serizawa strikes him down.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "osaka", kind: "record", year: "1863",
+        ja: "その夜、棒を手にした力士たちが、隊士の飲む茶屋に押し寄せる。隊士は抜刀し、力士側に死者を出して追い散らした。",
+        en: "That night wrestlers armed with staves descend on the teahouse where the swordsmen are drinking. The swordsmen draw, and wrestlers are cut down and killed before the rest scatter.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "osaka", kind: "context", year: "1863",
+        ja: "誰がいたか、誰が先に手を出したか、力士が何人死んだか。この夜の細部のほとんどは、数十年後の永倉の回想にしか残っていない。",
+        en: "Who was there, who struck first, how many wrestlers died: almost every detail of that night survives only in Nagakura’s recollections, written decades later." },
+
+      { scene: "osaka", kind: "record", year: "1863",
+        ja: "大坂の役人は激怒した。結局は相撲部屋と和解し、隊が後援して京で勧進相撲を興行することで、事は収まる。",
+        en: "The Osaka authorities are furious. In the end the sumo stables accept a settlement, smoothed over with a charity tournament in Kyoto under the corps’ sponsorship.",
+        src: {ja: "和解と興行の記録", en: "Records of the settlement and the tournament"} },
+
+      { scene: "nakadachiuri", kind: "record", year: "1863",
+        ja: "八月、生糸商の大和屋が金の求めを断ると、芹沢はその土蔵を焼き払わせた。守るべき都の真ん中での焼き討ちである。",
+        en: "In the 8th month the silk merchant Yamatoya refuses Serizawa’s demand for money, and he has its storehouse burned to the ground: arson in the middle of the city the corps is meant to protect.",
+        src: {ja: "京の記録、隊士の回想。日付は八月十三日とされる", en: "Kyoto records; members’ recollections. The date is usually given as the 13th day of the 8th month"} },
+
+      { scene: "shimabara", kind: "anecdote", year: "1863",
+        ja: "島原の揚屋・角屋のもてなしが気に入らず、座敷を打ち壊したとも伝わる。",
+        en: "He is also said to have wrecked the rooms of the Sumiya, the great house of entertainment in Shimabara, when its service displeased him.",
+        src: {ja: "伝承", en: "Tradition"} },
+
+      { scene: "kurodani", kind: "record", year: "1863",
+        ja: "乱行の一つ一つが、隊の後ろ盾である会津藩の耳に届いた。芹沢は八月十八日の政変では隊を率いた男であり、同時に、都で商家を焼く男だった。",
+        en: "Each outrage reaches the Aizu domain, the corps’ patron. Serizawa is the man who led the corps at the palace on the 18th day of the 8th month, and the man burning merchants’ storehouses in the city.",
+        src: {ja: "会津藩の記録", en: "Aizu domain records"} },
+
+      { scene: "kurodani", kind: "anecdote", year: "1863",
+        ja: "会津藩から近藤らに、芹沢を処断せよとの内意が伝えられたとされる。その命の形は、記録によって異なる。",
+        en: "Word is said to have come from Aizu to Kondō and his men that Serizawa must be dealt with. How that order was given differs between accounts.",
+        src: {ja: "通説。命令の形は史料によって異なる", en: "The usual view; accounts differ on the form of the order"} },
+
+      { scene: "gion", kind: "record", year: "1863",
+        ja: "最初に消えたのは、芹沢の腹心で局長の一人だった新見錦である。すでに副長に降格されていた新見は、九月、祇園の料亭で乱行を問われ、切腹させられた。",
+        en: "The first to go is Serizawa’s right hand, Niimi Nishiki, once one of the three commanders. Already demoted to vice-commander, he is confronted in a Gion teahouse in the 9th month with charges of misconduct, and made to commit seppuku.",
+        src: {ja: "隊の記録、永倉新八の回想。罪状や詰め寄った者は主に勝った側の記録による", en: "The corps’ records; Nagakura’s memoirs. The charges and who pressed them come mainly from the winning side"} },
+
+      { scene: "gion", kind: "context", year: "1863",
+        ja: "新見の死は、まず芹沢の最も強い支えを取り除いた。意図されたものかどうかはともかく、その数日後の夜への道が開かれた。",
+        en: "Niimi’s death removes Serizawa’s strongest supporter first. Whether by design or not, it clears the way for what happens a few nights later." },
+
+      { scene: "shimabara", kind: "anecdote", year: "1863",
+        ja: "九月半ば、島原の角屋で隊の宴が開かれた。芹沢は深く酔い、激しい雨のなか壬生へ戻ったという。",
+        en: "In the middle of the 9th month the corps holds a party at the Sumiya in Shimabara. Serizawa drinks heavily and returns to Mibu through driving rain, the story goes.",
+        src: {ja: "主に八木家の後年の回想", en: "Mainly the Yagi family’s later recollections"} },
+
+      { scene: "yagi", kind: "anecdote", year: "1863",
+        ja: "その夜、芹沢のそばにはお梅がいた。芹沢の借金の取り立てに八木家を訪れた呉服商の妾で、やがて芹沢の愛人となった女である。",
+        en: "That night Oume is with him. She had first come to the Yagi house to collect a debt Serizawa owed a cloth merchant, whose mistress she was, and had become Serizawa’s lover.",
+        src: {ja: "八木家の回想", en: "The Yagi family’s recollections"} },
+
+      { scene: "yagi", kind: "record", year: "1863",
+        ja: "刺客たちは八木家に入り、眠る芹沢とお梅を斬った。隣室の平山五郎も殺された。家の別の場所で寝ていた平間重助は逃げ延び、ついに捕まらなかった。",
+        en: "Assassins enter the Yagi house and cut down Serizawa and Oume as they sleep. Hirayama Gorō is killed in the next room. Hirama Jūsuke, asleep elsewhere in the house, escapes and is never caught.",
+        src: {ja: "八木家の回想、永倉新八の回想。日付には異説あり", en: "Recollections of the Yagi family and Nagakura; the date differs between accounts"} },
+
+      { scene: "yagi", kind: "record", year: "1863",
+        ja: "多くの記録は、襲撃を率いたのを土方とし、沖田、山南、原田の名を挙げる。顔ぶれは史料によって異なり、藤堂や井上を加えるもの、山南を外すものもある。",
+        en: "Most accounts say Hijikata led the attack and name Okita, Yamanami and Harada. The lists vary: some add Tōdō or Inoue, some leave out Yamanami.",
+        src: {ja: "諸記録。顔ぶれは一致しない", en: "Various accounts, which do not agree"} },
+
+      { scene: "yagi", kind: "anecdote", year: "1863",
+        ja: "八木家の子どもたちは、布団をかぶって難を逃れたという。",
+        en: "The Yagi children, it is said, survived by hiding under their bedding.",
+        src: {ja: "八木家の回想", en: "The Yagi family’s recollections"} },
+
+      { scene: "yagi", kind: "record", year: "1863",
+        ja: "八木家の建物はいまも残り、この夜の刀傷が鴨居に見られる。",
+        en: "The Yagi house still stands, and sword cuts from that night can be seen in its lintel.",
+        src: {ja: "八木家住宅（現存）", en: "The Yagi house, still standing"} },
+
+      { scene: "mibudera", kind: "record", year: "1863",
+        ja: "隊は長州の刺客の仕業として、芹沢の葬儀を盛大に営んだ。芹沢と平山は、屯所の隣の壬生寺にともに葬られている。",
+        en: "The corps blames Chōshū assassins and gives Serizawa a grand funeral. He and Hirayama are buried together at Mibu-dera, next to the barracks.",
+        src: {ja: "隊の記録、壬生寺の墓所", en: "The corps’ records; the graves at Mibu-dera"} },
+
+      { scene: "mibudera", kind: "context", year: "1863",
+        ja: "屯所の誰もが、真相を察していた。それが公に語られるのは、生き残りたちが口を開く、ずっと後のことである。",
+        en: "Everyone in the barracks understood what had happened. It would be said openly only much later, when the survivors began to talk." },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "指揮は近藤ひとりのものとなった。芹沢派の最年少、野口健司も数か月後に切腹を命じられ、半年のうちに一派は跡形もなくなる。",
+        en: "Command now belongs to Kondō alone. Noguchi Kenji, the youngest of Serizawa’s men, is ordered to commit seppuku a few months later, and within half a year the faction has ceased to exist.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "mibu", kind: "context", year: "1863",
+        ja: "芹沢は、歴史の「悪役」として語られてきた。だがその細部の多くは勝った側の記録と八木家の回想によるもので、隊を自らの運動とみなした本物の急進派として彼を見る歴史家もいる。",
+        en: "History has cast Serizawa as the villain. Much of the detail, though, comes from the winning side and the Yagi family’s memories, and some historians see in him a genuine radical who thought of the corps as his movement, not Kondō’s." },
+
+      { scene: "mibu", kind: "context", year: "1863",
+        ja: "近藤が局長、土方が掟を握る。歴史の知る新選組が、ここから始まる。",
+        en: "Kondō in command, Hijikata holding the code: the Shinsengumi that history knows begins here." }
+
     ] }
+
 
   ]
 };
