@@ -50,7 +50,12 @@ const PLAY = {
     maekawa:  {ja: "壬生・前川家（屯所）", en: "The Maekawa house, Mibu",    map: "kyoto-genji", img: "mibu"},
     masuya:   {ja: "京都・四条 枡屋",      en: "The Masuya, Shijō, Kyoto",   map: "kyoto-genji"},
     gionkaisho: {ja: "祇園・町会所",       en: "The Gion meeting hall",      map: "kyoto-genji", img: "gion"},
-    ikedaya:  {ja: "京都・三条木屋町 池田屋", en: "The Ikedaya, Sanjō, Kyoto", map: "kyoto-genji"}
+    ikedaya:  {ja: "京都・三条木屋町 池田屋", en: "The Ikedaya, Sanjō, Kyoto", map: "kyoto-genji"},
+    hamaguri: {ja: "京都御所・蛤御門",     en: "The Hamaguri Gate, Kyoto",   map: "kyoto-genji"},
+    kujo:     {ja: "京都・九条河原",       en: "The riverbank at Kujō, Kyoto", map: "kyoto-genji"},
+    kyoto:    {ja: "京都の町",             en: "The city of Kyoto",          map: "kyoto-genji"},
+    rokkaku:  {ja: "京都・六角獄舎",       en: "The Rokkaku prison, Kyoto",  map: "kyoto-genji"},
+    tennozan: {ja: "山崎・天王山",         en: "Tennōzan, Yamazaki",         map: "none", img: "unmapped"}
   },
 
   /* Short credit shown under the header while a map is on screen. The
@@ -64,8 +69,8 @@ const PLAY = {
                     en: "Map: Inō Tadataka, medium-scale map, Tokyo National Museum"},
     "kyoto-genji": {ja: "地図：『元治改正新増細見京繪圖大全』東北大学附属図書館",
                     en: "Map: Genji kaisei Kyō ezu taizen, Tohoku University Library"},
-    "none":        {ja: "大坂は、当サイトの古地図の範囲外です",
-                    en: "Osaka lies outside the site’s period maps"}
+    "none":        {ja: "この場所は、当サイトの古地図の範囲外です",
+                    en: "This place lies outside the site’s period maps"}
   },
 
   /* Words spoken in the story (poems etc.) are attributed to these people. */
@@ -637,7 +642,92 @@ const PLAY = {
         ja: "怒りに燃えた長州は、ひと月あまり後、軍を率いて京へ攻め上る。",
         en: "Burning with anger, Chōshū will march its armies on Kyoto just over a month later." }
 
+    ] },
+
+  { id: "kinmon",
+    no:    {ja: "第五章", en: "Chapter 5"},
+    title: {ja: "禁門の変", en: "Kinmon"},
+    span:  {ja: "1864　京都・天王山", en: "1864 · Kyoto and Tennōzan"},
+    lede:  {ja: "池田屋に激昂した長州が、軍を率いて御所に迫る。都は二日にわたって燃え、新選組は初めて、銃と大砲の戦場に立つ。",
+            en: "Enraged by the Ikedaya, Chōshū marches its armies on the palace. The city burns for two days, and the Shinsengumi stands for the first time on a battlefield of guns and cannon."},
+    cover: "hamaguri",
+    end:   {ja: "第五章　禁門の変　了", en: "End of Chapter 5 · Kinmon"},
+    beats: [
+
+      { scene: "gosho", kind: "context", year: "1864",
+        ja: "前年の政変で京を追われ、池田屋で多くの同志を失った長州。その怒りは、もはや言葉では収まらなかった。",
+        en: "Driven from Kyoto in the coup of the year before, and now robbed of many of its men at the Ikedaya, Chōshū is past the point of words." },
+
+      { scene: "kyoto", kind: "record", year: "1864",
+        ja: "六月から七月にかけて、長州の軍勢が京の周りに陣を敷く。伏見、山崎、嵯峨の三方から。名目は、藩主父子の赦免を朝廷に「嘆願」することだった。",
+        en: "Through the 6th and 7th months, Chōshū’s forces take up positions around Kyoto, at Fushimi, Yamazaki and Saga. Their stated aim is to “petition” the court to pardon their lords.",
+        src: {ja: "長州藩・会津藩の記録", en: "Records of Chōshū and Aizu"} },
+
+      { scene: "kyoto", kind: "record", year: "1864",
+        ja: "朝廷は撤兵を命じたが、長州勢は動かない。都は息を詰めて、その時を待った。",
+        en: "The court orders them to withdraw. They do not move, and the city holds its breath.",
+        src: {ja: "朝廷・会津藩の記録", en: "Records of the court and Aizu"} },
+
+      { scene: "kujo", kind: "record", year: "1864",
+        ja: "新選組は会津藩の指揮下に入り、京の南、九条河原に布陣した。",
+        en: "The Shinsengumi is placed under Aizu’s command and posted on the riverbank at Kujō, south of the city.",
+        src: {ja: "会津藩の記録、隊の記録", en: "Records of Aizu and the corps"} },
+
+      { scene: "hamaguri", kind: "record", year: "1864",
+        ja: "七月十九日未明、長州勢が御所に攻めかかる。最も激しい戦いは蛤御門で起きた。守る会津・桑名の兵は押し込まれていく。",
+        en: "Before dawn on the 19th day of the 7th month, Chōshū attacks the palace. The fiercest fighting breaks out at the Hamaguri Gate, where the Aizu and Kuwana troops holding it are driven back.",
+        src: {ja: "会津藩・長州藩の記録", en: "Records of Aizu and Chōshū"} },
+
+      { scene: "hamaguri", kind: "anecdote", year: "1864",
+        ja: "ふだんは閉ざされたこの門は、かつて大火のときにだけ開かれた。「焼けて口を開く蛤」にたとえて、蛤御門と呼ばれるようになったという。",
+        en: "The gate, usually kept shut, is said to have been opened once during a great fire, like a clam that opens only in the heat, and so it came to be called the Clam Gate, Hamaguri-gomon.",
+        src: {ja: "名の由来として伝わる話", en: "A traditional account of the name"} },
+
+      { scene: "hamaguri", kind: "record", year: "1864",
+        ja: "形勢を変えたのは、西郷吉之助の率いる薩摩の援軍だった。長州勢は崩れ、門の前で来島又兵衛が討たれる。",
+        en: "What turns the day is Satsuma, its troops led by Saigō Kichinosuke. The Chōshū lines break, and their commander Kijima Matabei is killed before the gate.",
+        src: {ja: "薩摩藩・長州藩の記録", en: "Records of Satsuma and Chōshū"} },
+
+      { scene: "gosho", kind: "record", year: "1864",
+        ja: "長州の若き指導者、久坂玄瑞も、御所近くの鷹司邸で自刃した。",
+        en: "Kusaka Genzui, one of Chōshū’s young leaders, kills himself at the Takatsukasa residence near the palace.",
+        src: {ja: "長州藩の記録", en: "Chōshū records"} },
+
+      { scene: "kujo", kind: "record", year: "1864",
+        ja: "新選組は、敗走する長州勢の追撃に加わった。",
+        en: "The Shinsengumi joins the pursuit of the broken Chōshū columns.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "kyoto", kind: "record", year: "1864",
+        ja: "戦火は町に広がった。火は二日にわたって燃え続け、数万戸を焼く。世に言う「どんどん焼け」である。",
+        en: "The fighting sets the city alight. Fires burn for two days and destroy tens of thousands of homes: the great fire Kyoto remembers as the Donburi-yake.",
+        src: {ja: "京の町の記録", en: "Kyoto city records"} },
+
+      { scene: "rokkaku", kind: "record", year: "1864",
+        ja: "火が迫るなか、六角獄舎では、脱走を恐れた役人たちが囚人を処刑した。そのなかに、池田屋の発端となった古高俊太郎がいた。",
+        en: "As the fire nears the Rokkaku prison, officials, afraid the prisoners will escape, put them to death. Among them is Furutaka Shuntarō, the man whose arrest led to the Ikedaya.",
+        src: {ja: "京都町奉行所・京の記録", en: "Records of the Kyoto magistrates and the city"} },
+
+      { scene: "tennozan", kind: "record", year: "1864",
+        ja: "追撃は京の南西、天王山で終わった。尊攘派の真木和泉とその同志たちは、降伏を拒んで山上で自刃した。",
+        en: "The pursuit ends on Tennōzan, the hill south-west of Kyoto. The loyalist Maki Izumi and his companions kill themselves on the hilltop rather than surrender.",
+        src: {ja: "隊の記録、会津藩の記録", en: "Records of the corps and Aizu"} },
+
+      { scene: "tennozan", kind: "context", year: "1864",
+        ja: "まだ剣客の集団だった新選組にとって、野で銃と大砲が飛び交う戦は、これが初めてだった。剣の時代の終わりが、ここに見えはじめる。",
+        en: "For a corps that is still a band of swordsmen, it is their first battle fought in the open with guns and cannon. The end of the age of the sword is starting to show." },
+
+      { scene: "gosho", kind: "record", year: "1864",
+        ja: "御所に弓を引いた長州は、朝敵とされた。幕府は長州を討つための兵を起こす。",
+        en: "For firing on the palace, Chōshū is declared an enemy of the court, and the shogunate raises an army to punish it.",
+        src: {ja: "朝廷・幕府の記録", en: "Records of the court and the shogunate"} },
+
+      { scene: "kurodani", kind: "context", year: "1864",
+        ja: "会津と新選組の立場は、このとき頂点にあった。だが長州征討はやがて、幕府に残された力を食い尽くしていく。",
+        en: "Aizu and the Shinsengumi are at the height of their standing. But the campaigns against Chōshū will, in time, consume what strength the shogunate has left." }
+
     ] }
+
 
 
 
