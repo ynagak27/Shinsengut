@@ -9,7 +9,8 @@ const UI = {
   toShort: {en: "Read the short version", ja: "概要だけ読む"},
   toLong:  {en: "Read the full story", ja: "全文を読む"},
   toc:     {en: "Contents", ja: "目次"},
-  explore: {en: "Explore the map →", ja: "地図でたどる →"}
+  explore: {en: "Explore the map →", ja: "地図でたどる →"},
+  play:    {en: "Experience the story →", ja: "物語で体験する →"}
 };
 
 let lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ja";
@@ -41,6 +42,8 @@ function render() {
   $("s-toc-label").textContent = t(UI.toc);
   $("btn-explore").textContent = t(UI.explore);
   $("btn-explore").href = mapHref;
+  $("btn-play").textContent = t(UI.play);
+  $("btn-play").href = "play/" + (lang === "en" ? "?lang=en" : "");
 
   $("btn-version").textContent = mode === "long" ? t(UI.toShort) : t(UI.toLong);
   $("btn-version").setAttribute("aria-pressed", mode === "short");

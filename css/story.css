@@ -27,7 +27,8 @@ header{position:sticky;top:0;z-index:20;background:var(--sumi)}
 .chapter p,.story-short p{font-size:16px;line-height:1.95;color:#d9d2c1;margin:0 0 1.1em}
 
 .story-short{margin-top:32px;padding:4px 0 4px 18px;border-left:2px solid var(--asagi-dim)}
-.story-cta{margin-top:40px;font-size:13px}
+.story-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.story-cta{font-size:13px}
 
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media (max-width:880px){
