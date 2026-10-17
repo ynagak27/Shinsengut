@@ -7,6 +7,12 @@
 .basics [lang=ja]{font-family:var(--disp);font-style:normal}
 .basics a{color:var(--asagi)}
 
+/* opening */
+.basics .kicker{font-family:var(--disp);font-weight:700;font-size:clamp(19px,4.2vw,24px);line-height:1.6;color:var(--asagi);margin:18px 0 22px;letter-spacing:.02em}
+.basics .opening{border-left:3px solid var(--makoto);padding:2px 0 2px 18px;margin:0 0 26px}
+.basics .opening p{font-family:var(--disp);font-weight:500;font-size:17px;line-height:1.95;color:var(--washi);margin:0 0 .9em}
+.basics .opening p:last-child{margin-bottom:0;font-weight:700}
+
 /* at a glance */
 .glance{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:4px 0 22px}
 .glance>div{background:var(--panel);padding:14px 16px}
@@ -45,6 +51,7 @@
 .gloss dd{font-size:14px;line-height:1.7;color:#cfc8b7}
 
 @media (max-width:880px){
+  .basics .opening p{font-size:16px}
   .glance,.sides,.gloss{grid-template-columns:1fr}
   .who li{grid-template-columns:1fr}
   .tl li{grid-template-columns:1fr;gap:2px}
