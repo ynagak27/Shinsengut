@@ -49,14 +49,6 @@ const NEEDS = [
             en: "Choose a name, and his road from birth to grave appears on the map, with his life story alongside."},
     picks: true },
 
-  { id: "places",
-    want:  {ja: "ゆかりの地を訪ねる", en: "See where it happened"},
-    desc:  {ja: "すべての出来事を、それが起きた場所とともに。幕末の古地図と現在の地図を切り替えて見られます。京都・日野・函館への旅の下調べにも。",
-            en: "Every event pinned to its place, on 1860s maps or today’s streets. Useful before a visit to Kyoto, Hino or Hakodate."},
-    hint:  {ja: "地図 · 古地図と現在の地図", en: "Map · period maps and today’s"},
-    go:    {href: "map.html", label: {ja: "地図を開く", en: "Open the map"}},
-    more:  {href: "map.html?tour=1", label: {ja: "順路に沿ってたどる", en: "Or be guided, stop by stop"}} },
-
   { id: "read",
     want:  {ja: "物語を通して読む", en: "Read the whole story"},
     desc:  {ja: "多摩の村から箱館での最期、そして生き残った者たちのその後まで。ひとつながりの物語として読めます。",
@@ -67,8 +59,8 @@ const NEEDS = [
 
   { id: "free",
     want:  {ja: "自由に見て回る", en: "Explore on my own"},
-    desc:  {ja: "案内は必要ないという方へ。地図から、すべての出来事・隊士・場所を好きな順番でご覧ください。",
-            en: "No guidance needed? Go straight to the map and wander: every event, every member and every place, in any order you like."},
+    desc:  {ja: "案内は必要ないという方へ。すべての出来事・隊士・ゆかりの地を、地図の上で好きな順番にご覧ください。一部の地域は幕末の古地図でも見られます。",
+            en: "No guidance needed? Every event, every member and every place they knew, on the map in any order you like. Some areas can be seen on the maps of the 1860s."},
     hint:  {ja: "順路なし · すべてを自由に", en: "No set route · everything open"},
     go:    {href: "map.html", label: {ja: "地図を自由に見る", en: "Explore freely"}},
     more:  {href: "#all", label: {ja: "ページ一覧から選ぶ", en: "Or pick any page"}} }
