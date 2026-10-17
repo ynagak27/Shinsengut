@@ -223,12 +223,14 @@ chapter list. Facts follow `data/events.js`, `context.js` and `people.js`.
 
 ## Ask (AI questions)
 
-Every page has a 「質問する / Ask」 button (`js/ask.js`, `css/ask.css`) that sends a
-visitor's question, with what they're looking at, to a Cloudflare Worker
-(`worker/ask.js`). The Worker answers with Claude from the site's own content,
-keeping anything from general knowledge in a separate, marked box. The button
-is hidden until `js/ask-config.js` holds the Worker's address. Setup, costs
-and limits: **`worker/README.md`**.
+For readers who want to go deeper than the site. A quiet line at the end of
+each page's content (`js/ask.js`, `css/ask.css`) opens a panel; the question,
+with what the reader is looking at, goes to a Cloudflare Worker
+(`worker/ask.js`). It answers first from the site's own content, linking the
+events and people used, and only if the site doesn't fully cover the question
+does it search the web and add what's missing, with every source listed. The
+line is hidden until `js/ask-config.js` holds the Worker's address. Setup,
+costs and limits: **`worker/README.md`**.
 
 After changing anything in `data/`, rebuild the AI's reference and commit it:
 `node tools/ask/build_knowledge.js`.
