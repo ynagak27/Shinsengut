@@ -1,0 +1,213 @@
+/* =========================================================================
+   play.css — the site's design applied to Monogatari (play/index.html).
+   ========================================================================= */
+/* =========================================================================
+   Shinsengumi story — skin for Monogatari, in the site's own design.
+   Tokens copied from css/style.css so the story reads as part of the site.
+   ========================================================================= */
+:root{
+  --sumi:#10151d;
+  --panel:#171f2b;
+  --panel-2:#1e2836;
+  --line:#2a3646;
+  --asagi:#8ed8df;
+  --asagi-dim:#4d8f98;
+  --makoto:#c8452e;
+  --washi:#ece5d3;
+  --mist:#8b96a8;
+  --disp:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --ui:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  /* engine variables */
+  --main-color:var(--asagi);
+  --screen-background-color:var(--sumi);
+  --text-color:var(--washi);
+  --character-name-color:var(--asagi);
+  --quick-menu-text-color:var(--mist);
+  --quick-menu-height:2.75rem;
+}
+
+html,body,#monogatari,visual-novel{background:var(--sumi);color:var(--washi);font-family:var(--ui)}
+button{font-family:var(--ui)}
+button:focus-visible{outline:2px solid var(--asagi);outline-offset:2px}
+
+/* dangara zigzag — the site's signature strip */
+.ss-dangara{height:9px;flex-shrink:0;background:
+  conic-gradient(from 122deg at 50% 100%, transparent 0 116deg, var(--asagi) 116deg 244deg, transparent 244deg);
+  background-size:18px 9px;background-repeat:repeat-x;opacity:.85}
+
+/* =========================== Title screen =========================== */
+main-screen.active{display:flex !important}
+main-screen{
+  flex-direction:column;text-align:left;justify-content:flex-start;align-items:stretch;
+  background:
+    linear-gradient(180deg, rgba(16,21,29,.55) 0%, rgba(16,21,29,.88) 45%, var(--sumi) 78%),
+    url("../assets/scenes/ichigaya.webp") center 30%/cover no-repeat !important;
+  padding:0 !important;overflow-y:auto;
+}
+main-screen .ss-dangara{width:100%}
+.ss-title{max-width:560px;width:100%;margin:0 auto;padding:clamp(48px,14vh,140px) 24px 8px;box-sizing:border-box}
+.ss-series{font-family:var(--disp);font-weight:700;font-size:14px;letter-spacing:.12em;color:var(--washi);opacity:.85;margin-bottom:28px}
+.ss-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--asagi);text-transform:uppercase;margin-bottom:10px}
+.ss-h1{font-family:var(--disp);font-weight:800;font-size:clamp(44px,13vw,72px);line-height:1.1;letter-spacing:.06em;margin:0;color:var(--washi)}
+.ss-span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mist);margin-top:12px}
+.ss-lede{font-size:15px;line-height:1.9;color:#d9d2c1;margin:22px 0 0;max-width:34em}
+.ss-key{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.ss-chip{font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:3px 8px;border-radius:3px}
+.ss-chip.rec{color:var(--asagi);border:1px solid var(--asagi-dim)}
+.ss-chip.anec{color:var(--makoto);border:1px dashed var(--makoto)}
+.ss-keytext{flex-basis:100%;font-size:12px;line-height:1.7;color:var(--mist)}
+
+main-menu{
+  display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:8px;
+  max-width:560px;width:100%;margin:24px auto 0 !important;padding:0 24px !important;box-sizing:border-box;
+  position:static !important;height:auto !important;background:none !important;
+}
+main-menu button{
+  width:100% !important;display:flex !important;justify-content:center;align-items:center;min-height:46px;margin:0 !important;
+  border:1px solid var(--line) !important;border-radius:3px !important;background:var(--panel) !important;
+  color:var(--washi) !important;font-size:14px !important;font-weight:500;letter-spacing:.08em;
+  transition:border-color .15s,background .15s;
+}
+main-menu button:hover{border-color:var(--asagi-dim) !important;background:var(--panel-2) !important}
+main-menu button[data-action="start"]{border-color:var(--asagi-dim) !important;color:var(--asagi) !important}
+main-menu button[data-open="help"]{display:none !important}
+main-menu button span:first-child{display:none}
+
+.ss-foot{max-width:560px;width:100%;margin:18px auto 0;padding:0 24px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.ss-lang{border:1px solid var(--line);border-radius:3px;padding:7px 14px;font-size:13px;color:var(--washi);background:transparent;cursor:pointer;letter-spacing:.05em}
+.ss-lang:hover{border-color:var(--asagi-dim)}
+.ss-credit{font-size:10.5px;line-height:1.7;color:var(--mist);margin:0;opacity:.85}
+
+/* =========================== Game screen =========================== */
+game-screen{background:var(--sumi) !important}
+[data-ui="background"]{
+  filter:sepia(.12) saturate(.85) brightness(.78) contrast(1.05);
+  background-size:cover !important;background-position:center 38% !important;
+  transform-origin:50% 40%;
+}
+@media (prefers-reduced-motion:no-preference){
+  [data-ui="background"]{animation:ss-drift 38s ease-in-out infinite alternate}
+}
+@keyframes ss-drift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.13) translate3d(-1.5%,-1%,0)}}
+
+/* shade the map so the text sits on dark ground, like the site's panels */
+[data-content="visuals"]::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(180deg,
+    rgba(16,21,29,.92) 0%, rgba(16,21,29,.35) 14%, rgba(16,21,29,0) 26%,
+    rgba(16,21,29,0) 34%, rgba(16,21,29,.78) 52%, rgba(16,21,29,.97) 66%, var(--sumi) 100%);
+}
+
+/* header */
+.ss-hud{position:absolute;top:0;left:0;right:0;z-index:20;pointer-events:none}
+.ss-hudrow{display:flex;align-items:center;gap:12px;padding:12px 18px 0;padding-right:calc(18px + 4 * 2.75rem)}
+.ss-hudtitle{display:flex;align-items:baseline;gap:10px;min-width:0}
+.ss-hudch{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--asagi);text-transform:uppercase;white-space:nowrap}
+.ss-hudname{font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:.06em;white-space:nowrap}
+.ss-progress{position:absolute;left:18px;right:18px;top:52px;height:1px;background:var(--line)}
+.ss-progress span{display:block;height:1px;width:0;background:var(--asagi);transition:width .4s ease}
+.ss-mapcredit{position:absolute;left:18px;right:18px;top:60px;font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--mist);opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* quick menu: quiet icons top-right, only the useful ones */
+quick-menu{
+  top:9px !important;bottom:auto !important;right:8px !important;left:auto !important;width:auto !important;
+  background:none !important;z-index:30 !important;justify-content:flex-end !important;
+}
+quick-menu button{color:var(--mist) !important;background:none !important;width:2.75rem;height:2.75rem;padding:0 !important}
+quick-menu button:hover{color:var(--asagi) !important}
+quick-menu button span[data-string],quick-menu button > span:not(:first-child){display:none !important}
+quick-menu button[data-action="distraction-free"],
+quick-menu button[data-action="auto-play"],
+quick-menu button[data-open="load"],
+quick-menu button[data-action="end"]{display:none !important}
+
+/* text area */
+text-box{
+  background:none !important;box-shadow:none !important;border:0 !important;
+  left:0 !important;right:0 !important;bottom:0 !important;width:auto !important;
+  height:auto !important;min-height:0 !important;max-height:62% !important;
+  padding:0 22px max(26px, env(safe-area-inset-bottom)) !important;box-sizing:border-box;
+  display:flex !important;flex-direction:column;gap:12px;z-index:10 !important;
+  max-width:720px;margin:0 auto !important;
+}
+text-box [data-content="side-image"]{display:none !important}
+text-box [data-content="name"]{order:1;padding:0 !important;margin:0 !important;background:none !important}
+text-box [data-content="name"]:empty,text-box[data-speaking="_narrator"] [data-content="name"]{display:none !important}
+text-box [data-ui="who"]{
+  font-family:var(--mono) !important;font-size:11px !important;letter-spacing:.2em;color:var(--asagi) !important;
+  background:none !important;padding:0 !important;
+}
+text-box [data-content="text"]{order:2;padding:0 !important;margin:0 !important;overflow:visible !important}
+text-box [data-ui="say"]{
+  font-family:var(--disp) !important;font-weight:500;font-size:17px !important;line-height:1.95 !important;
+  color:var(--washi) !important;letter-spacing:.02em;
+}
+html[lang="en"] text-box [data-ui="say"],text-box:lang(en) [data-ui="say"]{font-size:16.5px !important}
+
+.ss-meta{order:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--asagi)}
+.ss-meta i{font-style:normal;color:var(--asagi-dim);margin:0 .6em}
+.ss-count{color:var(--mist);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+
+/* source note: record = quiet hairline; anecdote = the site's dashed lore box */
+.ss-note{order:3;display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:1.7;color:var(--mist);
+  border-top:1px solid var(--line);padding-top:10px}
+.ss-notelabel{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--asagi)}
+.ss-note[data-kind="anecdote"]{border:1px dashed var(--makoto);border-radius:3px;padding:10px 12px;
+  background:rgba(200,69,46,.06);color:#d3b9ae}
+.ss-note[data-kind="anecdote"] .ss-notelabel{color:var(--makoto)}
+
+/* the haiku: set apart, centred, larger */
+text-box.ss-poem [data-content="text"]{padding:10px 0 4px !important;text-align:center}
+text-box.ss-poem [data-ui="say"]{font-size:22px !important;font-weight:700;letter-spacing:.12em;line-height:1.7 !important}
+text-box.ss-poem [data-content="name"]{text-align:center}
+
+/* end card */
+centered-dialog,[data-component="centered-dialog"]{
+  font-family:var(--disp) !important;font-weight:800;font-size:24px !important;letter-spacing:.12em;
+  color:var(--washi) !important;background:rgba(16,21,29,.85) !important;border:1px solid var(--line);border-radius:3px;
+  padding:28px 24px !important;
+}
+
+/* ====================== Save / load / settings / log ====================== */
+save-screen,load-screen,settings-screen,help-screen,credits-screen,gallery-screen{
+  background:var(--sumi) !important;color:var(--washi) !important;font-family:var(--ui)}
+save-screen h2,load-screen h2,settings-screen h2,settings-screen h3,settings-screen h4,save-screen h3,load-screen h3{
+  font-family:var(--disp) !important;font-weight:700;color:var(--washi) !important;letter-spacing:.06em}
+[data-screen] button,[data-component] .modal__content button,settings-screen select,settings-screen input{
+  border-radius:3px !important}
+settings-screen button[data-action="back"],save-screen button[data-action="back"],load-screen button[data-action="back"],settings-screen button,save-screen button,load-screen button{
+  background:var(--panel) !important;color:var(--washi) !important;border:1px solid var(--line) !important}
+settings-screen [data-settings],settings-screen [data-content]{color:var(--washi)}
+settings-screen select,settings-screen input[type="text"]{background:var(--panel) !important;color:var(--washi) !important;border:1px solid var(--line) !important}
+settings-screen input[type="range"]{accent-color:var(--asagi)}
+dialog-log .modal__content,.modal__content{
+  background:var(--panel) !important;color:var(--washi) !important;border:1px solid var(--line);border-radius:4px !important}
+dialog-log [data-content="log"] p{font-family:var(--disp);line-height:1.8;color:#d9d2c1}
+save-slot,[data-component="save-slot"]{background:var(--panel) !important;border:1px solid var(--line) !important;border-radius:3px !important;color:var(--washi) !important}
+
+/* ---- refinements ---- */
+quick-menu{gap:0 !important;padding:0 !important}
+quick-menu button,quick-menu button:focus,quick-menu button:active{background:none !important;box-shadow:none !important;border:0 !important;width:2.5rem !important;min-width:0 !important}
+.ss-hudrow{padding-right:calc(10px + 4 * 2.5rem)}
+@media (max-width:420px){.ss-hudch{display:none}}
+text-box [data-content="text"],text-box [data-ui="say"],text-box .type-writer-container{padding:0 !important;margin:0 !important;text-indent:0 !important}
+/* The haiku is typeset as its own block (the typewriter is hidden for it) */
+.ss-poemtext{order:2;display:none}
+text-box.ss-poem [data-content="text"]{display:none !important}
+text-box.ss-poem .ss-poemtext{display:block;font-family:var(--disp);font-weight:700;color:var(--washi);
+  font-size:21px;line-height:1.9;letter-spacing:.06em;text-align:center;padding:6px 0 4px}
+text-box.ss-poem.ss-ja .ss-poemtext{writing-mode:vertical-rl;font-size:25px;line-height:2.3;letter-spacing:.14em;
+  height:8.5em;margin:0 auto;text-align:start}
+@media (prefers-reduced-motion:no-preference){.ss-poemtext.in{animation:ss-ink 1.6s ease both}}
+@keyframes ss-ink{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:none}}
+
+/* ---- page frame and links (site integration) ---- */
+html,body{height:100%;margin:0;background:var(--sumi)}
+a.ss-series{display:inline-block;text-decoration:none;color:var(--washi)}
+a.ss-series:hover{color:var(--asagi)}
+.ss-links{display:flex;flex-wrap:wrap;gap:8px}
+a.ss-lang{text-decoration:none;display:inline-flex;align-items:center}
+.ss-lang{margin:0 !important}

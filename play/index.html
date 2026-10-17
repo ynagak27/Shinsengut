@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>物語で体験する — Play the story · 新選組の軌跡</title>
+<meta name="description" content="Key moments of the Shinsengumi told as a visual novel over 1860s maps, built only from the record and well-known anecdotes.">
+<meta name="theme-color" content="#10151d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- bump ?v= whenever a file changes, as on the other pages -->
+<link rel="stylesheet" href="engine/monogatari.css?v=2.8.0">
+<link rel="stylesheet" href="style/play.css?v=1">
+<script src="engine/monogatari.js?v=2.8.0"></script>
+<script src="js/options.js?v=1"></script>
+<script src="../data/play.js?v=1"></script>
+<script src="js/script.js?v=1"></script>
+<script src="js/main.js?v=1"></script>
+</head>
+<body>
+
+<noscript>
+	<p style="padding:24px">JavaScript is needed to play this story. / この物語の再生には JavaScript が必要です。</p>
+</noscript>
+
+<div id="monogatari">
+	<visual-novel>
+		<language-selection-screen></language-selection-screen>
+		<loading-screen></loading-screen>
+		<main-screen>
+			<main-menu></main-menu>
+		</main-screen>
+		<game-screen>
+			<dialog-log></dialog-log>
+			<text-box></text-box>
+			<quick-menu></quick-menu>
+		</game-screen>
+		<gallery-screen></gallery-screen>
+		<credits-screen></credits-screen>
+		<load-screen></load-screen>
+		<save-screen></save-screen>
+		<settings-screen></settings-screen>
+		<help-screen></help-screen>
+	</visual-novel>
+</div>
+</body>
+</html>
