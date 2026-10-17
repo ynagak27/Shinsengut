@@ -15,7 +15,11 @@ const UI = {
   ask:     {ja: "新選組の道のりを、どのように巡りますか？", en: "How would you like to travel their road?"},
   all:     {ja: "サイト内のページ", en: "Everything on the site"},
   everyone:{ja: "ほかの隊士を見る →", en: "Everyone else →"},
-  foot:    {ja: "史実と、後世の伝承・異説は区別して記しています。", en: "Documented history is kept apart from later legend throughout."}
+  foot:    {ja: "史実と、後世の伝承・異説は区別して記しています。", en: "Documented history is kept apart from later legend throughout."},
+  back:    {ja: "おかえりなさい · 前回の続きから", en: "Welcome back · pick up where you left off"},
+  read:    {ja: (n, all) => `物語で体験する：全${all}章中 ${n}章を読了`, en: (n, all) => `Experience the story: ${n} of ${all} chapters read`},
+  forget:  {ja: "記録を消す", en: "Forget where I was"},
+  local:   {ja: "この記録は、お使いのブラウザの中にだけ保存されています。", en: "This is saved only in your own browser."}
 };
 
 /* who appears as a quick pick on "Follow one man's life" */
@@ -75,7 +79,31 @@ const $ = id => document.getElementById(id);
 function link(h) {
   const raw = typeof h === "string" ? h : t(h);
   if (lang !== "en" || raw.startsWith("#")) return raw;
-  return raw + (raw.includes("?") ? "&" : "?") + "lang=en";
+  const [path, hash] = raw.split("#");
+  return path + (path.includes("?") ? "&" : "?") + "lang=en" + (hash ? "#" + hash : "");
+}
+
+/* "Pick up where you left off": shown when js/resume.js has a record
+   from an earlier visit in this browser. */
+function renderResume() {
+  const box = $("resume");
+  const R = window.SSG_RESUME;
+  const last = R && R.load();
+  if (!last || !last.href || !last.title) { box.hidden = true; return; }
+  const done = R.stamps().length, all = R.chapterCount();
+  box.hidden = false;
+  box.innerHTML = `
+    <div class="resume-pre">${esc(t(UI.back))}</div>
+    <div class="resume-row">
+      <div class="resume-text">
+        <div class="resume-sub">${esc(t(last.sub || {}))}</div>
+        <div class="resume-title">${esc(t(last.title))}</div>
+        ${done && all ? `<div class="resume-prog"><span class="bar"><span style="width:${Math.round(done / all * 100)}%"></span></span>${esc(UI.read[lang](done, all))}</div>` : ""}
+      </div>
+      <a class="hdr-btn primary resume-go" href="${link(last.href)}">${esc(t(last.action || {ja: "続きへ", en: "Continue"}))} →</a>
+    </div>
+    <div class="resume-foot"><span>${esc(t(UI.local))}</span><button type="button" id="btn-forget">${esc(t(UI.forget))}</button></div>`;
+  $("btn-forget").onclick = () => { R.clear(); renderResume(); };
 }
 
 function esc(s) { return s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c])); }
@@ -107,6 +135,7 @@ function render() {
   $("h-all").textContent = t(UI.all);
   $("h-foot").textContent = t(UI.foot);
   $("paths").innerHTML = NEEDS.map(card).join("");
+  renderResume();
   $("all").innerHTML = ALL.filter(a => !a.only || a.only === lang)
     .map(a => `<li><a href="${link(a.href)}">${esc(t(a.label))}</a></li>`).join("");
 }

@@ -52,7 +52,33 @@ function stamps() {
 	try { return new Set(JSON.parse(localStorage.getItem('shinsengumi.stamps') || '[]')); } catch (e) { return new Set(); }
 }
 
+/* Remember the chapter, so the front page can offer to pick up here
+   next time (js/resume.js; stored only in this browser). */
+const chLabel = ch => ({ ja: ch.no.ja + '　' + ch.title.ja, en: ch.no.en + ' · ' + ch.title.en });
+function rememberChapter(id) {
+	const ch = PLAY.chapters.find(c => c.id === id);
+	if (!ch || !window.SSG_RESUME) return;
+	SSG_RESUME.save({ kind: 'play', href: 'play/?ch=' + id, title: chLabel(ch),
+		sub: { ja: '物語で体験する', en: 'Experience the story' }, action: { ja: 'この章を開く', en: 'Open this chapter' } });
+}
+function rememberNext(id) {
+	if (!window.SSG_RESUME) return;
+	const done = new Set(SSG_RESUME.stamps()); done.add(id);
+	const i = PLAY.chapters.findIndex(c => c.id === id);
+	const rest = PLAY.chapters.slice(i + 1).concat(PLAY.chapters.slice(0, i));
+	const next = rest.find(c => !done.has(c.id));
+	const ch = PLAY.chapters[i];
+	if (next) SSG_RESUME.save({ kind: 'playnext', href: 'play/?ch=' + next.id,
+		title: { ja: '次は ' + chLabel(next).ja, en: 'Next: ' + chLabel(next).en },
+		sub: { ja: chLabel(ch).ja + 'を読み終えました', en: 'You finished ' + chLabel(ch).en },
+		action: { ja: '次の章へ', en: 'Next chapter' } });
+	else SSG_RESUME.save({ kind: 'playdone', href: 'play/',
+		title: { ja: '全' + PLAY.chapters.length + '章を読み終えました', en: 'You have read all ' + PLAY.chapters.length + ' chapters' },
+		sub: { ja: '物語で体験する', en: 'Experience the story' }, action: { ja: '章の一覧へ', en: 'See the chapters' } });
+}
+
 function startChapter(id) {
+	rememberChapter(id);
 	window.PLAY_CHAPTER = id;
 	const start = document.querySelector('main-menu [data-action="start"]');
 	if (start) start.click();
@@ -188,6 +214,7 @@ window.showEndCard = function (id) {
 	const screen = document.querySelector('game-screen');
 	const ch = PLAY.chapters.find(c => c.id === id);
 	if (!screen || !ch) return;
+	rememberNext(id);
 	let card = screen.querySelector('.ss-end');
 	if (!card) { card = el('div', 'ss-end'); screen.appendChild(card); }
 	card.innerHTML = `<div class="ss-endinner">
@@ -211,6 +238,22 @@ $_ready(() => {
 		if (monogatari.preference('Language') !== l) { monogatari.preference('Language', l); monogatari.localize(); }
 		buildTitle();
 		buildHud();
+		if (window.SSG_RESUME) SSG_RESUME.setChapterCount(PLAY.chapters.length);
+		// play/?ch=<id> opens that chapter straight away (used by the front page)
+		const want = new URLSearchParams(location.search).get('ch');
+		if (want && PLAY.chapters.some(c => c.id === want)) {
+			// wait until the engine has settled on its menu, then start; retry if the menu came back
+			let tries = 0;
+			const go = () => {
+				const menuUp = document.querySelector('main-screen.active');
+				const inGame = document.querySelector('game-screen.active');
+				if (inGame && !menuUp) return;
+				if (++tries > 40) return;
+				if (menuUp && document.querySelector('main-menu [data-action="start"]')) startChapter(want);
+				setTimeout(go, 250);
+			};
+			setTimeout(go, 300);
+		}
 		['didUpdateState', 'didRunAction', 'didRevertAction', 'didLoadGame', 'didLocalize']
 			.forEach(e => monogatari.on(e, () => setTimeout(updateBeat, 0)));
 		// refresh the chapter list (and its "read" marks) on returning to it

@@ -82,6 +82,27 @@ function render() {
   const short = $("s-short");
   short.replaceChildren();
   STORY.short.forEach(p => paragraphs(short, t(p)));
+  remember();
+}
+
+/* Remember the section on screen, so the front page can offer to pick
+   up here next time (js/resume.js; stored only in this browser). */
+function storyPlace(id) {
+  const i = id ? parseInt(id.slice(3), 10) - 1 : -1;
+  return {kind: "story", href: "story.html" + (id ? "#" + id : ""),
+          title: STORY.long[i] ? STORY.long[i].h : STORY.title,
+          sub: {ja: "「新選組とは」を読む", en: "Reading “Who were the Shinsengumi?”"},
+          action: {ja: "続きを読む", en: "Continue reading"}};
+}
+function remember() {
+  if (!window.SSG_RESUME) return;
+  if (mode === "short") {
+    SSG_RESUME.save({kind: "story", href: "story.html?v=short", title: {ja: "新選組とは（短縮版）", en: "Who were the Shinsengumi? (short version)"},
+      sub: {ja: "「新選組とは」を読む", en: "Reading the story"}, action: {ja: "もう一度読む", en: "Read it again"}});
+  } else {
+    if (!location.hash) SSG_RESUME.save(storyPlace(null));
+    SSG_RESUME.watchSections("#s-chapters h3", storyPlace);
+  }
 }
 
 $("btn-lang").onclick = () => {
@@ -98,3 +119,5 @@ $("btn-version").onclick = () => {
 };
 
 render();
+/* the sections are built by script, so jump to a #ch-N link ourselves */
+if (location.hash && document.getElementById(location.hash.slice(1))) document.getElementById(location.hash.slice(1)).scrollIntoView();
