@@ -9,8 +9,7 @@ const STR = {
   subtitle:{en:"The rise and fall of the shogun's last swordsmen — from Tama to Hakodate, 1863–1869",
             ja:"幕府最後の剣客集団の興亡 — 多摩から箱館へ 1863–1869"},
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
-  story:{en:"About the Shinsengumi",ja:"新選組とは"},
-  play:{en:"Experience the story",ja:"物語で体験する"},
+  home:{en:"← Other ways in",ja:"← ほかの入口"},
   tour:{en:"Guided tour",ja:"順路をたどる"},
   tourPerson:{en:p=>`Follow ${p.name.en.split(" ")[0]}`,ja:p=>`${p.name.ja}の足取り`},
   context:{en:"Historical events",ja:"時代の動き"},
@@ -333,10 +332,9 @@ function monBtn(pid){const p=PEOPLE[pid];return `<span class="mon">${p.kanji}</s
 /* ---------- header ---------- */
 function renderHeader(){
   $("h-title").innerHTML=`${t(STR.title)}<span class="sub">${t(STR.subtitle)}</span>`;
-  $("btn-story").textContent=t(STR.story);
-  $("btn-story").href="story.html"+(lang==="en"?"?lang=en":"");
-  $("btn-play").textContent=t(STR.play);
-  $("btn-play").href="play/"+(lang==="en"?"?lang=en":"");
+  $("h-title").href=href("index.html");
+  $("btn-home").textContent=t(STR.home);
+  $("btn-home").href=href("index.html");
   $("btn-tour").textContent=tourLabel();
   $("btn-context").textContent=t(STR.context);
   $("btn-context").classList.toggle("off",!showContext);
@@ -543,13 +541,14 @@ $("tour-exit").onclick=exitTour;
 function renderAll(){
   renderHeader(); renderPeople(); renderTimeline(); renderDetail(); buildMarkers(); renderTour(); renderEra();
 }
-/* Deep links from the people page: index.html?ev=<event> or ?person=<id> */
+/* Deep links: map.html?ev=<event>, ?person=<id>, or ?tour=1 to start the guided tour */
 {
   const q=new URLSearchParams(location.search);
   if(byId(q.get("ev"))){ selId=q.get("ev"); if(byId(selId).kind==="context") showContext=true; }
   else if(PEOPLE[q.get("person")]) selPerson=q.get("person");
 }
 renderAll();
+if(new URLSearchParams(location.search).get("tour")==="1" && !selId && !selPerson) startTour();
 if(selId){
   /* centre the deep-linked event's chip without scrolling the page */
   const tl=$("timeline"), chip=tl.querySelector(`[data-ev="${selId}"]`);

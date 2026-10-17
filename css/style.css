@@ -255,3 +255,7 @@ main{flex:1;display:flex;min-height:0}
 .basics-link:hover{background:rgba(142,216,223,.06)}
 .basics-link b{font-weight:700;color:var(--washi)}
 .basics-link[hidden]{display:none}
+
+/* site title in the header links to the front page */
+.home-link{color:inherit;text-decoration:none}
+.home-link:hover{color:var(--asagi)}

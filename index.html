@@ -4,67 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新選組の軌跡 — The Road of Shinsengumi, the last group of Samurai</title>
+<meta name="description" content="The Shinsengumi, from Tama to Hakodate, 1863–1869: a map, a story and scene-by-scene chapters over the period maps. Choose where to start by how well you know them.">
+<meta name="theme-color" content="#10151d">
+<script>
+  /* The map used to live here. Old links such as ?ev=<event> or
+     ?person=<id> still go straight to it. */
+  (function(){
+    var q = new URLSearchParams(location.search);
+    if (q.has("ev") || q.has("person") || q.has("tour")) location.replace("map.html" + location.search + location.hash);
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- bump ?v= on css/app.js whenever either changes, so GitHub Pages' CDN and browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=23">
+<!-- bump ?v= whenever a file changes, as on the other pages -->
+<link rel="stylesheet" href="css/style.css?v=24">
+<link rel="stylesheet" href="css/home.css?v=7">
 </head>
 <body>
+<!--
+  FRONT PAGE — ways in, by what the visitor wants to do.
+  Text lives in js/home.js. The map itself is map.html.
+-->
 
 <header>
   <div class="title-block">
     <h1 id="h-title"></h1>
   </div>
-  <a class="hdr-btn" id="btn-story" href="story.html"></a>
-  <a class="hdr-btn" id="btn-play" href="play/"></a>
-  <button class="hdr-btn primary" id="btn-tour"></button>
-  <button class="hdr-btn" id="btn-context" aria-pressed="true"></button>
-  <button class="hdr-btn" id="btn-fit"></button>
   <button class="hdr-btn" id="btn-lang">English</button>
 </header>
 <div class="dangara" aria-hidden="true"></div>
 
-<main>
-  <aside id="sidebar">
-    <section id="people">
-      <div class="sec-label" id="people-label"></div>
-      <div class="people-grid" id="people-grid"></div>
-    </section>
-    <section id="detail" aria-live="polite"></section>
-  </aside>
-
-  <div id="map-wrap">
-    <div id="map"></div>
-    <div id="tourbar">
-      <button class="hdr-btn" id="tour-prev"></button>
-      <div class="tri-track" id="tri-track" aria-hidden="true"></div>
-      <span class="tour-step" id="tour-step"></span>
-      <button class="hdr-btn primary" id="tour-next"></button>
-      <button class="hdr-btn" id="tour-exit"></button>
+<main class="home">
+  <section class="hero">
+    <div class="hero-in">
+      <div class="seal" aria-hidden="true">誠</div>
+      <div class="hero-eyebrow" id="h-eyebrow"></div>
+      <h2 class="hero-title" id="h-name"></h2>
+      <p class="hero-lede" id="h-lede"></p>
     </div>
-    <nav id="timeline" aria-label="Timeline"></nav>
-  </div>
+  </section>
+
+  <section class="paths" aria-labelledby="h-ask">
+    <h3 class="ask" id="h-ask"></h3>
+    <div class="path-list" id="paths"></div>
+  </section>
+
+  <nav class="everything" aria-labelledby="h-all">
+    <div class="sec-label" id="h-all"></div>
+    <ul id="all"></ul>
+  </nav>
+
+  <p class="home-foot" id="h-foot"></p>
 </main>
 
-<script src="js/config.js"></script>
-<script src="data/people.js?v=13"></script>
-<script src="data/events.js?v=11"></script>
-<script src="data/context.js?v=4"></script>
-<script src="data/oldmaps.js?v=4"></script>
-<script src="oldmaps/ino-chuzu/tiles.js?v=2"></script>
-<script src="oldmaps/ino-daizu/tiles.js?v=1"></script>
-<script src="oldmaps/kyoto-genji/tiles.js?v=2"></script>
-<script src="oldmaps/edo-keio/tiles.js?v=1"></script>
-<script>
-  /* Google's official dynamic-library-import bootstrap loader.
-     Defines google.maps.importLibrary(); the real API script is fetched
-     lazily the first time something calls it (see js/app.js). */
-  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-  ({key: typeof GOOGLE_MAPS_API_KEY!=="undefined"?GOOGLE_MAPS_API_KEY:"", v: "weekly"});
-  if(typeof GOOGLE_MAPS_API_KEY==="undefined"){
-    console.warn("No Google Maps API key found — copy js/config.example.js to js/config.js and add your key. See README.");
-  }
-</script>
-<script src="js/app.js?v=28"></script>
+<script src="js/home.js?v=7"></script>
 </body>
 </html>
