@@ -181,14 +181,15 @@ python3 tools/play/crop.py edo-keio 16 35.6926 139.7333 play/assets/scenes/ichig
 
 Use `edo-keio` for Edo, `kyoto-genji` for Kyoto (add `--paper`, as the scan is
 tilted and its edges would otherwise show dark), `ino-daizu` for Tama and
-`ino-chuzu` for whole routes; see the examples at the top of the script. Set the
-place's `map` to the same id: the title screen lists the full credit for every map
+`ino-chuzu` for whole routes; see the examples at the top of the script. For a place none of the maps covers (Osaka, so far), set `map: "none"` and
+`img: "unmapped"`: it shows plain paper and says so in the credit line. Set the
+place's `map` to the map's id otherwise: the title screen lists the full credit for every map
 in use, in the holder's wording from `data/oldmaps.js`.
 
 **Adding a chapter:** add a block to `PLAY.chapters`. It appears on the title
 screen's chapter list in that order, and is marked as read once finished.
 
-**Chapters planned:** Shieikan (done), Mibu (done), Serizawa, Ikedaya, Kinmon,
+**Chapters planned:** Shieikan (done), Mibu (done), Serizawa (done), Ikedaya, Kinmon,
 Aburanokōji, Toba–Fushimi, Nagareyama and Itabashi, Utsunomiya and Aizu, Hakodate.
 Finishing a chapter records it in the browser (`shinsengumi.stamps`), ready for the
 map to show later.
