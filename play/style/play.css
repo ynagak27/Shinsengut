@@ -240,3 +240,8 @@ main-menu{display:none !important}            /* chapters start from the list be
 .ss-chgo.done{color:var(--mist)}
 .ss-credits{display:flex;flex-direction:column;gap:8px}
 .ss-credits .ss-credit span{color:var(--washi);opacity:.8}
+
+/* 解説 / Context: connecting narration, set quieter than the record */
+.ss-chip.ctx{color:var(--mist);border:1px solid var(--line)}
+.ss-note[data-kind="context"] .ss-notelabel{color:var(--mist)}
+.ss-note[data-kind="context"]{border-top-style:dotted}

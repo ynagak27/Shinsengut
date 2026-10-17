@@ -164,8 +164,10 @@ copied into `play/engine/`), restyled with this site's colours and fonts in
 - `kind:"record"` (史実) is what the record shows.
 - `kind:"anecdote"` (逸話) is a well-known traditional story, used only where the
   record is silent. It shows in the same dashed red box as legends on the map.
+- `kind:"context"` (解説) is narration that connects the beats around it (why
+  something mattered, what it led to). It adds no new facts, so it has no `src`.
 - Nothing is invented. A person speaks only words that are recorded or
-  traditionally attributed to them. Every beat names its source in `src`.
+  traditionally attributed to them. Every record and anecdote names its source in `src`.
 
 **Adding a beat:** copy one in `data/play.js` and change `scene`, `kind`, `year`,
 `ja`, `en` and `src`. Each beat is one tap.

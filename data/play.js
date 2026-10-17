@@ -6,9 +6,11 @@
    - kind:"record"   史実 = what the record shows.
    - kind:"anecdote" 逸話 = a well-known traditional story, used ONLY
      where the record is silent. Shown in the dashed lore box.
+   - kind:"context"  解説 = narration that connects or explains the
+     beats around it. It adds no new facts, so it needs no src.
    - Nothing is invented. A person speaks only words that are recorded
      or traditionally attributed to them (who: + poem: for verse).
-   - Every beat names its source in src:{ja, en}.
+   - Every record and anecdote names its source in src:{ja, en}.
 
    HOW TO EDIT / 追記のしかた:
    - Each beat is one tap: {scene, kind, year, ja, en, src}.
@@ -147,14 +149,28 @@ const PLAY = {
     beats: [
 
       { scene: "nakasendo", kind: "record", year: "1863",
-        ja: "文久三年二月八日、浪士組約230名は伝通院を発ち、中山道を京へ向かった。十五日の行程である。近藤の役目は、隊列の先回りをして宿を割り振ることだった。",
-        en: "On the 8th day of the 2nd month, 1863, some 230 men of the Rōshigumi leave Denzū-in and take the Nakasendō for Kyoto, a fifteen-day march. Kondō’s job is to ride ahead of the column and arrange lodgings.",
+        ja: "文久三年二月八日、浪士組約230名は伝通院を発ち、中山道を京へ向かった。十五日の行程である。",
+        en: "On the 8th day of the 2nd month, 1863, some 230 men of the Rōshigumi leave Denzū-in and take the Nakasendō for Kyoto, a fifteen-day march.",
+        src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "nakasendo", kind: "record", year: "1863",
+        ja: "顔ぶれは浪人、農家の子、博徒、剣術師範まで雑多だった。水戸の芹沢鴨を中心とする一派は、家柄でも気性でも際立っていた。",
+        en: "The recruits are a ragged mix of rōnin, farmers’ sons, gamblers and real fencing masters. A group from Mito around Serizawa Kamo stands out, for its pedigree and its temper.",
+        src: {ja: "浪士組の名簿、永倉新八の回想", en: "Rōshigumi rolls; Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "nakasendo", kind: "record", year: "1863",
+        ja: "近藤勇に与えられたのは、隊列の先回りをして宿を割り振る役だった。一門を率いる道場主としては、低い扱いである。",
+        en: "Kondō Isami is given the job of riding ahead of the column to arrange lodgings: a lowly post for the head of a sword school with his own following.",
         src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
 
       { scene: "nakasendo", kind: "anecdote", year: "1863",
-        ja: "本庄宿で自分の宿が取られていなかったことに怒った芹沢鴨は、往来で大篝火を焚いたという。",
-        en: "At Honjō, the story goes, Serizawa Kamo found no room had been kept for him and lit a great bonfire in the street.",
+        ja: "本庄宿で、近藤は芹沢の宿を取り忘れた。怒った芹沢は往来で大篝火を焚き、宿場は騒然となる。近藤は平身低頭して詫び、ようやく事を収めたという。",
+        en: "At Honjō, the story goes, Kondō forgot to book Serizawa a room. Furious, Serizawa built a huge bonfire in the street and the post town was in uproar. Kondō bowed low and apologised until the matter was settled.",
         src: {ja: "永倉新八の後年の回想", en: "Nagakura Shinpachi’s later account"} },
+
+      { scene: "nakasendo", kind: "context", year: "1863",
+        ja: "芹沢が騒ぎを起こし、近藤が頭を下げて収める。この構図は、京に入ってからも繰り返されることになる。",
+        en: "Serizawa makes trouble; Kondō swallows his pride and smooths it over. The pattern will repeat itself many times once they reach Kyoto." },
 
       { scene: "mibu", kind: "record", year: "1863",
         ja: "二月二十三日、浪士組は京に着き、都の西の外れ、壬生村の寺や郷士の屋敷に分宿した。",
@@ -162,18 +178,27 @@ const PLAY = {
         src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
 
       { scene: "mibu", kind: "record", year: "1863",
-        ja: "到着するや、発案者の清河八郎は本心を明かす。浪士組は幕府ではなく、朝廷の攘夷のために働くのだと。一同の名で朝廷に建白書が出された。",
-        en: "As soon as they arrive, the scheme’s author, Kiyokawa Hachirō, shows his hand: the Rōshigumi will serve the emperor’s cause of expelling the foreigners, not the shogunate. A petition goes to the court in all their names.",
+        ja: "浪士組を発案したのは、出羽庄内出身の尊攘派の策士、清河八郎だった。到着するや、彼は一同を集めて本心を明かす。浪士組は幕府ではなく、朝廷の攘夷のために働くのだと。",
+        en: "The Rōshigumi was the idea of Kiyokawa Hachirō, a loyalist schemer from Shōnai in the north. As soon as they arrive he gathers the men and shows his hand: they will serve the emperor’s cause of expelling the foreigners, not the shogunate.",
         src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
 
       { scene: "mibu", kind: "record", year: "1863",
-        ja: "幕府は浪士組に江戸帰還を命じ、大半は清河に従って東へ戻った。これを拒んだのが、芹沢の水戸派と近藤の試衛館一党。二十数名だった。",
-        en: "The shogunate orders the Rōshigumi back to Edo, and most follow Kiyokawa east. Two groups refuse: Serizawa’s Mito men and Kondō’s Shieikan household, two dozen or so in all.",
+        ja: "一同の名で朝廷に建白書が出された。驚いた幕府は浪士組に江戸帰還を命じ、大半は清河に従って東へ戻る。",
+        en: "A petition goes to the court in all their names. The alarmed shogunate orders the Rōshigumi back to Edo, and most follow Kiyokawa east.",
         src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
 
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "これを拒んだのが、芹沢の水戸派と近藤の試衛館一党、合わせて二十数名だった。将軍を警護するという本来の務めを果たすため、というのが近藤らの言い分である。",
+        en: "Two groups refuse: Serizawa’s Mito men and Kondō’s Shieikan household, two dozen or so in all. Kondō’s position is that they came to guard the shogun, and that is what they will do.",
+        src: {ja: "浪士組の記録、近藤の書簡", en: "Rōshigumi records; Kondō’s letters"} },
+
+      { scene: "mibu", kind: "context", year: "1863",
+        ja: "残ったのは、気性の荒い水戸の一派と、多摩の剣術道場の一門。出自も肌合いも違う、二つの集団の寄り合いだった。",
+        en: "What is left is an uneasy pairing: a hot-tempered group from Mito and a fencing school from the farm villages of Tama, two bands with little in common." },
+
       { scene: "azabu", kind: "record", year: "1863",
-        ja: "四月十三日、江戸に戻った清河は、麻布一之橋の近くで幕府方の剣客に斬られた。三十二歳。彼が連れ帰った浪士たちは、新徴組に再編される。",
-        en: "On the 13th day of the 4th month, back in Edo, Kiyokawa is cut down near the Ichinohashi bridge in Azabu by shogunal swordsmen. He is thirty-two. The men he led home are reorganised as the Shinchōgumi.",
+        ja: "四月十三日、江戸に戻った清河は、麻布一之橋の近くで幕府方の剣客に斬られた。三十二歳。彼が連れ帰った浪士たちは新徴組に再編され、江戸の警備につく。",
+        en: "On the 13th day of the 4th month, back in Edo, Kiyokawa is cut down near the Ichinohashi bridge in Azabu by shogunal swordsmen. He is thirty-two. The men he led home become the Shinchōgumi, a police force in Edo.",
         src: {ja: "幕府方の記録", en: "Shogunate records"} },
 
       { scene: "azabu", kind: "anecdote", year: "1863",
@@ -182,14 +207,23 @@ const PLAY = {
         src: {ja: "のちの証言による通説", en: "The usual view, from later testimony"} },
 
       { scene: "kurodani", kind: "record", year: "1863",
-        ja: "京に残った者たちは、京都守護職・会津藩主の松平容保に嘆願する。黒谷の金戒光明寺に本陣を置く会津藩は、彼らを預かりとした。「壬生浪士組」の始まりである。",
-        en: "The men who stayed petition Matsudaira Katamori, lord of Aizu and Protector of Kyoto, whose headquarters is the temple of Konkai Kōmyō-ji at Kurodani. Aizu takes them under its charge. The Mibu Rōshigumi begins.",
+        ja: "京都守護職は、尊攘派の暗殺が横行する都を鎮めるため、幕府が新たに設けた職である。就いたのは若い会津藩主、松平容保。千名を率いて京に入り、黒谷の金戒光明寺に本陣を置いていた。",
+        en: "The Protector of Kyoto is a new post, created by the shogunate to restore order in a capital terrorised by loyalist assassins. It has gone to the young lord of Aizu, Matsudaira Katamori, who has entered Kyoto with a thousand men and made his headquarters at Konkai Kōmyō-ji in Kurodani.",
         src: {ja: "会津藩の記録", en: "Aizu domain records"} },
 
       { scene: "kurodani", kind: "anecdote", year: "1863",
         ja: "容保が守護職を受けるとき、家臣たちは「薪を背負って火を消しに行くようなもの」と諫めたという。",
         en: "When Katamori accepted the post, his retainers are said to have warned him it was like carrying firewood to put out a fire.",
         src: {ja: "会津側でよく知られた伝承", en: "A well-known tradition on the Aizu side"} },
+
+      { scene: "kurodani", kind: "record", year: "1863",
+        ja: "京に残った者たちは容保に嘆願し、会津藩の預かりとなる。「壬生浪士組」の始まりである。局長には芹沢、新見錦、近藤の三人が並んだ。",
+        en: "The men who stayed petition Katamori and are taken under Aizu’s charge: the Mibu Rōshigumi is born. It has three commanders: Serizawa, Niimi Nishiki and Kondō.",
+        src: {ja: "会津藩の記録、隊の記録", en: "Aizu domain records; the corps’ records"} },
+
+      { scene: "kurodani", kind: "context", year: "1863",
+        ja: "家格で筆頭に座ったのは芹沢だった。近藤の一門は、まだ従う側にいた。",
+        en: "By rank and pedigree, Serizawa sits at the top. Kondō’s household is still the junior partner." },
 
       { scene: "nijo", kind: "record", year: "1863",
         ja: "三月四日、将軍家茂が京に入る。将軍の上洛は1634年以来のことだった。壬生の浪士たちの最初の務めは、その行列の警護である。",
@@ -229,7 +263,11 @@ const PLAY = {
       { scene: "gosho", kind: "record", year: "1863",
         ja: "この日の働きののち、隊は新しい名を与えられる。「新選組」である。",
         en: "After that day’s service, the corps is given a new name: the Shinsengumi.",
-        src: {ja: "会津藩の記録。命名の時期と経緯には諸説あり", en: "Aizu domain records; the exact date and how the name was given are debated"} }
+        src: {ja: "会津藩の記録。命名の時期と経緯には諸説あり", en: "Aizu domain records; the exact date and how the name was given are debated"} },
+
+      { scene: "gosho", kind: "context", year: "1863",
+        ja: "名と務めを得た新選組。だがその内側には、芹沢という火種がくすぶり続けていた。",
+        en: "The Shinsengumi now has a name and a duty. Inside it, the problem of Serizawa is still smouldering." }
 
     ] }
 

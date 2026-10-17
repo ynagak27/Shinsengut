@@ -10,9 +10,11 @@ const { $_ready } = Monogatari;
 
 const UI = {
 	site:     { ja: '新選組の軌跡', en: 'The Road of Shinsengumi' },
-	rule:     { ja: '史実と、記録のない部分に限り広く知られた逸話のみで構成しています。', en: 'Built only from the record, with well-known anecdotes where the record is silent.' },
+	rule:     { ja: '史実と、記録のない部分に限り広く知られた逸話のみで構成しています。解説は前後をつなぐ説明で、新たな事実は加えていません。', en: 'Built only from the record, with well-known anecdotes where the record is silent. Context lines connect the story and add no new facts.' },
 	record:   { ja: '史実', en: 'Record' },
 	anecdote: { ja: '逸話', en: 'Anecdote' },
+	context:  { ja: '解説', en: 'Context' },
+	contextNote: { ja: '前後の出来事をつなぐ解説です', en: 'Connects the events around it' },
 	source:   { ja: '出典', en: 'Source' },
 	other:    { ja: 'English', en: '日本語' },
 	map:      { ja: '← 地図に戻る', en: '← Back to the map' },
@@ -85,7 +87,7 @@ function buildTitle() {
 		<a class="ss-series" href="${siteHref('index.html')}">${t(UI.site)}</a>
 		<h1 class="ss-h1 ss-h1-sm">${t(UI.heading)}</h1>
 		<p class="ss-lede">${t(UI.intro)}</p>
-		<div class="ss-key"><span class="ss-chip rec">${t(UI.record)}</span><span class="ss-chip anec">${t(UI.anecdote)}</span><span class="ss-keytext">${t(UI.rule)}</span></div>
+		<div class="ss-key"><span class="ss-chip rec">${t(UI.record)}</span><span class="ss-chip anec">${t(UI.anecdote)}</span><span class="ss-chip ctx">${t(UI.context)}</span><span class="ss-keytext">${t(UI.rule)}</span></div>
 		<div class="ss-eyebrow ss-listhead">${t(UI.chapters)}</div>
 		<div class="ss-chlist">${list}</div>`;
 	card.querySelectorAll('.ss-ch').forEach(b => { b.onclick = () => startChapter(b.dataset.ch); });
@@ -158,7 +160,9 @@ function updateBeat() {
 	meta.innerHTML = `<span class="ss-when">${beat.year}<i>·</i>${ja ? place.ja : place.en}</span><span class="ss-count">${n}</span>`;
 	note.hidden = false;
 	note.dataset.kind = beat.kind;
-	note.innerHTML = `<span class="ss-notelabel">${beat.kind === 'record' ? t(UI.record) : t(UI.anecdote)}</span><span class="ss-notesrc">${t(UI.source)}：${ja ? beat.src.ja : beat.src.en}</span>`;
+	const label = { record: UI.record, anecdote: UI.anecdote, context: UI.context }[beat.kind] || UI.record;
+	const srcText = beat.src ? `${t(UI.source)}：${ja ? beat.src.ja : beat.src.en}` : t(UI.contextNote);
+	note.innerHTML = `<span class="ss-notelabel">${t(label)}</span><span class="ss-notesrc">${srcText}</span>`;
 	box.classList.toggle('ss-poem', !!beat.poem);
 	box.classList.toggle('ss-ja', ja);
 	if (beat.poem) {
