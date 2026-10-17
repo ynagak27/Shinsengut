@@ -445,6 +445,7 @@ function renderIntro(){
   $("detail").innerHTML=`
     <div class="intro-seal">誠</div>
     <div class="d-title">${t(STR.introTitle)}</div>
+    ${lang==="en"?`<a class="basics-link" href="basics.html"><b>New to the Shinsengumi?</b> Start with the basics →</a>`:""}
     <p class="d-body">${t(STR.introBody)}</p>`;
 }
 

@@ -89,6 +89,7 @@ function buildTitle() {
 		<a class="ss-series" href="${siteHref('index.html')}">${t(UI.site)}</a>
 		<h1 class="ss-h1 ss-h1-sm">${t(UI.heading)}</h1>
 		<p class="ss-lede">${t(UI.intro)}</p>
+		${isJa() ? '' : `<a class="ss-basics" href="../basics.html"><b>New to the Shinsengumi?</b> Start with the basics →</a>`}
 		<div class="ss-key"><span class="ss-chip rec">${t(UI.record)}</span><span class="ss-chip anec">${t(UI.anecdote)}</span><span class="ss-chip ctx">${t(UI.context)}</span><span class="ss-keytext">${t(UI.rule)}</span></div>
 		<div class="ss-eyebrow ss-listhead">${t(UI.chapters)}</div>
 		<div class="ss-chlist">${list}</div>`;

@@ -197,6 +197,17 @@ map to show later.
 
 ---
 
+## Shinsengumi basics (English only)
+
+`basics.html` is a short primer for English readers who don't know the
+background: Japan in the 1860s, the two sides, the corps, who's who, a
+timeline, a glossary and how to read names and dates. Japanese readers
+usually know this, so it has no Japanese version and is linked only on the
+English side: the map's welcome panel, the story page and the play page's
+chapter list. Facts follow `data/events.js`, `context.js` and `people.js`.
+
+---
+
 ## Verification note
 
 Coordinates and dates were compiled from standard secondary sources as a research

@@ -1,0 +1,58 @@
+/* Basics page (basics.html). Loads after style.css and story.css and
+   adds only the reference blocks: the at-a-glance list, the two sides,
+   who's who, the timeline and the glossary. */
+
+.basics .chapter b{color:var(--washi);font-weight:700}
+.basics .chapter i{font-style:italic}
+.basics [lang=ja]{font-family:var(--disp);font-style:normal}
+.basics a{color:var(--asagi)}
+
+/* opening */
+.basics .kicker{font-family:var(--disp);font-weight:700;font-size:clamp(19px,4.2vw,24px);line-height:1.6;color:var(--asagi);margin:18px 0 22px;letter-spacing:.02em}
+.basics .opening{border-left:3px solid var(--makoto);padding:2px 0 2px 18px;margin:0 0 26px}
+.basics .opening p{font-family:var(--disp);font-weight:500;font-size:17px;line-height:1.95;color:var(--washi);margin:0 0 .9em}
+.basics .opening p:last-child{margin-bottom:0;font-weight:700}
+
+/* at a glance */
+.glance{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:4px 0 22px}
+.glance>div{background:var(--panel);padding:14px 16px}
+.glance dt{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--asagi);margin-bottom:6px}
+.glance dd{font-size:14px;line-height:1.7;color:#d9d2c1}
+
+/* the two sides */
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 22px}
+.side{border:1px solid var(--line);border-top:3px solid var(--asagi-dim);border-radius:4px;background:var(--panel);padding:14px 16px}
+.side-b{border-top-color:var(--makoto)}
+.side-h{font-family:var(--disp);font-weight:700;font-size:16px;margin-bottom:10px}
+.side ul{list-style:none;display:grid;gap:10px}
+.side li{font-size:14px;line-height:1.7;color:#d9d2c1}
+
+/* who's who */
+.who{list-style:none;display:grid;gap:0;margin:4px 0 18px;border-top:1px solid var(--line)}
+.who li{display:grid;grid-template-columns:200px 1fr;gap:4px 18px;padding:12px 0;border-bottom:1px solid var(--line)}
+.who a{font-family:var(--disp);font-weight:700;font-size:16px;line-height:1.4;text-decoration:none;color:var(--washi)}
+.who a:hover{color:var(--asagi)}
+.who a span{display:block;font-size:13px;font-weight:500;color:var(--mist);margin-top:2px}
+.who li>span{font-size:14px;line-height:1.75;color:#d9d2c1}
+.basics .also{font-size:15px}
+
+/* timeline */
+.tl{list-style:none;margin:4px 0 0;border-left:2px solid var(--line);padding-left:0}
+.tl li{position:relative;display:grid;grid-template-columns:116px 1fr;gap:14px;padding:9px 0 9px 20px}
+.tl li::before{content:"";position:absolute;left:-6px;top:16px;width:10px;height:10px;background:var(--sumi);border:2px solid var(--asagi-dim);transform:rotate(45deg)}
+.tl time{font-family:var(--mono);font-size:13px;color:var(--asagi);padding-top:2px}
+.tl span{font-size:15px;line-height:1.75;color:#d9d2c1}
+
+/* glossary */
+.gloss{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 0}
+.gloss>div{border:1px solid var(--line);border-radius:4px;padding:12px 14px;background:var(--panel)}
+.gloss dt{font-weight:700;font-size:15px;margin-bottom:4px;color:var(--washi)}
+.gloss dt span{font-size:13px;color:var(--mist);margin-left:6px;font-weight:500}
+.gloss dd{font-size:14px;line-height:1.7;color:#cfc8b7}
+
+@media (max-width:880px){
+  .basics .opening p{font-size:16px}
+  .glance,.sides,.gloss{grid-template-columns:1fr}
+  .who li{grid-template-columns:1fr}
+  .tl li{grid-template-columns:1fr;gap:2px}
+}
