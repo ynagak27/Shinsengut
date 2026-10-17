@@ -10,7 +10,7 @@ const STR = {
             ja:"幕府最後の剣客集団の興亡 — 多摩から箱館へ 1863–1869"},
   people:{en:"The men of the Shinsengumi",ja:"新選組の隊士"},
   story:{en:"About the Shinsengumi",ja:"新選組とは"},
-  play:{en:"Play the story",ja:"物語で体験する"},
+  play:{en:"Experience the story",ja:"物語で体験する"},
   tour:{en:"Guided tour",ja:"順路をたどる"},
   tourPerson:{en:p=>`Follow ${p.name.en.split(" ")[0]}`,ja:p=>`${p.name.ja}の足取り`},
   context:{en:"Historical events",ja:"時代の動き"},

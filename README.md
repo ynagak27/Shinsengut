@@ -151,7 +151,7 @@ doing at each moment.
 
 ---
 
-## Play the story (`play/`, text in `data/play.js`)
+## Experience the story (`play/`, text in `data/play.js`)
 
 A third way into the history, after the map and the story page: key moments told
 one tap at a time, as a visual novel over the period maps. It runs on

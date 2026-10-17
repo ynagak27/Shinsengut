@@ -55,3 +55,7 @@ monogatari.preferences({
 	'TextSpeed': 20,
 	'AutoPlaySpeed': 5
 });
+
+/* This is a reading experience, not a game: plain words on the buttons. */
+monogatari.translation('日本語', { 'Start': '読みはじめる' });
+monogatari.translation('English', { 'Start': 'Begin reading' });

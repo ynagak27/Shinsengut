@@ -10,7 +10,7 @@ const UI = {
   toLong:  {en: "Read the full story", ja: "全文を読む"},
   toc:     {en: "Contents", ja: "目次"},
   explore: {en: "Explore the map →", ja: "地図でたどる →"},
-  play:    {en: "Play the story →", ja: "物語で体験する →"}
+  play:    {en: "Experience the story →", ja: "物語で体験する →"}
 };
 
 let lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ja";

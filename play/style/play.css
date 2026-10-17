@@ -211,3 +211,11 @@ a.ss-series:hover{color:var(--asagi)}
 .ss-links{display:flex;flex-wrap:wrap;gap:8px}
 a.ss-lang{text-decoration:none;display:inline-flex;align-items:center}
 .ss-lang{margin:0 !important}
+
+/* No game controls: no saving, loading or settings screen.
+   Readers keep "back one line" and the log of what they have read. */
+main-menu button[data-open="load"],
+main-menu button[data-open="settings"],
+quick-menu button[data-open="save"],
+quick-menu button[data-open="settings"]{display:none !important}
+.ss-hudrow{padding-right:calc(10px + 2 * 2.5rem)}
