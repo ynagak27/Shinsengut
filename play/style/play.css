@@ -219,3 +219,24 @@ main-menu button[data-open="settings"],
 quick-menu button[data-open="save"],
 quick-menu button[data-open="settings"]{display:none !important}
 .ss-hudrow{padding-right:calc(10px + 2 * 2.5rem)}
+
+/* ---- Title screen as a chapter list ---- */
+main-menu{display:none !important}            /* chapters start from the list below */
+.ss-h1-sm{font-size:clamp(34px,9vw,52px)}
+.ss-listhead{margin-top:30px}
+.ss-chlist{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.ss-ch{
+  all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;
+  padding:16px 18px;border:1px solid var(--line);border-radius:3px;background:rgba(23,31,43,.82);
+  transition:border-color .15s,background .15s;text-align:left;
+}
+.ss-ch:hover{border-color:var(--asagi-dim);background:var(--panel-2)}
+.ss-ch:focus-visible{outline:2px solid var(--asagi);outline-offset:2px}
+.ss-chmeta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--asagi)}
+.ss-chmeta i{font-style:normal;color:var(--asagi-dim);margin:0 .6em}
+.ss-chtitle{font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:.06em;color:var(--washi);line-height:1.25}
+.ss-chlede{font-size:13.5px;line-height:1.8;color:#d9d2c1}
+.ss-chgo{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--asagi);margin-top:4px}
+.ss-chgo.done{color:var(--mist)}
+.ss-credits{display:flex;flex-direction:column;gap:8px}
+.ss-credits .ss-credit span{color:var(--washi);opacity:.8}

@@ -15,32 +15,41 @@
    - scene: a key of PLAY.places. Its background is
      play/assets/scenes/<scene>.webp, cut from the period maps in
      oldmaps/ with tools/play/crop.py (see the README).
+   - A new chapter is a new block in PLAY.chapters; it appears on the
+     title screen in this order.
    - Use “curly quotes” or 「」 inside text; a plain ' ends the string.
    - In a poem, <br> starts a new line (Japanese is set vertically).
    ===================================================================== */
 
 const PLAY = {
 
-  /* Places used as scenes: label, and which map the background comes from. */
+  /* Places used as scenes: label, and which period map (an id from
+     data/oldmaps.js) the background is cut from. */
   places: {
-    ichigaya: {ja: "江戸・市谷",       en: "Ichigaya, Edo",          map: "edo"},
-    tama:     {ja: "多摩・上石原村",   en: "Kami-Ishihara, Tama",    map: "ino"},
-    hino:     {ja: "多摩・日野",       en: "Hino, Tama",             map: "ino"},
-    fuchu:    {ja: "府中・六所宮",     en: "Rokusho shrine, Fuchū",  map: "ino"},
-    denzuin:  {ja: "小石川・伝通院",   en: "Denzū-in, Koishikawa",   map: "edo"}
+    ichigaya: {ja: "江戸・市谷",           en: "Ichigaya, Edo",              map: "edo-keio"},
+    tama:     {ja: "多摩・上石原村",       en: "Kami-Ishihara, Tama",        map: "ino-daizu"},
+    hino:     {ja: "多摩・日野",           en: "Hino, Tama",                 map: "ino-daizu"},
+    fuchu:    {ja: "府中・六所宮",         en: "Rokusho shrine, Fuchū",      map: "ino-daizu"},
+    denzuin:  {ja: "小石川・伝通院",       en: "Denzū-in, Koishikawa",       map: "edo-keio"},
+    nakasendo:{ja: "中山道",               en: "The Nakasendō",              map: "ino-chuzu"},
+    mibu:     {ja: "京都・壬生村",         en: "Mibu village, Kyoto",        map: "kyoto-genji"},
+    azabu:    {ja: "江戸・麻布 一之橋",    en: "Ichinohashi, Azabu, Edo",    map: "edo-keio"},
+    kurodani: {ja: "京都・黒谷 金戒光明寺", en: "Kurodani, Kyoto",            map: "kyoto-genji"},
+    nijo:     {ja: "京都・二条城",         en: "Nijō castle, Kyoto",         map: "kyoto-genji"},
+    gosho:    {ja: "京都御所",             en: "The Imperial Palace, Kyoto", map: "kyoto-genji"}
   },
 
-  /* Short credit shown under the header; the full wording (from
-     data/oldmaps.js) is on the title screen. */
+  /* Short credit shown under the header while a map is on screen. The
+     full wording comes from data/oldmaps.js and is on the title screen. */
   mapCredits: {
-    edo: {ja: "地図：『慶応改正御江戸大絵図』（1867）国立国会図書館",
-          en: "Map: Keiō kaisei O-Edo ōezu (1867), National Diet Library"},
-    ino: {ja: "地図：伊能忠敬『大日本沿海輿地全図（大図）』国立国会図書館",
-          en: "Map: Inō Tadataka, large-scale sheets, National Diet Library"}
-  },
-  fullCredit: {
-    ja: "地図：国立国会図書館デジタルコレクション『慶応改正御江戸大絵図』（請求記号 特7-694）、伊能忠敬『大日本沿海輿地全図（大図）』明治6年写（請求記号 WB39-6）パブリックドメイン。本サイトで現代の地図に合わせて変形。位置は概略です。",
-    en: "Maps: National Diet Library, Japan — Keiō kaisei O-Edo ōezu (1867, call no. 特7-694) and Inō Tadataka, Dai Nihon enkai yochi zenzu, large scale, 1873 copy (call no. WB39-6). Public domain. Georeferenced for this site; positions are approximate."
+    "edo-keio":    {ja: "地図：『慶応改正御江戸大絵図』（1867）国立国会図書館",
+                    en: "Map: Keiō kaisei O-Edo ōezu (1867), National Diet Library"},
+    "ino-daizu":   {ja: "地図：伊能忠敬『大日本沿海輿地全図（大図）』国立国会図書館",
+                    en: "Map: Inō Tadataka, large-scale sheets, National Diet Library"},
+    "ino-chuzu":   {ja: "地図：伊能忠敬『日本沿海輿地図（中図）』東京国立博物館",
+                    en: "Map: Inō Tadataka, medium-scale map, Tokyo National Museum"},
+    "kyoto-genji": {ja: "地図：『元治改正新増細見京繪圖大全』東北大学附属図書館",
+                    en: "Map: Genji kaisei Kyō ezu taizen, Tohoku University Library"}
   },
 
   /* Words spoken in the story (poems etc.) are attributed to these people. */
@@ -124,6 +133,103 @@ const PLAY = {
         ja: "梅の花<br>一輪咲いても<br>梅は梅",
         en: "A plum blossom —<br>even with one flower open,<br>it is still the plum.",
         src: {ja: "土方の句集『豊玉発句集』（文久三年、上洛前にまとめられた）", en: "Hijikata’s own haiku collection, compiled in 1863 before leaving for Kyoto"} }
+
+    ] },
+
+  { id: "mibu",
+    no:    {ja: "第二章", en: "Chapter 2"},
+    title: {ja: "壬生", en: "Mibu"},
+    span:  {ja: "1863　中山道・京都", en: "1863 · The Nakasendō and Kyoto"},
+    lede:  {ja: "将軍警護の浪士組として京へ上った試衛館の一同。だが着いた先で計画は崩れる。京に残った一握りの者たちが、新選組となる。",
+            en: "The Shieikan men march to Kyoto to guard the shogun, and the plan falls apart on arrival. The handful who stay become the Shinsengumi."},
+    cover: "mibu",
+    end:   {ja: "第二章　壬生　了", en: "End of Chapter 2 · Mibu"},
+    beats: [
+
+      { scene: "nakasendo", kind: "record", year: "1863",
+        ja: "文久三年二月八日、浪士組約230名は伝通院を発ち、中山道を京へ向かった。十五日の行程である。近藤の役目は、隊列の先回りをして宿を割り振ることだった。",
+        en: "On the 8th day of the 2nd month, 1863, some 230 men of the Rōshigumi leave Denzū-in and take the Nakasendō for Kyoto, a fifteen-day march. Kondō’s job is to ride ahead of the column and arrange lodgings.",
+        src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "nakasendo", kind: "anecdote", year: "1863",
+        ja: "本庄宿で自分の宿が取られていなかったことに怒った芹沢鴨は、往来で大篝火を焚いたという。",
+        en: "At Honjō, the story goes, Serizawa Kamo found no room had been kept for him and lit a great bonfire in the street.",
+        src: {ja: "永倉新八の後年の回想", en: "Nagakura Shinpachi’s later account"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "二月二十三日、浪士組は京に着き、都の西の外れ、壬生村の寺や郷士の屋敷に分宿した。",
+        en: "On the 23rd day of the 2nd month the Rōshigumi reach Kyoto and are lodged in the temples and farmhouses of Mibu, a village on the city’s western edge.",
+        src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "到着するや、発案者の清河八郎は本心を明かす。浪士組は幕府ではなく、朝廷の攘夷のために働くのだと。一同の名で朝廷に建白書が出された。",
+        en: "As soon as they arrive, the scheme’s author, Kiyokawa Hachirō, shows his hand: the Rōshigumi will serve the emperor’s cause of expelling the foreigners, not the shogunate. A petition goes to the court in all their names.",
+        src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "幕府は浪士組に江戸帰還を命じ、大半は清河に従って東へ戻った。これを拒んだのが、芹沢の水戸派と近藤の試衛館一党。二十数名だった。",
+        en: "The shogunate orders the Rōshigumi back to Edo, and most follow Kiyokawa east. Two groups refuse: Serizawa’s Mito men and Kondō’s Shieikan household, two dozen or so in all.",
+        src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "azabu", kind: "record", year: "1863",
+        ja: "四月十三日、江戸に戻った清河は、麻布一之橋の近くで幕府方の剣客に斬られた。三十二歳。彼が連れ帰った浪士たちは、新徴組に再編される。",
+        en: "On the 13th day of the 4th month, back in Edo, Kiyokawa is cut down near the Ichinohashi bridge in Azabu by shogunal swordsmen. He is thirty-two. The men he led home are reorganised as the Shinchōgumi.",
+        src: {ja: "幕府方の記録", en: "Shogunate records"} },
+
+      { scene: "azabu", kind: "anecdote", year: "1863",
+        ja: "下手人は一般に、佐々木只三郎らとされる。",
+        en: "The killers are generally named as Sasaki Tadasaburō and his companions.",
+        src: {ja: "のちの証言による通説", en: "The usual view, from later testimony"} },
+
+      { scene: "kurodani", kind: "record", year: "1863",
+        ja: "京に残った者たちは、京都守護職・会津藩主の松平容保に嘆願する。黒谷の金戒光明寺に本陣を置く会津藩は、彼らを預かりとした。「壬生浪士組」の始まりである。",
+        en: "The men who stayed petition Matsudaira Katamori, lord of Aizu and Protector of Kyoto, whose headquarters is the temple of Konkai Kōmyō-ji at Kurodani. Aizu takes them under its charge. The Mibu Rōshigumi begins.",
+        src: {ja: "会津藩の記録", en: "Aizu domain records"} },
+
+      { scene: "kurodani", kind: "anecdote", year: "1863",
+        ja: "容保が守護職を受けるとき、家臣たちは「薪を背負って火を消しに行くようなもの」と諫めたという。",
+        en: "When Katamori accepted the post, his retainers are said to have warned him it was like carrying firewood to put out a fire.",
+        src: {ja: "会津側でよく知られた伝承", en: "A well-known tradition on the Aizu side"} },
+
+      { scene: "nijo", kind: "record", year: "1863",
+        ja: "三月四日、将軍家茂が京に入る。将軍の上洛は1634年以来のことだった。壬生の浪士たちの最初の務めは、その行列の警護である。",
+        en: "On the 4th day of the 3rd month the shogun Iemochi enters Kyoto, the first shogun to come since 1634. The Mibu men’s first duty is to guard his processions.",
+        src: {ja: "幕府の記録", en: "Shogunate records"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "隊士たちは壬生村の有力な二軒、八木家と前川家に分宿した。両家の建物はいまも残っている。",
+        en: "The men are billeted on two leading households of Mibu, the Yagi and the Maekawa. Both houses still stand.",
+        src: {ja: "八木家・前川家（現存）", en: "The Yagi and Maekawa houses, still standing"} },
+
+      { scene: "mibu", kind: "record", year: "1863",
+        ja: "揃いの羽織が作られる。浅葱色の地に、袖口を白い山形の段だら模様で染め抜いたもの。",
+        en: "A uniform is made: a pale blue haori, its cuffs dyed with white saw-tooth stripes.",
+        src: {ja: "隊士の回想", en: "Members’ recollections"} },
+
+      { scene: "mibu", kind: "anecdote", year: "1863",
+        ja: "その意匠は、芝居で赤穂浪士が着る衣装にならったものとされる。",
+        en: "The design is said to copy the costume of the Forty-Seven Rōnin on the stage.",
+        src: {ja: "よく知られた説", en: "A widely repeated explanation"} },
+
+      { scene: "mibu", kind: "anecdote", year: "1863",
+        ja: "町の人々は、壬生に住みついた乱暴な浪人たちを「壬生狼（みぶろ）」と呼んで恐れたという。",
+        en: "Townspeople are said to have called the rough men camped at Mibu the “wolves of Mibu”, miburo.",
+        src: {ja: "京に伝わる呼び名", en: "A nickname handed down in Kyoto"} },
+
+      { scene: "gosho", kind: "record", year: "1863",
+        ja: "八月十八日未明、会津と薩摩が長州勢と急進派の公家を京から追い出す。壬生浪士組も武装して御所の警備に出た。初めての本格的な出動である。",
+        en: "Before dawn on the 18th day of the 8th month, Aizu and Satsuma drive Chōshū’s troops and the radical nobles out of Kyoto. The Mibu Rōshigumi turn out under arms to guard the palace. It is their first real deployment.",
+        src: {ja: "会津藩の記録", en: "Aizu domain records"} },
+
+      { scene: "gosho", kind: "anecdote", year: "1863",
+        ja: "門で行く手を阻んだ会津兵を、芹沢が鉄扇を手に一喝したという。",
+        en: "At the gate, the story goes, Serizawa faced down the Aizu guards who barred the way, an iron fan in his hand.",
+        src: {ja: "よく知られた逸話", en: "A well-known story"} },
+
+      { scene: "gosho", kind: "record", year: "1863",
+        ja: "この日の働きののち、隊は新しい名を与えられる。「新選組」である。",
+        en: "After that day’s service, the corps is given a new name: the Shinsengumi.",
+        src: {ja: "会津藩の記録。命名の時期と経緯には諸説あり", en: "Aizu domain records; the exact date and how the name was given are debated"} }
 
     ] }
 

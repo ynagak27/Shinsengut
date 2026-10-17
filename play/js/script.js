@@ -51,13 +51,22 @@ function buildChapter(ch, lang) {
 	out.push(stamp(ch.id));
 	out.push(`centered ${ja ? ch.end.ja : ch.end.en}`);
 	out.push('end');
-	window.SOURCE_TAGS[lang]['Start'] = tags;
+	window.SOURCE_TAGS[lang][ch.id] = tags;
 	return out;
 }
 
-/* One chapter for now; later chapters become their own labels. */
-const first = PLAY.chapters[0];
+/* One label per chapter, named by its id. The engine always begins at
+   'Start', which jumps to the chapter picked on the title screen
+   (window.PLAY_CHAPTER, set in main.js), or the first one. */
+function buildScript(lang) {
+	const pick = { 'Condition': () => window.PLAY_CHAPTER || PLAY.chapters[0].id };
+	PLAY.chapters.forEach(ch => { pick[ch.id] = `jump ${ch.id}`; });
+	const labels = { 'Start': [{ 'Conditional': pick }] };
+	PLAY.chapters.forEach(ch => { labels[ch.id] = buildChapter(ch, lang); });
+	return labels;
+}
+
 monogatari.script({
-	'日本語':  { 'Start': buildChapter(first, '日本語') },
-	'English': { 'Start': buildChapter(first, 'English') }
+	'日本語':  buildScript('日本語'),
+	'English': buildScript('English')
 });
