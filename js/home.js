@@ -12,7 +12,7 @@ const UI = {
   name:    {ja: "新選組の軌跡", en: "The Road of Shinsengumi"},
   lede:    {ja: "多摩の農家に生まれた若者たちが、幕府の剣となって京を守り、主君が戦いをやめたあとも最後まで戦い抜いた。その足跡を、当時の地図と物語でたどります。",
             en: "Farmers’ sons who became the shogun’s swordsmen, and fought on to the very end after their own lord had given up. Their road, on the maps of their day."},
-  ask:     {ja: "楽しみ方を選ぶ", en: "What would you like to do?"},
+  ask:     {ja: "どこから始めますか？", en: "What would you like to do?"},
   all:     {ja: "サイト内のページ", en: "Everything on the site"},
   everyone:{ja: "ほかの隊士を見る →", en: "Everyone else →"},
   foot:    {ja: "史実と、後世の伝承・異説は区別して記しています。", en: "Documented history is kept apart from later legend throughout."}
