@@ -46,7 +46,11 @@ const PLAY = {
     gion:     {ja: "京都・祇園",           en: "Gion, Kyoto",                map: "kyoto-genji"},
     shimabara:{ja: "京都・島原",           en: "Shimabara, Kyoto",           map: "kyoto-genji"},
     yagi:     {ja: "壬生・八木家",         en: "The Yagi house, Mibu",       map: "kyoto-genji", img: "mibu"},
-    mibudera: {ja: "壬生寺",               en: "Mibu-dera temple",           map: "kyoto-genji", img: "mibu"}
+    mibudera: {ja: "壬生寺",               en: "Mibu-dera temple",           map: "kyoto-genji", img: "mibu"},
+    maekawa:  {ja: "壬生・前川家（屯所）", en: "The Maekawa house, Mibu",    map: "kyoto-genji", img: "mibu"},
+    masuya:   {ja: "京都・四条 枡屋",      en: "The Masuya, Shijō, Kyoto",   map: "kyoto-genji"},
+    gionkaisho: {ja: "祇園・町会所",       en: "The Gion meeting hall",      map: "kyoto-genji", img: "gion"},
+    ikedaya:  {ja: "京都・三条木屋町 池田屋", en: "The Ikedaya, Sanjō, Kyoto", map: "kyoto-genji"}
   },
 
   /* Short credit shown under the header while a map is on screen. The
@@ -66,7 +70,8 @@ const PLAY = {
 
   /* Words spoken in the story (poems etc.) are attributed to these people. */
   speakers: {
-    hijikata: {ja: "土方歳三", en: "Hijikata Toshizō"}
+    hijikata: {ja: "土方歳三", en: "Hijikata Toshizō"},
+    kondo:    {ja: "近藤勇",   en: "Kondō Isami"}
   },
 
   chapters: [
@@ -491,7 +496,149 @@ const PLAY = {
         ja: "近藤が局長、土方が掟を握る。歴史の知る新選組が、ここから始まる。",
         en: "Kondō in command, Hijikata holding the code: the Shinsengumi that history knows begins here." }
 
+    ] },
+
+  { id: "ikedaya",
+    no:    {ja: "第四章", en: "Chapter 4"},
+    title: {ja: "池田屋", en: "Ikedaya"},
+    span:  {ja: "1864　京都", en: "1864 · Kyoto"},
+    lede:  {ja: "祇園祭の前夜、三条木屋町の旅籠。わずかな手勢で踏み込んだ一夜が、新選組を日本一名高く、そして最も憎まれる剣にした。",
+            en: "The eve of the Gion festival, an inn by the Sanjō bridge. One night, and a handful of men going in through the front door, made the Shinsengumi the most famous and most hated swords in Japan."},
+    cover: "ikedaya",
+    end:   {ja: "第四章　池田屋　了", en: "End of Chapter 4 · Ikedaya"},
+    beats: [
+
+      { scene: "mibu", kind: "context", year: "1864",
+        ja: "芹沢亡きあと、近藤と土方の隊は、京の治安を担う会津の手足となっていた。",
+        en: "With Serizawa gone, Kondō and Hijikata’s corps has become Aizu’s instrument for keeping order in Kyoto." },
+
+      { scene: "mibu", kind: "record", year: "1864",
+        ja: "前年の八月十八日の政変で追われた長州系の志士たちは、市中に潜んでいた。彼らを探り出し、捕らえることが、隊の日々の務めになった。",
+        en: "The Chōshū loyalists driven out in the coup of the previous summer are hiding all over the city. Tracking them down and arresting them has become the corps’ daily work.",
+        src: {ja: "会津藩の記録、隊の記録", en: "Aizu domain records; the corps’ records"} },
+
+      { scene: "masuya", kind: "record", year: "1864",
+        ja: "隊の探索方は、四条で薪炭商「枡屋」を営む古高俊太郎に目をつけていた。商人の顔の裏で、長州の志士と通じているとみたのである。",
+        en: "The corps’ investigators have been watching Furutaka Shuntarō, who runs a fuel shop called the Masuya in Shijō. Behind the merchant, they believe, is a man working with the Chōshū loyalists.",
+        src: {ja: "隊の記録。探索には山崎烝らが当たったとされる", en: "The corps’ records; Yamazaki Susumu and others are credited with the surveillance"} },
+
+      { scene: "masuya", kind: "record", year: "1864",
+        ja: "元治元年六月五日の早朝、隊は枡屋に踏み込み、古高を捕らえた。家からは武器や書状が見つかった。",
+        en: "Early on the 5th day of the 6th month, 1864, the corps raids the Masuya and arrests Furutaka. Weapons and letters are found in the house.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "maekawa", kind: "record", year: "1864",
+        ja: "古高は壬生の屯所に連行され、拷問の末に口を割った。",
+        en: "Furutaka is taken to the barracks at Mibu, and under torture he talks.",
+        src: {ja: "隊の記録、隊士の回想", en: "The corps’ records; members’ recollections"} },
+
+      { scene: "maekawa", kind: "anecdote", year: "1864",
+        ja: "その責めを指揮したのは、土方だったと伝わる。",
+        en: "It was Hijikata, the story goes, who directed the interrogation.",
+        src: {ja: "伝承", en: "Tradition"} },
+
+      { scene: "maekawa", kind: "record", year: "1864",
+        ja: "自白によれば、志士たちは風の強い日を選んで京に火を放ち、その混乱に乗じて天皇を長州へ連れ去るつもりだった。",
+        en: "By his confession, the loyalists mean to set Kyoto on fire on a windy day and, in the chaos, carry the emperor off to Chōshū.",
+        src: {ja: "古高の自白（隊・会津藩の記録）", en: "Furutaka’s confession, in the records of the corps and Aizu"} },
+
+      { scene: "maekawa", kind: "context", year: "1864",
+        ja: "拷問による自白である。計画が本当にそこまでのものだったのかは、今も議論がある。",
+        en: "It is a confession obtained under torture, and whether the plot was really as grand as that is still debated." },
+
+      { scene: "maekawa", kind: "record", year: "1864",
+        ja: "古高の捕縛を知った同志たちが、その夜どこかに集まって善後策を話し合う、とみられた。だが、どの宿かはわからない。",
+        en: "Furutaka’s comrades, learning of his arrest, are expected to meet somewhere that night to decide what to do. But no one knows which inn.",
+        src: {ja: "隊の記録、永倉新八の回想", en: "The corps’ records; Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "gionkaisho", kind: "record", year: "1864",
+        ja: "六月五日は祇園祭の宵宮。隊は祇園の町会所に集まり、会津藩などの兵を待った。だが約束の刻限を過ぎても、兵は来なかった。",
+        en: "The 5th of the 6th month is the eve of the Gion festival. The corps gathers at the Gion meeting hall to wait for troops from Aizu and others. The agreed hour comes and goes, and no one arrives.",
+        src: {ja: "隊の記録、近藤の書簡", en: "The corps’ records; Kondō’s letters"} },
+
+      { scene: "gionkaisho", kind: "record", year: "1864",
+        ja: "近藤は待つのをやめた。隊を二手に分け、自らは十名ほどで鴨川の西、木屋町から三条へ。土方は二十数名を率いて、川の東、祇園の側を探る。",
+        en: "Kondō stops waiting. He splits the corps in two: he takes about ten men along the west bank of the Kamo, up Kiyamachi towards Sanjō, while Hijikata takes twenty or more through the Gion side, east of the river.",
+        src: {ja: "隊の記録、永倉新八の回想", en: "The corps’ records; Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "夜も更けたころ、近藤隊は三条小橋の旅籠・池田屋にたどり着く。二階では、二十数名の志士が会合していた。",
+        en: "Late in the night, Kondō’s party reaches the Ikedaya, an inn by the little Sanjō bridge. Upstairs, more than twenty loyalists are in council.",
+        src: {ja: "隊の記録、近藤の書簡", en: "The corps’ records; Kondō’s letters"} },
+
+      { scene: "ikedaya", kind: "anecdote", year: "1864", who: "kondo",
+        ja: "御用改めである。",
+        en: "Official inspection!",
+        src: {ja: "踏み込む際の近藤の言葉として伝わる", en: "Traditionally given as Kondō’s words at the door"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "応援を待たず、近藤は踏み込んだ。屋内に入ったのは近藤、沖田、永倉、藤堂ら、ほんの数名。残りは表と裏を固めた。",
+        en: "Without waiting for help, Kondō goes in. Only a few go inside with him, among them Okita, Nagakura and Tōdō; the rest hold the front and back.",
+        src: {ja: "近藤の書簡、永倉新八の回想", en: "Kondō’s letters; Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "暗い階段と廊下、狭い座敷での斬り合いが続いた。蒸し暑い、夏の夜だった。",
+        en: "The fight runs through dark stairways and corridors and cramped rooms, on a stifling summer night.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "斬り込みの最中、沖田が倒れ、運び出された。",
+        en: "In the middle of the fighting, Okita collapses and is carried out.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "context", year: "1864",
+        ja: "床に血を吐いて倒れる沖田は、のちの小説やドラマの名場面である。永倉の手記は「病に倒れた」と記すのみで、蒸し暑い夜の熱中症とみる説も有力だ。",
+        en: "Okita coughing blood on the floor is the most famous scene in later novels and dramas. Nagakura’s account says only that he fell ill, and heatstroke on a stifling night is a common modern reading." },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "藤堂は暑さに鉢金を押し上げたところを、額を斬られた。",
+        en: "Tōdō, pushing back his headband in the heat, takes a sword cut across the forehead.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "永倉は刀が折れ、親指を割られながらも、最後まで乱戦の中で戦い続けた。着込んだ鎖帷子が命を救った。",
+        en: "Nagakura fights on at the heart of it to the end, his sword snapped and his thumb split open. The chain mail under his clothes saves his life.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "やがて土方隊が駆けつけ、周囲を封鎖する。形勢はここで決まった。",
+        en: "Then Hijikata’s column arrives and seals off the block. That settles it.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "ikedaya", kind: "anecdote", year: "1864",
+        ja: "遅れて到着した会津などの兵を、土方はあえて中に入れなかったという。手柄を新選組だけのものにするためだった、と語られる。",
+        en: "When troops from Aizu and others finally arrive, Hijikata is said to have kept them outside, so that the credit would be the corps’ alone.",
+        src: {ja: "後年の伝え", en: "Later accounts"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "志士側は約八名が討たれ、二十名以上が捕らえられた。隊も三名を失う。うち二名は、のちに傷がもとで死んだ。",
+        en: "About eight loyalists are killed and more than twenty arrested. The corps loses three men, two of them later, of their wounds.",
+        src: {ja: "隊・会津藩の記録。数は記録によって異なる", en: "Records of the corps and Aizu; the numbers vary between accounts"} },
+
+      { scene: "ikedaya", kind: "record", year: "1864",
+        ja: "近藤は故郷への手紙に、自慢の刀「虎徹」は刃こぼれ一つなかったと書き送っている。",
+        en: "In a letter home, Kondō writes proudly that his sword, a Kotetsu, came through without a single nick.",
+        src: {ja: "近藤の書簡", en: "Kondō’s letters"} },
+
+      { scene: "kurodani", kind: "record", year: "1864",
+        ja: "幕府と会津から褒賞が下り、隊士の募集にも人が集まった。隊はほどなく二百名規模にふくらんでいく。",
+        en: "Rewards come from the shogunate and Aizu, and recruits come flooding in. The corps will soon swell to some two hundred men.",
+        src: {ja: "幕府・会津藩の記録、隊の記録", en: "Records of the shogunate, Aizu and the corps"} },
+
+      { scene: "ikedaya", kind: "context", year: "1864",
+        ja: "一夜にして、新選組は日本一名高い剣となった。そして、長州の志士たちから最も憎まれる剣にもなった。",
+        en: "Overnight, the Shinsengumi becomes the most famous sword in Japan, and the one Chōshū’s loyalists hate most." },
+
+      { scene: "ikedaya", kind: "context", year: "1864",
+        ja: "この夜が明治維新を遅らせたのか、それとも長州を激昂させて、かえって早めたのか。歴史家の議論は今も続いている。",
+        en: "Did that night delay the Meiji Restoration, or, by enraging Chōshū, bring it closer? Historians still argue." },
+
+      { scene: "gosho", kind: "context", year: "1864",
+        ja: "怒りに燃えた長州は、ひと月あまり後、軍を率いて京へ攻め上る。",
+        en: "Burning with anger, Chōshū will march its armies on Kyoto just over a month later." }
+
     ] }
+
 
 
   ]

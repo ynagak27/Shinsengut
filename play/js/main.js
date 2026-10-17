@@ -164,6 +164,7 @@ function updateBeat() {
 	const srcText = beat.src ? `${t(UI.source)}：${ja ? beat.src.ja : beat.src.en}` : t(UI.contextNote);
 	note.innerHTML = `<span class="ss-notelabel">${t(label)}</span><span class="ss-notesrc">${srcText}</span>`;
 	box.classList.toggle('ss-poem', !!beat.poem);
+	box.classList.toggle('ss-speech', !!beat.who && !beat.poem);
 	box.classList.toggle('ss-ja', ja);
 	if (beat.poem) {
 		const html = ja ? beat.ja : beat.en;

@@ -245,3 +245,6 @@ main-menu{display:none !important}            /* chapters start from the list be
 .ss-chip.ctx{color:var(--mist);border:1px solid var(--line)}
 .ss-note[data-kind="context"] .ss-notelabel{color:var(--mist)}
 .ss-note[data-kind="context"]{border-top-style:dotted}
+
+/* Words spoken by a person (recorded or traditionally attributed): set apart */
+text-box.ss-speech [data-ui="say"]{font-size:23px !important;font-weight:700;letter-spacing:.08em;line-height:1.7 !important}
