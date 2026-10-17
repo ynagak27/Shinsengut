@@ -4,9 +4,10 @@
    ===================================================================== */
 /* global monogatari, PLAY */
 
-/* Backgrounds: one per place, cut from the site's period maps. */
+/* Backgrounds: one per place, cut from the site's period maps. A place
+   can share another's picture with img: "<other place>". */
 const scenes = {};
-Object.keys(PLAY.places).forEach(k => { scenes[k] = k + '.webp'; });
+Object.keys(PLAY.places).forEach(k => { scenes[k] = (PLAY.places[k].img || k) + '.webp'; });
 monogatari.assets('scenes', scenes);
 
 /* Speakers: one character per language, as Monogatari names are plain text. */

@@ -15,7 +15,8 @@
    HOW TO EDIT / 追記のしかた:
    - Each beat is one tap: {scene, kind, year, ja, en, src}.
    - scene: a key of PLAY.places. Its background is
-     play/assets/scenes/<scene>.webp, cut from the period maps in
+     play/assets/scenes/<scene>.webp (or <img>.webp if the place sets img),
+     cut from the period maps in
      oldmaps/ with tools/play/crop.py (see the README).
    - A new chapter is a new block in PLAY.chapters; it appears on the
      title screen in this order.
@@ -31,6 +32,7 @@ const PLAY = {
     ichigaya: {ja: "江戸・市谷",           en: "Ichigaya, Edo",              map: "edo-keio"},
     tama:     {ja: "多摩・上石原村",       en: "Kami-Ishihara, Tama",        map: "ino-daizu"},
     hino:     {ja: "多摩・日野",           en: "Hino, Tama",                 map: "ino-daizu"},
+    ishida:   {ja: "多摩・石田村（日野の隣村）", en: "Ishida village, next to Hino", map: "ino-daizu", img: "hino"},
     fuchu:    {ja: "府中・六所宮",         en: "Rokusho shrine, Fuchū",      map: "ino-daizu"},
     denzuin:  {ja: "小石川・伝通院",       en: "Denzū-in, Koishikawa",       map: "edo-keio"},
     nakasendo:{ja: "中山道",               en: "The Nakasendō",              map: "ino-chuzu"},
@@ -64,26 +66,54 @@ const PLAY = {
   { id: "shieikan",
     no:    {ja: "第一章", en: "Chapter 1"},
     title: {ja: "試衛館", en: "Shieikan"},
-    span:  {ja: "1848 – 1863　江戸・多摩", en: "1848 – 1863 · Edo and Tama"},
+    span:  {ja: "1834 – 1863　多摩・江戸", en: "1834 – 1863 · Tama and Edo"},
     lede:  {ja: "多摩の農家の子らが、江戸市谷の小さな道場に集まる。のちの新選組の始まり。",
             en: "Farmers’ sons from Tama gather at a small dojo in Ichigaya, Edo. This is where the Shinsengumi begins."},
     cover: "ichigaya",
     end:   {ja: "第一章　試衛館　了", en: "End of Chapter 1 · Shieikan"},
     beats: [
 
+      { scene: "tama", kind: "context", year: "1830s",
+        ja: "新選組の物語は、城ではなく、江戸の西に広がる多摩の農村から始まる。",
+        en: "The story of the Shinsengumi begins not in a castle but in the farm villages of Tama, west of Edo." },
+
+      { scene: "tama", kind: "record", year: "1830s",
+        ja: "多摩は幕府が直接治める天領だった。豊かな農家の人々は読み書きに通じ、俳句をたしなみ、剣術を学ぶ者も多かった。自分たちは徳川の民だという誇りがあった。",
+        en: "Tama is shogunal land, ruled directly by the Tokugawa. Its well-off farmers read and write, compose haiku, and many train with the sword. They think of themselves as the shogun’s own people.",
+        src: {ja: "多摩の地域史", en: "Local history of Tama"} },
+
+      { scene: "tama", kind: "context", year: "1830s",
+        ja: "身分の固まった時代、農民が生まれによって侍になることはない。剣の腕は、彼らが侍の世界に近づくほとんど唯一の道だった。",
+        en: "In the fixed class order of the day, no farmer is born a samurai. Skill with the sword is almost the only way to come close to that world." },
+
+      { scene: "tama", kind: "record", year: "1834",
+        ja: "天保五年、上石原村の農家、宮川家に三男の勝五郎が生まれる。のちの近藤勇である。父の久次郎は天然理心流の後援者で、屋敷に稽古場を持ち、流派の師範たちが出入りしていた。",
+        en: "In 1834 a third son, Katsugorō, is born to the Miyagawa, a farming family in Kami-Ishihara. He will become Kondō Isami. His father, Hisajirō, is a patron of the Tennen Rishin-ryū sword school with a practice hall in the house, and the school’s masters come and go.",
+        src: {ja: "宮川家（近藤家）の記録", en: "Miyagawa (Kondō) family records"} },
+
       { scene: "ichigaya", kind: "record", year: "1840s",
-        ja: "江戸・市谷。天然理心流の剣術道場。のちに「試衛館」の名で知られる。道場主は三代目、近藤周助。",
-        en: "Ichigaya, Edo. A dojo of the Tennen Rishin-ryū sword school, later known as the Shieikan. Its master is the school’s third head, Kondō Shūsuke.",
-        src: {ja: "新宿区による試衛館跡の解説", en: "Shinjuku City notes on the Shieikan site"} },
+        ja: "天然理心流は、実戦を重んじる荒々しい剣だった。江戸・市谷の道場を三代目の近藤周助が守り、門人の多くは師範が出稽古に回る多摩の農民だった。",
+        en: "The Tennen Rishin-ryū is a rough, practical style built for real fighting. Its Edo dojo in Ichigaya is kept by the third head, Kondō Shūsuke, but most of its students are Tama farmers, taught by masters who travel out to the villages.",
+        src: {ja: "天然理心流の記録、新宿区の解説", en: "Tennen Rishin-ryū records; Shinjuku City notes"} },
 
       { scene: "ichigaya", kind: "anecdote", year: "1840s",
-        ja: "「試衛館」という名は、主に後年の回想録に見えるもの。当時の呼び名がそのままだったかは、はっきりしない。",
-        en: "The name “Shieikan” comes mainly from memoirs written years later. What the dojo was called at the time is not certain.",
+        ja: "江戸の名門道場からは「田舎剣法」「芋道場」と侮られていたという。",
+        en: "The fashionable Edo schools are said to have sneered at it as “country fencing”, a “potato dojo”.",
+        src: {ja: "よく知られた評判", en: "A well-known jibe"} },
+
+      { scene: "ichigaya", kind: "anecdote", year: "1840s",
+        ja: "この道場は「試衛館」の名で知られる。ただしこの名は主に後年の回想録に見えるもので、当時の呼び名がそのままだったかは、はっきりしない。",
+        en: "The dojo is known as the Shieikan. The name, though, comes mainly from memoirs written years later; what it was called at the time is not certain.",
         src: {ja: "名称は後年の史料による。諸説あり", en: "The name appears in later accounts; views differ"} },
 
+      { scene: "tama", kind: "anecdote", year: "1848",
+        ja: "宮川家に盗賊が押し入ったとき、少年の勝五郎は慌てず機をうかがい、兄とともに追い払ったという。その胆力が周助の目にとまったと語られる。",
+        en: "When burglars broke into the Miyagawa house, the story goes, the boy Katsugorō kept his head, waited for his moment and drove them off with his brother. It was this nerve that caught Shūsuke’s eye.",
+        src: {ja: "よく知られた逸話", en: "A well-known story"} },
+
       { scene: "tama", kind: "record", year: "1848",
-        ja: "嘉永元年、多摩・上石原村の農家の三男、宮川勝五郎が入門する。翌年、周助の養子となる。のちの近藤勇である。",
-        en: "In 1848 Miyagawa Katsugorō, the third son of a farming family in Kami-Ishihara, Tama, joins the school. The next year Shūsuke adopts him. He will become Kondō Isami.",
+        ja: "嘉永元年、勝五郎は天然理心流に入門し、翌年、跡継ぎのいない周助の養子となる。農家の子が、流派を継ぐ道を歩みはじめた。",
+        en: "In 1848 Katsugorō joins the school, and the next year the childless Shūsuke adopts him as his heir. A farmer’s son is now on the path to leading a sword school.",
         src: {ja: "新宿区の解説、近藤家の記録", en: "Shinjuku City notes; Kondō family records"} },
 
       { scene: "tama", kind: "anecdote", year: "1848",
@@ -92,44 +122,82 @@ const PLAY = {
         src: {ja: "よく知られた逸話", en: "A well-known traditional story"} },
 
       { scene: "ichigaya", kind: "record", year: "1852",
-        ja: "嘉永五年、白河藩士の家に生まれた少年、沖田総司が内弟子として入る。九歳ほどだった。やがて道場随一の遣い手となる。",
-        en: "In 1852 Okita Sōji, a boy of about nine from a Shirakawa domain family, moves in as a live-in student. He grows into the finest swordsman in the dojo.",
-        src: {ja: "新宿区の解説、沖田家の記録", en: "Shinjuku City notes; Okita family records"} },
+        ja: "沖田総司は白河藩江戸屋敷の軽輩の家に生まれた。父は早くに亡くなり、家は姉ミツの夫・林太郎が継ぐ。九歳ほどの総司は、試衛館に内弟子として預けられた。",
+        en: "Okita Sōji is born into a low-ranking family of the Shirakawa domain in Edo. His father dies young and the family’s place passes to his sister Mitsu’s husband, Rintarō. At about nine, Sōji is sent to live at the Shieikan as a live-in pupil.",
+        src: {ja: "沖田家の記録、新宿区の解説", en: "Okita family records; Shinjuku City notes"} },
 
-      { scene: "hino", kind: "record", year: "1850s",
-        ja: "多摩・日野。名主の佐藤彦五郎は天然理心流の門人で、屋敷に道場を開いていた。近藤は江戸からここへ出稽古に通う。",
-        en: "Hino, in Tama. The village headman, Satō Hikogorō, is a Tennen Rishin-ryū student with a dojo at his home. Kondō travels out from Edo to teach there.",
-        src: {ja: "佐藤彦五郎新選組資料館", en: "Satō Hikogorō Shinsengumi Museum, Hino"} },
+      { scene: "ichigaya", kind: "record", year: "1850s",
+        ja: "道場で育った総司は、やがて一門随一の遣い手となる。近藤は彼を弟のように扱った。",
+        en: "Raised in the dojo, Sōji grows into the best swordsman of the household. Kondō treats him like a younger brother.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
 
-      { scene: "hino", kind: "record", year: "1859",
-        ja: "彦五郎の妻は、石田村の土方家の娘。その弟が土方歳三である。歳三は安政六年に正式に入門した。",
-        en: "Hikogorō’s wife is a daughter of the Hijikata family of Ishida village. Her younger brother is Hijikata Toshizō, who formally joins the school in 1859.",
-        src: {ja: "入門年は安政六年が通説。異説あり", en: "1859 is the usual date; one account gives 1851"} },
+      { scene: "ishida", kind: "record", year: "1835",
+        ja: "天保六年、日野の隣、石田村の豪農・土方家に、十人きょうだいの末っ子として歳三が生まれる。父は彼が生まれる前に、母は五歳のときに亡くなった。",
+        en: "In 1835 Toshizō is born in Ishida, the village next to Hino, the youngest of ten children of the wealthy Hijikata family. His father has died before his birth; his mother dies when he is five.",
+        src: {ja: "土方家の記録", en: "Hijikata family records"} },
 
-      { scene: "hino", kind: "anecdote", year: "1850s",
-        ja: "入門前の歳三は、家伝の薬「石田散薬」を売り歩き、防具を担いで行く先々の道場で稽古を願ったという。",
-        en: "Before he enrolled, Toshizō sold his family’s medicine, Ishida powder, and is said to have carried his practice armour on his rounds, asking to train at every dojo he passed.",
+      { scene: "ishida", kind: "anecdote", year: "1840s",
+        ja: "少年の歳三は江戸へ奉公に出たが、店でいさかいを起こして帰ってきたと伝わる。",
+        en: "As a boy, Toshizō is said to have been sent to Edo as a shop apprentice, and to have come home after a quarrel.",
+        src: {ja: "土方家に伝わる話", en: "A story kept by the Hijikata family"} },
+
+      { scene: "ishida", kind: "anecdote", year: "1850s",
+        ja: "家伝の薬「石田散薬」を売り歩くとき、歳三は防具を担いで行き、行く先々の道場で稽古を願ったという。",
+        en: "Selling the family’s medicine, Ishida powder, Toshizō is said to have carried his practice armour on his rounds, asking to train at every dojo he passed.",
         src: {ja: "日野に伝わる逸話", en: "A story handed down in Hino"} },
 
+      { scene: "hino", kind: "record", year: "1850s",
+        ja: "歳三の姉ノブは、日野の名主・佐藤彦五郎に嫁いでいた。彦五郎は天然理心流の門人で、屋敷に道場を開き、江戸から師範を招いていた。歳三が近藤と出会ったのは、この道場である。",
+        en: "Toshizō’s sister Nobu has married Satō Hikogorō, headman of Hino. Hikogorō is a Tennen Rishin-ryū student with a dojo in his own house, where masters come out from Edo to teach. It is here that Toshizō meets Kondō.",
+        src: {ja: "佐藤彦五郎新選組資料館", en: "Satō Hikogorō Shinsengumi Museum, Hino"} },
+
+      { scene: "hino", kind: "record", year: "1850s",
+        ja: "日野からは井上源三郎も通っていた。八王子千人同心の家の次男で、十年以上かけて免許を得た、実直な兄弟子である。",
+        en: "Inoue Genzaburō trains here too: a younger son of a Hachiōji Thousand-Man Guard family in Hino, who takes more than ten years to earn his licence. He is the steady elder of a school full of prodigies.",
+        src: {ja: "井上家の記録", en: "Inoue family records"} },
+
+      { scene: "hino", kind: "record", year: "1859",
+        ja: "安政六年、歳三は正式に天然理心流に入門する。二十四歳、遅い入門だった。",
+        en: "In 1859 Toshizō formally enters the Tennen Rishin-ryū. He is twenty-four, a late start.",
+        src: {ja: "入門年は安政六年が通説。異説あり", en: "1859 is the usual date; one account gives 1851"} },
+
       { scene: "fuchu", kind: "record", year: "1861",
-        ja: "文久元年、府中の六所宮で、門人たちが紅白に分かれて戦う野試合が催され、勇の天然理心流四代目襲名が披露された。",
-        en: "In 1861, at the Rokusho shrine in Fuchū, the school’s men fight a mock battle in two teams to celebrate Isami becoming the fourth head of Tennen Rishin-ryū.",
+        ja: "文久元年、府中の六所宮で、近藤の四代目襲名を祝う野試合が催された。門人たちは紅白の二軍に分かれ、多摩の村々の家族や後援者の前で戦った。",
+        en: "In 1861, at the Rokusho shrine in Fuchū, a mock battle celebrates Kondō becoming the school’s fourth head. The students split into red and white armies and fight before the families and patrons of the Tama villages.",
         src: {ja: "天然理心流の記録", en: "Tennen Rishin-ryū records"} },
 
+      { scene: "fuchu", kind: "record", year: "1861",
+        ja: "残された名簿には、土方、沖田、山南、井上の名がある。二年後、同じ顔ぶれがそろって西へ向かうことになる。",
+        en: "The surviving roster lists Hijikata, Okita, Yamanami and Inoue. Two years later the same men will march west together.",
+        src: {ja: "野試合の名簿。各人の役割は後年の伝えで異なる", en: "The mock battle’s roster; the roles given to each man vary in later retellings"} },
+
       { scene: "ichigaya", kind: "record", year: "1860s",
-        ja: "道場には他流の剣客も身を寄せ、同じ釜の飯を食った。永倉新八、藤堂平助、山南敬助、原田左之助。",
-        en: "Swordsmen from other schools stay at the dojo and eat at the same table: Nagakura Shinpachi, Tōdō Heisuke, Yamanami Keisuke and Harada Sanosuke.",
+        ja: "試衛館には、他流の剣客も身を寄せていた。松前藩士の子で神道無念流の永倉新八、北辰一刀流の山南敬助と藤堂平助、槍の原田左之助。皆が同じ釜の飯を食った。",
+        en: "Swordsmen from other schools live at the Shieikan too: Nagakura Shinpachi, a Matsumae samurai’s son trained in the Shintō Munen-ryū; Yamanami Keisuke and Tōdō Heisuke of the Hokushin Ittō-ryū; Harada Sanosuke with his spear. All eat at the same table.",
         src: {ja: "永倉新八の回想録", en: "Nagakura Shinpachi’s memoirs"} },
 
       { scene: "ichigaya", kind: "anecdote", year: "1860s",
-        ja: "山南は近藤に試合を挑んで敗れ、その腕に感服して道場にとどまったと伝わる。",
-        en: "Yamanami is said to have come to challenge Kondō, lost, and stayed on out of respect.",
+        ja: "学識のある山南は、近藤に試合を挑んで敗れ、その腕に感服して道場にとどまったと伝わる。",
+        en: "The scholarly Yamanami is said to have come to challenge Kondō, lost, and stayed on out of respect.",
         src: {ja: "よく知られた逸話。確かな史料はない", en: "A well-known story with no firm record"} },
 
+      { scene: "ichigaya", kind: "context", year: "1860s",
+        ja: "農家の子もいれば、藩士の子もいる。生まれはばらばらだが、剣と近藤のもとで一つの所帯になっていた。貧しく、結束が固く、野心があった。",
+        en: "Some are farmers’ sons, some samurai’s sons. Their births differ, but around the sword and around Kondō they have become one household: poor, close-knit and ambitious." },
+
       { scene: "denzuin", kind: "record", year: "1863",
-        ja: "文久三年、幕府は将軍上洛の警護のため浪士を募る。約230名が小石川の伝通院に集まり、試衛館の一同もそろって加わった。二月八日、浪士組は中山道を京へ発った。",
-        en: "In 1863 the shogunate calls for masterless samurai to guard the shogun on his journey to Kyoto. Some 230 men gather at Denzū-in in Koishikawa, the Shieikan household among them. On the 8th day of the 2nd month the Rōshigumi set out along the Nakasendō.",
+        ja: "そのころ国は揺れていた。1853年のペリー来航以来、幕府の権威は傾き、「尊皇攘夷」を唱える志士たちが京で幕府寄りの人々を斬っていた。幕府には、京を守る者が必要だった。",
+        en: "Meanwhile the country is in turmoil. Since Perry’s warships arrived in 1853 the shogunate’s authority has been failing, and loyalist radicals crying “revere the emperor, expel the barbarians” are killing its supporters in Kyoto. The shogunate needs men to keep order there.",
+        src: {ja: "幕末の政治史", en: "Political history of the period"} },
+
+      { scene: "denzuin", kind: "record", year: "1863",
+        ja: "文久三年、幕府は将軍上洛の警護に浪士を募る。約230名が小石川の伝通院に集まり、試衛館の一同もそろって加わった。",
+        en: "In 1863 the shogunate calls for masterless swordsmen to guard the shogun on his journey to Kyoto. Some 230 men gather at Denzū-in in Koishikawa, and the whole Shieikan household signs on together.",
         src: {ja: "浪士組の記録", en: "Rōshigumi records"} },
+
+      { scene: "denzuin", kind: "context", year: "1863",
+        ja: "生まれによって侍になれない彼らにとって、それは行いによって侍になる道だった。",
+        en: "For men who could never be samurai by birth, it is a chance to become samurai by deed." },
 
       { scene: "denzuin", kind: "record", year: "1863", who: "hijikata", poem: true,
         ja: "梅の花<br>一輪咲いても<br>梅は梅",
