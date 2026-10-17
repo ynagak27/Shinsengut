@@ -59,7 +59,34 @@ const PLAY = {
     fukagawa: {ja: "江戸・深川",           en: "Fukagawa, Edo",              map: "edo-keio"},
     otsu:     {ja: "近江・大津",           en: "Ōtsu, on Lake Biwa",         map: "ino-chuzu"},
     kouenji:  {ja: "壬生・光縁寺",         en: "Kōen-ji temple, Mibu",       map: "kyoto-genji", img: "mibu"},
-    honganji: {ja: "京都・西本願寺",       en: "Nishi Honganji, Kyoto",      map: "kyoto-genji"}
+    honganji: {ja: "京都・西本願寺",       en: "Nishi Honganji, Kyoto",      map: "kyoto-genji"},
+    osakajo:  {ja: "大坂城",               en: "Osaka Castle",               map: "none", img: "unmapped"},
+    sanjo:    {ja: "京都・三条大橋",       en: "The Sanjō bridge, Kyoto",    map: "kyoto-genji"},
+    kodaiji:  {ja: "東山・高台寺月真院",   en: "Gesshin-in, Kōdai-ji, Higashiyama", map: "kyoto-genji"},
+    fudodo:   {ja: "京都・不動堂村",       en: "Fudōdō village, Kyoto",      map: "kyoto-genji"},
+    omiya:    {ja: "京都・河原町 近江屋",  en: "The Ōmiya, Kawaramachi",     map: "kyoto-genji"},
+    aburanokoji: {ja: "京都・油小路",      en: "Aburanokōji, Kyoto",         map: "kyoto-genji"},
+    tenmaya:  {ja: "京都・油小路 天満屋",  en: "The Tenmaya inn, Kyoto",     map: "kyoto-genji"},
+    sumizome: {ja: "伏見街道・墨染",       en: "Sumizome, on the Fushimi road", map: "kyoto-genji"},
+    fushimi:  {ja: "山城・伏見と淀",       en: "Fushimi and Yodo, Yamashiro", map: "ino-chuzu"},
+    shinagawa:{ja: "江戸・品川",           en: "Shinagawa, Edo",             map: "ino-daizu"},
+    edocastle:{ja: "江戸城",               en: "Edo Castle",                 map: "edo-keio"},
+    katsunuma:{ja: "甲斐・勝沼",           en: "Katsunuma, Kai",             map: "ino-daizu"},
+    nagareyama:{ja: "下総・流山",          en: "Nagareyama, Shimōsa",        map: "ino-chuzu"},
+    itabashi: {ja: "中山道・板橋",         en: "Itabashi, on the Nakasendō", map: "ino-daizu"},
+    sendagaya:{ja: "江戸・千駄ヶ谷",       en: "Sendagaya, Edo",             map: "edo-keio"},
+    ueno:     {ja: "江戸・上野",           en: "Ueno, Edo",                  map: "edo-keio"},
+    utsunomiya:{ja: "下野・宇都宮",        en: "Utsunomiya, Shimotsuke",     map: "ino-daizu"},
+    shirakawa:{ja: "奥州・白河",           en: "Shirakawa, gateway to the north", map: "ino-chuzu"},
+    aizu:     {ja: "会津若松",             en: "Aizu-Wakamatsu",             map: "ino-daizu"},
+    sendai:   {ja: "仙台",                 en: "Sendai",                     map: "ino-chuzu"},
+    washinoki:{ja: "蝦夷地・鷲ノ木",       en: "Washinoki, Ezo",             map: "ino-chuzu"},
+    hakodate: {ja: "箱館",                 en: "Hakodate",                   map: "ino-chuzu"},
+    matsumae:{ja: "蝦夷地・松前",          en: "Matsumae, Ezo",              map: "ino-chuzu"},
+    miyako:   {ja: "陸中・宮古湾",         en: "Miyako Bay",                 map: "ino-chuzu"},
+    futamata: {ja: "蝦夷地・二股口",       en: "The Futamata pass, Ezo",     map: "ino-chuzu"},
+    takahata: {ja: "日野・高幡不動",       en: "Takahata Fudō, Hino",        map: "ino-daizu", img: "hino"},
+    otaru:    {ja: "北海道・小樽",         en: "Otaru, Hokkaido",            map: "none", img: "unmapped"}
   },
 
   /* Short credit shown under the header while a map is on screen. The
@@ -80,7 +107,8 @@ const PLAY = {
   /* Words spoken in the story (poems etc.) are attributed to these people. */
   speakers: {
     hijikata: {ja: "土方歳三", en: "Hijikata Toshizō"},
-    kondo:    {ja: "近藤勇",   en: "Kondō Isami"}
+    kondo:    {ja: "近藤勇",   en: "Kondō Isami"},
+    ito:      {ja: "伊東甲子太郎", en: "Itō Kashitarō"}
   },
 
   chapters: [
@@ -863,7 +891,648 @@ const PLAY = {
         ja: "伊東は、隊の中枢に座っている。二年後、彼は山南が見つけられなかった出口を、別のやり方で選ぶことになる。",
         en: "Itō now sits at the heart of the corps. Two years later he will take, in his own way, the exit Yamanami never found." }
 
+    ] },
+
+  { id: "aburanokoji",
+    no:    {ja: "第七章", en: "Chapter 7"},
+    title: {ja: "油小路", en: "Aburanokōji"},
+    span:  {ja: "1866 – 1867　京都", en: "1866 – 1867 · Kyoto"},
+    lede:  {ja: "幕府が傾き、隊がついに幕臣となった年。法度の及ばない出口から去った伊東甲子太郎と、冬の油小路で待ち受けた新選組。",
+            en: "The year the shogunate began to fall and the corps at last became the shogun’s own men. Itō Kashitarō found a way out the code did not cover, and on a winter night at Aburanokōji the corps was waiting."},
+    cover: "aburanokoji",
+    end:   {ja: "第七章　油小路　了", en: "End of Chapter 7 · Aburanokōji"},
+    beats: [
+
+      { scene: "kyoto", kind: "record", year: "1866",
+        ja: "慶応二年、坂本龍馬らの周旋で、宿敵どうしだった薩摩と長州がひそかに手を結ぶ。幕府を倒す組み合わせが、この世に生まれた。",
+        en: "In 1866, brokered by Sakamoto Ryōma and others, the bitter rivals Satsuma and Chōshū form a secret alliance. The combination that will bring down the shogunate now exists.",
+        src: {ja: "薩長同盟（幕末の政治史）", en: "The Satsuma–Chōshū alliance, in the political history of the period"} },
+
+      { scene: "osakajo", kind: "record", year: "1866",
+        ja: "幕府の第二次長州征討は、洋式の銃隊を持つ長州に各地で敗れた。そのさなか、将軍家茂が大坂城で二十歳の若さで没する。後を継いだ慶喜が、最後の将軍となる。",
+        en: "The shogunate’s second campaign against Chōshū is beaten on every front by Chōshū’s Western-drilled riflemen. In the middle of it the shogun Iemochi dies at Osaka Castle, aged twenty. Yoshinobu succeeds him as the last shogun.",
+        src: {ja: "幕府の記録", en: "Shogunate records"} },
+
+      { scene: "sanjo", kind: "record", year: "1866",
+        ja: "その秋、三条大橋の西詰に立てられた長州を朝敵とする制札が、繰り返し引き抜かれる。待ち伏せた隊は、現れた土佐藩士たちと夜の町で斬り合った。",
+        en: "That autumn, the notice board at the west end of the Sanjō bridge naming Chōshū an enemy of the court keeps being torn down. The corps lies in wait, and fights the Tosa samurai who come for it in the dark streets.",
+        src: {ja: "隊・会津藩の記録。人数は記録によって異なる", en: "Records of the corps and Aizu; the numbers differ between accounts"} },
+
+      { scene: "sanjo", kind: "context", year: "1866",
+        ja: "それまで中立だった土佐にも、幕府の治安部隊と公然と斬り合う若者が現れていた。風向きは変わりつつあった。",
+        en: "Tosa, which had stood aside, now has young men ready to fight the shogunate’s police in the open. The wind is changing." },
+
+      { scene: "gosho", kind: "record", year: "1867",
+        ja: "慶応三年の初め、孝明天皇が急逝する。会津を信頼し、幕府の存続を望んでいた天皇だった。幕府方は、朝廷における庇護者を失う。",
+        en: "Early in 1867 Emperor Kōmei dies suddenly. He had trusted Aizu and wanted the shogunate preserved. Its friends have lost their protector at court.",
+        src: {ja: "朝廷の記録。公式には天然痘とされる", en: "Court records; officially smallpox"} },
+
+      { scene: "kodaiji", kind: "record", year: "1867",
+        ja: "伊東甲子太郎は好機と見た。脱隊は死罪である。そこで伊東は、朝廷とつながる寺の後ろ盾を得て、先帝の御陵を守る「御陵衛士」に自らと同志を任じさせた。",
+        en: "Itō Kashitarō sees his moment. Leaving the corps means death, so he finds a door the code does not cover: with the backing of a court-connected temple, he has himself and his followers appointed Goryō Eji, guards of the late emperor’s tomb.",
+        src: {ja: "隊の記録、御陵衛士側の記録", en: "Records of the corps and of the Goryō Eji"} },
+
+      { scene: "kodaiji", kind: "record", year: "1867",
+        ja: "朝廷の任命を禁じることはできない。近藤と土方は彼らを送り出した。藤堂平助、鈴木三樹三郎、篠原泰之進ら十数名、そして斎藤一。彼らは東山・高台寺の月真院に入り、「高台寺党」と呼ばれた。",
+        en: "Kondō and Hijikata cannot forbid an imperial appointment, and let them go. More than a dozen leave, Tōdō Heisuke, Suzuki Mikisaburō and Shinohara Taishinosuke among them, and Saitō Hajime. They settle at Gesshin-in on the hill of Kōdai-ji and are known as the Kōdai-ji party.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "kodaiji", kind: "context", year: "1867",
+        ja: "斎藤が初めから送り込まれた間者だったのか、のちに戻ったのかは、記録からは決められない。隊の側は一貫して、彼を自分たちの密偵として語っている。",
+        en: "Whether Saitō went over as a planted spy from the start, or changed sides later, the record cannot settle. The corps always presented him as its agent." },
+
+      { scene: "fudodo", kind: "record", year: "1867",
+        ja: "六月、隊士一同が幕府直参に取り立てられる。屯所は不動堂村に新築され、費用の多くは隊を追い出したい西本願寺が負担した。",
+        en: "In the 6th month the whole corps is taken into the shogun’s direct service. It moves into a lavish new compound at Fudōdō, paid for largely by Nishi Honganji, glad to see it go.",
+        src: {ja: "幕府の記録、隊の記録", en: "Records of the shogunate and the corps"} },
+
+      { scene: "fudodo", kind: "context", year: "1867",
+        ja: "多摩の農家の子らは、ついに、公式に武士となった。だが彼らを取り立てた徳川の世は、余命いくばくもなかった。",
+        en: "The farmers’ sons of Tama are, at last and officially, samurai. The Tokugawa order that made them so has only months to live." },
+
+      { scene: "kurodani", kind: "record", year: "1867",
+        ja: "幕臣となるより伊東のあとを追いたいと、会津藩邸に離隊を嘆願した隊士たちがいた。そのうち四人がそこで命を落とす。隊は自刃と届け出たが、その事情には疑問が残る。",
+        en: "Some members, who would rather follow Itō than become the shogun’s men, go to the Aizu residence to ask to be released. Four of them die there. The corps reports it as suicide; the circumstances have been questioned ever since.",
+        src: {ja: "隊・会津藩の記録", en: "Records of the corps and Aizu"} },
+
+      { scene: "nijo", kind: "record", year: "1867",
+        ja: "十月、将軍慶喜は二条城で、統治の権を朝廷に返上する。大政奉還である。",
+        en: "In the 10th month, at Nijō Castle, the shogun Yoshinobu formally returns governing authority to the emperor.",
+        src: {ja: "幕府・朝廷の記録", en: "Records of the shogunate and the court"} },
+
+      { scene: "nijo", kind: "context", year: "1867",
+        ja: "数か月前にようやく幕臣となった新選組にとって、足元の地面そのものが動いた。",
+        en: "For a corps that had become the shogun’s men only months before, the ground itself has moved." },
+
+      { scene: "omiya", kind: "record", year: "1867",
+        ja: "十一月十五日、坂本龍馬が中岡慎太郎とともに、河原町の近江屋で斬られる。嫌疑はすぐに新選組へ向かった。",
+        en: "On the 15th day of the 11th month, Sakamoto Ryōma is cut down with Nakaoka Shintarō at the Ōmiya in Kawaramachi. Suspicion falls at once on the Shinsengumi.",
+        src: {ja: "京の記録、土佐藩の記録", en: "Kyoto and Tosa records"} },
+
+      { scene: "omiya", kind: "context", year: "1867",
+        ja: "現在では、実行したのは幕府側の別組織・見廻組とみるのがほぼ定説である。だが隊は、当時もその後も、その代償を払い続ける。",
+        en: "The evidence now points overwhelmingly to the Mimawarigumi, a rival shogunal police unit. But the corps would pay for the suspicion, then and ever after." },
+
+      { scene: "fudodo", kind: "record", year: "1867",
+        ja: "そのころ、斎藤一が隊に戻る。伊東らが近藤の暗殺を企てている、という知らせを携えて。",
+        en: "Around then Saitō Hajime returns to the corps, bringing word that Itō’s group means to assassinate Kondō.",
+        src: {ja: "隊の側の記録", en: "The corps’ own accounts"} },
+
+      { scene: "aburanokoji", kind: "record", year: "1867",
+        ja: "十一月十八日、近藤は伊東を酒席に招いてもてなした。夜更けの帰り道、伊東は油小路で待ち伏せていた隊士たちに斬られる。",
+        en: "On the 18th day of the 11th month, Kondō invites Itō to drink with him. On his way home late that night, Itō is cut down by corps members waiting at Aburanokōji.",
+        src: {ja: "隊の記録、御陵衛士側の記録", en: "Records of the corps and of the Goryō Eji"} },
+
+      { scene: "aburanokoji", kind: "anecdote", year: "1867", who: "ito",
+        ja: "奸賊ばら。",
+        en: "Traitorous dogs!",
+        src: {ja: "斬られた伊東が叫んだと伝わる言葉", en: "Traditionally given as Itō’s cry as he was struck"} },
+
+      { scene: "aburanokoji", kind: "record", year: "1867",
+        ja: "伊東の遺体は、そのまま冬の路上に置かれた。罠である。同志の亡骸を引き取りに来た御陵衛士七名を、四十名ほどの隊士が待ち受けていた。",
+        en: "Itō’s body is left lying in the winter street as bait. When seven of the Goryō Eji come to take it home, some forty of the corps are waiting.",
+        src: {ja: "隊・御陵衛士側の記録", en: "Records of the corps and of the Goryō Eji"} },
+
+      { scene: "aburanokoji", kind: "record", year: "1867",
+        ja: "衛士側は三名が討たれた。そのなかに、試衛館以来の同志、藤堂平助がいた。",
+        en: "Three of the Goryō Eji are killed. One of them is Tōdō Heisuke, a comrade from the Shieikan days.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "aburanokoji", kind: "anecdote", year: "1867",
+        ja: "近藤は藤堂だけは助けたいと言い、永倉は彼を逃がそうと道を開けた。だが事情を知らない隊士が、藤堂に斬りかかったという。",
+        en: "Kondō, the story goes, had asked that Tōdō be spared, and Nagakura stood aside to let him go. But a member who did not know struck him down.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "aburanokoji", kind: "record", year: "1867",
+        ja: "生き延びた衛士たちの憎しみは、最後まで隊を追う。数週間後に近藤を狙撃するのも、のちに板橋で近藤の正体を告げるのも、この夜の生き残りである。",
+        en: "The survivors’ hatred will follow the corps to the end. Weeks later one of them fires the shot that wounds Kondō, and later another will name him to his captors at Itabashi.",
+        src: {ja: "御陵衛士側の記録、新政府軍の記録", en: "Records of the Goryō Eji and the new government’s army"} },
+
+      { scene: "gosho", kind: "context", year: "1867",
+        ja: "その翌月、京は王政復古を宣言する。幕府そのものが、廃された。",
+        en: "The next month Kyoto proclaims the restoration of imperial rule. The shogunate itself is abolished." }
+
+    ] },
+
+  { id: "tobafushimi",
+    no:    {ja: "第八章", en: "Chapter 8"},
+    title: {ja: "鳥羽・伏見", en: "Toba–Fushimi"},
+    span:  {ja: "1867 – 1868　京都・伏見から江戸へ", en: "1867 – 1868 · Kyoto and Fushimi to Edo"},
+    lede:  {ja: "幕府が廃され、戦がはじまる。銃と砲の前に、剣の隊は何ができたのか。そして、それを誰より早く悟ったのは誰だったのか。",
+            en: "The shogunate is abolished and the war begins. What could a corps of swordsmen do against rifles and artillery, and who was first to see the answer?"},
+    cover: "fushimi",
+    end:   {ja: "第八章　鳥羽・伏見　了", en: "End of Chapter 8 · Toba–Fushimi"},
+    beats: [
+
+      { scene: "tenmaya", kind: "record", year: "1867",
+        ja: "油小路から半月ほどのちの十二月七日、隊は、龍馬暗殺の黒幕と疑われた紀州藩士・三浦休太郎を護衛していた。宿は油小路の天満屋。斎藤一もそこにいた。",
+        en: "On the 7th day of the 12th month, about two weeks after Aburanokōji, the corps is guarding Miura Kyūtarō, a Kii official suspected of being behind Ryōma’s murder. He is lodged at the Tenmaya inn, and Saitō Hajime is among the guards.",
+        src: {ja: "隊の記録、海援隊・陸援隊側の記録", en: "Records of the corps and of Tosa’s Kaientai and Rikuentai"} },
+
+      { scene: "tenmaya", kind: "record", year: "1867",
+        ja: "二階で酒を飲んでいたところへ、龍馬の同志ら十数名が斬り込んだ。狭い座敷での斬り合いで、双方に死傷者が出る。三浦は手傷を負いながらも生き延びた。",
+        en: "While they drink upstairs, some sixteen of Ryōma’s comrades burst in. In the fight in the cramped rooms both sides have men killed and wounded. Miura is hurt, but survives.",
+        src: {ja: "同上。人数や隊の護衛を誰が率いたかは記録によって異なる", en: "As above; the numbers, and who led the guard, differ between accounts"} },
+
+      { scene: "tenmaya", kind: "context", year: "1867",
+        ja: "伊東の一党、土佐の者たち。新選組はいまや京で、四方に敵を抱えていた。",
+        en: "Itō’s men, the men of Tosa: by now the Shinsengumi has enemies in Kyoto on every side." },
+
+      { scene: "gosho", kind: "record", year: "1867",
+        ja: "十二月九日、薩摩を中心とする兵が御所の門を固め、王政復古が宣言される。幕府は廃され、慶喜には官位と領地の返上が命じられた。",
+        en: "On the 9th day of the 12th month, troops led by Satsuma take the palace gates and the restoration of imperial rule is proclaimed. The shogunate is abolished, and Yoshinobu is ordered to give up his rank and his lands.",
+        src: {ja: "朝廷の記録", en: "Court records"} },
+
+      { scene: "gosho", kind: "context", year: "1867",
+        ja: "大政奉還は、慶喜が新しい政治の中心に残るための一手でもあった。王政復古は、その抜け道をふさぐクーデターだった。慶喜は兵を率いて大坂城へ退き、緊張が高まっていく。",
+        en: "Handing back power had also been Yoshinobu’s way of staying at the centre of whatever came next. The restoration was a coup to close that door. He withdraws to Osaka Castle with his army, and tension builds." },
+
+      { scene: "fushimi", kind: "record", year: "1867",
+        ja: "新選組は伏見奉行所に入った。京と大坂を結ぶ要の地である。",
+        en: "The corps moves into the Fushimi magistrate’s office, at the key point on the road between Kyoto and Osaka.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "sumizome", kind: "record", year: "1867",
+        ja: "十二月十八日、京での軍議から馬で戻る近藤を、墨染の道沿いの家から銃弾が襲う。弾は右肩を砕いた。近藤は馬上にとどまり、伏見まで駆け戻った。",
+        en: "On the 18th day of the 12th month, Kondō is riding back from a council in Kyoto when a musket fires from a house by the road at Sumizome. The ball shatters his right shoulder. He stays in the saddle and gallops back to Fushimi.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "sumizome", kind: "record", year: "1867",
+        ja: "撃ったのは御陵衛士の生き残りだった。油小路の仇討ちである。誰が引き金を引いたかは、彼ら自身の証言でも一致しない。",
+        en: "The gunmen are survivors of the Goryō Eji, taking revenge for Aburanokōji. Who actually fired is uncertain: their own accounts name different men.",
+        src: {ja: "御陵衛士側の証言", en: "The Goryō Eji survivors’ own accounts"} },
+
+      { scene: "osakajo", kind: "record", year: "1867",
+        ja: "近藤は治療のため、病の重い沖田総司とともに大坂へ送られ、幕府の医師・松本良順の手当てを受けた。傷は完全には癒えず、近藤は二度と剣を思うように握ることはなかった。",
+        en: "Kondō is sent to Osaka for treatment with Okita Sōji, now gravely ill, and put in the care of the shogunate’s physician Matsumoto Ryōjun. The wound never fully heals. Kondō will not hold a sword properly again.",
+        src: {ja: "松本良順の記録、隊の記録", en: "Matsumoto Ryōjun’s and the corps’ records"} },
+
+      { scene: "fushimi", kind: "context", year: "1868",
+        ja: "隊を率いて戦場に出るのは、土方歳三となった。",
+        en: "It is Hijikata Toshizō who will lead the corps into battle." },
+
+      { scene: "fushimi", kind: "record", year: "1868",
+        ja: "慶応四年正月三日、大坂から京へ進む幕府軍約一万五千と、薩長軍約五千が、鳥羽と伏見で衝突する。戊辰戦争のはじまりである。",
+        en: "On the 3rd day of the 1st month of 1868, a shogunal army of some 15,000 marching from Osaka to Kyoto meets about 5,000 Satsuma and Chōshū troops at Toba and Fushimi. The Boshin War has begun.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "fushimi", kind: "record", year: "1868",
+        ja: "新選組は奉行所に拠って戦った。だが高台に据えられた薩摩の砲が奉行所を炎上させ、隊は燃える市街へ押し出される。刀で銃火に挑んでも、損害が積み上がるばかりだった。",
+        en: "The corps fights from the magistrate’s office, until Satsuma guns on the high ground above set it on fire and drive them into the burning streets. Charging rifles with swords achieves little but casualties.",
+        src: {ja: "隊の記録、永倉新八の回想", en: "The corps’ records; Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "fushimi", kind: "context", year: "1868",
+        ja: "数の差は意味をなさなかった。訓練された銃兵と、間をおかずに撃てる砲。数年前、長州が欧米の艦隊から学んだ戦い方が、ここで幕府軍に向けられていた。",
+        en: "Numbers meant nothing. Drilled riflemen and guns that fired without pause: the way of war Chōshū had learned from Western fleets a few years earlier was now turned on the shogun’s army." },
+
+      { scene: "fushimi", kind: "record", year: "1868",
+        ja: "戦いの三日目、薩長の陣に錦の御旗がひるがえる。天皇の軍の旗である。幕府軍は、公式に「賊軍」となった。",
+        en: "On the third day, the imperial brocade banner is raised over the Satsuma–Chōshū lines. The shogun’s army is now, officially, an army of rebels.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "fushimi", kind: "record", year: "1868",
+        ja: "淀の千両松で、退く幕府軍は堤に踏みとどまろうとした。その戦列のなかで、試衛館以来の最年長、井上源三郎が銃弾に斃れる。",
+        en: "At Senryōmatsu by Yodo, the retreating army tries to hold the river embankment. In that line, Inoue Genzaburō, the eldest of the Shieikan men, is shot and killed.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "fushimi", kind: "anecdote", year: "1868",
+        ja: "隊にいた十二歳ほどの甥・泰助は、叔父の首と刀を家に持ち帰ろうとした。だが敗走のなかでその重さに耐えられず、道ばたの寺の近くに埋めたという。その場所はいまも見つかっていない。",
+        en: "His nephew Taisuke, a boy of about twelve serving with the corps, tried to carry his uncle’s head and sword home to the family. In the rout the weight was too much, and he buried them near a temple by the road. The place has never been found.",
+        src: {ja: "井上家の伝え", en: "The Inoue family’s account"} },
+
+      { scene: "fushimi", kind: "record", year: "1868",
+        ja: "淀藩は敗軍に城門を閉ざし、山崎では、それまで味方だった津藩の砲台が川向こうから撃ちかけてきた。",
+        en: "The Yodo domain shuts its castle gates on the beaten army, and at Yamazaki the guns of Tsu, until then on the shogun’s side, open fire on it from across the river.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "osakajo", kind: "record", year: "1868",
+        ja: "大坂城に退いた兵たちは、やがて知る。将軍慶喜が夜陰にまぎれ、軍艦で江戸へ去ったことを。軍は、崩れた。",
+        en: "Back at Osaka Castle, the soldiers learn that Yoshinobu has slipped away by night on a warship to Edo. The army falls apart.",
+        src: {ja: "幕府の記録", en: "Shogunate records"} },
+
+      { scene: "osakajo", kind: "record", year: "1868",
+        ja: "新選組は負傷者・病人とともに幕府の船で東へ送られた。退却中に傷を負った山崎烝は、航海の途中で息を引き取る。",
+        en: "The corps is shipped east on the shogunate’s vessels with its wounded and sick. Yamazaki Susumu, wounded in the retreat, dies on the voyage.",
+        src: {ja: "隊の記録。乗船や山崎の死の様子は記録によって異なる", en: "The corps’ records; who sailed on which ship, and how Yamazaki died, differ between accounts"} },
+
+      { scene: "shinagawa", kind: "record", year: "1868",
+        ja: "生き残った者たちは江戸の南の玄関口・品川に上陸した。五年前に江戸を発った仲間のうち、井上は戦死し、近藤は肩を砕かれ、沖田は労咳で死の床にあった。",
+        en: "The survivors land at Shinagawa, the southern gate of Edo. Of the friends who left Edo five years before, Inoue is dead, Kondō’s shoulder is shattered, and Okita is dying of tuberculosis.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "shinagawa", kind: "record", year: "1868",
+        ja: "土方はほどなく洋装に改め、髪を短く切った。",
+        en: "Soon afterwards Hijikata changes into Western clothes and cuts his hair short.",
+        src: {ja: "同時代の記録、写真", en: "Contemporary records and photographs"} },
+
+      { scene: "shinagawa", kind: "record", year: "1868", who: "hijikata",
+        ja: "戎器は砲に非ざれば不可。僕、剣を佩き槍を執り、一も用うるところなし。",
+        en: "From now on, weapons must be guns. I carried a sword and a spear, and they were of no use at all.",
+        src: {ja: "漢学者・依田学海の記録に残る土方の言葉", en: "Hijikata’s words as recorded by the scholar Yoda Gakkai"} },
+
+      { scene: "shinagawa", kind: "context", year: "1868",
+        ja: "剣で名を上げた隊の副長が、自分の口で剣の時代の終わりを語った。土方はここから、近代の兵を率いる指揮官へと変わっていく。",
+        en: "The vice-commander of a corps that had made its name with the sword said, in his own words, that the age of the sword was over. From here Hijikata begins to turn into a commander of modern troops." }
+
+    ] },
+
+  { id: "nagareyama",
+    no:    {ja: "第九章", en: "Chapter 9"},
+    title: {ja: "甲州・流山・板橋", en: "Kōshū, Nagareyama, Itabashi"},
+    span:  {ja: "1868　江戸とその周辺", en: "1868 · Edo and around it"},
+    lede:  {ja: "江戸に戻った隊は、甲州で敗れ、ばらばらになっていく。流山の別れ、板橋の刑場、そして千駄ヶ谷の離れ。試衛館の仲間たちの、それぞれの最後。",
+            en: "Back in Edo, the corps is beaten in Kai and begins to come apart. The parting at Nagareyama, the execution ground at Itabashi, a cottage in Sendagaya: how the friends from the Shieikan came to their ends."},
+    cover: "itabashi",
+    end:   {ja: "第九章　甲州・流山・板橋　了", en: "End of Chapter 9 · Kōshū, Nagareyama, Itabashi"},
+    beats: [
+
+      { scene: "edocastle", kind: "record", year: "1868",
+        ja: "江戸に戻った隊は「甲陽鎮撫隊」と名を改め、新政府軍より先に甲府城を押さえるよう命じられる。近藤と土方も、変名を名乗るようになった。",
+        en: "Back in Edo, the corps is renamed the Kōyō Chinbutai, the Kai Pacification Force, and ordered to secure Kōfu Castle before the new government’s army reaches it. Kondō and Hijikata take on assumed names.",
+        src: {ja: "幕府の記録、隊の記録", en: "Records of the shogunate and the corps"} },
+
+      { scene: "edocastle", kind: "context", year: "1868",
+        ja: "江戸では、徳川家を守るため新政府との交渉が進んでいた。戦いをやめない者たちを江戸から遠ざけることも、その一部だったとみられている。",
+        en: "In Edo, negotiations with the new government to save the Tokugawa house are under way. Sending the men who would not stop fighting away from the city is widely seen as part of that." },
+
+      { scene: "hino", kind: "record", year: "1868",
+        ja: "甲州街道を西へ進む隊は、故郷・多摩を通る。日野では佐藤彦五郎が農兵を率いて加わり、道中は歓迎と祝宴が続いた。",
+        en: "Marching west on the Kōshū road, the corps passes through its home country of Tama. At Hino, Satō Hikogorō joins with a band of armed farmers, and the way is one welcome and feast after another.",
+        src: {ja: "佐藤家の記録、隊の記録", en: "The Satō family’s and the corps’ records"} },
+
+      { scene: "hino", kind: "context", year: "1868",
+        ja: "五年前、無名の浪士として発った男たちが、幕臣となって帰ってきた。だがその数日の遅れのうちに、新政府軍の先鋒が甲府に入る。",
+        en: "Five years before, they had left as nameless rōnin; now they came home as the shogun’s men. But in those few days’ delay, the government’s vanguard reached Kōfu first." },
+
+      { scene: "katsunuma", kind: "record", year: "1868",
+        ja: "三月六日、勝沼。数門の砲を持つだけの約百二十名が、近代的な砲を備えた約十倍の新政府軍と向き合う。戦線は二時間ほどで崩れた。",
+        en: "On the 6th day of the 3rd month, at Katsunuma, some 120 men with a few guns face a government force about ten times their size, with modern artillery. Their line breaks in about two hours.",
+        src: {ja: "両軍の記録。人数は記録によって異なる", en: "Records of both armies; the numbers differ between accounts"} },
+
+      { scene: "edocastle", kind: "record", year: "1868",
+        ja: "江戸に戻った近藤は、生き残りに、これからは自分の家臣として従うよう求めた。永倉新八と原田左之助はこれを拒み、隊を去る。",
+        en: "Back in Edo, Kondō asks the survivors to follow him from now on as his retainers. Nagakura Shinpachi and Harada Sanosuke refuse, and leave.",
+        src: {ja: "永倉新八の回想", en: "Nagakura Shinpachi’s memoirs"} },
+
+      { scene: "edocastle", kind: "context", year: "1868",
+        ja: "二人は近藤の同志として加わったのであって、家来になったつもりはなかった。試衛館の輪は、ここで初めて内側から割れた。",
+        en: "They had joined as Kondō’s comrades, never as his vassals. For the first time, the Shieikan circle broke from within." },
+
+      { scene: "nagareyama", kind: "record", year: "1868",
+        ja: "近藤と土方は、新兵を集めて下総・流山で隊を立て直そうとする。四月三日、その陣を新政府軍が急襲し、包囲した。",
+        en: "Kondō and Hijikata set out to rebuild with new recruits at Nagareyama in Shimōsa. On the 3rd day of the 4th month, a government force surprises their camp and surrounds it.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "nagareyama", kind: "record", year: "1868",
+        ja: "戦えば全滅である。近藤は大久保大和と名乗ったまま、ただの鎮撫の隊長として、ひとり敵陣に出頭した。",
+        en: "To fight would be to be wiped out. Kondō, still using the name Ōkubo Yamato, presents himself at the enemy camp alone, as no more than an officer keeping the peace.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "nagareyama", kind: "anecdote", year: "1868",
+        ja: "流山での二人の別れは、いつもの出来事のように何気なかったと伝わる。土方と近藤が、再び会うことはなかった。",
+        en: "Their parting at Nagareyama, it is said, was as casual as any other day. Hijikata and Kondō never saw each other again.",
+        src: {ja: "後年の伝え", en: "Later accounts"} },
+
+      { scene: "edocastle", kind: "record", year: "1868",
+        ja: "土方は江戸へ急ぎ、旧幕府の首脳への嘆願を含め、あらゆる伝手を動かして近藤の助命に奔走した。",
+        en: "Hijikata hurries back to Edo and uses every connection he has, including an appeal through the old shogunal leadership, to save Kondō’s life.",
+        src: {ja: "勝海舟の日記ほか", en: "Katsu Kaishū’s diary and other records"} },
+
+      { scene: "edocastle", kind: "record", year: "1868",
+        ja: "四月十一日、勝海舟と西郷隆盛の交渉により、江戸城は一戦も交えず新政府に明け渡された。慶喜は謹慎に入る。",
+        en: "On the 11th day of the 4th month, after talks between Katsu Kaishū and Saigō Takamori, Edo Castle is handed over to the new government without a fight. Yoshinobu goes into confinement.",
+        src: {ja: "幕府・新政府の記録", en: "Records of the shogunate and the new government"} },
+
+      { scene: "edocastle", kind: "context", year: "1868",
+        ja: "百万の町は戦火を免れた。だが主君が矛を収めた以上、なお戦う者は、もう政府の兵ではない。土方はこのあと、大鳥圭介の旧幕府軍に加わって北へ向かう。",
+        en: "A city of a million was spared. But with their lord laying down his arms, anyone still fighting was no longer a government’s soldier. Hijikata now joins Ōtori Keisuke’s old-shogunate army and heads north." },
+
+      { scene: "itabashi", kind: "record", year: "1868",
+        ja: "近藤は中山道最初の宿場・板橋の新政府軍本営へ送られた。そこには、かつて伊東とともに隊を去った加納道之助がいて、近藤の顔を知っていた。",
+        en: "Kondō is taken to the government army’s headquarters at Itabashi, the first post town on the Nakasendō. There, among the officers, is Kanō Michinosuke, who had left the corps with Itō, and who knows his face.",
+        src: {ja: "新政府軍の記録", en: "The new government army’s records"} },
+
+      { scene: "itabashi", kind: "context", year: "1868",
+        ja: "油小路の夜の生き残りが、ここで隊に追いついた。",
+        en: "A survivor of the night at Aburanokōji had caught up with the corps." },
+
+      { scene: "itabashi", kind: "record", year: "1868",
+        ja: "隊に仲間を殺されたと考える土佐や薩摩の者たちは、死罪を強く求めた。龍馬殺しの嫌疑も、そこに含まれていた。",
+        en: "Men of Tosa and Satsuma, who blamed the corps for the deaths of their comrades, Ryōma’s among them, pressed hard for his death.",
+        src: {ja: "新政府軍の記録", en: "The new government army’s records"} },
+
+      { scene: "itabashi", kind: "record", year: "1868",
+        ja: "四月二十五日、近藤勇は板橋の刑場で斬首された。武士の作法である切腹は許されず、罪人として。満三十三歳（数えで三十五）だった。",
+        en: "On the 25th day of the 4th month, Kondō Isami is beheaded at the Itabashi execution ground. He is denied seppuku, a samurai’s death, and dies as a common criminal. He is thirty-three.",
+        src: {ja: "新政府軍の記録", en: "The new government army’s records"} },
+
+      { scene: "itabashi", kind: "anecdote", year: "1868", who: "kondo", poem: true,
+        ja: "孤軍援絶えて俘囚と作る<br>君恩を顧念して涙更に流る<br>一片の丹衷能く節に殉ず<br>睢陽千古是れ吾が儔",
+        en: "A lone force, cut off, I am made prisoner;<br>thinking of my lord’s favour, my tears flow on.<br>A loyal heart can die for its duty —<br>the defenders of Suiyang are my kind.",
+        src: {ja: "近藤の辞世として伝わる漢詩。後年の記録に拠る", en: "The poem handed down as Kondō’s farewell; from later sources"} },
+
+      { scene: "sanjo", kind: "record", year: "1868",
+        ja: "首は京へ送られ、三条河原に晒された。五年前、隊が夜の町を見回った、その川のほとりである。",
+        en: "His head is sent to Kyoto and displayed on the bank of the Kamo at Sanjō, by the river the corps had patrolled on so many nights.",
+        src: {ja: "京の記録", en: "Kyoto records"} },
+
+      { scene: "ueno", kind: "record", year: "1868",
+        ja: "五月十五日、開城に従わず上野の山に立てこもった彰義隊が、ただ一日で壊滅する。不忍池越しに撃ち込まれた新式の砲が、その陣地を砕いた。",
+        en: "On the 15th day of the 5th month, the Shōgitai, loyalists holding Ueno hill in defiance of the surrender, are destroyed in a single day. Modern guns firing across the Shinobazu pond smash their positions.",
+        src: {ja: "新政府軍の記録", en: "The new government army’s records"} },
+
+      { scene: "ueno", kind: "record", year: "1868",
+        ja: "そのなかに、永倉とともに北へ向かう途中で引き返し、この籠城に加わった原田左之助がいた。原田は傷を負い、数日後に死んだ。",
+        en: "Among them is Harada Sanosuke, who had turned back from the march north with Nagakura to join the garrison. He is wounded, and dies a few days later.",
+        src: {ja: "永倉新八の回想ほか。最期の様子には異説がある", en: "Nagakura Shinpachi’s memoirs and others; accounts of his death differ"} },
+
+      { scene: "sendagaya", kind: "record", year: "1868",
+        ja: "千駄ヶ谷の植木屋の離れでは、松本良順の手配でかくまわれた沖田総司が、労咳の床にあった。周りの者は、近藤の死を彼に伝えなかった。",
+        en: "In a gardener’s cottage at Sendagaya, hidden there by arrangement of Matsumoto Ryōjun, Okita Sōji lies ill with tuberculosis. The people tending him do not tell him that Kondō is dead.",
+        src: {ja: "松本良順の記録、沖田家の伝え", en: "Matsumoto Ryōjun’s records; the Okita family’s account"} },
+
+      { scene: "sendagaya", kind: "anecdote", year: "1868",
+        ja: "最期の日々、庭に現れる黒猫を斬ろうとして、どうしても斬れなかったという。そして死の間際まで、「先生はどうしておられる」と尋ねていたと伝わる。",
+        en: "In his last days, it is said, he tried again and again to cut down a black cat that came into the garden, and could not. And to the end he kept asking how his teacher was.",
+        src: {ja: "後年の回想", en: "Later reminiscence"} },
+
+      { scene: "sendagaya", kind: "record", year: "1868",
+        ja: "五月三十日、沖田総司は死んだ。二十代半ばだった。近藤の死から、ひと月あまりのちのことである。",
+        en: "On the 30th day of the 5th month, Okita Sōji dies, in his mid-twenties, a little over a month after Kondō.",
+        src: {ja: "沖田家の記録", en: "The Okita family’s records"} },
+
+      { scene: "edocastle", kind: "context", year: "1868",
+        ja: "試衛館から京へ上った仲間のうち、新選組の名のもとで戦い続けるのは土方と斎藤だけになった。二人はいま、北にいる。",
+        en: "Of the friends who went up to Kyoto from the Shieikan, only Hijikata and Saitō still fight under the Shinsengumi’s name. Both are now in the north." }
+
+    ] },
+
+  { id: "aizu",
+    no:    {ja: "第十章", en: "Chapter 10"},
+    title: {ja: "宇都宮・会津", en: "Utsunomiya and Aizu"},
+    span:  {ja: "1868　北関東から奥州へ", en: "1868 · North Kantō to the north"},
+    lede:  {ja: "土方は近代の兵を率いる指揮官となり、斎藤は隊を預かる。五年前に彼らを拾い上げた会津が、戦の標的となった。そして二人は、正反対の道を選ぶ。",
+            en: "Hijikata becomes a commander of modern troops; Saitō takes charge of the corps. Aizu, which had taken them in five years before, becomes the war’s target, and the two men choose opposite paths."},
+    cover: "aizu",
+    end:   {ja: "第十章　宇都宮・会津　了", en: "End of Chapter 10 · Utsunomiya and Aizu"},
+    beats: [
+
+      { scene: "utsunomiya", kind: "record", year: "1868",
+        ja: "江戸開城を認めない数千の旧幕府兵が江戸を抜け出し、洋式歩兵を率いた大鳥圭介のもとに集まった。流山から数日後、土方はわずかな隊士を連れてこれに加わり、先鋒を任される。",
+        en: "Thousands of shogunal soldiers who will not accept the surrender of Edo slip out of the city and gather under Ōtori Keisuke, who had commanded the shogunate’s Western-style infantry. A few days after Nagareyama, Hijikata joins them with a handful of the corps, and is given the vanguard.",
+        src: {ja: "大鳥圭介の記録", en: "Ōtori Keisuke’s account"} },
+
+      { scene: "utsunomiya", kind: "record", year: "1868",
+        ja: "四月十九日、土方の隊は宇都宮城を攻め落とす。石田村の薬の行商人だった男が、職業軍人たちを率いていた。",
+        en: "On the 19th day of the 4th month, Hijikata’s column storms and takes Utsunomiya Castle. The medicine peddler from Ishida village is leading professional soldiers.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "utsunomiya", kind: "anecdote", year: "1868",
+        ja: "逃げ出した味方の兵を、土方はその場で斬り捨てて戦線を支えた。その夜はひそかにその兵のために涙し、のちに供養料を出したという。",
+        en: "When one of his own men broke and ran, Hijikata cut him down on the spot to hold the line. That night, it is said, he wept for him in private, and later paid for his memorial.",
+        src: {ja: "後年の伝え", en: "Later accounts"} },
+
+      { scene: "utsunomiya", kind: "record", year: "1868",
+        ja: "数日後、新政府軍が城を奪い返す。その戦いで土方は足に銃弾を受け、会津へ送られて傷を癒すことになった。",
+        en: "Days later the government army retakes the castle. Hijikata is shot in the foot in the fighting and carried north to Aizu to recover.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "aizu", kind: "context", year: "1868",
+        ja: "会津藩は、京で新選組を預かった藩である。新政府にとって、京で長州を討った会津は、真っ先に罰すべき「朝敵」だった。",
+        en: "Aizu was the domain that had taken the Shinsengumi under its wing in Kyoto. To the new government, the Aizu that had fought Chōshū in Kyoto was the first enemy of the court to be punished." },
+
+      { scene: "aizu", kind: "anecdote", year: "1868",
+        ja: "療養中の土方は、会津の天寧寺に近藤の墓を建てたと伝わる。",
+        en: "While he recovered, Hijikata is said to have raised a grave for Kondō at Tennei-ji in Aizu.",
+        src: {ja: "会津の伝え", en: "Aizu tradition"} },
+
+      { scene: "shirakawa", kind: "record", year: "1868",
+        ja: "奥州街道に城を構える白河は、関東と奥州を隔てる門である。数十名にまで減った新選組は、山口次郎と名を変えた斎藤一の指揮で、ここに布陣した。",
+        en: "Shirakawa, its castle on the Ōshū highway, is the gateway between the Kantō and the north. The Shinsengumi, now a few dozen men, takes its place here under Saitō Hajime, who goes by the name Yamaguchi Jirō.",
+        src: {ja: "隊の記録、会津藩の記録", en: "Records of the corps and Aizu"} },
+
+      { scene: "shirakawa", kind: "record", year: "1868",
+        ja: "守る側は、はじめの攻撃を退けた。だが閏四月の末、数で劣りながら装備でまさる新政府軍が、一日で城を奪う。奪還の試みは、大きな犠牲を出してことごとく失敗した。",
+        en: "The defenders throw back the first assault. But late in the leap 4th month, a smaller, better-armed government force takes the castle in a single day, and every attempt to win it back fails with heavy losses.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "shirakawa", kind: "context", year: "1868",
+        ja: "奥州の表門が開かれた。夏のあいだに新政府軍は北へ進み、隊は追われるように会津へ退いていく。",
+        en: "The north’s front door was open. Through the summer the government armies pushed on, and the corps fell back towards Aizu with them at its heels." },
+
+      { scene: "aizu", kind: "record", year: "1868",
+        ja: "八月二十一日、新政府軍は会津の東の守り、母成峠を破る。傷の癒えた土方も、斎藤の隊もそこで戦った。二日後、敵は若松の城下に迫った。",
+        en: "On the 21st day of the 8th month, the government army breaks through Bonari Pass, Aizu’s eastern defence. Hijikata, now recovered, and Saitō’s men both fight there. Two days later the enemy is at the gates of Wakamatsu.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "aizu", kind: "context", year: "1868",
+        ja: "城下では、家族が自ら命を絶ち、少年たちの白虎隊が山の上で自刃した。会津の籠城は、一か月にわたる。",
+        en: "In the castle town, whole families took their own lives, and boys of the Byakkotai died by their own hands on a hillside. The siege of Aizu would last a month." },
+
+      { scene: "aizu", kind: "record", year: "1868",
+        ja: "土方は援軍を求めて北の諸藩へ向かい、旧幕府軍とともに会津を離れることになる。だが斎藤はこれを拒み、会津に残った。",
+        en: "Hijikata goes north to seek help from the other domains, and will leave Aizu with the old-shogunate army. Saitō refuses, and stays in Aizu.",
+        src: {ja: "隊の記録、会津藩の記録", en: "Records of the corps and Aizu"} },
+
+      { scene: "aizu", kind: "anecdote", year: "1868",
+        ja: "危急の会津を見捨てるのは義に背く。斎藤はそう言ったと伝わる。十数名が彼とともに残った。",
+        en: "To abandon Aizu in its hour of need, Saitō is said to have answered, would betray everything they had stood for. About a dozen men stayed with him.",
+        src: {ja: "後年の伝え", en: "Later accounts"} },
+
+      { scene: "aizu", kind: "context", year: "1868",
+        ja: "隊で最も苛烈な二人が、正反対の義務を選んだ。土方と斎藤が、再び会うことはなかった。",
+        en: "The corps’ two hardest men chose opposite duties. Hijikata and Saitō never met again." },
+
+      { scene: "aizu", kind: "record", year: "1868",
+        ja: "九月、若松郊外の如来堂に陣を構えた斎藤らを、新政府軍が襲う。小部隊は四散し、斎藤らは全員討ち死にしたという報が広まった。",
+        en: "In the 9th month, a government force falls on Saitō’s band at the little temple of Nyoraidō outside Wakamatsu. They are scattered, and word spreads that Saitō and his men are all dead.",
+        src: {ja: "会津藩の記録。誰が戦い何人が死んだかは確かではない", en: "Aizu records; who fought there and how many died is uncertain"} },
+
+      { scene: "aizu", kind: "record", year: "1868",
+        ja: "だが斎藤は生きていた。九月二十二日、会津は降伏する。斎藤は藩士たちとともに謹慎の身となり、のちに会津の人々とともに本州北端の斗南へ移った。",
+        en: "But Saitō is alive. On the 22nd day of the 9th month Aizu surrenders. He goes into captivity with the domain’s men, and later goes with the Aizu people to Tonami, at the northern tip of Honshu.",
+        src: {ja: "会津藩の記録", en: "Aizu records"} },
+
+      { scene: "sendai", kind: "record", year: "1868",
+        ja: "そのころ仙台では、奥羽の諸藩の同盟が藩ごとに崩れていた。土方はここで、新政府への引き渡しを拒んだ榎本武揚の旧幕府艦隊と合流する。",
+        en: "Meanwhile at Sendai, the alliance of the northern domains is collapsing one domain at a time. Here Hijikata joins the shogunal fleet of Enomoto Takeaki, which had refused to be handed over to the new government.",
+        src: {ja: "旧幕府艦隊の記録", en: "Records of the old shogunal fleet"} },
+
+      { scene: "sendai", kind: "record", year: "1868",
+        ja: "軍艦八隻、将兵およそ二千。そのなかにはフランスの軍事顧問たちもいた。中隊ほどになった新選組も、この艦隊に乗り込んだ。",
+        en: "Eight warships and some two thousand men, French military advisers among them. The Shinsengumi, now the size of a company, goes aboard with them.",
+        src: {ja: "旧幕府艦隊の記録", en: "Records of the old shogunal fleet"} },
+
+      { scene: "sendai", kind: "context", year: "1868",
+        ja: "行き先は蝦夷地。本州に、もう戦える場所は残っていなかった。",
+        en: "Their destination was Ezo. There was nowhere left to fight on Honshu." }
+
+    ] },
+
+  { id: "hakodate",
+    no:    {ja: "第十一章", en: "Chapter 11"},
+    title: {ja: "箱館", en: "Hakodate"},
+    span:  {ja: "1868 – 1869　蝦夷地", en: "1868 – 1869 · Ezo"},
+    lede:  {ja: "地図の果ての共和国。土方歳三は陸軍奉行並となり、最後の半年を戦い抜く。そして、隊の物語を語り継いだ人々。",
+            en: "A republic at the edge of the map. Hijikata Toshizō becomes one of its army commanders and fights its last six months. And the people who kept the corps’ story alive."},
+    cover: "hakodate",
+    end:   {ja: "第十一章　箱館　了", en: "End of Chapter 11 · Hakodate"},
+    beats: [
+
+      { scene: "washinoki", kind: "record", year: "1868",
+        ja: "明治元年十月二十日、荒れた海を渡った榎本艦隊は、箱館の北、鷲ノ木の浜に錨を下ろし、雪のなか約三千の兵を上陸させた。",
+        en: "On the 20th day of the 10th month of 1868, after a stormy crossing, Enomoto’s fleet anchors off Washinoki, north of Hakodate, and puts some three thousand men ashore in the snow.",
+        src: {ja: "旧幕府軍の記録", en: "Records of the old shogunate army"} },
+
+      { scene: "washinoki", kind: "record", year: "1868",
+        ja: "軍は二手に分かれて陸路を進む。大鳥圭介の隊は山あいの本道を、土方の隊は東の海沿いの道を。一週間のうちに箱館の役人は海峡の向こうへ逃れ、星形の城塞・五稜郭が彼らの手に落ちた。",
+        en: "The army marches on Hakodate in two columns, Ōtori Keisuke’s through the hills and Hijikata’s along the coast to the east. Within a week the government’s officials have fled across the strait, and the star-shaped fortress of Goryōkaku is theirs.",
+        src: {ja: "旧幕府軍の記録", en: "Records of the old shogunate army"} },
+
+      { scene: "matsumae", kind: "record", year: "1868",
+        ja: "蝦夷地唯一の大名・松前藩は新政府についていた。土方は約七百の兵を率いて冬の海岸を西へ進み、十一月五日、松前城を一日で落とす。城の砲は、外国船に備えて海を向いていた。",
+        en: "The Matsumae domain, the only daimyō house on Ezo, has sided with the new government. Hijikata leads some seven hundred men west along the winter coast and, on the 5th day of the 11th month, takes Matsumae Castle in a single day. Its guns faced the sea, built against foreign ships.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "matsumae", kind: "record", year: "1868",
+        ja: "その先の江差で、艦隊の旗艦、オランダ製の開陽丸が冬の嵐で座礁し、失われた。共和国は、いちばん強い艦を最初の冬に失う。",
+        en: "Further on at Esashi, the fleet’s Dutch-built flagship, the Kaiyō Maru, is driven onto the rocks by a winter storm and lost. The new regime loses its strongest ship in its first winter.",
+        src: {ja: "旧幕府軍の記録", en: "Records of the old shogunate army"} },
+
+      { scene: "matsumae", kind: "anecdote", year: "1868",
+        ja: "岸からその最期を見た土方は、悔しさのあまり松の木を叩いたという。その松はいまも江差で案内されている。",
+        en: "Watching her founder from the shore, Hijikata is said to have struck a pine tree in frustration. The tree is still pointed out in Esashi.",
+        src: {ja: "江差の伝え", en: "Esashi tradition"} },
+
+      { scene: "hakodate", kind: "record", year: "1868",
+        ja: "十二月、士官たちは入札（投票）で首脳を選び、総裁・榎本武揚のもとに新たな政権を立てた。土方は陸軍奉行並に選ばれる。",
+        en: "In the 12th month, the officers choose their leaders by ballot and set up a government under its president, Enomoto Takeaki. Hijikata is elected deputy commander of the army.",
+        src: {ja: "旧幕府軍の記録", en: "Records of the old shogunate army"} },
+
+      { scene: "hakodate", kind: "context", year: "1868",
+        ja: "票を投じたのは幹部だけだったが、それでも選挙である。のちに「蝦夷共和国」と呼ばれるこの政権を、港の外国人たちは事実上の政府として扱った。日野の農家の子が、その創設幹部となっていた。",
+        en: "Only the officers voted, but it was an election. Foreigners in the harbour dealt with this regime, later called the Republic of Ezo, as a government in fact. A farmer’s son from Hino was one of its founders." },
+
+      { scene: "miyako", kind: "record", year: "1869",
+        ja: "明治二年三月二十五日、宮古湾。新政府艦隊の甲鉄艦を奪うため、回天が偽りの旗を掲げて湾に入り、横付けして斬り込んだ。土方はその艦上にいた。",
+        en: "On the 25th day of the 3rd month of 1869, at Miyako Bay, the Kaiten sails in under a false flag to seize the government fleet’s ironclad, comes alongside, and sends a boarding party over. Hijikata is aboard.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "miyako", kind: "record", year: "1869",
+        ja: "甲鉄艦の甲板には、ガトリング砲が待っていた。斬り込みは数分で失敗し、回天は多くの死傷者を出して離脱した。",
+        en: "On the ironclad’s deck, a Gatling gun is waiting. The boarding fails within minutes, and the Kaiten fights her way out with heavy losses.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "futamata", kind: "record", year: "1869",
+        ja: "春、新政府軍が蝦夷地に上陸する。江差から箱館への山道、二股口で、土方は数百の兵とともに胸壁と塹壕を築いて待ち構えた。",
+        en: "In spring the government army lands on Ezo. On the mountain road from Esashi to Hakodate, at Futamata, Hijikata waits with a few hundred men behind earthworks and trenches dug into the hillside.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "futamata", kind: "record", year: "1869",
+        ja: "四月、最初の攻撃は夜を徹した戦いの末に退けられた。十日ほどのちに兵を増やして押し寄せた敵も、陣地は持ちこたえた。",
+        en: "In the 4th month, the first assault is beaten off after fighting through the night. When the enemy comes back about ten days later in greater strength, the line holds again.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "futamata", kind: "anecdote", year: "1869",
+        ja: "一夜に数万発を撃ち、熱くなった銃身を桶の水で冷やした。土方は酒樽を持って兵のあいだを回り、一人一杯だけ許したという。",
+        en: "They fired tens of thousands of rounds in a night and cooled the rifles with buckets of water. Hijikata, it is said, went among the men with a cask of sake and allowed each just one cup.",
+        src: {ja: "参加者の後年の記録", en: "Participants’ later accounts"} },
+
+      { scene: "futamata", kind: "record", year: "1869",
+        ja: "だが、ほかの道は守り切れなかった。海沿いの道が破られ、退路を断たれるおそれが出ると、土方は五稜郭へ退くよう命じられる。",
+        en: "But the other roads cannot be held. When the coast road falls and he is in danger of being cut off, Hijikata is ordered back to Goryōkaku.",
+        src: {ja: "旧幕府軍の記録", en: "Records of the old shogunate army"} },
+
+      { scene: "futamata", kind: "context", year: "1869",
+        ja: "峠を失ったのではない。ほかのすべての場所で、戦が負けつつあったのである。",
+        en: "He had not lost the pass. The war was being lost everywhere else." },
+
+      { scene: "hakodate", kind: "record", year: "1869",
+        ja: "そのころ土方は、十六歳ほどの小姓・市村鉄之助に、箱館を抜け出して日野の家族のもとへ包みを届けるよう命じた。中には、箱館で撮った洋装の写真と、遺髪が入っていた。",
+        en: "Around then, Hijikata orders his page Ichimura Tetsunosuke, a boy of about sixteen, to slip out of Hakodate and take a package to his family in Hino. Inside are a photograph of him in Western uniform, taken in Hakodate, and a lock of his hair.",
+        src: {ja: "佐藤家の記録", en: "The Satō family’s records"} },
+
+      { scene: "hakodate", kind: "anecdote", year: "1869",
+        ja: "隊とともに死にたいと拒んだ市村に、土方は、従わなければ斬ると言ったという。",
+        en: "When Ichimura refused, wanting to die with the corps, Hijikata is said to have told him he would cut him down if he did not go.",
+        src: {ja: "市村が語ったことを佐藤家が伝えたもの", en: "What the boy told the Satō family, as they passed it down"} },
+
+      { scene: "hakodate", kind: "record", year: "1869",
+        ja: "五月十一日、新政府軍の箱館総攻撃。港の近くの弁天台場が孤立する。そこには、新選組の最後の隊士たちがいた。",
+        en: "On the 11th day of the 5th month, the government army launches its general assault on Hakodate. The Benten Daiba battery by the harbour is cut off, and in it are the last men of the Shinsengumi.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "hakodate", kind: "record", year: "1869",
+        ja: "土方は救援の兵を率い、一本木関門から馬を進めた。そこで腹部に銃弾を受け、まもなく絶命する。満三十四歳。共和国降伏の、わずか数日前だった。",
+        en: "Hijikata leads a relief force out through the Ippongi gate on horseback. There he is shot in the abdomen, and dies soon after. He is thirty-four, days before the republic surrenders.",
+        src: {ja: "旧幕府軍の記録。最期の地点や様子は記録によって異なる", en: "Records of the old shogunate army; the exact spot and the details differ between accounts"} },
+
+      { scene: "hakodate", kind: "anecdote", year: "1869", who: "hijikata", poem: true,
+        ja: "よしや身は<br>蝦夷が島辺に<br>朽ちぬとも<br>魂は東の<br>君やまもらむ",
+        en: "Though my body<br>rot away on the shores<br>of the isle of Ezo,<br>my spirit will guard<br>my lord in the east.",
+        src: {ja: "土方の辞世として伝わる歌", en: "The poem handed down as Hijikata’s farewell"} },
+
+      { scene: "hakodate", kind: "record", year: "1869",
+        ja: "埋葬の地は意図して隠され、いまも見つかっていない。",
+        en: "Where he was buried was deliberately concealed, and has never been found.",
+        src: {ja: "諸記録", en: "Various records"} },
+
+      { scene: "hakodate", kind: "record", year: "1869",
+        ja: "五月十五日、弁天台場は降伏する。数日前に隊長となった相馬主計が、新選組の降伏を引き受けた。三日後の五月十八日、五稜郭も開城し、戊辰戦争は終わった。",
+        en: "On the 15th day of the 5th month, Benten Daiba surrenders. Sōma Kazue, made commander of the corps only days before, surrenders the Shinsengumi. Three days later, on the 18th, Goryōkaku gives up too, and the Boshin War is over.",
+        src: {ja: "両軍の記録", en: "Records of both armies"} },
+
+      { scene: "hakodate", kind: "context", year: "1869",
+        ja: "六年前、雇われ剣客の一団として江戸を発った隊は、ここで捕虜として終わった。",
+        en: "The corps that had left Edo six years before as a band of hired swordsmen ended here, as prisoners of war." },
+
+      { scene: "hino", kind: "record", year: "1869",
+        ja: "市村鉄之助は包囲を抜けて本州へ渡り、日野の佐藤彦五郎の家にたどり着いた。かつて天然理心流が教えられていた、あの家である。",
+        en: "Ichimura Tetsunosuke slips through the lines, crosses to the mainland, and reaches Satō Hikogorō’s house in Hino, the house where the Tennen Rishin-ryū had once been taught.",
+        src: {ja: "佐藤家の記録。着いた日付は確かではない", en: "The Satō family’s records; the date he arrived is not certain"} },
+
+      { scene: "hino", kind: "context", year: "1869",
+        ja: "彼が届けた写真が、いま世界が知る土方歳三の姿である。",
+        en: "The photograph he carried is the image of Hijikata Toshizō the world knows today." },
+
+      { scene: "takahata", kind: "record", year: "1888",
+        ja: "明治二十一年、日野の佐藤彦五郎や小野路村の小島鹿之助ら多摩の人々は、高幡不動尊に「殉節両雄之碑」を建てた。篆額は松平容保の筆である。",
+        en: "In 1888, Satō Hikogorō of Hino, Kojima Shikanosuke of Onoji and others in Tama raise a monument to Kondō and Hijikata at Takahata Fudō, the Monument to the Two Heroes Who Died for Their Loyalty. Its title is written by Matsudaira Katamori.",
+        src: {ja: "碑文", en: "The monument’s inscription"} },
+
+      { scene: "takahata", kind: "context", year: "1888",
+        ja: "明治政府にとって二人は賊だった。それでも多摩の人々は、京へ上った農家の息子たちを、身内として石に刻んだ。",
+        en: "To the Meiji government the two men were rebels. Even so, the people of Tama carved them in stone as their own." },
+
+      { scene: "otaru", kind: "record", year: "1913",
+        ja: "大正二年、小樽。杉村義衛と名を変えた老剣客の回想を、小樽新聞が連載する。かつての二番組長、永倉新八である。",
+        en: "In 1913, in Otaru, the Otaru Shimbun runs the recollections of an old swordsman now called Sugimura Yoshie: once Nagakura Shinpachi, captain of the 2nd unit.",
+        src: {ja: "小樽新聞の連載", en: "The Otaru Shimbun series"} },
+
+      { scene: "otaru", kind: "context", year: "1913",
+        ja: "この物語の多くの場面は、この連載の語り口で初めて世に届いた。半世紀後の回想として、裏付けをとりながら読まれるべきものではあるが、それなしに隊の姿を語ることはできない。",
+        en: "Many of the scenes in this story first reached the public in his telling. As a memory from half a century later, it has to be checked where it can be, but the corps cannot be told without it." },
+
+      { scene: "aizu", kind: "record", year: "1915",
+        ja: "大正四年、永倉が世を去る。その年の九月、藤田五郎と名を変えて警察官として明治を生きた斎藤一も、東京で没した。隊についてはほとんど何も語らなかったという。",
+        en: "In 1915 Nagakura dies. That September, Saitō Hajime, who had lived through the Meiji years as a policeman named Fujita Gorō, dies in Tokyo. He had said almost nothing about the corps.",
+        src: {ja: "諸記録", en: "Various records"} },
+
+      { scene: "aizu", kind: "record", year: "1915",
+        ja: "斎藤は会津若松の阿弥陀寺に葬られた。戊辰の会津の戦死者たちが、ようやく埋葬を許された寺である。",
+        en: "He is buried at Amida-ji in Aizu-Wakamatsu, the temple where Aizu’s dead of 1868 were at last allowed to be laid to rest.",
+        src: {ja: "阿弥陀寺の墓", en: "His grave at Amida-ji"} },
+
+      { scene: "aizu", kind: "context", year: "1915",
+        ja: "隊の最後の組長は、彼が見捨てることを拒んだ人々のあいだに眠っている。",
+        en: "The last of the corps’ captains lies among the people he had refused to abandon." }
+
     ] }
+
+
+
+
+
 
 
 

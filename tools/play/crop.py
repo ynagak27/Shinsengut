@@ -15,6 +15,7 @@ Examples used for Chapters 1 and 2:
     python3 tools/play/crop.py kyoto-genji 17 35.0142 135.7481 play/assets/scenes/nijo.webp --paper
     python3 tools/play/crop.py kyoto-genji 17 35.0254 135.7621 play/assets/scenes/gosho.webp --paper
     python3 tools/play/crop.py edo-keio  16 35.6555 139.7373 play/assets/scenes/azabu.webp
+    python3 tools/play/crop.py ino-daizu 15 37.505 139.95 play/assets/scenes/aizu.webp --paper
 
 The image is centred on lat/lng (default 1024x1536, portrait for phones).
 Layers and zooms are those listed in data/oldmaps.js. Positions on the
