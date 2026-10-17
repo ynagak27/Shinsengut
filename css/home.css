@@ -32,14 +32,13 @@ body{display:block;overflow:visible}
 .hero-title{font-family:var(--disp);font-weight:800;font-size:clamp(32px,6.4vw,54px);line-height:1.2;letter-spacing:.04em;text-wrap:balance}
 .hero-lede{font-family:var(--disp);font-weight:500;font-size:clamp(16px,2.2vw,19px);line-height:1.95;color:#e2dbc9;margin-top:18px;max-width:34em}
 
-/* the needs: five cards, three on the first row and two below */
+/* the needs: four cards, two to a row */
 .paths{margin-top:22px}
 .ask{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.4;margin-bottom:18px}
 .path-list{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.need{grid-column:span 2;display:flex;flex-direction:column;
+.need{grid-column:span 3;display:flex;flex-direction:column;
   border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:20px 20px 18px;transition:border-color .15s}
 .need:hover{border-color:var(--asagi-dim)}
-.need-read,.need-free{grid-column:span 3}
 .need-who{border-top:3px solid var(--makoto)}
 .need-free{border-style:dashed;border-color:var(--asagi-dim);background:transparent}
 .need-pre{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--asagi);min-height:1px}
@@ -66,6 +65,6 @@ body{display:block;overflow:visible}
   .home{padding:0 16px 48px}
   .hero{margin:0 -16px;padding:40px 16px 28px}
   .path-list{grid-template-columns:1fr}
-  .need,.need-read,.need-free{grid-column:auto}
+  .need{grid-column:auto}
   .need-want{font-size:19px}
 }

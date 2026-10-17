@@ -5,8 +5,8 @@ the people in it and around it, and the era's national events running alongside 
 with a story page and a people page of biographies.
 
 The front page (`index.html`) asks what the visitor wants to do — find out who
-they were, live through the key moments, follow one man's life, read the whole
-story, or explore the map on their own — and sends them straight to the right place
+they were, live through the key moments, follow one man's life, or explore the
+map on their own — and sends them straight to the right place
 (cards are in `js/home.js`). The map itself is `map.html`; old `index.html?ev=` /
 `?person=` links are forwarded there, and `map.html?tour=1` starts the guided tour.
 

@@ -33,8 +33,9 @@ const NEEDS = [
     want:  {ja: "新選組を知る", en: "Find out who they were"},
     desc:  {ja: "どんな時代に生まれ、誰と戦い、なぜいまも語り継がれているのか。まずは概要からどうぞ。",
             en: "The country they lived in, who they fought, and why they are still remembered. The essentials, before anything else."},
-    hint:  {ja: "はじめての方はこちらから · 数分で読めます", en: "Start here if you’re new · about 10 minutes"},
-    go:    {href: {ja: "story.html?v=short", en: "basics.html"}, label: {ja: "概要を読む", en: "Read the basics"}} },
+    hint:  {ja: "はじめての方はこちらから · 約8分で読めます", en: "Start here if you’re new · about 10 minutes"},
+    go:    {href: {ja: "story.html", en: "basics.html"}, label: {ja: "「新選組とは」を読む", en: "Read the basics"}},
+    more:  {href: {ja: "story.html?v=short", en: "story.html"}, label: {ja: "短縮版を読む（約1分）", en: "Then the story, in about 8 minutes"}} },
 
   { id: "live",
     want:  {ja: "名場面を体験する", en: "Live through the key moments"},
@@ -48,14 +49,6 @@ const NEEDS = [
     desc:  {ja: "隊士を選ぶと、生まれてから最期までの足跡が地図上に表示され、その生涯を読むことができます。",
             en: "Choose a name, and his road from birth to grave appears on the map, with his life story alongside."},
     picks: true },
-
-  { id: "read",
-    want:  {ja: "物語を通して読む", en: "Read the whole story"},
-    desc:  {ja: "多摩の村から箱館での最期、そして生き残った者たちのその後まで。ひとつながりの物語として読めます。",
-            en: "From the farm villages of Tama to the last stand at Hakodate and the survivors who told the tale, as one continuous account."},
-    hint:  {ja: "読み物 · 短縮版もあります", en: "A long read · short version too"},
-    go:    {href: "story.html", label: {ja: "物語を読む", en: "Read the story"}},
-    more:  {href: "story.html?v=short", label: {ja: "短縮版を読む", en: "Read the short version"}} },
 
   { id: "free",
     want:  {ja: "自由に見て回る", en: "Explore on my own"},
