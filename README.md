@@ -4,10 +4,10 @@ An interactive bilingual (JA/EN) map + timeline of the Shinsengumi — the corps
 the people in it and around it, and the era's national events running alongside —
 with a story page and a people page of biographies.
 
-The front page (`index.html`) asks how well the reader knows the corps and offers
-three ways in: the basics or short story for newcomers, the scene-by-scene
-chapters for readers who know the outline, and the full map and biographies
-for those who know it well. The map itself is `map.html`; old `index.html?ev=` /
+The front page (`index.html`) asks what the visitor wants to do — find out who
+they were, live through the key moments, follow one man's life, see where it
+happened, or read the whole story — and sends them straight to the right place
+(cards are in `js/home.js`). The map itself is `map.html`; old `index.html?ev=` /
 `?person=` links are forwarded there, and `map.html?tour=1` starts the guided tour.
 
 Self-hosted, no build step, no framework. Serve the folder from any static host

@@ -1,7 +1,8 @@
 /* =====================================================================
-   FRONT PAGE (index.html) — three ways in, by familiarity.
-   Every text field is bilingual {en, ja}. Links get ?lang=en added
-   automatically in English. To add or reorder a path, edit PATHS.
+   FRONT PAGE (index.html) — ways in, by what the visitor wants to do.
+   Each card starts from a need ("I want to…"), not from a page of the
+   site. Every text field is bilingual {en, ja}; links get ?lang=en added
+   automatically in English. Edit NEEDS to add, reword or reorder.
    ===================================================================== */
 
 const UI = {
@@ -11,38 +12,58 @@ const UI = {
   name:    {ja: "新選組の軌跡", en: "The Road of Shinsengumi"},
   lede:    {ja: "多摩の農家の子らが幕府の剣となり、主君が戦いをやめたあとも、最後まで戦い抜いた。その足跡を、当時の地図と物語でたどります。",
             en: "Farmers’ sons who became the shogun’s swordsmen, and fought on to the very end after their own lord had given up. Their road, on the maps of their day."},
-  ask:     {ja: "新選組を、どのくらいご存じですか？", en: "How well do you know the Shinsengumi?"},
+  ask:     {ja: "何をしてみたいですか？", en: "What would you like to do?"},
   all:     {ja: "サイトのすべて", en: "Everything on the site"},
+  everyone:{ja: "ほかの隊士 →", en: "Everyone else →"},
   foot:    {ja: "史実と伝承を区別して記しています。", en: "Documented history is kept apart from later legend throughout."}
 };
 
-/* level: how many of the three marks are filled */
-const PATHS = [
-  { level: 1,
-    tag:   {ja: "はじめて", en: "New to them"},
-    title: {ja: "名前を聞いたことがある程度", en: "I’ve only just heard of them"},
-    desc:  {ja: "まずは数分で全体像を。そのあと第一章から、物語を一場面ずつたどってください。",
-            en: "Start with ten minutes of background, then follow the story from Chapter 1, one scene at a time."},
-    go:    {href: {ja: "story.html?v=short", en: "basics.html"},
-            label: {ja: "まず概要を読む", en: "Read the basics"}},
-    more:  [ {href: "play/", label: {ja: "物語で体験する（第一章から）", en: "Then: Experience the story, from Chapter 1"}} ] },
+/* who appears as a quick pick on "Follow one man's life" */
+const PICKS = [
+  {id: "hijikata", ja: "土方歳三", en: "Hijikata Toshizō"},
+  {id: "kondo",    ja: "近藤勇",   en: "Kondō Isami"},
+  {id: "okita",    ja: "沖田総司", en: "Okita Sōji"},
+  {id: "saito",    ja: "斎藤一",   en: "Saitō Hajime"},
+  {id: "nagakura", ja: "永倉新八", en: "Nagakura Shinpachi"},
+  {id: "yamanami", ja: "山南敬助", en: "Yamanami Keisuke"}
+];
 
-  { level: 2,
-    tag:   {ja: "ひととおり", en: "Know the outline"},
-    title: {ja: "おおまかな流れは知っている", en: "I know the outline"},
-    desc:  {ja: "試衛館から箱館まで、十一の章で要所を当時の古地図の上に。通して読むなら全文も。",
-            en: "Eleven chapters of key moments, from the Shieikan to Hakodate, over the period maps. Or the whole story in one read."},
-    go:    {href: "play/", label: {ja: "物語で体験する", en: "Experience the story"}},
-    more:  [ {href: "story.html", label: {ja: "全文を読む", en: "Read the full story"}},
-             {href: "map.html?tour=1", label: {ja: "地図で順路をたどる", en: "Take the guided tour on the map"}} ] },
+const NEEDS = [
+  { id: "who",
+    want:  {ja: "どんな人たちだったのか、まず知りたい", en: "Find out who they were"},
+    desc:  {ja: "どんな時代に生き、誰と戦い、なぜいまも語り継がれるのか。全体像を数分で。",
+            en: "The country they lived in, who they fought, and why they are still remembered. The essentials, before anything else."},
+    hint:  {ja: "はじめての方に · 数分で読めます", en: "Start here if you’re new · about 10 minutes"},
+    go:    {href: {ja: "story.html?v=short", en: "basics.html"}, label: {ja: "概要を読む", en: "Read the basics"}} },
 
-  { level: 3,
-    tag:   {ja: "くわしく", en: "Know them well"},
-    title: {ja: "よく知っている", en: "I know them well"},
-    desc:  {ja: "すべての出来事を地図の上に。隊士一人ひとりの生涯をたどり、史実と伝承・異説を見分けながら。",
-            en: "Every event on the map. Follow any member from birth to grave, with legend and disputed accounts marked as such."},
+  { id: "live",
+    want:  {ja: "その場に立ち会うように、体験したい", en: "Live through the key moments"},
+    desc:  {ja: "試衛館の稽古場、池田屋の階段、箱館の最後の戦い。十一の章を、当時の古地図の上で一場面ずつ。",
+            en: "The practice hall at the Shieikan, the stairs of the Ikedaya, the last fight at Hakodate. Eleven chapters, one scene at a time, over the maps of the day."},
+    hint:  {ja: "全十一章 · タップで読み進める", en: "11 chapters · tap to read on"},
+    go:    {href: "play/", label: {ja: "物語で体験する", en: "Experience the story"}} },
+
+  { id: "follow",
+    want:  {ja: "一人の隊士の生涯を追いたい", en: "Follow one man’s life"},
+    desc:  {ja: "名前を選ぶと、生まれから最期までの足取りが地図の上に現れ、その生涯を読むことができます。",
+            en: "Choose a name, and his road from birth to grave appears on the map, with his life story alongside."},
+    picks: true },
+
+  { id: "places",
+    want:  {ja: "ゆかりの地を見たい・訪ねたい", en: "See where it happened"},
+    desc:  {ja: "すべての出来事を、その場所に。幕末の古地図でも現在の地図でも。京都・日野・箱館を訪ねる前にも。",
+            en: "Every event pinned to its place, on 1860s maps or today’s streets. Useful before a visit to Kyoto, Hino or Hakodate."},
+    hint:  {ja: "地図 · 古地図と現在の地図", en: "Map · period maps and today’s"},
     go:    {href: "map.html", label: {ja: "地図を開く", en: "Open the map"}},
-    more:  [ {href: "people.html", label: {ja: "隊士一覧", en: "All the members"}} ] }
+    more:  {href: "map.html?tour=1", label: {ja: "順路にそって案内してもらう", en: "Or be guided, stop by stop"}} },
+
+  { id: "read",
+    want:  {ja: "始まりから終わりまで、通して読みたい", en: "Read the whole story"},
+    desc:  {ja: "多摩の村から箱館の最期、そして語り継いだ生き残りたちまで。ひと続きの物語として。",
+            en: "From the farm villages of Tama to the last stand at Hakodate and the survivors who told the tale, as one continuous account."},
+    hint:  {ja: "読み物 · 短い版もあります", en: "A long read · short version too"},
+    go:    {href: "story.html", label: {ja: "物語を読む", en: "Read the story"}},
+    more:  {href: "story.html?v=short", label: {ja: "短い版を読む", en: "Read the short version"}} }
 ];
 
 const ALL = [
@@ -66,6 +87,22 @@ function link(h) {
 
 function esc(s) { return s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c])); }
 
+function card(n) {
+  const body = n.picks
+    ? `<div class="picks">${PICKS.map(p => `<a class="pick" href="${link("map.html?person=" + p.id)}">${esc(p[lang])}</a>`).join("")}</div>
+       <a class="need-more" href="${link("people.html")}">${esc(t(UI.everyone))}</a>`
+    : `<a class="hdr-btn primary need-go" href="${link(n.go.href)}">${esc(t(n.go.label))} →</a>
+       ${n.more ? `<a class="need-more" href="${link(n.more.href)}">${esc(t(n.more.label))}</a>` : ""}`;
+  return `
+    <article class="need need-${n.id}">
+      <div class="need-pre">${lang === "ja" ? "" : "I want to"}</div>
+      <h4 class="need-want">${esc(t(n.want))}</h4>
+      <p class="need-desc">${esc(t(n.desc))}</p>
+      ${n.hint ? `<div class="need-hint">${esc(t(n.hint))}</div>` : ""}
+      <div class="need-act">${body}</div>
+    </article>`;
+}
+
 function render() {
   document.documentElement.lang = lang;
   $("h-title").textContent = t(UI.site);
@@ -76,16 +113,7 @@ function render() {
   $("h-ask").textContent = t(UI.ask);
   $("h-all").textContent = t(UI.all);
   $("h-foot").textContent = t(UI.foot);
-
-  $("paths").innerHTML = PATHS.map(p => `
-    <article class="path">
-      <div class="path-tag"><span class="marks" aria-hidden="true">${[1, 2, 3].map(i => `<i class="${i <= p.level ? "on" : ""}"></i>`).join("")}</span>${esc(t(p.tag))}</div>
-      <h4 class="path-title">${esc(t(p.title))}</h4>
-      <p class="path-desc">${esc(t(p.desc))}</p>
-      <a class="hdr-btn primary path-go" href="${link(p.go.href)}">${esc(t(p.go.label))} →</a>
-      <ul class="path-more">${p.more.map(m => `<li><a href="${link(m.href)}">${esc(t(m.label))}</a></li>`).join("")}</ul>
-    </article>`).join("");
-
+  $("paths").innerHTML = NEEDS.map(card).join("");
   $("all").innerHTML = ALL.filter(a => !a.only || a.only === lang)
     .map(a => `<li><a href="${link(a.href)}">${esc(t(a.label))}</a></li>`).join("");
 }

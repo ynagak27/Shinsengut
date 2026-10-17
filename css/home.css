@@ -32,26 +32,27 @@ body{display:block;overflow:visible}
 .hero-title{font-family:var(--disp);font-weight:800;font-size:clamp(32px,6.4vw,54px);line-height:1.2;letter-spacing:.04em;text-wrap:balance}
 .hero-lede{font-family:var(--disp);font-weight:500;font-size:clamp(16px,2.2vw,19px);line-height:1.95;color:#e2dbc9;margin-top:18px;max-width:34em}
 
-/* the three paths */
+/* the needs: five cards, three on the first row and two below */
 .paths{margin-top:22px}
 .ask{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.4;margin-bottom:18px}
-.path-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.path{
-  display:flex;flex-direction:column;
-  border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:20px 20px 18px;
-  transition:border-color .15s;
-}
-.path:hover{border-color:var(--asagi-dim)}
-.path-tag{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--asagi)}
-.marks{display:inline-flex;gap:4px}
-.marks i{width:8px;height:8px;transform:rotate(45deg);border:1.5px solid var(--asagi-dim)}
-.marks i.on{background:var(--asagi);border-color:var(--asagi)}
-.path-title{font-family:var(--disp);font-weight:700;font-size:20px;line-height:1.45;margin:12px 0 8px}
-.path-desc{font-size:14px;line-height:1.85;color:#d9d2c1;margin-bottom:18px;flex:1}
-.path-go{align-self:flex-start;font-size:14px;padding:9px 16px}
-.path-more{list-style:none;margin-top:12px;display:grid;gap:6px}
-.path-more a{font-size:13px;color:var(--mist);text-decoration:none;border-bottom:1px solid var(--line)}
-.path-more a:hover{color:var(--asagi);border-color:var(--asagi-dim)}
+.path-list{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.need{grid-column:span 2;display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:20px 20px 18px;transition:border-color .15s}
+.need-places,.need-read{grid-column:span 3}
+.need:hover{border-color:var(--asagi-dim)}
+.need-who{border-top:3px solid var(--makoto)}
+.need-pre{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--asagi);min-height:1px}
+.need-pre:empty{display:none}
+.need-want{font-family:var(--disp);font-weight:700;font-size:21px;line-height:1.45;margin:6px 0 10px}
+.need-desc{font-size:14px;line-height:1.85;color:#d9d2c1;margin-bottom:12px;flex:1}
+.need-hint{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mist);margin-bottom:16px}
+.need-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.need-go{font-size:14px;padding:9px 16px}
+.need-more{font-size:13px;color:var(--mist);text-decoration:none;border-bottom:1px solid var(--line)}
+.need-more:hover{color:var(--asagi);border-color:var(--asagi-dim)}
+.picks{display:flex;flex-wrap:wrap;gap:6px;width:100%}
+.pick{font-size:13px;color:var(--washi);text-decoration:none;border:1px solid var(--line);border-radius:3px;padding:6px 10px;background:var(--panel-2)}
+.pick:hover{border-color:var(--asagi-dim);color:var(--asagi)}
 
 /* everything */
 .everything{margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
@@ -64,5 +65,6 @@ body{display:block;overflow:visible}
   .home{padding:0 16px 48px}
   .hero{margin:0 -16px;padding:40px 16px 28px}
   .path-list{grid-template-columns:1fr}
-  .path-title{font-size:19px}
+  .need,.need-places,.need-read{grid-column:auto}
+  .need-want{font-size:19px}
 }
