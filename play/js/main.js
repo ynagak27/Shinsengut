@@ -10,13 +10,21 @@ const { $_ready } = Monogatari;
 
 const UI = {
 	site:     { ja: '新選組の軌跡', en: 'The Road of Shinsengumi' },
-	rule:     { ja: '史実と、記録のない部分に限り広く知られた逸話のみで構成しています。', en: 'Built only from the record, with well-known anecdotes where the record is silent.' },
+	rule:     { ja: '史実と、記録のない部分に限り広く知られた逸話のみで構成しています。解説は前後をつなぐ説明で、新たな事実は加えていません。', en: 'Built only from the record, with well-known anecdotes where the record is silent. Context lines connect the story and add no new facts.' },
 	record:   { ja: '史実', en: 'Record' },
 	anecdote: { ja: '逸話', en: 'Anecdote' },
+	context:  { ja: '解説', en: 'Context' },
+	contextNote: { ja: '前後の出来事をつなぐ解説です', en: 'Connects the events around it' },
 	source:   { ja: '出典', en: 'Source' },
 	other:    { ja: 'English', en: '日本語' },
 	map:      { ja: '← 地図に戻る', en: '← Back to the map' },
-	story:    { ja: '物語を読む', en: 'Read the story' }
+	story:    { ja: '物語を読む', en: 'Read the story' },
+	heading:  { ja: '物語で体験する', en: 'Experience the story' },
+	intro:    { ja: '新選組の歩みの要所を、一場面ずつ、当時の地図の上でたどります。', en: 'Key moments in the Shinsengumi’s story, one scene at a time, over the maps of the day.' },
+	chapters: { ja: '章', en: 'Chapters' },
+	begin:    { ja: '読みはじめる', en: 'Begin' },
+	again:    { ja: '読了 · もう一度', en: 'Read · again' },
+	maps:     { ja: '地図の出典', en: 'Maps' }
 };
 
 /* Language follows the rest of the site: ?lang=en, otherwise Japanese. */
@@ -37,11 +45,29 @@ function el(tag, cls, html) {
 	return e;
 }
 
-/* ---------- Title screen ---------- */
+/* ---------- Title screen: the chapter list ---------- */
+function stamps() {
+	try { return new Set(JSON.parse(localStorage.getItem('shinsengumi.stamps') || '[]')); } catch (e) { return new Set(); }
+}
+
+function startChapter(id) {
+	window.PLAY_CHAPTER = id;
+	const start = document.querySelector('main-menu [data-action="start"]');
+	if (start) start.click();
+}
+
+/* Credits for every period map the chapters use, in the holders' own
+   wording from data/oldmaps.js. */
+function mapCredits() {
+	const used = new Set(Object.values(PLAY.places).map(p => p.map));
+	return (typeof OLD_MAPS === 'undefined' ? [] : OLD_MAPS)
+		.filter(m => used.has(m.id))
+		.map(m => `<p class="ss-credit"><span>${t(m.title)}</span> ${t(m.credit)}</p>`).join('');
+}
+
 function buildTitle() {
 	const screen = document.querySelector('main-screen');
 	if (!screen) return;
-	const ch = PLAY.chapters[0];
 	let card = screen.querySelector('.ss-title');
 	if (!card) {
 		screen.prepend(el('div', 'ss-dangara'));
@@ -49,13 +75,22 @@ function buildTitle() {
 		screen.insertBefore(card, screen.querySelector('main-menu'));
 		screen.appendChild(el('div', 'ss-foot'));
 	}
+	const done = stamps();
+	const list = PLAY.chapters.map(ch => `
+		<button type="button" class="ss-ch" data-ch="${ch.id}">
+			<span class="ss-chmeta">${t(ch.no)}<i>·</i>${t(ch.span)}</span>
+			<span class="ss-chtitle">${t(ch.title)}</span>
+			<span class="ss-chlede">${t(ch.lede)}</span>
+			<span class="ss-chgo${done.has(ch.id) ? ' done' : ''}">${done.has(ch.id) ? t(UI.again) : t(UI.begin)} →</span>
+		</button>`).join('');
 	card.innerHTML = `
 		<a class="ss-series" href="${siteHref('index.html')}">${t(UI.site)}</a>
-		<div class="ss-eyebrow">${t(ch.no)}</div>
-		<h1 class="ss-h1">${t(ch.title)}</h1>
-		<div class="ss-span">${t(ch.span)}</div>
-		<p class="ss-lede">${t(ch.lede)}</p>
-		<div class="ss-key"><span class="ss-chip rec">${t(UI.record)}</span><span class="ss-chip anec">${t(UI.anecdote)}</span><span class="ss-keytext">${t(UI.rule)}</span></div>`;
+		<h1 class="ss-h1 ss-h1-sm">${t(UI.heading)}</h1>
+		<p class="ss-lede">${t(UI.intro)}</p>
+		<div class="ss-key"><span class="ss-chip rec">${t(UI.record)}</span><span class="ss-chip anec">${t(UI.anecdote)}</span><span class="ss-chip ctx">${t(UI.context)}</span><span class="ss-keytext">${t(UI.rule)}</span></div>
+		<div class="ss-eyebrow ss-listhead">${t(UI.chapters)}</div>
+		<div class="ss-chlist">${list}</div>`;
+	card.querySelectorAll('.ss-ch').forEach(b => { b.onclick = () => startChapter(b.dataset.ch); });
 	const foot = screen.querySelector('.ss-foot');
 	foot.innerHTML = '';
 	const row = el('div', 'ss-links');
@@ -65,7 +100,7 @@ function buildTitle() {
 	const map = el('a', 'ss-lang', t(UI.map)); map.href = siteHref('index.html');
 	const story = el('a', 'ss-lang', t(UI.story)); story.href = siteHref('story.html');
 	row.append(map, story, lb);
-	foot.append(row, el('p', 'ss-credit', t(PLAY.fullCredit)));
+	foot.append(row, el('div', 'ss-credits', `<div class="ss-eyebrow">${t(UI.maps)}</div>${mapCredits()}`));
 	document.documentElement.lang = isJa() ? 'ja' : 'en';
 }
 
@@ -86,10 +121,9 @@ function buildHud() {
 	if (!screen) return;
 	let hud = screen.querySelector('.ss-hud');
 	if (!hud) { hud = el('div', 'ss-hud'); screen.appendChild(hud); }
-	const ch = PLAY.chapters[0];
 	hud.innerHTML = `<div class="ss-dangara"></div>
 		<div class="ss-hudrow">
-			<div class="ss-hudtitle"><span class="ss-hudch">${t(ch.no)}</span><span class="ss-hudname">${t(ch.title)}</span></div>
+			<div class="ss-hudtitle"><span class="ss-hudch"></span><span class="ss-hudname"></span></div>
 		</div>
 		<div class="ss-progress"><span></span></div>
 		<div class="ss-mapcredit"></div>`;
@@ -126,7 +160,9 @@ function updateBeat() {
 	meta.innerHTML = `<span class="ss-when">${beat.year}<i>·</i>${ja ? place.ja : place.en}</span><span class="ss-count">${n}</span>`;
 	note.hidden = false;
 	note.dataset.kind = beat.kind;
-	note.innerHTML = `<span class="ss-notelabel">${beat.kind === 'record' ? t(UI.record) : t(UI.anecdote)}</span><span class="ss-notesrc">${t(UI.source)}：${ja ? beat.src.ja : beat.src.en}</span>`;
+	const label = { record: UI.record, anecdote: UI.anecdote, context: UI.context }[beat.kind] || UI.record;
+	const srcText = beat.src ? `${t(UI.source)}：${ja ? beat.src.ja : beat.src.en}` : t(UI.contextNote);
+	note.innerHTML = `<span class="ss-notelabel">${t(label)}</span><span class="ss-notesrc">${srcText}</span>`;
 	box.classList.toggle('ss-poem', !!beat.poem);
 	box.classList.toggle('ss-ja', ja);
 	if (beat.poem) {
@@ -134,6 +170,9 @@ function updateBeat() {
 		if (poem.dataset.html !== html) { poem.dataset.html = html; poem.innerHTML = html; poem.classList.remove('in'); void poem.offsetWidth; poem.classList.add('in'); }
 	} else { poem.innerHTML = ''; poem.dataset.html = ''; }
 	if (hud) {
+		const ch = PLAY.chapters.find(c => c.id === beat.chapter) || PLAY.chapters[0];
+		hud.querySelector('.ss-hudch').textContent = t(ch.no);
+		hud.querySelector('.ss-hudname').textContent = t(ch.title);
 		hud.querySelector('.ss-progress span').style.width = (beat.n / beat.total * 100) + '%';
 		const c = PLAY.mapCredits[place.map];
 		hud.querySelector('.ss-mapcredit').textContent = ja ? c.ja : c.en;
@@ -151,5 +190,8 @@ $_ready(() => {
 		buildHud();
 		['didUpdateState', 'didRunAction', 'didRevertAction', 'didLoadGame', 'didLocalize']
 			.forEach(e => monogatari.on(e, () => setTimeout(updateBeat, 0)));
+		// refresh the chapter list (and its "read" marks) on returning to it
+		new MutationObserver(() => { if (document.querySelector('main-screen.active')) buildTitle(); })
+			.observe(document.querySelector('main-screen'), { attributes: true, attributeFilter: ['class'] });
 	});
 });

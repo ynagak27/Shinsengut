@@ -164,8 +164,10 @@ copied into `play/engine/`), restyled with this site's colours and fonts in
 - `kind:"record"` (史実) is what the record shows.
 - `kind:"anecdote"` (逸話) is a well-known traditional story, used only where the
   record is silent. It shows in the same dashed red box as legends on the map.
+- `kind:"context"` (解説) is narration that connects the beats around it (why
+  something mattered, what it led to). It adds no new facts, so it has no `src`.
 - Nothing is invented. A person speaks only words that are recorded or
-  traditionally attributed to them. Every beat names its source in `src`.
+  traditionally attributed to them. Every record and anecdote names its source in `src`.
 
 **Adding a beat:** copy one in `data/play.js` and change `scene`, `kind`, `year`,
 `ja`, `en` and `src`. Each beat is one tap.
@@ -177,11 +179,16 @@ period-map tiles:
 python3 tools/play/crop.py edo-keio 16 35.6926 139.7333 play/assets/scenes/ichigaya.webp
 ```
 
-Use `edo-keio` for Edo, `kyoto-genji` for Kyoto and `ino-daizu` for Tama and the
-roads; see the examples at the top of the script. The credits on the title screen
-come from `data/oldmaps.js`, so keep them in step if a new map is used.
+Use `edo-keio` for Edo, `kyoto-genji` for Kyoto (add `--paper`, as the scan is
+tilted and its edges would otherwise show dark), `ino-daizu` for Tama and
+`ino-chuzu` for whole routes; see the examples at the top of the script. Set the
+place's `map` to the same id: the title screen lists the full credit for every map
+in use, in the holder's wording from `data/oldmaps.js`.
 
-**Chapters planned:** Shieikan (done), arrival at Mibu, Serizawa, Ikedaya, Kinmon,
+**Adding a chapter:** add a block to `PLAY.chapters`. It appears on the title
+screen's chapter list in that order, and is marked as read once finished.
+
+**Chapters planned:** Shieikan (done), Mibu (done), Serizawa, Ikedaya, Kinmon,
 Aburanokōji, Toba–Fushimi, Nagareyama and Itabashi, Utsunomiya and Aizu, Hakodate.
 Finishing a chapter records it in the browser (`shinsengumi.stamps`), ready for the
 map to show later.
