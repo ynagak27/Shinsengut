@@ -69,7 +69,7 @@ To add a new map:
 1. Repeat steps 1–6 for it.
 2. Add an entry to `data/oldmaps.js` with the credit wording the holder
    requires.
-3. Add a `<script>` tag for its `tiles.js` in `index.html`.
+3. Add a `<script>` tag for its `tiles.js` in `map.html`.
 
 ## How the Inō layer was made (`ino-chuzu`)
 

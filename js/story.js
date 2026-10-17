@@ -14,7 +14,8 @@ const UI = {
 };
 
 let lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ja";
-let mode = "long";
+/* ?v=short opens the short version (the front page links to it) */
+let mode = new URLSearchParams(location.search).get("v") === "short" ? "short" : "long";
 const t = o => (o && o[lang] !== undefined) ? o[lang] : "";
 const $ = id => document.getElementById(id);
 
@@ -30,7 +31,8 @@ function paragraphs(parent, text) {
 
 function render() {
   document.documentElement.lang = lang;
-  const mapHref = "index.html" + (lang === "en" ? "?lang=en" : "");
+  const mapHref = "map.html" + (lang === "en" ? "?lang=en" : "");
+  $("h-title").href = "index.html" + (lang === "en" ? "?lang=en" : "");
 
   $("h-title").textContent = t(UI.site);
   $("btn-map").textContent = t(UI.map);
@@ -84,7 +86,9 @@ function render() {
 
 $("btn-lang").onclick = () => {
   lang = lang === "ja" ? "en" : "ja";
-  history.replaceState(null, "", lang === "en" ? "?lang=en" : location.pathname);
+  const q = new URLSearchParams(location.search);
+  if (lang === "en") q.set("lang", "en"); else q.delete("lang");
+  history.replaceState(null, "", q.toString() ? "?" + q : location.pathname);
   render();
 };
 $("btn-version").onclick = () => {

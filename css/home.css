@@ -1,0 +1,68 @@
+/* Front page (index.html). Loads after style.css and reuses its colour
+   tokens, header, buttons and the dangara strip. */
+
+/* style.css pins the map page to the screen height; this page scrolls. */
+html,body{height:auto}
+body{display:block;overflow:visible}
+
+/* style.css makes <main> a flex row for the map; here it is a plain column */
+.home{display:block;max-width:1080px;margin:0 auto;padding:0 20px 64px}
+
+/* hero: a period map of Kyoto, faded into the page */
+.hero{position:relative;margin:0 -20px;padding:64px 20px 40px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:url("../play/assets/scenes/kyoto.webp") center 40%/cover no-repeat;
+  opacity:.32;filter:sepia(.25) saturate(.8);
+  /* soft left and right edges, so the map has no hard frame on wide screens */
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,rgba(16,21,29,.35) 0%,rgba(16,21,29,.75) 55%,var(--sumi) 100%);
+}
+.hero-in{position:relative;z-index:1;max-width:680px}
+.seal{
+  font-family:var(--disp);font-weight:800;font-size:40px;color:var(--makoto);
+  border:2px solid var(--makoto);width:66px;height:66px;display:grid;place-items:center;border-radius:4px;
+  margin-bottom:22px;background:rgba(16,21,29,.5);
+}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--asagi);text-transform:uppercase;margin-bottom:12px}
+.hero-title{font-family:var(--disp);font-weight:800;font-size:clamp(32px,6.4vw,54px);line-height:1.2;letter-spacing:.04em;text-wrap:balance}
+.hero-lede{font-family:var(--disp);font-weight:500;font-size:clamp(16px,2.2vw,19px);line-height:1.95;color:#e2dbc9;margin-top:18px;max-width:34em}
+
+/* the three paths */
+.paths{margin-top:22px}
+.ask{font-family:var(--disp);font-weight:700;font-size:clamp(20px,3vw,26px);line-height:1.4;margin-bottom:18px}
+.path-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.path{
+  display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:20px 20px 18px;
+  transition:border-color .15s;
+}
+.path:hover{border-color:var(--asagi-dim)}
+.path-tag{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--asagi)}
+.marks{display:inline-flex;gap:4px}
+.marks i{width:8px;height:8px;transform:rotate(45deg);border:1.5px solid var(--asagi-dim)}
+.marks i.on{background:var(--asagi);border-color:var(--asagi)}
+.path-title{font-family:var(--disp);font-weight:700;font-size:20px;line-height:1.45;margin:12px 0 8px}
+.path-desc{font-size:14px;line-height:1.85;color:#d9d2c1;margin-bottom:18px;flex:1}
+.path-go{align-self:flex-start;font-size:14px;padding:9px 16px}
+.path-more{list-style:none;margin-top:12px;display:grid;gap:6px}
+.path-more a{font-size:13px;color:var(--mist);text-decoration:none;border-bottom:1px solid var(--line)}
+.path-more a:hover{color:var(--asagi);border-color:var(--asagi-dim)}
+
+/* everything */
+.everything{margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
+.everything ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px}
+.everything a{color:var(--washi);text-decoration:none;font-size:14px}
+.everything a:hover{color:var(--asagi)}
+.home-foot{margin-top:26px;font-size:12px;color:var(--mist)}
+
+@media (max-width:880px){
+  .home{padding:0 16px 48px}
+  .hero{margin:0 -16px;padding:40px 16px 28px}
+  .path-list{grid-template-columns:1fr}
+  .path-title{font-size:19px}
+}

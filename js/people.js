@@ -130,7 +130,7 @@ function renderPerson(root, id) {
   root.appendChild(el("p", "pp-summary", t(p.summary)));
 
   const onMap = el("a", "hdr-btn primary pp-mapbtn", t(UI.onMap));
-  onMap.href = href("index.html", {person: id});
+  onMap.href = href("map.html", {person: id});
   root.appendChild(onMap);
 
   (p.sections || []).forEach(s => {
@@ -153,7 +153,7 @@ function renderPerson(root, id) {
     const list = el("div", "link-list");
     evs.forEach(e => {
       const a = el("a", "link-item");
-      a.href = href("index.html", {ev: e.id});
+      a.href = href("map.html", {ev: e.id});
       const top = el("div", "li-top");
       top.append(
         el("span", "no " + (e.kind === "context" ? "ctx" : ""), String(e.no)),
@@ -184,7 +184,8 @@ function render() {
   document.documentElement.lang = lang;
   $("h-title").textContent = t(UI.site);
   $("btn-map").textContent = t(UI.map);
-  $("btn-map").href = href("index.html");
+  $("btn-map").href = href("map.html");
+  $("h-title").href = href("index.html");
   $("btn-lang").textContent = t(UI.lang);
 
   const id = new URLSearchParams(location.search).get("p");

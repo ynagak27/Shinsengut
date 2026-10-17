@@ -53,7 +53,7 @@ Later courses (not scheduled yet): Saitō, Okita, Kondō, Nagakura.
   2. the story, 4–7 paragraphs;
   3. "人物 / The people": two or three people with a line each on their part;
   4. "伝承と史実 / Legend and record": what is tradition, what is disputed;
-  5. "地図で見る / On the map": buttons to `index.html?ev=<id>` (and
+  5. "地図で見る / On the map": buttons to `map.html?ev=<id>` (and
      `?person=<id>` for course B);
   6. "次回 / Next time": one line teasing the next issue.
 - **Accuracy:** the site's rule applies. Facts that rest on tradition or
@@ -62,7 +62,7 @@ Later courses (not scheduled yet): Saitō, Okita, Kondō, Nagakura.
   date in Japanese where known.
 - **Tone:** narrative history, not a textbook; no modern slang; no emoji.
 - **Links:** live site https://ynagak27.github.io/Shinsengut/ — event
-  `index.html?ev=<id>`, person `index.html?person=<id>`, biography
+  `map.html?ev=<id>`, person `map.html?person=<id>`, biography
   `people.html?p=<id>`.
 - **Footer:** say it is a test issue, invite a reply with feedback.
 

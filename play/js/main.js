@@ -100,7 +100,7 @@ function buildTitle() {
 	const lb = el('button', 'ss-lang', t(UI.other));
 	lb.type = 'button';
 	lb.onclick = () => setLang(isJa() ? 'English' : '日本語');
-	const map = el('a', 'ss-lang', t(UI.map)); map.href = siteHref('index.html');
+	const map = el('a', 'ss-lang', t(UI.map)); map.href = siteHref('map.html');
 	const story = el('a', 'ss-lang', t(UI.story)); story.href = siteHref('story.html');
 	row.append(map, story, lb);
 	foot.append(row, el('div', 'ss-credits', `<div class="ss-eyebrow">${t(UI.maps)}</div>${mapCredits()}`));
