@@ -189,8 +189,9 @@ in use, in the holder's wording from `data/oldmaps.js`.
 **Adding a chapter:** add a block to `PLAY.chapters`. It appears on the title
 screen's chapter list in that order, and is marked as read once finished.
 
-**Chapters planned:** Shieikan (done), Mibu (done), Serizawa (done), Ikedaya (done), Kinmon (done), Yamanami (done),
-Aburanokōji, Toba–Fushimi, Nagareyama and Itabashi, Utsunomiya and Aizu, Hakodate.
+**Chapters:** Shieikan, Mibu, Serizawa, Ikedaya, Kinmon, Yamanami, Aburanokōji,
+Toba–Fushimi, Kōshū–Nagareyama–Itabashi, Utsunomiya and Aizu, Hakodate (with an
+epilogue to 1915). All eleven are written.
 Finishing a chapter records it in the browser (`shinsengumi.stamps`), ready for the
 map to show later.
 
