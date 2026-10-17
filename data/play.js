@@ -55,7 +55,11 @@ const PLAY = {
     kujo:     {ja: "京都・九条河原",       en: "The riverbank at Kujō, Kyoto", map: "kyoto-genji"},
     kyoto:    {ja: "京都の町",             en: "The city of Kyoto",          map: "kyoto-genji"},
     rokkaku:  {ja: "京都・六角獄舎",       en: "The Rokkaku prison, Kyoto",  map: "kyoto-genji"},
-    tennozan: {ja: "山崎・天王山",         en: "Tennōzan, Yamazaki",         map: "none", img: "unmapped"}
+    tennozan: {ja: "山崎・天王山",         en: "Tennōzan, Yamazaki",         map: "none", img: "unmapped"},
+    fukagawa: {ja: "江戸・深川",           en: "Fukagawa, Edo",              map: "edo-keio"},
+    otsu:     {ja: "近江・大津",           en: "Ōtsu, on Lake Biwa",         map: "ino-chuzu"},
+    kouenji:  {ja: "壬生・光縁寺",         en: "Kōen-ji temple, Mibu",       map: "kyoto-genji", img: "mibu"},
+    honganji: {ja: "京都・西本願寺",       en: "Nishi Honganji, Kyoto",      map: "kyoto-genji"}
   },
 
   /* Short credit shown under the header while a map is on screen. The
@@ -726,7 +730,141 @@ const PLAY = {
         ja: "会津と新選組の立場は、このとき頂点にあった。だが長州征討はやがて、幕府に残された力を食い尽くしていく。",
         en: "Aizu and the Shinsengumi are at the height of their standing. But the campaigns against Chōshū will, in time, consume what strength the shogunate has left." }
 
+    ] },
+
+  { id: "yamanami",
+    no:    {ja: "第六章", en: "Chapter 6"},
+    title: {ja: "山南敬助", en: "Yamanami"},
+    span:  {ja: "1864 – 1865　京都・江戸・大津", en: "1864 – 1865 · Kyoto, Edo and Ōtsu"},
+    lede:  {ja: "名声とともに大きく、厳しくなっていく隊。「仏の山南」と呼ばれた総長は置き手紙を残して去り、追っ手の沖田とともに戻って、自らが定めた掟に従って死ぬ。",
+            en: "As fame makes the corps larger and harder, its gentle general secretary leaves a note and rides away, comes back with the young man sent after him, and dies by the code he helped write."},
+    cover: "mibu",
+    end:   {ja: "第六章　山南敬助　了", en: "End of Chapter 6 · Yamanami"},
+    beats: [
+
+      { scene: "mibu", kind: "context", year: "1864",
+        ja: "池田屋と禁門の変で、新選組は名を上げた。だが名声は、隊の内側も変えていく。",
+        en: "The Ikedaya and the Kinmon battle have made the Shinsengumi famous. Fame is changing the corps from the inside, too." },
+
+      { scene: "kurodani", kind: "record", year: "1864",
+        ja: "元治元年秋、永倉新八、原田左之助、斎藤一、島田魁ら六人が、近藤の非行を書き連ねた建白書を会津藩に出す。ともに隊を興した仲間を、近藤は家来のように扱いはじめている、と。",
+        en: "In the autumn of 1864, six men including Nagakura Shinpachi, Harada Sanosuke, Saitō Hajime and Shimada Kai take a written complaint about Kondō to Aizu. He has begun, they say, to treat the men who founded the corps with him as his retainers.",
+        src: {ja: "永倉新八の後年の記述。当然ながら六人を好意的に描く", en: "Nagakura’s own later accounts, which naturally present the six in a good light"} },
+
+      { scene: "kurodani", kind: "record", year: "1864",
+        ja: "松平容保みずからが仲裁に立った。双方を呼び、叱り、なだめ、酒を酌み交わさせて和解させる。隊は割れずにすんだ。",
+        en: "Matsudaira Katamori himself steps in. He summons both sides, scolds and soothes them, and reconciles them over sake. The corps holds together.",
+        src: {ja: "永倉新八の記述", en: "Nagakura’s accounts"} },
+
+      { scene: "kurodani", kind: "record", year: "1864",
+        ja: "数週間のうちに、六人の一人、葛山武八郎が別の罪状で切腹を命じられた。",
+        en: "Within weeks one of the six, Kuzuyama Takehachirō, is ordered to commit seppuku on another charge.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "kurodani", kind: "context", year: "1864",
+        ja: "建白との結びつきを疑わない者は、当時ほとんどいなかった。ただしそれは推測であり、記録で確かめられた事実ではない。",
+        en: "Few at the time doubted the connection with the complaint. But it is an inference, not a documented fact." },
+
+      { scene: "fukagawa", kind: "record", year: "1864",
+        ja: "人手の足りない隊のため、近藤は秋に江戸へ下り、隊士を募った。先に江戸に入っていた藤堂平助が、深川の伊東甲子太郎の道場へ近藤を案内する。",
+        en: "The corps is short of men, and in the autumn Kondō goes east to recruit. Tōdō Heisuke, already in Edo, takes him to the Fukagawa dojo of Itō Kashitarō.",
+        src: {ja: "隊の記録、伊東側の記録", en: "Records of the corps and of Itō’s circle"} },
+
+      { scene: "fukagawa", kind: "record", year: "1864",
+        ja: "伊東は北辰一刀流の師範で、学者であり歌人でもあり、自らの門人を抱えていた。弟の鈴木三樹三郎、篠原泰之進らを連れて入隊し、近藤は彼を組長より上の地位に据えた。",
+        en: "Itō is a Hokushin Ittō-ryū master, a scholar and a poet with followers of his own. He joins with his brother Suzuki Mikisaburō, Shinohara Taishinosuke and others, and Kondō gives him rank above the unit captains.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "fukagawa", kind: "context", year: "1864",
+        ja: "隊は人数と品格を得た。同時に、将軍よりも天皇に第一の忠誠を置く人物を、幹部として迎え入れたことにもなる。",
+        en: "The corps gains numbers and polish. It also takes in, as an honoured officer, a man whose first loyalty is to the emperor rather than the shogun." },
+
+      { scene: "mibu", kind: "record", year: "1864",
+        ja: "山南敬助は、試衛館以来の古参である。北辰一刀流の免許を持ち、学問にも通じた、穏やかな年長者だった。隊では土方と並ぶ副長、のちに総長の地位にあった。",
+        en: "Yamanami Keisuke has been with Kondō since the Shieikan: a licensed Hokushin Ittō-ryū swordsman, well read and even-tempered, the steady elder of the household. In the corps he was vice-commander beside Hijikata, and later general secretary.",
+        src: {ja: "隊の記録、隊士の回想。生年や仙台の出自は伝承による", en: "The corps’ records; members’ recollections. His birth year and Sendai origins rest on tradition"} },
+
+      { scene: "mibu", kind: "context", year: "1864",
+        ja: "だが隊の実権は、副長の土方を通って動いていた。総長という大きな肩書きのもとで、山南は次第に脇へ押しやられていく。",
+        en: "But real authority over the corps runs through Hijikata. Under his grand title, Yamanami is steadily pushed aside." },
+
+      { scene: "mibu", kind: "anecdote", year: "1864",
+        ja: "大坂で強盗と斬り合って腕を傷め、それからは剣をとることが少なくなったともいう。",
+        en: "By one account he was wounded in the arm fighting robbers in Osaka, and fought less after that.",
+        src: {ja: "伝承", en: "Tradition"} },
+
+      { scene: "mibu", kind: "context", year: "1864",
+        ja: "伊東の入隊は、山南にとって同じ心の持ち主を得ることだった。同じ北辰一刀流、学問の人で、尊王の志を分かち合っていた。",
+        en: "In Itō, Yamanami finds a kindred spirit: a man of the same sword school and of learning, who shares his loyalty to the imperial cause." },
+
+      { scene: "honganji", kind: "anecdote", year: "1865",
+        ja: "屯所を西本願寺へ移す計画に、山南は反対したとする記録もある。",
+        en: "Some accounts say he opposed the plan to move the barracks into Nishi Honganji.",
+        src: {ja: "一部の記録", en: "Some accounts"} },
+
+      { scene: "mibu", kind: "record", year: "1865",
+        ja: "元治二年二月、山南は置き手紙を残して東へ去った。自らも定めた隊の掟のもとでは脱走であり、死罪である。",
+        en: "In the 2nd month of 1865, Yamanami leaves a note and rides east. Under the code he helped establish, it is desertion, and the penalty is death.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "otsu", kind: "record", year: "1865",
+        ja: "追っ手に立てられたのは、試衛館でともに育った沖田総司だった。東へ向かう最初の宿場、大津で追いつかれると、山南は抵抗せずに戻った。",
+        en: "The man sent after him is Okita Sōji, who grew up beside him at the Shieikan. Overtaken at Ōtsu, the first post town on the road east, Yamanami comes back without resistance.",
+        src: {ja: "隊の記録、隊士の回想", en: "The corps’ records; members’ recollections"} },
+
+      { scene: "otsu", kind: "context", year: "1865",
+        ja: "逃げ切る力は、十分にあったはずだった。なぜ去り、なぜ戻ったのか。彼自身の言葉は何も残っておらず、新選組の歴史で最も答えの出ない問いになっている。",
+        en: "Escape was surely within his power. Why he left, and why he came back, no letter or word of his own survives to say. It remains the most haunting question in the corps’ history." },
+
+      { scene: "maekawa", kind: "record", year: "1865",
+        ja: "二月二十三日、山南は壬生の前川家の屯所で切腹した。介錯は沖田。三十一、二歳だった。",
+        en: "On the 23rd day of the 2nd month he dies by seppuku at the barracks in the Maekawa house, Mibu, with Okita as his second. He is thirty-one or thirty-two.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "maekawa", kind: "record", year: "1865",
+        ja: "伊東甲子太郎は、山南の死を悼む歌を詠んだ。",
+        en: "Itō Kashitarō writes poems mourning him.",
+        src: {ja: "伊東の歌", en: "Itō’s poems"} },
+
+      { scene: "kouenji", kind: "record", year: "1865",
+        ja: "子どもたちと遊んでくれた「仏の山南」を、壬生の人々ははばかることなく悼んだ。光縁寺の墓には、いまも花が絶えない。",
+        en: "The people of Mibu, whose children he played with and who called him “Yamanami the Buddha”, mourn him openly. His grave at Kōen-ji still receives flowers.",
+        src: {ja: "八木家・前川家の回想、光縁寺の墓所", en: "Recollections of the Yagi and Maekawa families; the grave at Kōen-ji"} },
+
+      { scene: "kouenji", kind: "context", year: "1865",
+        ja: "恋人・明里と屯所の格子窓越しに別れる場面はよく知られている。だがこれは、二十世紀の子母澤寛の半ば創作的な聞き書きが初出である。",
+        en: "The farewell with his lover Akesato through the barracks’ lattice window is a famous scene. It first appears, though, in Shimozawa Kan’s twentieth-century chronicles, which blended interviews with invention." },
+
+      { scene: "honganji", kind: "record", year: "1865",
+        ja: "その春、二百名ほどにふくらんだ隊は壬生を出て、屯所を西本願寺の境内に移した。長州への同情も疑われた、門徒数百万の浄土真宗の本山である。",
+        en: "That spring the corps, now some two hundred men, leaves Mibu and moves its barracks into Nishi Honganji: head temple of a sect with millions of followers, and one suspected of sympathy for Chōshū.",
+        src: {ja: "隊の記録、西本願寺の記録", en: "Records of the corps and of Nishi Honganji"} },
+
+      { scene: "honganji", kind: "context", year: "1865",
+        ja: "移転は兵站の都合であると同時に、寺に対する意図的な威圧でもあった。",
+        en: "The move is as much deliberate intimidation of the temple as it is logistics." },
+
+      { scene: "honganji", kind: "anecdote", year: "1865",
+        ja: "僧侶たちは境内での調練と砲声に耐えた。隊士の健康のためにと幕医・松本良順が肉食を勧め、境内で豚まで飼われたという。",
+        en: "The monks endure drilling and gunfire in their grounds. The shogunate’s physician Matsumoto Ryōjun urged meat for the men’s health, and pigs, it is said, were kept on the temple grounds.",
+        src: {ja: "伝え", en: "Later accounts"} },
+
+      { scene: "honganji", kind: "record", year: "1865",
+        ja: "隊は完成した形をとる。一番から十番までの組に組長を置き、一番組は沖田、二番組は永倉、三番組は斎藤。伊東は組長より上の参謀となった。",
+        en: "The corps takes its mature shape: ten numbered units, each under a captain. Okita has the 1st, Nagakura the 2nd, Saitō the 3rd. Itō is staff officer, above the captains.",
+        src: {ja: "隊の編成記録", en: "The corps’ rolls"} },
+
+      { scene: "honganji", kind: "record", year: "1865",
+        ja: "掟は幹部にも容赦なく適用された。新しい組長のうち、松原忠司はその秋に、谷三十郎は翌年の春に世を去る。どちらの死も、記録はその事情を語らない。",
+        en: "The code spares no one, officers included. Of the new captains, Matsubara Chūji is dead by the autumn and Tani Sanjūrō the following spring, in circumstances the records do not explain.",
+        src: {ja: "隊の記録", en: "The corps’ records"} },
+
+      { scene: "honganji", kind: "context", year: "1865",
+        ja: "伊東は、隊の中枢に座っている。二年後、彼は山南が見つけられなかった出口を、別のやり方で選ぶことになる。",
+        en: "Itō now sits at the heart of the corps. Two years later he will take, in his own way, the exit Yamanami never found." }
+
     ] }
+
 
 
 
